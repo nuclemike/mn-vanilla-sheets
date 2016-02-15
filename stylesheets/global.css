@@ -1,0 +1,19 @@
+.fxDisplay{
+	display:flex;	
+}
+
+.fxAlignCenter{
+	align-items:center;
+}
+
+.fxJustifyCenter{
+	justify-content:center;
+}
+
+.fxFixed{
+	flex:0 0 auto;
+}
+
+.fxStretch{
+	flex:1 1 auto;
+}
