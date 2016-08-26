@@ -15,7 +15,7 @@ body {
 	position: absolute;
 	transition: top 0.4s, opacity 0.5s;
 	opacity:0;
-	max-width:25%;
+	width:25%;
 }
 
 .loading #splashLogo{
