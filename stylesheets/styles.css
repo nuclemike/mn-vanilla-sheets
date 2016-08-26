@@ -50,6 +50,7 @@ html{
 }
 
 body {
+	margin:0;	
 	background: url("floralBG.png");
 	height:100%;
 	position:relative;
