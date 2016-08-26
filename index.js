@@ -5,7 +5,8 @@ $(document).ready(function() {
 // Wait for window load
 $(window).load(function() {
 	setTimeout(function(){ 
-		$("#loader").fadeOut("slow"); 
+		$("#loader").remove();
+		$("splashLogo").toggleClass('loading loaded');
 		
 	}, 3000);
 	
