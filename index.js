@@ -1,12 +1,12 @@
 $(document).ready(function() {
-	$("#loader, #splashLogo").addClass("loading");
+	$("html").addClass("loading");
 });
 
 // Wait for window load
 $(window).load(function() {
 	setTimeout(function(){ 
 		$("#loader").remove();
-		$("#splashLogo").attr('class', 'loaded');
+		$("html").attr('class', 'loaded');
 		
 	}, 3000);
 	
