@@ -4,6 +4,10 @@ $(document).ready(function() {
 
 // Wait for window load
 $(window).load(function() {
-	// Animate loader off screen
-	$("#loader").fadeOut("slow");
+	setTimeout(function(){ 
+		$("#loader").fadeOut("slow"); 
+		
+	}, 3000);
+	
+	
 });
