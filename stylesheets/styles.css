@@ -7,6 +7,26 @@ body {
 	height:100%;
 }
 
+#splashLogo{
+	display: block;
+	top: 50%;
+	left:50%;
+	transform: translateY(-50%), translateX(-50%);
+	position: relative;
+	transition: top 0.4s;
+}
+
+#splashLogo.loading{
+	top:40%;
+}
+
+#splashLogo.loaded{
+	top:0%;
+	left:0%;
+	transform: translateY(0), translateX(0), scale(0.5);
+	
+}
+
 #loader{
 	
 }
