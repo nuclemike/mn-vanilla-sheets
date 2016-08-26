@@ -16,6 +16,8 @@ body {
 	transition: top 0.4s, opacity 0.5s;
 	opacity:0;
 	width:35%;
+	max-width: 500px;
+	min-width: 400px;
 }
 
 .loading #splashLogo{
@@ -26,11 +28,10 @@ body {
 .loaded #splashLogo{
 	transition: top 0.4s, left 0.5s, transform 0.6s, opacity 1s;
 	opacity:1;
-	top:0%;
-	left:0%;
+	top: 5px;
+	left: 5px;
 	transform-origin: 0 0;
 	transform: translateY(0) translateX(0) scale(0.5);
-	
 }
 
 #loader{
@@ -47,10 +48,12 @@ body {
 
 #sideBar{
 	background-color:rgba(0,0,0,0.3);
-	width:27%;
+	width: 19%;
 	transform: translateX(-100%);
 	transition: transform 0.3s;
 	transition-delay: 1s;
+	max-width: 270px;
+	min-width: 210px;
 }
 
 .loaded #sideBar{
