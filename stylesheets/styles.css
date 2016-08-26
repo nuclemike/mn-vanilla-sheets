@@ -121,6 +121,7 @@ body {
 	width: 18.5%;
 	transform: translateX(-100%);
 	transition: transform 0.3s;
+	transition-delay:0.5s;
 	max-width: 262px;
 	min-width: 209px;
 }
