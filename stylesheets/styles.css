@@ -67,7 +67,8 @@ body {
 
 #splashLogo{
 	width:100%;
-	transition: transform 0.2s;
+	transition: transform 0.2s, opacity:1s;
+	opacity:0.3;
 }
 
 .loading #splashLogo{
@@ -91,6 +92,10 @@ body {
 	-moz-animation: fadeIn 0.7s;
 	animation: fadeIn 0.7s;
 
+}
+
+.loaded #splashLogo:hover{
+	opacity: 1;
 }
 
 .loaded #splashLogo:hover{
