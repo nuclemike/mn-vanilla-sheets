@@ -1,3 +1,29 @@
+@-moz-keyframes pulse {
+ 0% {
+    opacity: 0.3;
+ }
+
+ 50% {
+    opacity: 0.6;
+ }
+
+ 100% {
+    opacity: 0.3;
+ }
+}
+
+@-webkit-keyframes "pulse" {
+ 0% {
+    opacity: 0.3;
+ }
+ 50% {
+    opacity: 0.6;
+ }
+ 100% {
+    opacity: 0.3;
+ }
+}
+
 html{
 	height:100%;
 }
@@ -23,6 +49,12 @@ body {
 .loading #splashLogo{
 	top:40%;
 	opacity:0.5;
+	-webkit-animation: pulse 3s ease-out;
+	-moz-animation: pulse 3s ease-out;
+	animation: pulse 3s ease-out;
+	-webkit-animation-iteration-count: infinite;
+	-moz-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
 }
 
 .loaded #splashLogo{
@@ -63,4 +95,4 @@ body {
 .loaded #sideBar{
 	transform: translateX(0%);
 }
-}
+
