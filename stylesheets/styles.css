@@ -50,7 +50,7 @@ html{
 }
 
 body {
-	font-family: 'Poiret One', cursive;
+	font-family: 'Beleren', Fallback, sans-serif;
 	margin:0;	
 	background: url("floralBG.png");
 	height:100%;
