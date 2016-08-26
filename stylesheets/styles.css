@@ -50,7 +50,7 @@ html{
 }
 
 body {
-	font-family: 'Beleren', Fallback, sans-serif;
+	font-family: 'Sakkal', Fallback, sans-serif;
 	margin:0;	
 	background: url("floralBG.png");
 	height:100%;
@@ -138,7 +138,6 @@ body {
 	list-style:none outside none;
 	margin:0px;
 	padding: 0;
-	text-align: center;
 }
 
 
