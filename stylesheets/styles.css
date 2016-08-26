@@ -88,9 +88,9 @@ body {
 	transform-origin: 0 0;
 	transform: translateY(0) translateX(0) scale(0.5);
 	
-	-webkit-animation: fadeIn 0.7s;
-	-moz-animation: fadeIn 0.7s;
-	animation: fadeIn 0.7s;
+	-webkit-animation: fadeIn 0.7s ease-in;
+	-moz-animation: fadeIn 0.7s ease-in;
+	animation: fadeIn 0.7s ease-in;
 
 }
 
