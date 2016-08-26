@@ -35,11 +35,10 @@ body {
 }
 
 #splashLogo{
-	top: 50%;
-	left:50%;
+	left:40%;
 	transform: translateY(-50%) translateX(-50%);
 	position: absolute;
-	transition: top 0.4s, opacity 0.5s;
+	transition: top 0.4s;
 	opacity:0;
 	width:35%;
 	max-width: 500px;
@@ -47,8 +46,6 @@ body {
 }
 
 .loading #splashLogo{
-	top:40%;
-	opacity:0.5;
 	-webkit-animation: pulse 0.7s ease-out;
 	-moz-animation: pulse 0.7s ease-out;
 	animation: pulse 0.7s ease-out;
