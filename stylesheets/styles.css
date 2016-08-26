@@ -72,14 +72,14 @@ body {
 
 #loader{
 	top: 100%;
-	left:50%;
+	left: 60%;
 	transform: translateY(-50%);
 	position: absolute;
-	transition: top 0.4s;	
+	transition: top 0.4s;
 }
 
 .loading #loader{
-	top:60%;	
+	top: 89%;
 }
 
 #sideBar{
