@@ -118,12 +118,12 @@ body {
 
 #sideBar{
 	background-color:rgba(0,0,0,0.3);
-	width: 19%;
+	width: 18.5%;
 	transform: translateX(-100%);
 	transition: transform 0.3s;
 	transition-delay: 1s;
-	max-width: 270px;
-	min-width: 210px;
+	max-width: 262px;
+	min-width: 209px;
 }
 
 .loaded #sideBar{
