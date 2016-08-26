@@ -6,7 +6,7 @@ $(document).ready(function() {
 $(window).load(function() {
 	setTimeout(function(){ 
 		$("#loader").remove();
-		$("splashLogo").toggleClass('loading loaded');
+		$("splashLogo").attr('class', 'loaded');
 		
 	}, 3000);
 	
