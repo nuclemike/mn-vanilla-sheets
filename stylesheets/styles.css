@@ -5,14 +5,14 @@ html{
 body {
 	background: url("floralBG.png");
 	height:100%;
+	position:relative;
 }
 
 #splashLogo{
-	display: block;
 	top: 50%;
 	left:50%;
-	transform: translateY(-50%), translateX(-50%);
-	position: relative;
+	transform: translateY(-50%) translateX(-50%);
+	position: absolute;
 	transition: top 0.4s;
 }
 
@@ -23,15 +23,18 @@ body {
 #splashLogo.loaded{
 	top:0%;
 	left:0%;
-	transform: translateY(0), translateX(0), scale(0.5);
+	transform: translateY(0) translateX(0) scale(0.5);
 	
 }
 
 #loader{
-	display: block;
 	top: 50%;
 	left:50%;
-	transform: translateY(-50%), translateX(-50%);
-	position: relative;
+	transform: translateY(-50%) translateX(-50%);
+	position: absolute;
 	transition: top 0.4s;	
+}
+
+#loader.loading{
+	top:60%;	
 }
