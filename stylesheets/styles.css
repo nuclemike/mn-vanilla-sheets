@@ -50,6 +50,7 @@ html{
 }
 
 body {
+	font-family: 'Poiret One', cursive;
 	margin:0;	
 	background: url("floralBG.png");
 	height:100%;
@@ -120,6 +121,7 @@ body {
 	transform: translateX(-100%);
 	transition: transform 0.3s;
 	margin-top: 209px;
+	color: white;
 }
 
 #sideBar:before{
@@ -130,6 +132,21 @@ body {
 	top:-211px;
 	position:absolute;
 }
+
+#sideBar ul{
+	list-style:none outside none;
+
+	margin:0px;
+}
+
+
+#sideBar li{
+	margin:21px
+}
+
+#sideBar li li{
+
+margin:0;}
 
 .loaded #sideBar{
 	transform: translateX(0%);
