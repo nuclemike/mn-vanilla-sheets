@@ -122,8 +122,9 @@ body {
 	transition: transform 0.3s;
 	margin-top: 209px;
 	color: white;
-	font-size: 27px;
-	letter-spacing: 0.25em;
+	font-size: 25px;
+	letter-spacing: 0.15em;
+	text-shadow: 0 0 10px black;
 }
 
 #sideBar:before{
@@ -143,11 +144,13 @@ body {
 
 
 #sideBar li{
-	margin: 54px 0px 54px 57px;
-	color: #b5a282;
+	margin: 45px 0px 45px 57px;
+	color: #6f6450;
 }
 
-#sideBar li li{margin: 15px 0px 0px 14px;color: #656565;font-size: 20px;}
+#sideBar li:first-child{
+	color: #ffd082;
+}
 
 .loaded #sideBar{
 	transform: translateX(0%);
