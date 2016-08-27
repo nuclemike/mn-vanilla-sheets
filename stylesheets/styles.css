@@ -57,11 +57,11 @@ body {
 	position:relative;
 	transition:box-shadow 0.3s;
 	transition-delay:0.5s;
-	box-shadow: 0 0 0 0 rgba(0,0,0,0.3);
+	box-shadow: 0 0 0 0 rgba(0,0,0,0.3) inset;
 }
 .loaded body{
 
-	box-shadow: 300px 0 0 0 rgba(0,0,0,0.3);
+	box-shadow: 300px 0 0 0 rgba(0,0,0,0.3) inset
 	
 }
 
@@ -126,12 +126,12 @@ body {
 #sideBar{
 	width: 300px;
 	transform: translateY(-30%);
-	transition: transform 0.3s, opacity 0.4s;
+	transition: transform 0.3s, opacity 0.8s;
 	opacity:0;
 	padding-top: 200px;
 	color: white;
 	font-size: 18px;
-	transition-delay:0.5s;
+	transition-delay:0.7s;
 	text-shadow: 0 0 10px black;
 	text-align: right;
 }
