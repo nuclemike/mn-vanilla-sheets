@@ -125,7 +125,7 @@ body {
 
 #sideBar{
 	width: 300px;
-	transform: translateY(-30%);
+	transform: translateY(-10%);
 	transition: transform 0.3s, opacity 0.8s;
 	opacity:0;
 	padding-top: 200px;
