@@ -123,8 +123,9 @@ body {
 	padding-top: 200px;
 	color: white;
 	font-size: 18px;
-	letter-spacing: 0.15em;
+	/* letter-spacing: 0.15em; */
 	text-shadow: 0 0 10px black;
+	text-align: right;
 }
 
 #sideBar:before{
@@ -144,7 +145,7 @@ body {
 
 
 #sideBar li{
-	margin: 45px 0px 45px 57px;
+	margin: 31px 77px 32px 0;
 	color: #655a44;
 }
 
