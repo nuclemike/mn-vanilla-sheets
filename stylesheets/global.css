@@ -1,24 +1,157 @@
-@font-face {
-  font-family: 'Sakkal Majalla';
-  src: url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+@-moz-keyframes pulse {
+ 0% {
+    opacity: 0.3;
+ }
+
+ 30% {
+    opacity: 0.6;
+ }
+
+ 100% {
+    opacity: 0.3;
+ }
 }
 
-.fxDisplay{
-	display:flex;	
+@-webkit-keyframes "pulse" {
+ 0% {
+    opacity: 0.3;
+ }
+ 30% {
+    opacity: 0.6;
+ }
+ 100% {
+    opacity: 0.3;
+ }
 }
 
-.fxAlignCenter{
-	align-items:center;
+@-moz-keyframes fadeIn {
+ 0% {
+    opacity: 0;
+ }
+
+ 100% {
+    opacity: 1;
+ }
 }
 
-.fxJustifyCenter{
-	justify-content:center;
+@-webkit-keyframes "fadeIn" {
+ 0% {
+    opacity: 0;
+ }
+ 
+ 100% {
+    opacity: 1;
+ }
 }
 
-.fxFixed{
-	flex:0 0 auto;
+html{
+	margin:0;
+	height:100%;
 }
 
-.fxStretch{
-	flex:1 1 auto;
+body {
+	font-family: 'Quantico', sans-serif;
+	margin:0;	
+	background: url("floralBG.png");
+	height:100%;
+	position:relative;
+}
+
+#splashDiv{
+	left:50%;
+	top:50%;
+	transform: translateY(-50%) translateX(-50%);
+	position: absolute;
+	transition: top 0.4s;
+	width: 500px;
+}
+
+#splashLogo{
+	width:100%;
+	transition: transform 0.2s, opacity 2s;
+	opacity:0;
+}
+
+.loading #splashLogo{
+	-webkit-animation: pulse 0.7s ease-out;
+	-moz-animation: pulse 0.7s ease-out;
+	animation: pulse 0.7s ease-out;
+	-webkit-animation-iteration-count: infinite;
+	-moz-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+
+}
+
+.loaded #splashDiv{
+	transition: top 0.4s, left 0.5s, transform 0.6s;
+	top: 22px;
+	left: 23px;
+	transform-origin: 0 0;
+	transform: translateY(0) translateX(0) scale(0.5);
+	
+	-webkit-animation: fadeIn 0.7s ease-in;
+	-moz-animation: fadeIn 0.7s ease-in;
+	animation: fadeIn 0.7s ease-in;
+
+}
+
+.loaded #splashLogo{
+	opacity: 1;
+}
+
+.loaded #splashLogo:hover{
+	transform: scale(1.05);
+}
+
+#loader{
+	top: 80%;
+	left: 60%;
+	transform: translateY(-50%);
+	position: absolute;
+	transition: top 0.4s;
+}
+
+.loading #loader{
+	top: 89%;
+}
+
+#sideBar{
+	background-color:rgba(0,0,0,0.3);
+	width: 300px;
+	transform: translateX(-100%);
+	transition: transform 0.3s;
+	padding-top: 200px;
+	color: white;
+	font-size: 18px;
+	letter-spacing: 0.15em;
+	text-shadow: 0 0 10px black;
+}
+
+#sideBar:before{
+	background-color:rgba(0,0,0,0.3);
+	content:' ';
+	width:100%;
+	height:200px;
+	top:-211px;
+	position:absolute;
+}
+
+#sideBar ul{
+	list-style:none outside none;
+	margin:0px;
+	padding: 0;
+}
+
+
+#sideBar li{
+	margin: 45px 0px 45px 57px;
+	color: #655a44;
+}
+
+#sideBar li:first-child{
+	color: #cecece;
+}
+
+.loaded #sideBar{
+	transform: translateX(0%);
 }
