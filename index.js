@@ -8,7 +8,7 @@ $(window).load(function() {
 		$("#loader").remove();
 		$("html").attr('class', 'loaded');
 		
-	}, 3000);
+	}, 0000);
 	
 	
 });
