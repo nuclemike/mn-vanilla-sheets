@@ -16,8 +16,19 @@
     <meta name="viewport" content="width=device-width">
    
   </head>
-  <body class="fxDisplay">
-    <div id="sideBar" class="fxFixed">
+  <body class="fxDisplay fxDirCol">
+  
+	<div id="header" class="fxFixed">
+	
+		<img id="mainMobileLogo" src="stylesheets/mainLogo.png" />
+		<img id="menu" src="stylesheets/menu.png" onclick="toggleMenu();" />
+	</div>
+	
+	<div class="fxStretch fxDisplay">
+	<div id="sideBar" class="fxFixed">
+	
+	<img id="mainLogo" src="stylesheets/mainLogo.png" />
+	
       <ul>
         <li>eJUICE</li>
         <li>STARTER KITS</li>
@@ -26,10 +37,44 @@
         <li>BATTERIES</li>
         <li>COIL FACTORY</li>
         <li>CHARGERS</li>
-      </ul></div>
-  <div id="splashDiv">
-    <img id="splashLogo" src="stylesheets/mainLogo.png" />
+      </ul>
+	</div>
+	<div class="content fxStretch">
+		<div class="nectar" style="background-image:url('./liquids/1.png');">		
+			<span class="nectarName">Dragon's Kiss</span>
+			<span class="nectarInfo">Vanilla enriched, caramellized dragon-fruit!</span>
+		</div>
+		
+		<div class="nectar" style="background-image:url('./liquids/2.png');">		
+			<span class="nectarName">Nautical Spice</span>
+			<span class="nectarInfo">A Creamy Watermelon, Kiwi, Strawberry and Lime fusion!</span>
+		</div>		
+		
+		<div class="nectar" style="background-image:url('./liquids/3.png');">		
+			<span class="nectarName">Wild Frost</span>
+			<span class="nectarInfo">A wide range of Cool Sensation infused Wild berries!</span>
+		</div>		
+		
+		<div class="nectar" style="background-image:url('./liquids/4.png');">		
+			<span class="nectarName">Monkey Munch</span>
+			<span class="nectarInfo">Ape's Favorite... Banana Cinnamon Cookie!</span>
+		</div>		
+
+		<div class="nectar" style="background-image:url('./liquids/5.png');">		
+			<span class="nectarName">Crimson Fuzz</span>
+			<span class="nectarInfo">A Creamy, Strawberry enriched Kiwi Smoothie!</span>
+		</div>		
+		
+		<div class="nectar" style="background-image:url('./liquids/6.png');">		
+			<span class="nectarName">Black Energy</span>
+			<span class="nectarInfo">Blackcurrant liquid-candy with a slight lemon hint!</span>
+		</div>				
+	</div>
+</div>
+  <div id="splashDiv" class="fxDisplay fxJustifyCenter fxAlignCenter">
+    <div id="splashLogo">
      <img id="loader" src="stylesheets/loader.gif" />
+	 </div>
   </div>
  
   </body>
