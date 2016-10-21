@@ -1,48 +1,6 @@
-@-moz-keyframes pulse {
- 0% {
-    opacity: 0.3;
- }
+/*GLOBAL*/
 
- 30% {
-    opacity: 0.6;
- }
-
- 100% {
-    opacity: 0.3;
- }
-}
-
-@-webkit-keyframes "pulse" {
- 0% {
-    opacity: 0.3;
- }
- 30% {
-    opacity: 0.6;
- }
- 100% {
-    opacity: 0.3;
- }
-}
-
-@-moz-keyframes fadeIn {
- 0% {
-    opacity: 0;
- }
-
- 100% {
-    opacity: 1;
- }
-}
-
-@-webkit-keyframes "fadeIn" {
- 0% {
-    opacity: 0;
- }
- 
- 100% {
-    opacity: 1;
- }
-}
+*{box-sizing:border-box}
 
 html{
 	margin:0;
@@ -59,81 +17,62 @@ body {
 	transition-delay:0.5s;
 	box-shadow: 0 0 0 0 rgba(0,0,0,0.3) inset;
 }
-.loaded body{
 
-	box-shadow: 300px 0 0 0 rgba(0,0,0,0.3) inset
-	
+.content {
+	overflow-y:auto;
 }
 
+/*SPLASH*/
+
 #splashDiv{
-	left:50%;
-	top:50%;
-	transform: translateY(-50%) translateX(-50%);
+	left: 0;
+	top: 0;
 	position: absolute;
-	transition: top 0.4s;
-	width: 500px;
+	width: 100%;
+	height: 100%;
+	background: url(floralBG.png);
 }
 
 #splashLogo{
-	width:100%;
-	transition: transform 0.2s, opacity 2s;
-	opacity:0;
-}
-
-.loading #splashLogo{
+	width: 400px;
 	-webkit-animation: pulse 0.7s ease-out;
 	-moz-animation: pulse 0.7s ease-out;
 	animation: pulse 0.7s ease-out;
 	-webkit-animation-iteration-count: infinite;
 	-moz-animation-iteration-count: infinite;
 	animation-iteration-count: infinite;
-
-}
-
-.loaded #splashDiv{
-	transition: top 0.4s, left 0.5s, transform 0.6s;
-	top: 22px;
-	left: 23px;
-	transform-origin: 0 0;
-	transform: translateY(0) translateX(0) scale(0.5);
-	
-	-webkit-animation: fadeIn 0.7s ease-in;
-	-moz-animation: fadeIn 0.7s ease-in;
-	animation: fadeIn 0.7s ease-in;
-
-}
-
-.loaded #splashLogo{
-	opacity: 1;
-}
-
-.loaded #splashLogo:hover{
-	transform: scale(1.05);
+	height: 250px;
+	background-image: url(mainLogo.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
 }
 
 #loader{
 	top: 80%;
-	left: 60%;
-	transform: translateY(-50%);
+	left: 58%;
 	position: absolute;
-	transition: top 0.4s;
 }
 
-.loading #loader{
-	top: 89%;
+/*SIDEBAR*/
+
+#header{
+	display:none;
+	/* height: 30px; */
 }
 
 #sideBar{
 	width: 300px;
-	transform: translateY(-10%);
-	transition: transform 0.3s, opacity 0.8s;
-	opacity:0;
-	padding-top: 200px;
 	color: white;
 	font-size: 18px;
-	transition-delay:0.7s;
 	text-shadow: 0 0 10px black;
 	text-align: right;
+}
+
+#mainLogo{
+	width: 230px;
+	margin: 37px 37px 0 37px;
 }
 
 #sideBar ul{
@@ -152,7 +91,95 @@ body {
 	color: #cecece;
 }
 
-.loaded #sideBar{
-	transform: translateY(0%);
-	opacity:1;
+
+
+
+/*NECTARS*/
+
+
+.nectar{
+	background-repeat:no-repeat;
+	height: 160px;
+	padding-left: 200px;
+	background-size: auto 100%;
+	float: left;
+	margin: 0.5%;
+	background-color: rgba(255,255,255,0.08);
+	text-align: right;
+	padding-right: 25px;
+	width: 32.3%;
 }
+
+.nectarName{
+	color: #dca74e;
+	float: right;
+	font-family: beleren;
+	font-size: 30px;
+	padding: 1em 0 0.5em;
+	text-shadow: 0 0 20px black;
+}
+
+.nectarInfo{
+	float: right;
+	color: white;
+	clear: both;
+	line-height: 1em;
+	margin-bottom: 2em;
+	text-shadow: 0 0 20px black;
+}
+
+
+@media only screen and (max-width: 1700px) {
+
+.nectar{width: 48.9%;}
+}
+
+@media only screen and (max-width: 1200px) {
+
+.nectar{width: 99%;
+padding-left:100px;
+}
+}
+
+
+@media only screen and (max-width: 800px) {
+	
+	html{    overflow: hidden;}
+	#header{
+		display:block;
+		width:100%;
+		height:120px;
+	}
+
+	#mainMobileLogo{
+		width:165px;;
+		margin:10px;
+		float:left;
+	}
+
+	#menu{
+		width: 39px;
+		float:right;
+		margin: 42px;
+	}
+
+#mainLogo{
+	display:none;
+}
+
+	#sideBar{
+		right:0;
+		top:120px;
+		position:absolute;
+		background-color: #121212;
+		height:100%;
+		width:250px;
+		margin-right:-250px;	
+		transition:margin-right 0.3s;	
+	}
+
+	#sideBar.open{		
+		margin-right:0px;		
+	}
+}
+
