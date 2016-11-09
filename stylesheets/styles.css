@@ -110,7 +110,7 @@ body {
 	background-color: rgba(255,255,255,0.08);
 	text-align: right;
 	padding-right: 25px;
-	width: 32.3%;
+	width: 31.9%;
 }
 
 .nectarName{
@@ -134,7 +134,7 @@ body {
 
 @media only screen and (max-width: 1700px) {
 
-.nectar{width: 48.9%;}
+.nectar{width: 48%;}
 }
 
 @media only screen and (max-width: 1200px) {
