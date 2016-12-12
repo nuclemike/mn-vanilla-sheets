@@ -159,7 +159,8 @@ body {
     margin-bottom: 3em;
     max-width:250px;
     padding:10px 0;
-    border-radius:20px
+    border-radius:20px;
+    position: relative;
 }
 
 .nectar:hover, .nectar.active {
@@ -168,8 +169,15 @@ body {
    
 }
 
-.nectar img{
+.nectarFlask{
 	width:75%;
+}
+
+.topseller{
+	width: 30%;
+	left: 56%;
+	position: absolute;
+	top: 8%;
 }
 
 .nectarName{
@@ -267,7 +275,7 @@ body {
     
 }
 
-.nectar img{
+.nectarFlask{
 	width:85%;
 }
 
