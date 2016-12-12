@@ -7,7 +7,7 @@ $(window).load(function() {
 		$("#splashDiv").fadeOut();
 		
 		
-	}, 3000);
+	}, 000);
 	
 	
 });
@@ -19,5 +19,5 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 
 function toggleMenu() {
-    $("#sideBar").toggleClass("open");
+    $("#headerMenu").toggleClass("open");
 }
