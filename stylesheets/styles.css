@@ -10,13 +10,14 @@ html{
 body {
 	font-family: 'Quantico', sans-serif;
 	margin:0;
-	background: url("floralBG.png");
+	
 	height:100%;
 	overflow: hidden;
 	position:relative;
 	transition:box-shadow 0.3s;
 	transition-delay:0.5s;
 	box-shadow: 0 0 0 0 rgba(0,0,0,0.3) inset;
+		background: url(floralBGWhite.png);
 }
 
 .content {
@@ -57,14 +58,62 @@ body {
 	position: absolute;
 }
 
-/*SIDEBAR*/
+/*HEADER*/
 
 #header{
+	    background: url(floralBG.png);
+}
+
+#headerContainer{
+	width:1000px;
+	margin:0 auto;
+}
+
+
+#headerMenu {
+    float: right;
+    margin-top: 66px;
+    color: rgba(255,255,255,0.5);
+}
+
+#headerMenu a{
+    
+    margin: 0 10px;
+    
+    
+}
+
+#menuBurger{
 	display:none;
-	/* height: 30px; */
+}
+
+/*SUB HEADER*/
+#goldRibbon{
+	background: rgba(255,172,48,1);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(255,172,48,1) 0%, rgba(220,167,78,1) 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,172,48,1)), color-stop(100%, rgba(220,167,78,1)));
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(255,172,48,1) 0%, rgba(220,167,78,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(255,172,48,1) 0%, rgba(220,167,78,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(255,172,48,1) 0%, rgba(220,167,78,1) 100%);
+	background: radial-gradient(ellipse at center, rgba(255,172,48,1) 0%, rgba(220,167,78,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffac30', endColorstr='#dca74e', GradientType=1 );
+	font-family: "Beleren";
+	text-align: center;
+	padding: 30px 0;
+	margin-bottom: 50px;
+	font-size: 40px;
+	color: #ffd798;
+}
+
+/*CONTENT*/
+
+#contentContainer{
+	width:1000px;
+	margin: 0 auto;
 }
 
 #sideBar{
+	display:none;
 	width: 300px;
 	color: white;
 	font-size: 18px;
@@ -75,6 +124,7 @@ body {
 
 #mainLogo{
 	width: 230px;
+	float:left;
 	margin: 37px 37px 0 37px;
 }
 
@@ -100,37 +150,36 @@ body {
 /*NECTARS*/
 
 
-.nectar{
-	background-repeat:no-repeat;
-	height: 160px;
-	padding-left: 200px;
-	background-size: auto 100%;
-	float: left;
-	margin: 0.5%;
-	background-color: rgba(255,255,255,0.08);
-	text-align: right;
-	padding-right: 25px;
-	width: 31.9%;
+.nectar {
+    float: left;
+    background-color: rgba(255,255,255,0.08);
+    width: 25%;
+    TEXT-ALIGN: center;
+    margin-bottom: 5%;
+}
+
+.nectar img{
+	width:75%;
 }
 
 .nectarName{
-	color: #dca74e;
-	float: right;
+	color: #444;
 	font-family: "Beleren";
 	font-size: 30px;
-	padding: 1em 0 0.5em;
-	text-shadow: 0 0 20px black;
+	margin-bottom: 0.3em;
+	display: block;
+	text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0,0,0,0.5);
 }
 
 .nectarInfo{
-	float: right;
-	color: white;
-	clear: both;
+	color: rgba(0,0,0,0.5);
 	line-height: 1em;
-	margin-bottom: 2em;
-	text-shadow: 0 0 20px black;
+	margin-bottom: 20px;
+	display: block;
+	height:40px;
+	padding: 0 20px;
 }
-
+ /*
 
 @media only screen and (max-width: 1700px) {
 
@@ -186,3 +235,4 @@ padding-left:100px;
 	}
 }
 
+*/
