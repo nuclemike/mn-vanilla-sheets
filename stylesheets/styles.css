@@ -74,10 +74,11 @@ body {
     float: right;
     margin-top: 66px;
     color: rgba(255,255,255,0.5);
+   
 }
 
 #headerMenu a{
-    
+     font-size: 15px;
     margin: 0 10px;
     
     
@@ -203,9 +204,15 @@ body {
 
 
 
+@media only screen and (max-width: 850px) {
+	        #headerMenu a{
+				margin: 0 7px;
+				font-size:13px;
+			}
+}
+	
 
-
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 750px) {
 	
 	html{overflow: hidden;}
 	#header{
@@ -222,7 +229,7 @@ body {
 }
 
 	#mainLogo{
-		 
+		 width:150px;
 	}
 
 	#menu{
