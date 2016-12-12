@@ -36,7 +36,7 @@ body {
 }
 
 #splashLogo{
-	width: 400px;
+	width: 250px;
 	max-width:80%;
 	-webkit-animation: pulse 0.7s ease-out;
 	-moz-animation: pulse 0.7s ease-out;
@@ -44,7 +44,7 @@ body {
 	-webkit-animation-iteration-count: infinite;
 	-moz-animation-iteration-count: infinite;
 	animation-iteration-count: infinite;
-	height: 250px;
+	height: 106px;
 	background-image: url(mainLogo.png);
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -53,8 +53,8 @@ body {
 }
 
 #loader{
-	top: 80%;
-	left: 58%;
+	top: 90%;
+	left: 50%;
 	position: absolute;
 }
 
