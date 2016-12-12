@@ -31,9 +31,9 @@ body {
 	top: 0;
 	position: absolute;
 	width: 100%;
+	z-index: 99999999;
 	height: 100%;
 	background: url(floralBG.png);
-	z-index: 99999999;
 }
 
 #splashLogo{
@@ -73,16 +73,31 @@ body {
 
 #headerMenu {
     float: right;
-    margin-top: 66px;
+    margin-top: 26px;
     color: rgba(255,255,255,0.5);
-   
 }
 
 #headerMenu a{
      font-size: 15px;
+     float: left;
+     margin: 0 10px;
+     cursor:pointer;
+}
+
+#headerMenu a:hover{
+     color:#caae77
+}
+
+
+#headerMenu a:hover .menuImg{
+	opacity: 0.7;
+}
+
+.menuImg{  
     margin: 0 10px;
-    
-    
+  display: block;
+  margin: 0 auto 6px;
+  opacity: 0.3;
 }
 
 #menuBurger{
@@ -103,7 +118,7 @@ body {
 	font-family: "Beleren";
 	text-align: center;
 	padding: 30px 0;
-	margin-bottom: 50px;
+	margin-bottom: 5%;
 	font-size: 40px;
 	color: #ffd798;
 }
@@ -129,6 +144,7 @@ body {
 #mainLogo{
 	width: 230px;
 	float:left;
+	padding: 5px;
 }
 
 #sideBar ul{
@@ -157,7 +173,7 @@ body {
     float: left;
     width: 250px;
     TEXT-ALIGN: center;
-    margin-bottom: 3em;
+    margin-bottom: 5%;
     max-width:250px;
     padding:10px 0;
     border-radius:20px;
@@ -239,6 +255,7 @@ body {
 
 	#mainLogo{
 		 width:150px;
+
 	}
 
 	#menu{
@@ -285,6 +302,9 @@ body {
 
 @media only screen and (max-width: 500px) {
 
+#goldRibbon{
+	font-size:10vw;
+}
 .nectarName{
 	
 	font-size: 6vw;
