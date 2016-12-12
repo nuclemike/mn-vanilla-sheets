@@ -85,6 +85,7 @@ body {
 
 #menuBurger{
 	display:none;
+	float: right;
 }
 
 /*SUB HEADER*/
@@ -108,7 +109,8 @@ body {
 /*CONTENT*/
 
 #contentContainer{
-	width:1000px;
+	width: 100%;
+	max-width:1000px;
 	margin: 0 auto;
 }
 
@@ -125,7 +127,6 @@ body {
 #mainLogo{
 	width: 230px;
 	float:left;
-	margin: 37px 37px 0 37px;
 }
 
 #sideBar ul{
@@ -152,10 +153,18 @@ body {
 
 .nectar {
     float: left;
-    background-color: rgba(255,255,255,0.08);
-    width: 25%;
+    width: 250px;
     TEXT-ALIGN: center;
-    margin-bottom: 5%;
+    margin-bottom: 3em;
+    max-width:250px;
+    padding:10px 0;
+    border-radius:20px
+}
+
+.nectar:hover, .nectar.active {
+   
+    background-color: rgba(170,170,170,0.4);
+   
 }
 
 .nectar img{
@@ -173,25 +182,27 @@ body {
 
 .nectarInfo{
 	color: rgba(0,0,0,0.5);
-	line-height: 1em;
-	margin-bottom: 20px;
+	line-height: 0.91em;
+	/* margin-bottom: 20px; */
 	display: block;
-	height:40px;
+	/* height:40px; */
 	padding: 0 20px;
 }
- /*
 
-@media only screen and (max-width: 1700px) {
+@media only screen and (max-width: 1000px) {
 
-.nectar{width: 48%;}
+
+#headerContainer{
+	width:100%;
 }
 
-@media only screen and (max-width: 1200px) {
 
-.nectar{width: 99%;
-padding-left:100px;
+
 }
-}
+
+
+
+
 
 
 @media only screen and (max-width: 800px) {
@@ -200,13 +211,18 @@ padding-left:100px;
 	#header{
 		display:block;
 		width:100%;
-		height:120px;
+		/* height:120px; */
 	}
 
-	#mainMobileLogo{
-		width:165px;;
-		margin:10px;
-		float:left;
+
+    
+
+	#menuBurger{
+	display:none;
+}
+
+	#mainLogo{
+		 
 	}
 
 	#menu{
@@ -215,11 +231,9 @@ padding-left:100px;
 		margin: 42px;
 	}
 
-#mainLogo{
-	display:none;
-}
 
-	#sideBar{
+	#headerMenu{
+		
 		right:0;
 		top:120px;
 		position:absolute;
@@ -230,9 +244,43 @@ padding-left:100px;
 		transition: right 0.3s;
 	}
 
-	#sideBar.open{
+	#headerMenu.open{
 		right: 0px;
 	}
+	
+
 }
 
-*/
+@media only screen and (max-width: 600px) {
+
+
+
+.nectar {
+    width: 50%;
+    
+}
+
+.nectar img{
+	width:85%;
+}
+
+
+}
+
+@media only screen and (max-width: 500px) {
+
+.nectarName{
+	
+	font-size: 6vw;
+	
+}
+
+.nectarInfo{    
+padding: 0 2vw;
+    font-size: 4vw;}
+
+
+}
+
+
+

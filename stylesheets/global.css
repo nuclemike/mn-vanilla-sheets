@@ -35,3 +35,6 @@
 	flex:1 1 auto;
 }
 
+.fxWrap{
+	flex-wrap:wrap;
+}
