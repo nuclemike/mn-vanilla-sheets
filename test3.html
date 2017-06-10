@@ -3,8 +3,35 @@
 <head>
 <title>Facebook Login JavaScript Example</title>
 <meta charset="UTF-8">
+  
+  <script type="text/javascript">
+JSONTest = function() {
+    var resultDiv = $("#resultDivContainer");
+    $.ajax({
+        url: "https://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",
+        type: "POST",
+        data: { "entry.1565555327": "208.74.35.5" },
+        dataType: "json",
+        success: function (result) {
+            switch (result) {
+                case true:
+                    processResponse(result);
+                    break;
+                default:
+                    resultDiv.html(result);
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+        }
+    });
+};
+</script>
+  
 </head>
 <body>
+  
 <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -83,9 +110,19 @@
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
 
-<div id="status">
-</div>
+  <table>
+    <tr>
+      <td>Username</td>
+      
+      <td><div id="status"></div></td>
+      <tr>
+        <tr>
+          <td>Order</td>
+          <td><div id="resultDivContainer"></div></td>
+    </tr>
+  </table>
 
+<button type="button" onclick="JSONTest()">Test Order</button>
   
 
   
