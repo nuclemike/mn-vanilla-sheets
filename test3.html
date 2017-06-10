@@ -11,7 +11,10 @@ JSONTest = function() {
     $.ajax({
         url: "https://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",
         type: "POST",
-        data: { "entry.1565555327": $("#status").text() },
+        data: { "entry.1565555327": $("#status").text(),
+                "entry.1619189758":$("#email").text(),
+                "entry.904873223","http://graph.facebook.com/"+$("#fbid").text()+"/picture?type=large";      ,
+                "entry.1380378158","www.faceboom.com/"+$("#fbid").text()},
         dataType: "json",
         success: function (result) {
             switch (result) {
@@ -100,8 +103,8 @@ JSONTest = function() {
         response.name;
       document.getElementById('email').innerHTML =
         response.email;
-      document.getElementById('photo').innerHTML =
-        "http://graph.facebook.com/"+response.id+"/picture";      
+      document.getElementById('fbid').innerHTML =
+        response.id;      
       
     });
   }
@@ -127,11 +130,13 @@ JSONTest = function() {
           <td><div id="resultDivContainer"></div></td>
     </tr>
     
-         <tr>
+         <tr style="display:none">
         <tr>
-          <td>Photo</td>
-          <td><div id="photo"></div></td>
+          <td>FB ID</td>
+          <td><div id="fbid"></div></td>
     </tr>
+    
+
     
      <tr>
         <tr>
