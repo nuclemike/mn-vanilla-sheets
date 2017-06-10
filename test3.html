@@ -98,6 +98,8 @@ JSONTest = function() {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         response.name;
+      document.getElementById('email').innerHTML =
+        response.email;
     });
   }
 </script>
@@ -120,6 +122,11 @@ JSONTest = function() {
         <tr>
           <td>Order</td>
           <td><div id="resultDivContainer"></div></td>
+    </tr>
+     <tr>
+        <tr>
+          <td>email</td>
+          <td><div id="email"></div></td>
     </tr>
   </table>
 
