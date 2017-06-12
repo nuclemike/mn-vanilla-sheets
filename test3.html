@@ -65,6 +65,7 @@ JSONTest = function() {
   function fb_logout(){  
   FB.logout(function(response) {
   // user is now logged out
+    checkLoginState();
 });
   }
   
@@ -84,7 +85,8 @@ JSONTest = function() {
       // The person is not logged into your app or we are unable to tell.
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
-      document.getElementById('login').style.display = "block";
+      document.getElementById('fbLogin').style.display = "block";
+      document.getElementById('fbLogout').style.display = "none";
     }
   }
   // This function is called when someone finishes with the Login
@@ -144,8 +146,8 @@ JSONTest = function() {
         response.email;
       document.getElementById('fbid').innerHTML =
         response.id;      
-      document.getElementById('logout').style.display = "block";
-      document.getElementById('login').style.display = "none";
+      document.getElementById('fbLogout').style.display = "block";
+      document.getElementById('fbLogin').style.display = "none";
     });
   }
 </script>
@@ -180,11 +182,11 @@ JSONTest = function() {
     </tr>
   </table>
 
-<button type="button" onclick="JSONTest()">Test Order</button>
+<button id="sendOrder" type="button" onclick="JSONTest()">Test Order</button>
   
 
-<a href="#" id="login" style="display:none" onclick="fb_login();"><img src="https://plaaant.com/img/facebook-login.png" border="0" alt=""></a>
-  <a href="#" id="logout" style="display:none" onclick="fb_logout();">not you?</a>
+<a href="#" id="fbLogin" style="display:none" onclick="fb_login();"><img src="https://plaaant.com/img/facebook-login.png" border="0" alt=""></a>
+  <a href="#" id="fbLogout" style="display:none" onclick="fb_logout();">not you?</a>
   
 </body>
 </html>
