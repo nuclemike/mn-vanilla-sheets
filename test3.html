@@ -39,15 +39,7 @@ JSONTest = function() {
 </head>
 <body>
   
-  <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=648709548655451";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-  
+
 <script>
   function fb_login(){
     FB.login(function(response) {
@@ -69,6 +61,12 @@ JSONTest = function() {
         scope: 'public_profile,email'
     });
 }
+  
+  function fb_logout(){  
+  FB.logout(function(response) {
+  // user is now logged out
+});
+  }
   
   
   // This is called with the results from from FB.getLoginStatus().
@@ -96,6 +94,8 @@ JSONTest = function() {
       statusChangeCallback(response);
     });
   }
+  
+  
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '648709548655451',
@@ -119,6 +119,8 @@ JSONTest = function() {
     statusChangeCallback(response);
   });
   };
+  
+  
   // Load the SDK asynchronously
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -127,8 +129,10 @@ JSONTest = function() {
     js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
+  
+  
   // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
+  // successful.
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', {fields: 'name, email'},function(response) {
@@ -144,17 +148,9 @@ JSONTest = function() {
   }
 </script>
 
-<!--
-  Below we include the Login Button social plugin. This button uses
-  the JavaScript SDK to present a graphical Login button that triggers
-  the FB.login() function when clicked.
--->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
 
   
- <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
   
   <table>
     <tr>
@@ -185,8 +181,8 @@ JSONTest = function() {
 <button type="button" onclick="JSONTest()">Test Order</button>
   
 
-  <a href="#" onclick="fb_login();"><img src="https://plaaant.com/img/facebook-login.png" border="0" alt=""></a>
-  
+<a href="#" onclick="fb_login();"><img src="https://plaaant.com/img/facebook-login.png" border="0" alt=""></a>
+  <a href="#" onclick="fb_login();">not you?</a>
   
 </body>
 </html>
