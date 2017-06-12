@@ -65,7 +65,9 @@ JSONTest = function() {
   function fb_logout(){  
   FB.logout(function(response) {
   // user is now logged out
-    checkLoginState();
+    
+    
+    fb_login()
 });
   }
   
