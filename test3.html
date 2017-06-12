@@ -49,10 +49,7 @@ JSONTest = function() {
             access_token = response.authResponse.accessToken; //get access token
             user_id = response.authResponse.userID; //get FB UID
 
-             FB.api('/me', function(response) {
-                user_email = response.email; //get user email
-           // you can store this data into your database             
-             });
+            testAPI();
 
         } else {
             //user hit cancel button
@@ -60,7 +57,7 @@ JSONTest = function() {
 
         }
     }, {
-        scope: 'publish_stream,email'
+        scope: 'public_profile,email'
     });
 }
   
