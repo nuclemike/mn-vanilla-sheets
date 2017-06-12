@@ -6,7 +6,8 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   
   <script type="text/javascript">
-JSONTest = function() {
+    
+    JSONTest = function() {
     var resultDiv = $("#resultDivContainer");
     $.ajax({
         url: "https://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",
@@ -150,6 +151,19 @@ JSONTest = function() {
         response.id;      
       document.getElementById('fbLogout').style.display = "block";
       document.getElementById('fbLogin').style.display = "none";
+      
+    
+    FB.ui({
+        app_id:'xxxxxxxx',
+        method: 'send',
+        name: "sdfds jj jjjsdj j j ",
+        link: 'https://apps.facebook.com/xxxxxxxaxsa',
+        to:document.getElementById('fbid').text(),
+        description:'sasa d d dssd ds sd s s s '
+
+    });
+
+      
     });
   }
 </script>
