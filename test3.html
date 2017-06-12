@@ -84,7 +84,7 @@ JSONTest = function() {
       // The person is not logged into your app or we are unable to tell.
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
-      document.getElementById('login').show();
+      document.getElementById('login').style.display = "block";
     }
   }
   // This function is called when someone finishes with the Login
@@ -144,7 +144,7 @@ JSONTest = function() {
         response.email;
       document.getElementById('fbid').innerHTML =
         response.id;      
-      document.getElementById('logout').show();
+      document.getElementById('logout').style.display = "block";
     });
   }
 </script>
