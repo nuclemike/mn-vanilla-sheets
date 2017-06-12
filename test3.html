@@ -42,6 +42,21 @@
   
 
 <script>
+    function fb_message(){
+        FB.api(
+    "/727933750/messages",
+    "POST",
+    {
+        "message": "This is a test message"
+    },
+    function (response) {
+      if (response && !response.error) {
+        /* handle the result */
+      }
+    }
+);
+    }
+  
   function fb_login(){
     FB.login(function(response) {
 
@@ -152,7 +167,7 @@
       document.getElementById('fbLogout').style.display = "block";
       document.getElementById('fbLogin').style.display = "none";
       
-    
+    /*
     FB.ui({
         app_id:'xxxxxxxx',
         method: 'send',
@@ -162,7 +177,9 @@
         description:'sasa d d dssd ds sd s s s '
 
     });
-
+*/
+      
+      
       
     });
   }
@@ -204,5 +221,9 @@
 <a href="#" id="fbLogin" style="display:none" onclick="fb_login();"><img src="https://plaaant.com/img/facebook-login.png" border="0" alt=""></a>
   <a href="#" id="fbLogout" style="display:none" onclick="fb_logout();">not you?</a>
   
+  
+  
+  <a href="#" onclick="fb_message();">try send message</a>
+
 </body>
 </html>
