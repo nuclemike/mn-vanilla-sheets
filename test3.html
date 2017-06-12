@@ -50,9 +50,9 @@ JSONTest = function() {
             user_id = response.authResponse.userID; //get FB UID
 
              FB.api('/me', function(response) {
- +                user_email = response.email; //get user email
- +          // you can store this data into your database             
- +            });
+                user_email = response.email; //get user email
+           // you can store this data into your database             
+             });
 
         } else {
             //user hit cancel button
