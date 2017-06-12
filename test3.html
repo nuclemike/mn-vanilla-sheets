@@ -84,6 +84,7 @@ JSONTest = function() {
       // The person is not logged into your app or we are unable to tell.
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
+      document.getElementById('login').show();
     }
   }
   // This function is called when someone finishes with the Login
@@ -143,7 +144,7 @@ JSONTest = function() {
         response.email;
       document.getElementById('fbid').innerHTML =
         response.id;      
-      
+      document.getElementById('logout').show();
     });
   }
 </script>
@@ -181,8 +182,8 @@ JSONTest = function() {
 <button type="button" onclick="JSONTest()">Test Order</button>
   
 
-<a href="#" onclick="fb_login();"><img src="https://plaaant.com/img/facebook-login.png" border="0" alt=""></a>
-  <a href="#" onclick="fb_login();">not you?</a>
+<a href="#" id="login" style="display:none" onclick="fb_login();"><img src="https://plaaant.com/img/facebook-login.png" border="0" alt=""></a>
+  <a href="#" id="logout" style="display:none" onclick="fb_login();">not you?</a>
   
 </body>
 </html>
