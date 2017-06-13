@@ -101,6 +101,8 @@
         response.email;
       document.getElementById('fbid').innerHTML =
         response.id;      
+      document.getElementById('liquidOrderCustomerThumbnail').setAttribute("src","http://graph.facebook.com/"+response.id+"/picture?width=100&height=100");
+              
       document.getElementById('fbLogout').style.display = "block";
       document.getElementById('fbLogin').style.display = "none";
       
