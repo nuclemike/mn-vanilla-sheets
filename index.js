@@ -1,4 +1,7 @@
 $(document).ready(function() {
+	$(".nectar").click(function() {
+   $("#liquidOrderPopup").fadeIn();
+});
 });
 
 // Wait for window load
@@ -29,6 +32,4 @@ function toggleMenu() {
     $("#headerMenu").toggleClass("open");
 }
 
-$(".nectar").click(function() {
-   $("#liquidOrderPopup").fadeIn();
-});
+
