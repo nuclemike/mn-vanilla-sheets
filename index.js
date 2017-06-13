@@ -10,7 +10,7 @@ $(window).load(function() {
 		$("#splashDiv").fadeOut();
 		
 		
-	}, 3000);
+	}, 0);
 	
 	
 });
