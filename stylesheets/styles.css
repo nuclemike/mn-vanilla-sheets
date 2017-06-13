@@ -24,6 +24,13 @@ body {
 	overflow-y:auto;
 }
 
+/*LIQUID ORDER POPUP*/
+
+#liquidOrderPopup{
+	display:none;
+	background:white;
+}
+
 /*SPLASH*/
 
 
