@@ -1,15 +1,14 @@
 $(document).ready(function() {
 	$(".nectar").click(function() {
-   		$("#liquidOrderSection").css("display","");
-		$("#liquidOrderForm").fadeIn();
+   		$("#liquidOrderSection").css("z-index","9999").fadeTo( "medium", 1 );
 	});
 	
 	$("#cancelOrder").click(function() {
-		$( "#liquidOrderForm" ).fadeOut( "medium", function() {
-			$("#liquidOrderSection").css("display","none");
-  		});
-   			
+		$("#liquidOrderSection").fadeTo(  "medium", 0, function() {
+			$( this ).css("z-index","-9999")
+		});
 	});
+		
 });
 
 // Wait for window load
