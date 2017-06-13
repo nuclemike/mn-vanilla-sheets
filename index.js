@@ -4,7 +4,7 @@ $(document).ready(function() {
 		$("#liquidOrderForm").fadeIn();	
 	});
 	
-	$(".liquidOrderSection").click(function() {
+	$("#liquidOrderSection").click(function() {
    		$(this).hide();	
 	});
 });
