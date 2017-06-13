@@ -1,11 +1,10 @@
 $(document).ready(function() {
 	$(".nectar").click(function() {
    		$("#liquidOrderSection").css("display","");
-		$("#liquidOrderForm").fadeIn();	
 	});
 	
-	$("#liquidOrderSection").click(function() {
-   		$(this).hide();	
+	$("#cancelOrder").click(function() {
+   		$("#liquidOrderSection").hide();	
 	});
 });
 
