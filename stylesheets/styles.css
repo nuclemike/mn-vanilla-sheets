@@ -27,13 +27,13 @@ body {
 /*LIQUID ORDER POPUP*/
 
 #liquidOrderSection{	
-background: rgba(100,100,100,0.4);
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 99999;
+	background: rgba(100,100,100,0.4);
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	height: 100%;
+    	width: 100%;
+
 }
 
 #liquidOrderForm{	
