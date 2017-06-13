@@ -44,6 +44,17 @@ background: white;
 
 }
 
+#liquidOrderThumbnail{	
+    width: 100px;
+float:left;
+}
+
+#liquidOrderCustomerPhoto{	
+float:left;
+    width: 100px;
+    
+}
+
 
 
 /*SPLASH*/
