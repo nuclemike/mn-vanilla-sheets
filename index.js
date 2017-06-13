@@ -28,6 +28,7 @@ if( navigator.userAgent.match(/Android/i)
 function toggleMenu() {
     $("#headerMenu").toggleClass("open");
 }
-$( ".nectar" ).click(function() {
+
+$(".nectar").click(function() {
    $("#liquidOrderPopup").fadeIn();
 });
