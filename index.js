@@ -12,6 +12,10 @@ $(window).load(function() {
 	
 });
 
+function openLiquidPopup(name, r) {
+   $("#liquidOrderPopup").fadeIn();
+}
+
 
 if( navigator.userAgent.match(/Android/i)
  || navigator.userAgent.match(/webOS/i)
