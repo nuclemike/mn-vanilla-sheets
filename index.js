@@ -1,8 +1,12 @@
 $(document).ready(function() {
 	$(".nectar").click(function() {
-   $("#liquidOrderSection").css("display","");
-$("#liquidOrderForm").fadeIn();	
-});
+   		$("#liquidOrderSection").css("display","");
+		$("#liquidOrderForm").fadeIn();	
+	});
+	
+	$(".liquidOrderSection").click(function() {
+   		$(this).hide();	
+	});
 });
 
 // Wait for window load
