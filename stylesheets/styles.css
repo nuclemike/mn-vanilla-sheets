@@ -44,12 +44,12 @@ background: white;
 
 }
 
-#liquidOrderThumbnail{	
+#liquidOrderNectarThumbnail{	
     width: 100px;
 float:left;
 }
 
-#liquidOrderCustomerPhoto{	
+#liquidOrderCustomerThumbnail{	
 float:left;
     width: 100px;
     
