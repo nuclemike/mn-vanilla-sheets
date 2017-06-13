@@ -1,102 +1,241 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<title>Facebook Login JavaScript Example</title>
-<meta charset="UTF-8">
-</head>
-<body>
-<script>
-  // This is called with the results from from FB.getLoginStatus().
-  function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
-    } else {
-      // The person is not logged into your app or we are unable to tell.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
-    }
-  }
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Mama's Nectar Collection</title>
 
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
+        <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/global.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
 
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '648709548655451',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.8' // use graph api version 2.8
-  });
 
-  // Now that we've initialized the JavaScript SDK, we call 
-  // FB.getLoginStatus().  This function gets the state of the
-  // person visiting this page and can return one of three states to
-  // the callback you provide.  They can be:
-  //
-  // 1. Logged into your app ('connected')
-  // 2. Logged into Facebook, but not your app ('not_authorized')
-  // 3. Not logged into Facebook and can't tell if they are logged into
-  //    your app or not.
-  //
-  // These three cases are handled in the callback function.
 
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <script src="formpost.js"></script>
+    <script src="fbLogin.js"></script>
+    <meta name="viewport" content="width=device-width">
+   
+  </head>
+  <body class="fxDisplay fxDirCol">
+    <div class="liquidOrderPopup">
+      <div class="loginSection">
+        
+  
+  
+  <table>
+    <tr>
+      <td>Full Name</td>
+      
+      <td><div id="status"></div></td>
+      <tr>
+ 
+          <td>Order</td>
+          <td><div id="resultDivContainer"></div></td>
+    </tr>
+    
+         <tr style="display:none">
 
-  };
+          <td>FB ID</td>
+          <td><div id="fbid"></div></td>
+    </tr>
+    
 
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+    
+     <tr>
+ 
+          <td>Email</td>
+          <td><div id="email"></div></td>
+    </tr>
+  </table>
 
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
-</script>
-
-<!--
-  Below we include the Login Button social plugin. This button uses
-  the JavaScript SDK to present a graphical Login button that triggers
-  the FB.login() function when clicked.
--->
-
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
-<div id="status">
-</div>
-
+<button id="sendOrder" type="button" onclick="JSONTest()">Test Order</button>
   
 
+<a href="#" id="fbLogin" style="display:none" onclick="fb_login();"><img src="https://plaaant.com/img/facebook-login.png" border="0" alt=""></a>
+  <a href="#" id="fbLogout" style="display:none" onclick="fb_logout();">not you?</a>
   
   
   
-</body>
+      </div>
+      
+    </div>
+    <div id="splashDiv" class="fxDisplay fxJustifyCenter fxAlignCenter">
+    <div id="splashLogo">
+     <img id="loader" src="stylesheets/loader.gif" />
+	 </div>
+  </div>
+  
+	<div id="header" class="fxFixed">
+		<div id="headerContainer">
+		
+			<img id="mainLogo" src="stylesheets/mainLogo.png" />
+			
+			<div  id="headerMenu">
+				<a><img class="menuImg" src="stylesheets/nectar.png" />eJUICE</a>
+				<a><img class="menuImg" src="stylesheets/kits.png" />STARTER KIT</a>				
+				<a><img class="menuImg" src="stylesheets/atty.png" />ATOMIZATION</a>
+				<a><img class="menuImg" src="stylesheets/power.png" />POWER SECTION</a>
+				<a><img class="menuImg" src="stylesheets/coil.png" />COIL FACTORY</a>				
+			</div>
+		
+			<img id="menuBurger" src="stylesheets/menu.png" onclick="toggleMenu();" />
+			
+		</div>
+	</div>
+	
+
+	
+
+	
+
+	
+
+	
+	
+	
+	<div class="content fxStretch">
+			<div id="goldRibbon" class="fxFixed">
+				Nectar Collection
+			</div>
+	
+		<div id="contentContainer" class="fxDisplay fxWrap fxJustifyCenter">
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/1.png">						
+				<img class="topseller" src="./liquids/topseller.png">		
+				<span class="nectarName">Dragon's Kiss</span>
+				<span class="nectarInfo">vanilla enriched, caramelized dragon-fruit!</span>
+			</div>
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/2.png">		
+				<span class="nectarName">Nautical Spice</span>
+				<span class="nectarInfo">a creamy watermelon, kiwi, strawberry and lime fusion!</span>
+			</div>		
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/3.png">		
+				<span class="nectarName">Wild Frost</span>
+				<span class="nectarInfo">A wide range of cool-sensation infused wild berries!</span>
+			</div>		
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/4.png">		
+				<img class="topseller" src="./liquids/topseller.png">		
+				<span class="nectarName">Monkey Munch</span>
+				<span class="nectarInfo">ape's favorite... banana cinnamon cookie!</span>
+			</div>		
+
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/5.png">		
+				<span class="nectarName">Crimson Fuzz</span>
+				<span class="nectarInfo">a creamy, strawberry enriched kiwi smoothie!</span>
+			</div>		
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/6.png">		
+				<img class="topseller" src="./liquids/topseller.png">		
+				<span class="nectarName">Black Energy</span>
+				<span class="nectarInfo">blackcurrant/pomegranate candy with a slight lemon hint!</span>
+			</div>		
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/7.png">		
+				<span class="nectarName">Pastry Pot</span>
+				<span class="nectarInfo">mama's traditional vanilla cupcake!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/8.png">		
+				<span class="nectarName">Classic Analog</span>
+				<span class="nectarInfo">simply tobacco, in its liquid form!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/9.png">		
+				<img class="topseller" src="./liquids/topseller.png">		
+				<span class="nectarName">Passion Husky</span>
+				<span class="nectarInfo">passion-fruit caramel with a creamy coconut background!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/10.png">		
+				<span class="nectarName">Coral Milk</span>
+				<span class="nectarInfo">whipped cream covered peachy raspberry dessert!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/11.png">		
+				<span class="nectarName">Angry Melons</span>
+				<span class="nectarInfo">exotic papaya & melon mix with fused marshmallows!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/12.png">		
+				<img class="topseller" src="./liquids/topseller.png">		
+				<span class="nectarName">Scarlet's Bar</span>
+				<span class="nectarInfo">the known bar of joy! the strawberry cereal bar!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/13.png">		
+				<span class="nectarName">Nutty Scutt</span>
+				<span class="nectarInfo">a vanilla tobacco blend with pistachios and caramel!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/14.png">		
+				<span class="nectarName">Rose Junket</span>
+				<span class="nectarInfo">a creamy caramelly strawberry pudding!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/15.png">		
+				<span class="nectarName">Arctic Ruby</span>
+				<span class="nectarInfo">a cool minty shot of juicy creamy raspberries!</span>
+			</div>	
+
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/16.png">		
+				<span class="nectarName">Rainbow Oil</span>
+				<span class="nectarInfo">gummy bears, milky bottles, and all the fun in between!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/17.png">		
+				<span class="nectarName">Persian Malt</span>
+				<span class="nectarInfo">a greek yoghurt smoothie with Peaches and Oranges!</span>
+			</div>		
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/18.png">		
+				<span class="nectarName">Bubble Trouble</span>
+				<span class="nectarInfo">a classic fruity bubblegum, only without the chewing!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/19.png">		
+				<span class="nectarName">Liquid Pepper</span>
+				<span class="nectarInfo">a simple smooth and creamy cooling peppermint!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/20.png">		
+				<span class="nectarName">Purple Maze</span>
+				<span class="nectarInfo">blueberry & raspberry filled sugar glazed doughnuts!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/21.png">		
+				<span class="nectarName">Hue Cannon</span>
+				<span class="nectarInfo">fruity cereal covered, italian cream-filled cannoli!</span>
+			</div>			
+		</div>
+	</div>
+
+
+ 
+  </body>
 </html>
