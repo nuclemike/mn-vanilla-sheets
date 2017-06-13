@@ -38,6 +38,7 @@ body {
 
 #liquidOrderForm{	
 	background:white;
+	display:none;
 }
 
 /*SPLASH*/
