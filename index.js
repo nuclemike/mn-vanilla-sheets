@@ -4,7 +4,7 @@ $(document).ready(function() {
 	});
 	
 	$("#cancelOrder").click(function() {
-		$("#liquidOrderSection").fadeTo(  "medium", 0, function() {
+		$("#liquidOrderSection").fadeTo(  "fast", 0, function() {
 			$( this ).css("z-index","-9999")
 		});
 	});
