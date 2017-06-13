@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$(".nectar").click(function() {
 		var imageUrl = $(this).children(".nectarFlask").attr("src");
-		document.getElementById("liquidOrderThumbnail").setAttribute("src", imageUrl);
+		document.getElementById("liquidOrderNectarThumbnail").setAttribute("src", imageUrl);
    		$("#liquidOrderSection").css("z-index","9999").fadeTo( "medium", 1 );
 	});
 	
