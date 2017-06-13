@@ -12,9 +12,6 @@ $(window).load(function() {
 	
 });
 
-function openLiquidPopup(name, r) {
-   $("#liquidOrderPopup").fadeIn();
-}
 
 
 if( navigator.userAgent.match(/Android/i)
@@ -31,3 +28,6 @@ if( navigator.userAgent.match(/Android/i)
 function toggleMenu() {
     $("#headerMenu").toggleClass("open");
 }
+$( "#nectar" ).click(function() {
+   $("#liquidOrderPopup").fadeIn();
+});
