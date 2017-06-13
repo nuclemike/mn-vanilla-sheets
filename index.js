@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	$(".nectar").click(function() {
-   $("#liquidOrderPopup").fadeIn();
+   $("#liquidOrderSection").css("display","");
+$("#liquidOrderForm").fadeIn();	
 });
 });
 
@@ -27,6 +28,8 @@ if( navigator.userAgent.match(/Android/i)
  ) {
  $("body").addClass('mobile');
 }
+
+
 
 function toggleMenu() {
     $("#headerMenu").toggleClass("open");
