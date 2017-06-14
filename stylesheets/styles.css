@@ -40,7 +40,7 @@ input, select{
 	width: 100%;
 }
 
-#liquidOrderForm{background: white;height: 400px;width: 560px;padding: 30px 30px 30px 223px;position: relative;border-radius: 10px;}
+#liquidOrderForm{background: white;height: 400px;width: 560px;padding: 30px 30px 30px 223px;position: relative;border-radius: 10px;color: #999;box-shadow: 200px 0 0 0 #eee inset;}
 
 #liquidOrderNectarThumbnail{
     position: absolute;
