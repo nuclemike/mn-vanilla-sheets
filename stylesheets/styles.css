@@ -72,11 +72,25 @@ input, select{
     bottom: 129px;
 }
 
+#liquidOrderCustomerName{
+float: left;
+}
 
 #liquidOrderCustomerThumbnail{
 	border: 2px solid #111;
 	border-radius: 100%;width: 60px;}
 
+#authorizationIcon {
+	floaT: left;
+    clear: left;
+    margin-right: 5px;
+}
+
+#authorizationText {
+	    font-size: 11px;
+    line-height: 17px;
+    display: block;
+}
 
 
 /*SPLASH*/
