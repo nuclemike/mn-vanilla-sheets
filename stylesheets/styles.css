@@ -73,7 +73,9 @@ input, select{
 }
 
 
-#liquidOrderCustomerThumbnail{position: absolute;border: 2px solid #111;border-radius: 100%;left: 153px;width: 60px;top: 35px;}
+#liquidOrderCustomerThumbnail{
+	border: 2px solid #111;
+	border-radius: 100%;width: 60px;}
 
 
 
