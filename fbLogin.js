@@ -95,12 +95,9 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', {fields: 'name, email'},function(response) {
       console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        response.name;
-      document.getElementById('email').innerHTML =
-        response.email;
-      document.getElementById('fbid').innerHTML =
-        response.id;      
+      document.getElementById('liquidOrderCustomerName').value = response.name;
+      document.getElementById('liquidOrderCustomerName').setAttribute("fbid", response.id);
+      document.getElementById('liquidOrderCustomerEmail').value = response.email;
       document.getElementById('liquidOrderCustomerThumbnail').setAttribute("src","http://graph.facebook.com/"+response.id+"/picture?width=100&height=100");
               
       document.getElementById('fbLogout').style.display = "block";
