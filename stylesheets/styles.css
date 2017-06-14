@@ -58,6 +58,11 @@ input, select{
     text-align: center;
 }
 
+
+#liquidOrderTable{
+	width: 315px;
+}
+
 #liquidOrderNectarName{
     color: #444;
     font-family: "Beleren";
