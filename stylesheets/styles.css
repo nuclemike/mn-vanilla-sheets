@@ -69,7 +69,7 @@ body {
 }
 
 #liquidOrderTable input, #liquidOrderTable select{
-	font-family: 'Quantico', sans-serif;
+
 	font-family: 'Raleway', sans-serif;
 	border: 1px solid #ddd;
 	border-radius:3px;
@@ -98,9 +98,7 @@ input#liquidOrderCustomerEmail{
     bottom: 111px;
 }
 
-#liquidOrderCustomerName{
-float: left;
-}
+#liquidOrderCustomerName{float: left;font-size: 20px;}
 
 #liquidOrderCustomerThumbnail{
 	border: 2px solid #111;
@@ -115,8 +113,9 @@ float: left;
 #authorizationText {
 	    font-size: 12px;
 	    line-height: 17px;
-	    display: block;
-	    color: #;
+	    float: left;
+	    font-family: 'Quantico', sans-serif;
+	    color: #444;
 }
 
 
