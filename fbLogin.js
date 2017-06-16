@@ -43,8 +43,7 @@
       ocument.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome dear Vaper!';
       document.getElementById('fbLogin').style.display = "block";
       document.getElementById('sendOrder').style.display = "none";      
-      document.getElementById('fbLogout').style.display = "none";
-      document.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome Dear Vaper!;
+      document.getElementById('fbLogout').style.display = "none";      
       document.getElementById('liquidOrderCustomerName').setAttribute("fbid", '');
       document.getElementById('liquidOrderCustomerEmail').value = '';
       document.getElementById('liquidOrderCustomerThumbnail').setAttribute("src","stylesheets/user.jpg");
