@@ -42,6 +42,7 @@
       document.getElementById('authorizationText').className = "denied";
       ocument.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome dear Vaper!';
       document.getElementById('fbLogin').style.display = "block";
+      document.getElementById('sendOrder').style.display = "none";      
       document.getElementById('fbLogout').style.display = "none";
     }
   }
@@ -100,7 +101,9 @@
       document.getElementById('liquidOrderCustomerName').setAttribute("fbid", response.id);
       document.getElementById('liquidOrderCustomerEmail').value = response.email;
       document.getElementById('liquidOrderCustomerThumbnail').setAttribute("src","http://graph.facebook.com/"+response.id+"/picture?width=100&height=100");
-              
+      document.getElementById('authorizationText').innerHTML = "Authorized Mama's Nectar Vaper!";
+      document.getElementById('authorizationText').className = "";        
+      document.getElementById('sendOrder').style.display = "block";      
       document.getElementById('fbLogout').style.display = "block";
       document.getElementById('fbLogin').style.display = "none";
       
