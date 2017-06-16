@@ -33,10 +33,10 @@
 				</div>
         		<div id="liquidOrderData">
   				<a href="#" id="fbLogout" style="display:none" onclick="fb_logout();">logout</a>
-				<img id="liquidOrderCustomerThumbnail" src=""></td>      
+				<img id="liquidOrderCustomerThumbnail" src="stylesheets/user.jpg"></td>      
       				<span id="liquidOrderCustomerName"></span>
-				<img id="authorizationIcon" src="stylesheets/ok.png">
-				<span id="authorizationText">Authorized Mama's Nectar vaper!</span>
+				<img id="authorizationIcon" src="stylesheets/error.png">
+				<span id="authorizationText">Unauthorized: Please login with Facebook.</span>
 				
 				<table id="liquidOrderTable">
 					<tr>
@@ -113,7 +113,7 @@
 				<div id="status"></div>
 				<div id="fbid"></div>
 				<div id="resultDivContainer"></div>
-				<button id="sendOrder" type="button" onclick="JSONTest()">Place Order!</button>
+				<button id="sendOrder" class="denied" type="button" onclick="JSONTest()">Place Order!</button>
 				<button id="cancelOrder" type="button">Cancel</button>
   
 
