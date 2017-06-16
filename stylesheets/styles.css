@@ -142,6 +142,18 @@ input#liquidOrderCustomerEmail{
     float: right;
     margin-right: 10px;
 }
+
+#fbLogin{
+		    border: 0;
+		    color: #fff;
+		    font-family: quantico;
+		    height: 36px;
+		    padding: 0 20px 0 34px;
+		    border-radius: 3px;
+		    font-size: 15px;
+		    float: right;
+		    background: url("fblogin.png") no-repeat 10px center #3B5997;
+}
 #sendOrder{
 	    background: #f1cd63;
 	    border: 0;
