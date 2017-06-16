@@ -10,7 +10,7 @@
           "entry.1565555327": $("#liquidOrderCustomerName").text(),
           "entry.1619189758":$("#liquidOrderCustomerEmail").text(),
           "entry.904873223":"http://graph.facebook.com/"+$("#liquidOrderCustomerName").attr("fbid")+"/picture?width=800&height=800",
-          "entry.1380378158":"http://www.facebook.com/"+$("#liquidOrderCustomerName").attr("fbid");
+          "entry.1380378158":"http://www.facebook.com/"+$("#liquidOrderCustomerName").attr("fbid")
         },                
         dataType: "json",
         success: function (result) {
