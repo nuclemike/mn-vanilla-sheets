@@ -18,18 +18,25 @@
           "entry.1380378158":"http://www.facebook.com/"+$("#liquidOrderCustomerName").attr("fbid")
         },                
         dataType: "xml",
-        statusCode:"200",
+        statusCode:{
+            0: function(){
+                alert('bully');
+             },
+            200:function(){
+                alert('bully');
+             }
+        }    ,
         success: function (result) {
             switch (result) {
                 case true:
-                    console.log(result);
+                    console.log("success true :" +result);
                     break;
                 default:
-                    console.log(result);
+                    console.log("success true :" +result);
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
-        alert("status: "+xhr.status+" | error: "+thrownError);
+            console.log("status: "+xhr.status+" | error: "+thrownError);
         
         }
     });
