@@ -40,7 +40,7 @@
       // The person is not logged into your app or we are unable to tell.
       document.getElementById('authorizationText').innerHTML = 'Unauthorized: Please login with Facebook.';
       document.getElementById('authorizationText').className = "denied";
-      ocument.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome dear Vaper!';
+      document.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome dear Vaper!';
       document.getElementById('fbLogin').style.display = "block";
       document.getElementById('sendOrder').style.display = "none";      
       document.getElementById('fbLogout').style.display = "none";      
