@@ -36,31 +36,56 @@ body {
 	width: 100%;
 }
 
-#liquidOrderForm{background: white;height: 400px;width: 600px;padding: 30px 30px 30px 250px;position: relative;border-radius: 10px;color: #999;box-shadow: 215px 0 0 0 #eee inset;}
+#liquidOrderForm{background: white;height: 450px;width: 600px;padding: 30px 30px 30px 250px;position: relative;border-radius: 10px;color: #999;box-shadow: 215px 0 0 0 #eee inset;font-family: 'Raleway', sans-serif;}
 
 #liquidOrderNectarThumbnail{
     position: absolute;
     left: 28px;
     width: 160px;
-    top: 44px;
+    top: 78px;
 }
 
+#liquidOrderTitle{
+	position: absolute;
+	top: -13px;
+	left: 0px;
+	color: #444;
+	font-size: 20px;
+	padding: 10px 20px;
+	text-align: center;
+	background: #eeeeee;
+	border-radius: 10px 10px 0 0;
+	width: 215px;
+	height: 42px;
+}
+#fbLogout{
+	position:absolute;
+	right:15px;
+	top:10px;
+	font-family:quantico;
+	text-decoration:none;
+font-size:14px;
+color:#1797ea;
+}
 
 #yourVeryOwn{
     position: absolute;
-    top: 234px;
+    top: 281px;
     width: 160px;
     left: 28px;
     color: #d87b00;
     text-align: center;
+    font-family: 'Quantico', sans-serif;
 }
 
 
 #liquidOrderTable{
 	width: 320px;
-	font-family: 'Raleway', sans-serif;
-	font-size: 16px;
+	font-size: 15px;
 	color:#444;
+	margin-top: 76px;
+	border-top: 1px solid #eee;
+	padding-top: 18px;
 }
 
 
@@ -68,17 +93,7 @@ body {
 	padding:5px 0;
 }
 
-#liquidOrderTable input, #liquidOrderTable select{
-
-	font-family: 'Raleway', sans-serif;
-	border: 1px solid #ddd;
-	border-radius:3px;
-	height: 35px;
-	padding: 0 7px;
-	color:#444;
-	width: 100px;
-	font-size: 16px;
-}
+#liquidOrderTable input, #liquidOrderTable select{font-family: 'Raleway', sans-serif;border: 1px solid #ddd;border-radius:3px;height: 35px;padding: 0 7px;color:#444;width: 100px;font-size: 15px;}
 
 input#liquidOrderCustomerEmail{
 	width:212px;
@@ -98,24 +113,69 @@ input#liquidOrderCustomerEmail{
     bottom: 111px;
 }
 
-#liquidOrderCustomerName{float: left;font-size: 20px;}
+#liquidOrderCustomerName{position: absolute;font-size: 21px;left: 321px;top: 38px;color: #444;}
+
+#cancelOrder{
+    background: #ddd;
+    border: 0;
+    color: #666;
+    font-family: quantico;
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 3px;
+    font-size: 15px;
+    position: ABSOLUTE;
+    BOTTOM: 20PX;
+    right: 148PX;
+}
+#sendOrder{
+	    background: #f1cd63;
+    border: 0;
+    color: #444;
+    font-family: quantico;
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 3px;
+    font-size: 15px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+}
+
+#fbLogout{
+    font-size: 12px;
+    position: absolute;
+    left: 435px;
+    font-family: 'Quantico', sans-serif;
+    color: #444;
+    top: 45px;
+    text-decoration: none;
+}
 
 #liquidOrderCustomerThumbnail{
-	border: 2px solid #111;
-	border-radius: 100%;width: 60px;}
+	border: 1px solid #555;
+	border-radius: 100%;
+	width: 60px;
+	left: 247px;
+	position: absolute;
+	top: 30px;
+	box-shadow: 1px 0px 3px silver;
+	}
 
 #authorizationIcon {
-	floaT: left;
-    clear: left;
-    margin-right: 5px;
+	position: absolute;
+	top: 64px;
+	left: 322px;
 }
 
 #authorizationText {
-	    font-size: 12px;
-	    line-height: 17px;
-	    float: left;
+	    font-size: 11px;
+	    position: absolute;
+	    left: 343px;
 	    font-family: 'Quantico', sans-serif;
-	    color: #444;
+	    color: #4ab74a;
+	    top: 65px;
 }
 
 
