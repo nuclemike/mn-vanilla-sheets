@@ -22,24 +22,20 @@
   </head>
 	<body class="fxDisplay fxDirCol">
       		<div id="liquidOrderSection" class="fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
+			<span id="liquidOrderTitle">Place an Order</span>
     			<div id="liquidOrderForm" class="fxFixed">
 				<img id="liquidOrderNectarThumbnail" src="">
 				<span id="yourVeryOwn">...your very own</span>
 				<span id="liquidOrderNectarName">...</span>
       				
         
-  
-  
+  				<a href="#" id="fbLogout" style="display:none" onclick="fb_logout();">logout</a>
+				<img id="liquidOrderCustomerThumbnail" src=""></td>      
+      				<span id="liquidOrderCustomerName"></span>
+				<img id="authorizationIcon" src="stylesheets/ok.png">
+				<span id="authorizationText">Authorized Mama's Nectar vaper!</span>
+				
 				<table id="liquidOrderTable">
-    					<tr>
-      						<td><img id="liquidOrderCustomerThumbnail" src=""></td>      
-      						<td>
-							
-							<span id="liquidOrderCustomerName"></span>
-							<img id="authorizationIcon" src="stylesheets/ok.png">
-							<span id="authorizationText">Authorized Mama's Nectar vaper!</span>
-						</td>
-	  				</tr>
 					<tr>
       						<td>E-Mail</td>      
       						<td><input type="text" id="liquidOrderCustomerEmail"></td>
@@ -117,7 +113,7 @@
   
 <div id="resultDivContainer"></div>
 <a href="#" id="fbLogin" style="display:none" onclick="fb_login();"><img src="https://plaaant.com/img/facebook-login.png" border="0" alt=""></a>
-  <a href="#" id="fbLogout" style="display:none" onclick="fb_logout();">not you?</a>
+  
   
   
   
