@@ -7,24 +7,24 @@
         type: "POST",
         data: 
         {
-          "entry.1565555327": $("#status").text(),
-          "entry.1619189758":$("#email").text(),
-          "entry.904873223":"http://graph.facebook.com/"+$("#fbid").text()+"/picture?width=800&height=800",
-          "entry.1380378158":"http://www.facebook.com/"+$("#fbid").text()
+          "entry.1565555327": $("#liquidOrderCustomerName").text(),
+          "entry.1619189758":$("#liquidOrderCustomerEmail").text(),
+          "entry.904873223":"http://graph.facebook.com/"+$("#liquidOrderCustomerName").attr("fbid")+"/picture?width=800&height=800",
+          "entry.1380378158":"http://www.facebook.com/"+$("#liquidOrderCustomerName").attr("fbid");
         },                
         dataType: "json",
         success: function (result) {
             switch (result) {
                 case true:
-                    processResponse(result);
+                    console.log(result);
                     break;
                 default:
-                    resultDiv.html(result);
+                    console.log(result);
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
-        alert(xhr.status);
-        alert(thrownError);
+        alert("status: "+xhr.status+" | error: "+thrownError);
+        
         }
     });
 };
