@@ -2,11 +2,13 @@
     
     JSONTest = function() {
     var resultDiv = $("#resultDivContainer");
+        
+        
+        //url: "http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",
     $.ajax({
-        url: "http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",
+        url: "https://docs.google.com/a/mamasnectar.com/forms/d/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",
         
         type: "POST",
-        headers: { 'origin': 'https://docs.google.com' },
         data: 
         {
           "entry.1565555327": $("#liquidOrderCustomerName").text(),
