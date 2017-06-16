@@ -36,27 +36,45 @@ body {
 	width: 100%;
 }
 
-#liquidOrderForm{background: white;height: 450px;width: 600px;padding: 30px 30px 30px 250px;position: relative;border-radius: 10px;color: #999;box-shadow: 215px 0 0 0 #eee inset;font-family: 'Raleway', sans-serif;}
+#liquidOrderForm{
+	/* background: white; */
+	/* height: 450px; */
+	width: 600px;
+	padding: 30px;
+	position: relative;
+	border-radius: 10px;
+	color: #999;
+	/* box-shadow: 215px 0 0 0 #eee inset; */
+	font-family: 'Raleway', sans-serif;
+}
+
+#liquidOrderFlask{
+	background: #eee;
+	margin: 20px 0;
+	padding: 30px 30px;
+	border-radius: 20px 0 0 20px;
+	box-shadow: -18px 0 10px -10px rgba(0,0,0,0.1) inset;
+}
+
+#liquidOrderData{
+	background: white;
+	border-radius: 8px;
+	padding: 20px;
+	position: relative;
+}
+
+
 
 #liquidOrderNectarThumbnail{
-    position: absolute;
-    left: 28px;
     width: 160px;
-    top: 78px;
 }
 
 #liquidOrderTitle{
-	position: absolute;
-	top: -13px;
-	left: 0px;
 	color: #444;
 	font-size: 20px;
-	padding: 10px 20px;
 	text-align: center;
-	background: #eeeeee;
-	border-radius: 10px 10px 0 0;
-	width: 215px;
-	height: 42px;
+	margin-bottom: 45px;
+	display: block;
 }
 #fbLogout{
 	position:absolute;
@@ -69,10 +87,8 @@ color:#1797ea;
 }
 
 #yourVeryOwn{
-    position: absolute;
-    top: 281px;
+    display: block;
     width: 160px;
-    left: 28px;
     color: #d87b00;
     text-align: center;
     font-family: 'Quantico', sans-serif;
@@ -86,6 +102,7 @@ color:#1797ea;
 	margin-top: 76px;
 	border-top: 1px solid #eee;
 	padding-top: 18px;
+	margin-bottom: 20px;
 }
 
 
@@ -103,17 +120,15 @@ input#liquidOrderCustomerEmail{
     color: #444;
     font-family: "Beleren";
     font-size: 25px;
-    margin-bottom: 0.3em;
+    line-height: 16px;
     display: block;
     text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0,0,0,0.5);
-    position: absolute;
     left: 14px;
-    width: 190px;
+    width: 100%;
     text-align: center;
-    bottom: 111px;
 }
 
-#liquidOrderCustomerName{position: absolute;font-size: 21px;left: 321px;top: 38px;color: #444;}
+#liquidOrderCustomerName{position: absolute;font-size: 21px;left: 91px;top: 30px;color: #444;}
 
 #cancelOrder{
     background: #ddd;
@@ -124,22 +139,19 @@ input#liquidOrderCustomerEmail{
     padding: 0 20px;
     border-radius: 3px;
     font-size: 15px;
-    position: ABSOLUTE;
-    BOTTOM: 20PX;
-    right: 148PX;
+    float: right;
+    margin-right: 10px;
 }
 #sendOrder{
 	    background: #f1cd63;
-    border: 0;
-    color: #444;
-    font-family: quantico;
-    height: 36px;
-    padding: 0 20px;
-    border-radius: 3px;
-    font-size: 15px;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+	    border: 0;
+	    color: #444;
+	    font-family: quantico;
+	    height: 36px;
+	    padding: 0 20px;
+	    border-radius: 3px;
+	    font-size: 15px;
+	    float: right;
 }
 }
 
@@ -157,25 +169,25 @@ input#liquidOrderCustomerEmail{
 	border: 1px solid #555;
 	border-radius: 100%;
 	width: 60px;
-	left: 247px;
+	left: 20px;
 	position: absolute;
-	top: 30px;
+	top: 20px;
 	box-shadow: 1px 0px 3px silver;
 	}
 
 #authorizationIcon {
 	position: absolute;
-	top: 64px;
-	left: 322px;
+	top: 56px;
+	left: 92px;
 }
 
 #authorizationText {
 	    font-size: 11px;
 	    position: absolute;
-	    left: 343px;
+	    left: 112px;
 	    font-family: 'Quantico', sans-serif;
 	    color: #4ab74a;
-	    top: 65px;
+	    top: 56px;
 }
 
 
