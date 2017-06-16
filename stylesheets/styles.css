@@ -184,10 +184,17 @@ input#liquidOrderCustomerEmail{
 #authorizationText {
 	    font-size: 11px;
 	    position: absolute;
-	    left: 112px;
+	    left: 92px;
 	    font-family: 'Quantico', sans-serif;
-	    color: #4ab74a;
+	    color: #4ab74a;	    
 	    top: 56px;
+	    background:url("ok.png") no-repeat;
+	    padding-left: 20px;
+}
+
+#authorizationText.denied {
+	color: tomato;
+	background:url("error.png") no-repeat;	   
 }
 
 
