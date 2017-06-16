@@ -4,6 +4,7 @@
     var resultDiv = $("#resultDivContainer");
     $.ajax({
         url: "http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",
+        crossDomain: true,
         type: "POST",
         data: 
         {
