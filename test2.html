@@ -1,40 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!doctype html>
 <html>
-<title>My jQuery JSON Web Page</title>
-<head>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript">
-JSONTest = function() {
-    var resultDiv = $("#resultDivContainer");
-    $.ajax({
-        url: "https://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",
-        type: "POST",
-        data: { "entry.1565555327": "208.74.35.5" },
-        dataType: "json",
-        success: function (result) {
-            switch (result) {
-                case true:
-                    processResponse(result);
-                    break;
-                default:
-                    resultDiv.html(result);
-            }
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-        alert(xhr.status);
-        alert(thrownError);
-        }
-    });
-};
-</script>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Mama's Nectar Collection</title>
 
-<h1>My jQuery JSON Web Page</h1>
+        <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/global.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
 
-<div id="resultDivContainer"></div>
 
-<button type="button" onclick="JSONTest()">JSON</button>
 
-</body>
-</html> 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <script src="formpost.js"></script>
+    <script src="fbLogin.js"></script>
+    <meta name="viewport" content="width=device-width">
+   
+  </head>
+	<body class="fxDisplay fxDirCol">
+      		<form action="http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse" method="post" target="_blank">
+<input type="text" name="entry.1565555327" placeholder="First Name">
+<input type="text" name="entry.1619189758" placeholder="Last Name">
+<input type="email" name="entry.904873223" placeholder="Email">
+                <input type="email" name="entry.1380378158" placeholder="Email">
+                entry.1380378158
+<button>SUBMIT</button>
+</form>
+
+
+ 
+  </body>
+</html>
