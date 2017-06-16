@@ -19,8 +19,8 @@
   FB.logout(function(response) {
   // user is now logged out
     
-    
-    fb_login()
+    statusChangeCallback(response);
+   // fb_login()
 });
   }
   
