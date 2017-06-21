@@ -467,37 +467,36 @@ input#liquidOrderCustomerEmail{
 		padding: 0;
 	}
 	#liquidOrderFlask{
-		margin: 0 20px -5px 0px;
+		margin: 0 10px 0 10px;
 		border-radius: 20px 20px 0 0;
 		box-shadow: 0 -18px 10px -10px rgba(0,0,0,0.1) inset;
 		padding: 15px;
+		height: 62px;
 	}
 	#liquidOrderTitle{
 		margin:0;
-		position: absolute;
-		top: 14px;
-		width: auto;
-		left: 85px;
+		float: left;
+		font-size: 15px;
+		line-height: 14px;
 	}
 
 	#liquidOrderNectarThumbnail{
-		width: auto;
-		float: left;
-		height: 70px;
+		display: none;
 	}
 
 	#yourVeryOwn{
 		position:absolute;
-		top: 40px;
+		top: 8px;
 		width: auto;
-		lefT: 87px;
+		right: 10px;
 	}
 
 	#liquidOrderNectarName{
-		float: left;
-		margin-left: 10px;
-		margin-top: 47px;
+		position: absolute;
+		margin: 0;
+		right: 10px;
 		width: auto;
+		top: 30px;
 	}
 
 }
