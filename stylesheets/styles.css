@@ -28,7 +28,7 @@ body {
 /*LIQUID ORDER POPUP*/
 
 #liquidOrderSection{
-	background: rgba(100,100,100,0.8);
+	background: rgba(80,80,80,0.9);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -54,6 +54,7 @@ body {
 	padding: 30px 30px;
 	border-radius: 20px 0 0 20px;
 	box-shadow: -18px 0 10px -10px rgba(0,0,0,0.1) inset;
+	position: relative;
 }
 
 #liquidOrderData{
@@ -123,7 +124,6 @@ input#liquidOrderCustomerEmail{
     line-height: 16px;
     display: block;
     text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0,0,0,0.5);
-    left: 14px;
     width: 100%;
     text-align: center;
 }
@@ -465,7 +465,37 @@ input#liquidOrderCustomerEmail{
 		flex-direction: column;
 	}
 	#liquidOrderFlask{
+		margin: 0 20px;
+		border-radius: 20px 20px 0 0;
+		box-shadow: 0 -18px 10px -10px rgba(0,0,0,0.1) inset;
+		padding: 15px;
+	}
+	#liquidOrderTitle{
 		margin:0;
+		position: absolute;
+		top: 36px;
+		width: 100%;
+		lefT: 0;
+		padding-left: 110px;
+	}
+
+	#liquidOrderNectarThumbnail{
+		width:100px
+	}
+
+	#yourVeryOwn{
+		position:absolute;
+		bottom: 49px;
+		width: 100%;
+		lefT: 0;
+		padding-left: 101px;
+	}
+
+	#liquidOrderNectarName{
+		position:absolute;
+		bottom: 33px;
+		padding-left: 80px;
+		/* width: 50%; */
 	}
 
 }
