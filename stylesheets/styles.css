@@ -463,6 +463,8 @@ input#liquidOrderCustomerEmail{
 	
 	#liquidOrderForm{
 		flex-direction: column;
+		width: 95%;
+		padding: 0;
 	}
 	#liquidOrderFlask{
 		margin: 0 20px;
@@ -475,7 +477,7 @@ input#liquidOrderCustomerEmail{
 		position: absolute;
 		top: 14px;
 		width: auto;
-		right: 20px;
+		right: 75px;
 	}
 
 	#liquidOrderNectarThumbnail{
