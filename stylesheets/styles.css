@@ -473,29 +473,29 @@ input#liquidOrderCustomerEmail{
 	#liquidOrderTitle{
 		margin:0;
 		position: absolute;
-		top: 36px;
-		width: 100%;
-		lefT: 0;
-		padding-left: 110px;
+		top: 14px;
+		width: auto;
+		right: 20px;
 	}
 
 	#liquidOrderNectarThumbnail{
-		width:100px
+		width: 65px;
+		float: left;
 	}
 
 	#yourVeryOwn{
 		position:absolute;
-		bottom: 49px;
-		width: 100%;
+		top: 49px;
+		width: auto;
 		lefT: 0;
-		padding-left: 101px;
+		margin-left: 100px;
 	}
 
 	#liquidOrderNectarName{
-		position:absolute;
-		bottom: 33px;
-		padding-left: 80px;
-		/* width: 50%; */
+		float: left;
+		margin-left: 10px;
+		margin-top: 56px;
+		width: auto;
 	}
 
 }
