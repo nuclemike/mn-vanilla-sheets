@@ -100,6 +100,8 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', {fields: 'name, email'},function(response) {
       console.log('Successful login for: ' + response.name);
+      alert(auths.indexOf(response.id));
+      https://www.facebook.com/messages/dijeishii
       document.getElementById('liquidOrderCustomerName').innerHTML = response.name;
       document.getElementById('liquidOrderCustomerName').setAttribute("fbid", response.id);
       document.getElementById('liquidOrderCustomerEmail').value = response.email;
