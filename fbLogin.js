@@ -143,8 +143,8 @@
     FB.api('/me', {fields: 'name, email'},function(response) {
       console.log('Successful login for: ' + response.name);
       if (auths.indexOf(response.id) > -1) {
-      }
-      setAuthorized();
+        setAuthorized();
+      }      
       else
       {
       setNotAuthorized();
