@@ -38,15 +38,7 @@
       testAPI();
     } else {
       // The person is not logged into your app or we are unable to tell.
-      document.getElementById('authorizationText').innerHTML = 'Unauthorized: Please login with Facebook.';
-      document.getElementById('authorizationText').className = "denied";
-      document.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome dear Vaper!';
-      document.getElementById('fbLogin').style.display = "block";
-      document.getElementById('sendOrder').style.display = "none";      
-      document.getElementById('fbLogout').style.display = "none";      
-      document.getElementById('liquidOrderCustomerName').setAttribute("fbid", '');
-      document.getElementById('liquidOrderCustomerEmail').value = '';
-      document.getElementById('liquidOrderCustomerThumbnail').setAttribute("src","stylesheets/user.jpg");
+     setLoggedOut();
     }
   }
   // This function is called when someone finishes with the Login
@@ -93,25 +85,70 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
   
+
+  function setLoggedOut() {
+     document.getElementById('authorizationText').innerHTML = 'Unauthorized: Please login with Facebook.';
+      document.getElementById('authorizationText').className = "denied";
+    
+      document.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome dear Vaper!';
+      document.getElementById('liquidOrderCustomerName').setAttribute("fbid", '');
+      document.getElementById('liquidOrderCustomerEmail').value = '';
+      document.getElementById('liquidOrderCustomerThumbnail').setAttribute("src","stylesheets/user.jpg");
+    
+      document.getElementById('fbLoginPanel').style.display = "block";
+      document.getElementById('sendOrder').style.display = "none";      
+      document.getElementById('fbLogout').style.display = "none";     
+      document.getElementById('notAuthorizedPanel').style.display = "none";     
+      document.getElementById('liquidOrderTable').style.display = "none";          
+    
+  }
+
+  function setNotAuthorized() {
+      document.getElementById('authorizationText').innerHTML = "Your Account is not yet Activated.;
+      document.getElementById('authorizationText').className = "denied";
+    
+      document.getElementById('liquidOrderCustomerName').innerHTML = response.name;
+      document.getElementById('liquidOrderCustomerName').setAttribute("fbid", response.id);
+      document.getElementById('liquidOrderCustomerEmail').value = response.email;
+      document.getElementById('liquidOrderCustomerThumbnail').setAttribute("src","http://graph.facebook.com/"+response.id+"/picture?width=100&height=100");
+
+      document.getElementById('sendOrder').style.display = "block";      
+      document.getElementById('fbLogout').style.display = "block";
+      document.getElementById('fbLoginPanel').style.display = "none";
+      document.getElementById('notAuthorizedPanel').style.display = "block";      
+      document.getElementById('liquidOrderTable').style.display = "none";      
+    
+  }
   
+  function setAuthorized() {
+      document.getElementById('authorizationText').innerHTML = "Authorized Mama's Nectar relative!";
+      document.getElementById('authorizationText').className = "";        
+    
+      document.getElementById('liquidOrderCustomerName').innerHTML = response.name;
+      document.getElementById('liquidOrderCustomerName').setAttribute("fbid", response.id);
+      document.getElementById('liquidOrderCustomerEmail').value = response.email;
+      document.getElementById('liquidOrderCustomerThumbnail').setAttribute("src","http://graph.facebook.com/"+response.id+"/picture?width=100&height=100");
+          
+      document.getElementById('sendOrder').style.display = "block";      
+      document.getElementById('fbLogout').style.display = "block";
+      document.getElementById('fbLoginPanel').style.display = "none";
+      document.getElementById('notAuthorizedPanel').style.display = "block";    
+      document.getElementById('liquidOrderTable').style.display = "block";      
+  }
+
   // Here we run a very simple test of the Graph API after login is
   // successful.
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', {fields: 'name, email'},function(response) {
       console.log('Successful login for: ' + response.name);
-      alert(auths.indexOf(response.id));
-      https://www.facebook.com/messages/dijeishii
-      document.getElementById('liquidOrderCustomerName').innerHTML = response.name;
-      document.getElementById('liquidOrderCustomerName').setAttribute("fbid", response.id);
-      document.getElementById('liquidOrderCustomerEmail').value = response.email;
-      document.getElementById('liquidOrderCustomerThumbnail').setAttribute("src","http://graph.facebook.com/"+response.id+"/picture?width=100&height=100");
-      document.getElementById('authorizationText').innerHTML = "Authorized Mama's Nectar Vaper!";
-      document.getElementById('authorizationText').className = "";        
-      document.getElementById('sendOrder').style.display = "block";      
-      document.getElementById('fbLogout').style.display = "block";
-      document.getElementById('fbLogin').style.display = "none";
-      
+      if (auths.indexOf(response.id) > -1) {
+      }
+      setAuthorized();
+      else
+      {
+      setNotAuthorized();
+      }
     /*
     FB.ui({
         app_id:'xxxxxxxx',
