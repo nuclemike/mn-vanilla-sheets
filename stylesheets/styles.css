@@ -101,7 +101,7 @@ color:#1797ea;
     background-color: white;
     font-size: 13px;
     text-align: center;
-    width: 100%;
+    width: 100%;	
     left: 0;
     padding: 30px;
 }
@@ -160,6 +160,7 @@ input#liquidOrderCustomerEmail{
 		    font-family: quantico;
 		    height: 36px;
 		    padding: 0 20px 0 34px;
+			display:block;
 		    border-radius: 3px;
 		    font-size: 15px;
 		    margin: 20px auto;
