@@ -96,14 +96,15 @@ color:#1797ea;
 }
 
 #fbLoginPanel{
-    position: absolute;
+position: absolute;
     top: 110px;
     background-color: white;
     font-size: 13px;
     text-align: center;
-    width: 100%;	
+    width: 100%;
     left: 0;
     padding: 30px;
+    height: 250px;
 }
 
 
