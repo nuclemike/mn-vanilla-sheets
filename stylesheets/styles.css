@@ -95,7 +95,7 @@ color:#1797ea;
     font-family: 'Quantico', sans-serif;
 }
 
-#fbLoginPanel{position: absolute;top: 110px;background-color: white;font-size: 13px;text-align: center;width: 100%;left: 0;padding: 60px 30px 30px 30px;height: 250px;}
+#fbLoginPanel,#notAuthorizedPanel{position: absolute;top: 110px;background-color: white;font-size: 13px;text-align: center;width: 100%;left: 0;padding: 60px 30px 30px 30px;height: 250px;}
 
 
 #liquidOrderTable{
