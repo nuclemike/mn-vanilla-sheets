@@ -87,7 +87,7 @@
   
 
   function setLoggedOut() {
-     document.getElementById('authorizationText').innerHTML = 'Unauthorized: Please login with Facebook.';
+     document.getElementById('authorizationText').innerHTML = "Unauthorized: Please login with Facebook.";
       document.getElementById('authorizationText').className = "denied";
     
       document.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome dear Vaper!';
@@ -104,7 +104,7 @@
   }
 
   function setNotAuthorized() {
-      document.getElementById('authorizationText').innerHTML = "Your Account is not yet Activated.;
+      document.getElementById('authorizationText').innerHTML = "Your Account is not yet Activated.";
       document.getElementById('authorizationText').className = "denied";
     
       document.getElementById('liquidOrderCustomerName').innerHTML = response.name;
