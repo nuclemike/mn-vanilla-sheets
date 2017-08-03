@@ -130,7 +130,7 @@
       document.getElementById('sendOrder').style.display = "block";      
       document.getElementById('fbLogout').style.display = "block";
       document.getElementById('fbLoginPanel').style.display = "none";
-      document.getElementById('notAuthorizedPanel').style.display = "block";      
+      document.getElementById('notAuthorizedPanel').style.display = "none";      
   }
 
   // Here we run a very simple test of the Graph API after login is
