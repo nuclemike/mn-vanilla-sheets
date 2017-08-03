@@ -98,8 +98,7 @@
       document.getElementById('fbLoginPanel').style.display = "block";
       document.getElementById('sendOrder').style.display = "none";      
       document.getElementById('fbLogout').style.display = "none";     
-      document.getElementById('notAuthorizedPanel').style.display = "none";     
-      document.getElementById('liquidOrderTable').style.display = "none";          
+      document.getElementById('notAuthorizedPanel').style.display = "none";         
     
   }
 
@@ -116,7 +115,6 @@
       document.getElementById('fbLogout').style.display = "block";
       document.getElementById('fbLoginPanel').style.display = "none";
       document.getElementById('notAuthorizedPanel').style.display = "block";      
-      document.getElementById('liquidOrderTable').style.display = "none";      
     
   }
   
@@ -132,8 +130,7 @@
       document.getElementById('sendOrder').style.display = "block";      
       document.getElementById('fbLogout').style.display = "block";
       document.getElementById('fbLoginPanel').style.display = "none";
-      document.getElementById('notAuthorizedPanel').style.display = "block";    
-      document.getElementById('liquidOrderTable').style.display = "block";      
+      document.getElementById('notAuthorizedPanel').style.display = "block";      
   }
 
   // Here we run a very simple test of the Graph API after login is
