@@ -102,7 +102,7 @@
     
   }
 
-  function setNotAuthorized() {
+  function setNotAuthorized(response) {
       document.getElementById('authorizationText').innerHTML = "Your Account is not yet Activated.";
       document.getElementById('authorizationText').className = "denied";
     
@@ -118,7 +118,7 @@
     
   }
   
-  function setAuthorized() {
+  function setAuthorized(response) {
       document.getElementById('authorizationText').innerHTML = "Authorized Mama's Nectar relative!";
       document.getElementById('authorizationText').className = "";        
     
@@ -140,11 +140,11 @@
     FB.api('/me', {fields: 'name, email'},function(response) {
       console.log('Successful login for: ' + response.name);
       if (auths.indexOf(response.id) > -1) {
-        setAuthorized();
+        setAuthorized(response);
       }      
       else
       {
-      setNotAuthorized();
+      setNotAuthorized(response);
       }
     /*
     FB.ui({
