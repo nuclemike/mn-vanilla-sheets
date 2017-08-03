@@ -95,6 +95,17 @@ color:#1797ea;
     font-family: 'Quantico', sans-serif;
 }
 
+#fbLoginPanel{
+    position: absolute;
+    top: 110px;
+    background-color: white;
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    padding: 30px;
+}
+
 
 #liquidOrderTable{
 	width: 320px;
@@ -151,7 +162,7 @@ input#liquidOrderCustomerEmail{
 		    padding: 0 20px 0 34px;
 		    border-radius: 3px;
 		    font-size: 15px;
-		    float: right;
+		    margin: 20px auto;
 		    background: url("fblogin.png") no-repeat 10px center #3B5997;
 }
 #sendOrder{
