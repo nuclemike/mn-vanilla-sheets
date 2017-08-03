@@ -157,6 +157,20 @@ input#liquidOrderCustomerEmail{
 		    margin: 20px auto;
 		    background: url("fblogin.png") no-repeat 10px center #3B5997;
 }
+
+#notAuthorizedPanelContact{
+		    border: 0;
+		    color: #fff;
+		    font-family: quantico;
+		    padding: 14px;
+		    border-radius: 3px;
+		    display: block;
+		    font-size: 15px;
+		    margin: 20px auto;
+		    background: url("fblogin.png") no-repeat 10px center #3B5997;
+		    width: 150px;
+}
+
 #sendOrder{
 	    background: #f1cd63;
 	    border: 0;
