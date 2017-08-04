@@ -7,6 +7,7 @@ $(document).ready(function() {
    		$("#liquidOrderSection").css("z-index","9999").fadeTo( "medium", 1 );
 	});
 	
+	
 	$("#cancelOrder").click(function() {
 		$("#liquidOrderSection").fadeTo(  "fast", 0, function() {
 			$( this ).css("z-index","-9999")
