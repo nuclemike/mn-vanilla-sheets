@@ -39,7 +39,7 @@ if( navigator.userAgent.match(/Android/i)
  $("body").addClass('mobile');
 }
 
-function onLoadHandler(element) {
+function formResponse(element) {
     $(element).contents().find(".freebirdFormviewerViewResponseConfirmationMessage").load(function(){
     alert('element loaded.');
 });
