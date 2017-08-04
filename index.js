@@ -19,12 +19,8 @@ $(document).ready(function() {
 // Wait for window load
 $(window).load(function() {
 	setTimeout(function(){ 
-		$("#splashDiv").fadeOut();
-		
-		
-	}, 0);
-	
-	
+		$("#splashDiv").fadeOut();			
+	}, 0);		
 });
 
 
@@ -36,23 +32,16 @@ if( navigator.userAgent.match(/Android/i)
  || navigator.userAgent.match(/iPod/i)
  || navigator.userAgent.match(/BlackBerry/i)
  || navigator.userAgent.match(/Windows Phone/i)
- ) {
- $("body").addClass('mobile');
-}
+ ) 	
+	{
+ 	$("body").addClass('mobile');
+	}
 
 function formResponse(element) {
-    $(element).find(".freebirdFormviewerViewResponseConfirmationMessage").load(function(){
-    alert('element loaded.');
-});
-	
-	
-  $("form").submit(function(){
-    $.post($(this).attr("action"), $(this).serialize(), function(jsonData){
-      console.log(jsonData);
-    }, "json");
-  });
-
-	
+    	$(element).find(".freebirdFormviewerViewResponseConfirmationMessage").load(function(){
+    		alert('element loaded.');
+	});
+}
 
 function toggleMenu() {
     $("#headerMenu").toggleClass("open");
