@@ -6,9 +6,7 @@
         // url: "http://cors.io/docs.google.com/a/www.mamasnectar.com/forms/d/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",
         
     $.ajax({
-        url: "http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",    
-        "Access-Control-Allow-Origin": "http://www.mamasnectar.com",
-        "Origin": "http://www.mamasnectar.com",
+        url: "http://cors.io/docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",    
         type: "POST",
         data: 
           {        
