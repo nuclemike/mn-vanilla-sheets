@@ -1,4 +1,5 @@
     JSONTest = function() {
+        alert("version 2");
         var request = new XMLHttpRequest();
 var params = "entry.1565555327=something";
 request.open('POST', "http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse", true);
