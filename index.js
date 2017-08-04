@@ -39,8 +39,10 @@ if( navigator.userAgent.match(/Android/i)
  $("body").addClass('mobile');
 }
 
-function onLoadHandler() {
-    alert('loaded');
+function onLoadHandler(element) {
+    $(element).contents().find(".freebirdFormviewerViewResponseConfirmationMessage").load(function(){
+    alert('element loaded.');
+});
 }
 
 function toggleMenu() {
