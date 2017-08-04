@@ -8,7 +8,8 @@
         
     $.ajax({
         url: "http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",    
-        crossDomain: true,
+        "Access-Control-Allow-Origin": "http://www.mamasnectar.com",
+        "Origin": "http://www.mamasnectar.com",
         type: "POST",
         data: 
           {        
