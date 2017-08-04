@@ -53,7 +53,6 @@ function formResponse(element) {
   });
 
 	
-}
 
 function toggleMenu() {
     $("#headerMenu").toggleClass("open");
