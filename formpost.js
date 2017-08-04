@@ -1,5 +1,14 @@
-
     JSONTest = function() {
+        var request = new XMLHttpRequest();
+var params = "entry.1565555327=something";
+request.open('POST', "http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse", true);
+request.onreadystatechange = function() {if (request.readyState==4) alert("It worked!");};
+request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+request.setRequestHeader("Content-length", params.length);
+request.setRequestHeader("Connection", "close");
+request.send(params);
+    }
+    JSONTesst = function() {
     var resultDiv = $("#resultDivContainer");
         
         
