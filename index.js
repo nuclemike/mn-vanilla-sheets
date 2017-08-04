@@ -39,7 +39,9 @@ if( navigator.userAgent.match(/Android/i)
  $("body").addClass('mobile');
 }
 
-
+function onLoadHandler() {
+    alert('loaded');
+}
 
 function toggleMenu() {
     $("#headerMenu").toggleClass("open");
