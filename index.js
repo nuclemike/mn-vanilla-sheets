@@ -43,6 +43,15 @@ function formResponse(element) {
     $(element).find(".freebirdFormviewerViewResponseConfirmationMessage").load(function(){
     alert('element loaded.');
 });
+	
+	$(function(){
+  $("form").submit(function(){
+    $.post($(this).attr("action"), $(this).serialize(), function(jsonData){
+      console.log(jsonData);
+    }, "json");
+  });
+});
+	
 }
 
 function toggleMenu() {
