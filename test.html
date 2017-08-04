@@ -38,7 +38,7 @@
 				<img id="liquidOrderCustomerThumbnail" src="stylesheets/user.jpg"></td>      
       				<span id="liquidOrderCustomerName">Welcome dear Vaper!</span>				
 				<span id="authorizationText" class="denied">Unauthorized: Please login with Facebook.</span>
-				
+				<!--
 				<table id="liquidOrderTable">
 					<tr>
       						<td>E-Mail</td>      
@@ -110,7 +110,15 @@
   							</select>
 					   	</td>
     					</tr>   					
-  				</table>	
+  				</table>	-->
+				
+				<iframe style="display:none;" id="formSending" name="formSending" onload="onLoadHandler();"></iframe>
+      		<form action="http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse" target="formSending" method="post">
+<input type="text" name="entry.1565555327" placeholder="First Name">
+<input type="text" name="entry.1619189758" placeholder="Last Name">
+<input type="email" id="liquidOrderCustomerEmail" name="entry.904873223" placeholder="Email">                
+<button>SUBMIT</button>
+</form>
 				
 				<div id="fbLoginPanel">
 					<span><b>Welcome to the Lab Request Ordering System!</b><br/><br/> Please login with Facebook so you'll be identified and can place a Mama's Nectar Lab Request!</span>
