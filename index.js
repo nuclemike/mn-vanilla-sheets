@@ -40,7 +40,7 @@ if( navigator.userAgent.match(/Android/i)
 }
 
 function formResponse(element) {
-    $(element).contents().find(".freebirdFormviewerViewResponseConfirmationMessage").load(function(){
+    $(element).find(".freebirdFormviewerViewResponseConfirmationMessage").load(function(){
     alert('element loaded.');
 });
 }
