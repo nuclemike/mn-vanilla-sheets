@@ -1,6 +1,23 @@
-
-    
     JSONTest = function() {
+var url = "https://docs.google.com/a/www.mamasnectar.com/forms/d/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse";
+var params = "entry.1565555327=ipsum&entry.1619189758=binny";
+http.open("POST", url, true);
+
+//Send the proper header information along with the request
+http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+http.setRequestHeader("Content-length", params.length);
+http.setRequestHeader("Connection", "close");
+
+http.onreadystatechange = function() {//Call a function when the state changes.
+	if(http.readyState == 4 && http.status == 200) {
+		alert(http.responseText);
+	}
+}
+http.send(params);
+    
+    }
+    
+    JSONTestx = function() {
     var resultDiv = $("#resultDivContainer");
         
         
