@@ -45,13 +45,13 @@ function formResponse(element) {
     alert('element loaded.');
 });
 	
-	$(function(){
+	
   $("form").submit(function(){
     $.post($(this).attr("action"), $(this).serialize(), function(jsonData){
       console.log(jsonData);
     }, "json");
   });
-});
+
 	
 }
 
