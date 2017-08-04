@@ -1,4 +1,5 @@
-    JSONTest = function() {
+var http = new XMLHttpRequest();
+JSONTest = function() {
 var url = "https://docs.google.com/a/www.mamasnectar.com/forms/d/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse";
 var params = "entry.1565555327=ipsum&entry.1619189758=binny";
 http.open("POST", url, true);
