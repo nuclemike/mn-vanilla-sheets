@@ -109,7 +109,7 @@
 
       document.getElementById('liquidOrderCustomerName').innerHTML = response.name;      
       document.getElementById('liquidOrderCustomerName').setAttribute("fbid",response.id); 
-      document.getElementById('liquidOrderCustomerEmail').value = 'response.email';
+      document.getElementById('liquidOrderCustomerEmail').value = response.email;
       
       document.getElementById('sendOrder').style.display = "block";      
       document.getElementById('fbLogout').style.display = "block";
@@ -125,7 +125,7 @@
 
       document.getElementById('liquidOrderCustomerName').innerHTML = response.name;      
       document.getElementById('liquidOrderCustomerName').setAttribute("fbid",response.id); 
-      document.getElementById('liquidOrderCustomerEmail').value = 'response.email';
+      document.getElementById('liquidOrderCustomerEmail').value = response.email;
     
       document.getElementById('sendOrder').style.display = "block";      
       document.getElementById('fbLogout').style.display = "block";
