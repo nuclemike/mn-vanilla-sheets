@@ -4,13 +4,14 @@ $(document).ready(function() {
 		var nectarName = $(this).children(".nectarName").text();
 		document.getElementById("liquidOrderNectarThumbnail").setAttribute("src", imageUrl);
 		document.getElementById("liquidOrderNectarName").innerHTML = nectarName;
-		
+		$('#orderSentPanel, #sendingPanel').hide();
 		
    		$("#liquidOrderSection").css("z-index","9999").fadeTo( "medium", 1 );
 	});
 	
 	
 	$("#cancelOrder").click(function() {
+		$(this).text("Cancel");
 		$("#liquidOrderSection").fadeTo(  "fast", 0, function() {
 			$( this ).css("z-index","-9999")
 		});
