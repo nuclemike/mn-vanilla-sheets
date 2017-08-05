@@ -39,7 +39,7 @@ if( navigator.userAgent.match(/Android/i)
 	}
 
 function iframeLoaded() {
-    $("#googleIframeWrap").slideDown("medium");
+    $("#googleIframeWrap").fadeIn("medium");
 }
 
 function toggleMenu() {
