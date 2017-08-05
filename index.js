@@ -40,6 +40,7 @@ var submitted=false;
 
 function formResponse(element) {
     	alert("wicc talla hadmet!");
+	submitted = false;
 }
 
 function toggleMenu() {
