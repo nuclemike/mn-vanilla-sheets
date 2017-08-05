@@ -14,7 +14,8 @@
               "entry.1619189758": $("#liquidOrderCustomerEmail").val(),
               "entry.601560370": $("#liquidOrderSize").val(),
               "entry.1250591470": $("#liquidOrderNicotine").val(),
-              "entry.1798744401": $("#liquidOrderVG").val()
+              "entry.1798744401": $("#liquidOrderVG").val(),
+              "entry.1820674796": $("#liquidOrderQuantity").val()
               
             }        
         ,                
