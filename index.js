@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	$(".nectar").click(function() {
-		    $("#googleIframeWrap").hide();
 		var imageUrl = $(this).children(".nectarFlask").attr("src");
 		var nectarName = $(this).children(".nectarName").text();
 		document.getElementById("liquidOrderNectarThumbnail").setAttribute("src", imageUrl);
@@ -40,10 +39,6 @@ if( navigator.userAgent.match(/Android/i)
 	{
  	$("body").addClass('mobile');
 	}
-
-function iframeLoaded() {
-    $("#googleIframeWrap").fadeIn("medium");
-}
 
 function toggleMenu() {
     $("#headerMenu").toggleClass("open");
