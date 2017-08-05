@@ -48,6 +48,15 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 
+#googleIframe{
+	position: absolute;
+    	border: 0;
+    	left: 0;
+    	top: 100px;
+    	width: 100%;
+	height: 250px;
+}
+
 #liquidOrderFlask{
 	background: #eee;
 	margin: 20px 0;
