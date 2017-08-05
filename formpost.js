@@ -9,7 +9,7 @@
         data: 
           {                   
               "entry.1565555327": $("#liquidOrderCustomerName").text(),
-              "entry.1212940529": $("#liquidOrderFlavor").text(),
+              "entry.1212940529": $("#liquidOrderNectarName").text(),
               "entry.1380378158": "http://www.facebook.com/"+$("#liquidOrderCustomerName").attr("fbid"),
               "entry.1619189758": $("#liquidOrderCustomerEmail").text(),
               "entry.601560370": $("#liquidOrderSize").text(),
