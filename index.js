@@ -39,9 +39,7 @@ if( navigator.userAgent.match(/Android/i)
 var submitted=false;
 
 function formResponse(element) {
-    	$(element).find(".freebirdFormviewerViewResponseConfirmationMessage").load(function(){
-    		alert('element loaded.');
-	});
+    	alert("wicc talla hadmet!");
 }
 
 function toggleMenu() {
