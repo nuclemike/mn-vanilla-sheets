@@ -125,8 +125,11 @@ color:#1797ea;
 
 #sendingPanel h4, #orderSentPanel h4, #fbLoginPanel h4, #notAuthorizedPanel h4{
 	font-size:31px;
-	margin:20px
+	margin:20px;
+	color: #888;
 }
+
+#orderSentPanel h4{color: #4ab74a;}
 
 
 #liquidOrderTable{
@@ -173,7 +176,6 @@ input#liquidOrderCustomerEmail{
     border-radius: 3px;
     font-size: 15px;
     float: right;
-    margin-right: 10px;
 }
 
 #fbLogin{
@@ -213,6 +215,7 @@ input#liquidOrderCustomerEmail{
 	    border-radius: 3px;
 	    font-size: 15px;
 	    float: right;
+	    margin-left: 10px;
 }
 }
 
