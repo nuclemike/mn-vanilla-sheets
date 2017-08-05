@@ -36,11 +36,9 @@ if( navigator.userAgent.match(/Android/i)
 	{
  	$("body").addClass('mobile');
 	}
-var submitted=false;
 
-function formResponse(element) {
+function formResponse() {
     	alert("wicc talla hadmet!");
-	submitted = false;
 }
 
 function toggleMenu() {
