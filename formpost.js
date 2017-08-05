@@ -2,7 +2,8 @@
     formPost = function() {
 
     $('#sendOrder, #fbLogout').hide();
-        $('#cancelOrder').css('opacity','0').attr('disabled');
+        $('#cancelOrder').css('opacity','0');
+        $('#cancelOrder').attr('disabled');
         $('#sendingPanel').fadeIn('medium');
         
         
@@ -30,7 +31,8 @@
             200:function(){
               $('#orderSentPanel b').text($("#liquidOrderCustomerEmail").val());
                     $('#orderSentPanel').fadeIn('medium', function() {
-       $('#cancelOrder').text("Close").removeAttr('disabled').css('opacity','1');
+       $('#cancelOrder').text("Close").removeAttr('disabled');
+                        $('#cancelOrder').css('opacity','1');
         $('#fbLogout').show();
   });
              }
