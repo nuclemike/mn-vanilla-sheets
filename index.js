@@ -38,7 +38,13 @@ if( navigator.userAgent.match(/Android/i)
 	}
 
 function formResponse(submittedparam) {
-    	if submittedparam {alert("wicc talla hadmet!")};
+    	if submittedparam {
+		alert(submittedparam)
+	}
+	else
+	{
+		alert(submittedparam);
+	}
 	submitted = false;
 }
 
