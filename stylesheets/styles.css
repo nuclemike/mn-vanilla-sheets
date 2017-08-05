@@ -49,29 +49,6 @@ body {
 }
 
 
-#googleIframeWrap
-{
-    position: absolute;
-    border: 0;
-    left: 0;
-    top: 118px;
-    width: 100%;
-    overflow:hidden;
-    height: 237px;
-    border-bottom: 25px solid #fafafa;
-    border-top: 2px solid #fafafa;
-}
-
-#googleIframe{
-	/* position: absolute; */
-	border: 0;
-	/* left: 0; */
-	/* top: 100px; */
-	width: 100%;
-	height: 268px;
-	margin-top: -53px;
-}
-
 #liquidOrderFlask{
 	background: #eee;
 	margin: 20px 0;
