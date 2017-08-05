@@ -46,6 +46,9 @@
 															       
 				<span id="authorizationText" class="denied">Unauthorized: Please login with Facebook.</span>
 				
+								<div style="display:none;" id="googleIframeWrap">
+					<iframe scrolling="no" id="googleIframe" name="googleIframe" onload="iframeLoaded();"></iframe>
+				</div>
 				
 						<form action="http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse" target="googleIframe" method="post">
 					 
@@ -125,9 +128,7 @@
 			
 				</form>
 			
-								<div style="display:none;" id="googleIframeWrap">
-					<iframe scrolling="no" id="googleIframe" name="googleIframe" onload="iframeLoaded();"></iframe>
-				</div>
+				
 						
 				<div id="fbLoginPanel">
 					<span><b>Welcome to the Lab Request Ordering System!</b><br/><br/> Please login with Facebook so you'll be identified and can place a Mama's Nectar Lab Request!</span>
