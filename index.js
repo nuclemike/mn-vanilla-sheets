@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$(".nectar").click(function() {
-		    $("#googeIframe").hide();
+		    $("#googleIframe").hide();
 		var imageUrl = $(this).children(".nectarFlask").attr("src");
 		var nectarName = $(this).children(".nectarName").text();
 		document.getElementById("liquidOrderNectarThumbnail").setAttribute("src", imageUrl);
