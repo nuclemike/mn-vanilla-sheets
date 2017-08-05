@@ -7,7 +7,6 @@
         
     $.ajax({
         url: "41.139.213.179:80/https://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",    
-        "Access-Control-Allow-Origin": "*",
         type: "POST",
         data: 
           {        
