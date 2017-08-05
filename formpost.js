@@ -1,7 +1,7 @@
 
     formPost = function() {
 
-    $('#sendOrder').hide();
+    $('#sendOrder, #fbLogout').hide();
          $('#cancelOrder').text("Close");
         $('#sendingPanel').fadeIn('medium');
         
@@ -29,7 +29,10 @@
              },
             200:function(){
               $('#orderSentPanel b').text($("#liquidOrderCustomerEmail").val());
-                    $('#orderSentPanel').fadeIn('medium');
+                    $('#orderSentPanel').fadeIn('medium', function() {
+      $('#cancelOrder').text("Cancel");
+        $('#sendOrder, #fbLogout').show();
+  });
              }
         }    ,
         success: function (result) {
