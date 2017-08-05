@@ -37,17 +37,6 @@ if( navigator.userAgent.match(/Android/i)
  	$("body").addClass('mobile');
 	}
 
-function formResponse(submittedparam) {
-    	if (submittedparam) {
-		alert(submittedparam)
-	}
-	else
-	{
-		alert(submittedparam);
-	}
-	submitted = false;
-}
-
 function toggleMenu() {
     $("#headerMenu").toggleClass("open");
 }
