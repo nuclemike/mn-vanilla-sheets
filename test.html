@@ -35,36 +35,39 @@
 				</div>
         		<div id="liquidOrderData">
   				<a href="#" id="fbLogout" style="display:none" onclick="fb_logout();">logout</a>
-				<img id="liquidOrderCustomerThumbnail" src="stylesheets/user.jpg"></td>      
-      				<span id="liquidOrderCustomerName">Welcome dear Vaper!</span>				
+				<img id="liquidOrderCustomerThumbnail" src="stylesheets/user.jpg"></td>
+				<form action="http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse" target="googleIframe" method="post">
+				
+
+      				<input type="text name="entry.1565555327" id="liquidOrderCustomerName">Welcome dear Vaper!>
+				<input type="text" style="display:none" name="entry.1380378158" id="liquidOrderCustomerProfile">
+															       
+				<input type="text" style="display:none" name="entry.1212940529" id="liquidOrderCustomerProfile">
+															       
 				<span id="authorizationText" class="denied">Unauthorized: Please login with Facebook.</span>
 				
 				
-				<script type="text/javascript">var submitted=false;</script>
-				<div style="display:none;" id="googleIframeWrap">
-					<iframe scrolling="no" id="googleIframe" name="googleIframe" onload="iframeLoaded();"></iframe>
-				</div>
-					<form action="http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse" target="googleIframe" method="post">
-				
-<table id="liquidOrderTable">
+							 
+					<table id="liquidOrderTable">
 					<tr>
       						<td>E-Mail</td>      
-      						<td><input type="text" name="entry.1565555327" id="liquidOrderCustomerEmail"></td>
+      						<td>
+							<input type="text" name="entry.1619189758" id="liquidOrderCustomerEmail"></td>
 	  				</tr>					
       					<tr> 
           					<td>Size</td>
           					<td>
-							<select id="liquidOrderSize"">
+							<select name="entry.601560370" id="liquidOrderSize"">
   								<option disabled value="30">30ml</option>
-  								<option selected value="50">50ml</option>
-  								<option value="100">100ml</option>
+  								<option selected value="60">60ml</option>
+  								<option value="120">120ml</option>
   							</select>
 					   	</td>
     					</tr>    
       					<tr> 
           					<td>Quantity</td>
           					<td>
-							<select id="liquidOrderQuantity"">								
+							<select name="entry.1820674796" id="liquidOrderQuantity"">								
 								<option selected value="1">1 Bottle</option>
 								<option value="2">2 Bottles</option>
 								<option value="3">3 Bottles</option>
@@ -76,7 +79,7 @@
       					<tr> 
           					<td>Nicotine</td>
           					<td>
-							<select id="liquidOrderNicotine"">
+							<select name="entry.1250591470" id="liquidOrderNicotine"">
 								<option disabled selected value> -- select -- </option>
 								<option value="0">Zero</option>
 								<option value="1">1mg</option>
@@ -103,7 +106,7 @@
       					<tr> 
           					<td>VG Ratio</td>
           					<td>
-							<select id="liquidOrderVG"">
+							<select name="entry.1798744401" id="liquidOrderVG"">
 								<option disabled selected value> -- select -- </option>
 								<option value="50">50%</option>
 								<option value="55">55%</option>
@@ -135,11 +138,17 @@
 										
 				<button id="sendOrder" style="display:none" class="denied" type="submit" >Place Order!</button>				
 				<button id="cancelOrder" type="button">Cancel</button>
-			</form>
+		
   
   
 			</div>
-  
+  	</form>
+								      
+								           
+				<div style="display:none;" id="googleIframeWrap">
+					<iframe scrolling="no" id="googleIframe" name="googleIframe" onload="iframeLoaded();"></iframe>
+				</div>
+															     
      	      </div>
     </div>
     <div id="splashDiv" class="fxDisplay fxJustifyCenter fxAlignCenter">
