@@ -2,7 +2,7 @@
     formPost = function() {
 
     $('#sendOrder, #fbLogout').hide();
-        $('#cancelOrder').attr('disabled').css('opacity','0.4');
+        $('#cancelOrder').css('opacity','0').attr('disabled');
         $('#sendingPanel').fadeIn('medium');
         
         
