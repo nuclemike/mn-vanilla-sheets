@@ -36,18 +36,19 @@
         		<div id="liquidOrderData">
   				<a href="#" id="fbLogout" style="display:none" onclick="fb_logout();">logout</a>
 				<img id="liquidOrderCustomerThumbnail" src="stylesheets/user.jpg"></td>
-				<form action="http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse" target="googleIframe" method="post">
 				
 
-      				<input type="text name="entry.1565555327" id="liquidOrderCustomerName" value="Welcome dear Vaper!">
+				<span id="liquidOrderCustomerName">Welcome dear Vaper!"</span>
 				<input type="text" style="display:none" name="entry.1380378158" id="liquidOrderCustomerProfile">
-															       
+														       
+				<input type="text" style="display:none" name="entry.1565555327"	 id="liquidOrderCustomer">
 				<input type="text" style="display:none" name="entry.1212940529" id="liquidOrderFlavor">
 															       
 				<span id="authorizationText" class="denied">Unauthorized: Please login with Facebook.</span>
 				
 				
-							 
+						<form action="http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse" target="googleIframe" method="post">
+					 
 					<table id="liquidOrderTable">
 					<tr>
       						<td>E-Mail</td>      
@@ -122,7 +123,7 @@
     					</tr>   					
   				</table>			
 			
-			
+				</form>
 			
 				
 						
@@ -142,7 +143,7 @@
   
   
 			</div>
-  	</form>
+  
 								      
 								           
 				<div style="display:none;" id="googleIframeWrap">
