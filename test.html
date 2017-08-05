@@ -41,8 +41,8 @@
 				
 				<div name="formSending"></div>
 				
-				<iframe style="display:none;" id="formSenhding" name="formSending" onload="formResponse(this);"></iframe>
-      		<form action="http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse" target="formSending" method="post">
+				<iframe style="display:none;" id="formSenhding" name="formSending" onload="if(submitted) {formResponse()};"></iframe>
+      		<form action="http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse" target="formSending" onsubmit="submitted=true;" method="post">
 				
 <table id="liquidOrderTable">
 					<tr>
