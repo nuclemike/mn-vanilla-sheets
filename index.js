@@ -5,7 +5,7 @@ $(document).ready(function() {
 		document.getElementById("liquidOrderNectarThumbnail").setAttribute("src", imageUrl);
 		document.getElementById("liquidOrderNectarName").innerHTML = nectarName;
 		$('#orderSentPanel, #sendingPanel').hide();
-		$('#sendOrder').hide($('#sendOrder').hasClass('denied));
+		$('#sendOrder').toggle($('#sendOrder').hasClass('denied));
    		$("#liquidOrderSection").css("z-index","9999").fadeTo( "medium", 1 );
 	});
 	
