@@ -11,10 +11,10 @@
               "entry.1565555327": $("#liquidOrderCustomerName").text(),
               "entry.1212940529": $("#liquidOrderNectarName").text(),
               "entry.1380378158": "http://www.facebook.com/"+$("#liquidOrderCustomerName").attr("fbid"),
-              "entry.1619189758": $("#liquidOrderCustomerEmail").value(),
-              "entry.601560370": $("#liquidOrderSize").value(),
-              "entry.1250591470": $("#liquidOrderNicotine").value(),
-              "entry.1798744401": $("#liquidOrderVG").value()
+              "entry.1619189758": $("#liquidOrderCustomerEmail").val(),
+              "entry.601560370": $("#liquidOrderSize").val(),
+              "entry.1250591470": $("#liquidOrderNicotine").val(),
+              "entry.1798744401": $("#liquidOrderVG").val()
               
             }        
         ,                
