@@ -36,6 +36,7 @@ if( navigator.userAgent.match(/Android/i)
 	{
  	$("body").addClass('mobile');
 	}
+var submitted=false;
 
 function formResponse(element) {
     	$(element).find(".freebirdFormviewerViewResponseConfirmationMessage").load(function(){
