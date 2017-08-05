@@ -1,5 +1,5 @@
 
-    JSONTesst = function() {
+    JSONTest = function() {
     var resultDiv = $("#resultDivContainer");
         
         
