@@ -13,7 +13,7 @@ $(document).ready(function() {
 	$("#cancelOrder").click(function() {
 		
 		$("#liquidOrderSection").fadeTo(  "fast", 0, function() {
-			$( this ).css("z-index","-9999")
+			$( this ).css("z-index","-9999");
 			$(this).text("Cancel");
 		});
 	});
