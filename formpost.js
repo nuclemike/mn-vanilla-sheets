@@ -10,15 +10,12 @@
           {                   
               "entry.1565555327": $("#liquidOrderCustomerName").text(),
               "entry.1212940529": $("#liquidOrderFlavor").text(),
-              "entry.1380378158": $("#liquidOrderCustomerProfile").text(),
+              "entry.1380378158": "http://www.facebook.com/"+$("#liquidOrderCustomerName").attr("fbid"),
               "entry.1619189758": $("#liquidOrderCustomerEmail").text(),
               "entry.601560370": $("#liquidOrderSize").text(),
               "entry.1250591470": $("#liquidOrderNicotine").text(),
-              "entry.1798744401": $("#liquidOrderVG").text(),
+              "entry.1798744401": $("#liquidOrderVG").text()
               
-          "entry.1619189758":$("#liquidOrderCustomerEmail").text(),
-          "entry.904873223":"http://graph.facebook.com/"+$("#liquidOrderCustomerName").attr("fbid")+"/picture?width=800&height=800",
-          "entry.1380378158":"http://www.facebook.com/"+$("#liquidOrderCustomerName").attr("fbid")
             }        
         ,                
         dataType: "xml",
