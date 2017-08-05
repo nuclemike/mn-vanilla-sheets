@@ -38,7 +38,7 @@ if( navigator.userAgent.match(/Android/i)
 	}
 
 function formResponse(submittedparam) {
-    	if submittedparam {
+    	if (submittedparam) {
 		alert(submittedparam)
 	}
 	else
