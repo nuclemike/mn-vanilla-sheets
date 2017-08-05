@@ -28,7 +28,7 @@
                
              },
             200:function(){
-              
+              $('#orderSentPanel b').text($("#liquidOrderCustomerEmail").val());
                     $('#orderSentPanel').fadeIn('medium');
              }
         }    ,
