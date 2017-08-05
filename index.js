@@ -11,9 +11,10 @@ $(document).ready(function() {
 	
 	
 	$("#cancelOrder").click(function() {
-		$(this).text("Cancel");
+		
 		$("#liquidOrderSection").fadeTo(  "fast", 0, function() {
 			$( this ).css("z-index","-9999")
+			$(this).text("Cancel");
 		});
 	});
 		
