@@ -1,8 +1,11 @@
 
     formPost = function() {
-    var resultDiv = $("#resultDivContainer");
+
+    $('#sendOrder').hide();
+         $('#cancelOrder').text("Close");
+        $('#sendingPanel').fadeIn('medium');
         
-    $('#sendOrder').addClass('denied').text('sending...');    
+        
     $.ajax({
         url: "https://thingproxy.freeboard.io/fetch/https://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",    
         type: "POST",
@@ -22,11 +25,11 @@
         dataType: "xml",
         statusCode:{
             0: function(){
-                alert('bully 1');
+               
              },
             200:function(){
-                alert('t alla!');
-                    $('#sendOrder').removeClass('denied').text('sending...');    
+              
+                    $('#orderSentPanel').fadeIn('medium');
              }
         }    ,
         success: function (result) {
