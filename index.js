@@ -5,6 +5,9 @@ $(document).ready(function() {
 		var nectarName = $(this).children(".nectarName").text();
 		document.getElementById("liquidOrderNectarThumbnail").setAttribute("src", imageUrl);
 		document.getElementById("liquidOrderNectarName").innerHTML = nectarName;
+		document.getElementById("liquidOrderFlavor").innerHTML = nectarName;
+		
+		
    		$("#liquidOrderSection").css("z-index","9999").fadeTo( "medium", 1 );
 	});
 	
