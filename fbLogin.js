@@ -91,8 +91,9 @@
       document.getElementById('authorizationText').className = "denied";
     
       document.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome dear Vaper!';
-      document.getElementById('liquidOrderCustomerName').setAttribute("fbid", '');
       document.getElementById('liquidOrderCustomerEmail').value = '';
+    document.getElementById('liquidOrderCustomerProfile').value = "";
+    
       document.getElementById('liquidOrderCustomerThumbnail').setAttribute("src","stylesheets/user.jpg");
     
       document.getElementById('fbLoginPanel').style.display = "block";
@@ -107,8 +108,9 @@
       document.getElementById('authorizationText').className = "denied";
     
       document.getElementById('liquidOrderCustomerName').innerHTML = response.name;
-      document.getElementById('liquidOrderCustomerName').setAttribute("fbid", response.id);
       document.getElementById('liquidOrderCustomerEmail').value = response.email;
+    document.getElementById('liquidOrderCustomerProfile').value = "http://www.facebook.com/"+response.id;
+    
       document.getElementById('liquidOrderCustomerThumbnail').setAttribute("src","http://graph.facebook.com/"+response.id+"/picture?width=100&height=100");
 
       document.getElementById('sendOrder').style.display = "block";      
@@ -123,8 +125,8 @@
       document.getElementById('authorizationText').className = "";        
     
       document.getElementById('liquidOrderCustomerName').innerHTML = response.name;
-      document.getElementById('liquidOrderCustomerName').setAttribute("fbid", response.id);
       document.getElementById('liquidOrderCustomerEmail').value = response.email;
+      document.getElementById('liquidOrderCustomerProfile').value = "http://www.facebook.com/"+response.id;
       document.getElementById('liquidOrderCustomerThumbnail').setAttribute("src","http://graph.facebook.com/"+response.id+"/picture?width=100&height=100");
           
       document.getElementById('sendOrder').style.display = "block";      
