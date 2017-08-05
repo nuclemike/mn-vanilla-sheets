@@ -50,11 +50,12 @@ body {
 
 #googleIframe{
 	position: absolute;
-    	border: 0;
-    	left: 0;
-    	top: 100px;
-    	width: 100%;
-	height: 250px;
+    border: 0;
+    left: 0;
+    top: 100px;
+    width: 100%;
+    height: 259px;
+    border-bottom: 55px solid #fafafa;
 }
 
 #liquidOrderFlask{
