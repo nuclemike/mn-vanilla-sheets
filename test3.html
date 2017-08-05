@@ -43,21 +43,18 @@
 				<span id="authorizationText" class="denied">Unauthorized: Please login with Facebook.</span>
 				
 						
-							
-				<input type="hidden"  name="entry.1380378158" id="liquidOrderCustomerProfile">														       
-				<input type="hidden" name="entry.1565555327"	 id="liquidOrderCustomer">
-				<input type="hidden" name="entry.1212940529" id="liquidOrderFlavor">
+						
 							
 					<table id="liquidOrderTable">
 					<tr>
       						<td>E-Mail</td>      
       						<td>
-							<input type="text" name="entry.1619189758" id="liquidOrderCustomerEmail"></td>
+							<input type="text" id="liquidOrderCustomerEmail"></td>
 	  				</tr>					
       					<tr> 
           					<td>Size</td>
           					<td>
-							<select name="entry.601560370" id="liquidOrderSize"">
+							<select id="liquidOrderSize"">
   								<option disabled value="30">30ml</option>
   								<option selected value="60">60ml</option>
   								<option value="120">120ml</option>
@@ -67,7 +64,7 @@
       					<tr> 
           					<td>Quantity</td>
           					<td>
-							<select name="entry.1820674796" id="liquidOrderQuantity"">								
+							<select id="liquidOrderQuantity"">								
 								<option selected value="1">1 Bottle</option>
 								<option value="2">2 Bottles</option>
 								<option value="3">3 Bottles</option>
@@ -79,7 +76,7 @@
       					<tr> 
           					<td>Nicotine</td>
           					<td>
-							<select name="entry.1250591470" id="liquidOrderNicotine"">
+							<select id="liquidOrderNicotine"">
 								<option disabled selected value> -- select -- </option>
 								<option value="0">Zero</option>
 								<option value="1">1mg</option>
@@ -106,7 +103,7 @@
       					<tr> 
           					<td>VG Ratio</td>
           					<td>
-							<select name="entry.1798744401" id="liquidOrderVG"">
+							<select id="liquidOrderVG"">
 								<option disabled selected value> -- select -- </option>
 								<option value="50">50%</option>
 								<option value="55">55%</option>
@@ -136,7 +133,7 @@
 					<a id="notAuthorizedPanelContact" href="http://m.me/mamasnectar">contact us!</a>
 				</div>
 										
-				<button id="sendOrder" style="display:none" class="denied" onclick="JSONTest()" >Place Order!</button>				
+				<button id="sendOrder" style="display:none" class="denied" onclick="formPost()" >Place Order!</button>				
 				<button id="cancelOrder" type="button">Cancel</button>
 		
   </form>
