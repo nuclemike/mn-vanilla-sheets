@@ -6,7 +6,7 @@
         // url: "https://nl.hideproxy.me/go.php?u=https://docs.google.com/aforms/d/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",
         
     $.ajax({
-        url: "41.139.213.179:80/https://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",    
+        url: "https://nl.hideproxy.me/go.php?u=https://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",    
         type: "POST",
         data: 
           {        
