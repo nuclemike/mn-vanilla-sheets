@@ -1,231 +1,333 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<title>Facebook Login JavaScript Example</title>
-<meta charset="UTF-8">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  
-  <script type="text/javascript">      
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Mama's Nectar Collection</title>
+
+        <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/global.css">
     
-    JSONTest = function() {
-    var resultDiv = $("#resultDivContainer");
-    $.ajax({
-        url: "https://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",
-        type: "POST",
-        data: 
-        {
-          "entry.1565555327": $("#status").text(),
-          "entry.1619189758":$("#email").text(),
-          "entry.904873223":"http://graph.facebook.com/"+$("#fbid").text()+"/picture?width=800&height=800",
-          "entry.1380378158":"http://www.facebook.com/"+$("#fbid").text()
-        },                
-        dataType: "json",
-        success: function (result) {
-            switch (result) {
-                case true:
-                    processResponse(result);
-                    break;
-                default:
-                    resultDiv.html(result);
-            }
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-        alert(xhr.status);
-        alert(thrownError);
-        }
-    });
-};
-</script>
-  
-</head>
-<body>
-  
-
-<script>
-    function fb_message(){
-        FB.api(
-    "/t_id.10155005462073751/messages",
-    "POST",
-    {
-        "message": ".",
-      "access_token" : "EAAJNZC3Y1w1sBAEtvStIY69H97fVwGhkt7ZAzV7E9QMzQyf2axAVXaENuzyXClklf0lLxdmOrXhsojZBf0yUVaEpWuqwErsQHIyldPzo0Umx5DwClwpwtZByNHVKAuuF6sh123MF2kxKj6AUr83DSjo7CzhqQzjuyyrZCdSKg71cXscf1JmZB1vFDpQ73PwF4ZD"
-    },
-          
-    function (response) {
-      if (response && !response.error) {
-        /* handle the result */
-      }
-    }
-);
-    }
-  
-  function fb_login(){
-    FB.login(function(response) {
-
-        if (response.authResponse) {
-            console.log('Welcome!  Fetching your information.... ');
-            //console.log(response); // dump complete info
-            access_token = response.authResponse.accessToken; //get access token
-            user_id = response.authResponse.userID; //get FB UID
-
-            testAPI();
-
-        } else {
-            //user hit cancel button
-            console.log('User cancelled login or did not fully authorize.');
-
-        }
-    }, {
-        scope: 'public_profile,email,read_page_mailboxes'
-    });
-}
-  
-  function fb_logout(){  
-  FB.logout(function(response) {
-  // user is now logged out
-    
-    
-    fb_login()
-});
-  }
-  
-  
-  // This is called with the results from from FB.getLoginStatus().
-  function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
-    } else {
-      // The person is not logged into your app or we are unable to tell.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
-      document.getElementById('fbLogin').style.display = "block";
-      document.getElementById('fbLogout').style.display = "none";
-    }
-  }
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
-  
-  
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '648709548655451',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.8' // use graph api version 2.8
-  });
-  // Now that we've initialized the JavaScript SDK, we call 
-  // FB.getLoginStatus().  This function gets the state of the
-  // person visiting this page and can return one of three states to
-  // the callback you provide.  They can be:
-  //
-  // 1. Logged into your app ('connected')
-  // 2. Logged into Facebook, but not your app ('not_authorized')
-  // 3. Not logged into Facebook and can't tell if they are logged into
-  //    your app or not.
-  //
-  // These three cases are handled in the callback function.
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-  };
-  
-  
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-  
-  
-  // Here we run a very simple test of the Graph API after login is
-  // successful.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', {fields: 'name, email'},function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        response.name;
-      document.getElementById('email').innerHTML =
-        response.email;
-      document.getElementById('fbid').innerHTML =
-        response.id;      
-      document.getElementById('fbLogout').style.display = "block";
-      document.getElementById('fbLogin').style.display = "none";
-      
-    /*
-    FB.ui({
-        app_id:'xxxxxxxx',
-        method: 'send',
-        name: "sdfds jj jjjsdj j j ",
-        link: 'https://apps.facebook.com/xxxxxxxaxsa',
-        to:response.id,
-        description:'sasa d d dssd ds sd s s s '
-
-    });
-*/
-      
-      
-      
-    });
-  }
-</script>
+    <link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
 
 
 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+    <script src="auths.js"></script>
+<script src="index.js"></script>
+
+    <script src="fbLogin.js"></script>
+    <meta name="viewport" content="width=device-width">
+   
+  </head>
+	<body class="fxDisplay fxDirCol">
+      		<div id="liquidOrderSection" class="fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
+			
+    			<div id="liquidOrderForm" class="fxDisplay">
+				
+				<div id=liquidOrderFlask class="fxFixed">
+					<span id="liquidOrderTitle">Place an Order</span>
+					<img id="liquidOrderNectarThumbnail" src="">
+					<span id="yourVeryOwn">...your very own</span>
+					<span id="liquidOrderNectarName">...</span>
+				</div>
+        		<div id="liquidOrderData">
+  				<a href="#" id="fbLogout" style="display:none" onclick="fb_logout();">logout</a>
+				<img id="liquidOrderCustomerThumbnail" src="stylesheets/user.jpg"></td>
+				
+
+				<span id="liquidOrderCustomerName">Welcome dear Vaper!"</span>
+															       
+				<span id="authorizationText" class="denied">Unauthorized: Please login with Facebook.</span>
+				
+						
+							
+				<input type="hidden"  name="entry.1380378158" id="liquidOrderCustomerProfile">														       
+				<input type="hidden" name="entry.1565555327"	 id="liquidOrderCustomer">
+				<input type="hidden" name="entry.1212940529" id="liquidOrderFlavor">
+							
+					<table id="liquidOrderTable">
+					<tr>
+      						<td>E-Mail</td>      
+      						<td>
+							<input type="text" name="entry.1619189758" id="liquidOrderCustomerEmail"></td>
+	  				</tr>					
+      					<tr> 
+          					<td>Size</td>
+          					<td>
+							<select name="entry.601560370" id="liquidOrderSize"">
+  								<option disabled value="30">30ml</option>
+  								<option selected value="60">60ml</option>
+  								<option value="120">120ml</option>
+  							</select>
+					   	</td>
+    					</tr>    
+      					<tr> 
+          					<td>Quantity</td>
+          					<td>
+							<select name="entry.1820674796" id="liquidOrderQuantity"">								
+								<option selected value="1">1 Bottle</option>
+								<option value="2">2 Bottles</option>
+								<option value="3">3 Bottles</option>
+								<option value="4">4 Bottles</option>
+								<option value="5">5 Bottles</option>								
+  							</select>
+					   	</td>
+    					</tr> 										   
+      					<tr> 
+          					<td>Nicotine</td>
+          					<td>
+							<select name="entry.1250591470" id="liquidOrderNicotine"">
+								<option disabled selected value> -- select -- </option>
+								<option value="0">Zero</option>
+								<option value="1">1mg</option>
+								<option value="2">2mg</option>
+								<option value="3">3mg</option>
+								<option value="4">4mg</option>
+								<option value="5">5mg</option>
+								<option value="6">6mg</option>
+								<option value="7">7mg</option>
+								<option value="8">8mg</option>
+								<option value="9">9mg</option>
+								<option value="10">10mg</option>
+								<option value="11">11mg</option>
+								<option value="12">12mg</option>
+								<option value="13">13mg</option>
+								<option value="14">14mg</option>
+								<option value="15">15mg</option>
+								<option value="16">16mg</option>
+								<option value="17">17mg</option>
+								<option value="18">18mg</option>								
+  							</select>
+					   	</td>
+    					</tr>   		
+      					<tr> 
+          					<td>VG Ratio</td>
+          					<td>
+							<select name="entry.1798744401" id="liquidOrderVG"">
+								<option disabled selected value> -- select -- </option>
+								<option value="50">50%</option>
+								<option value="55">55%</option>
+								<option value="60">60%</option>
+								<option value="65">65%</option>
+								<option value="70">70%</option>
+								<option value="75">75%</option>
+								<option value="80">80%</option>
+								<option value="85">85%</option>
+								<option value="100">MAX</option>								
+  							</select>
+					   	</td>
+    					</tr>   					
+  				</table>			
+			
+				
+			
+				
+						
+				<div id="fbLoginPanel">
+					<span><b>Welcome to the Lab Request Ordering System!</b><br/><br/> Please login with Facebook so you'll be identified and can place a Mama's Nectar Lab Request!</span>
+					<button id="fbLogin" class="denied" type="button" onclick="fb_login();">Login with Facebook</button>  
+				</div>
+					
+				<div id="notAuthorizedPanel" style="display:none;">
+					<span>We're sorry, but you are not yet Authorized. Contact Us now via chat so you'll get yourself activated and start using the Lab Request System!</span>
+					<a id="notAuthorizedPanelContact" href="http://m.me/mamasnectar">contact us!</a>
+				</div>
+										
+				<button id="sendOrder" style="display:none" class="denied" onclick="JSONTest()" >Place Order!</button>				
+				<button id="cancelOrder" type="button">Cancel</button>
+		
+  </form>
   
+			</div>
   
-  <table>
-    <tr>
-      <td>Full Name</td>
-      
-      <td><div id="status"></div></td>
-      <tr>
+								      
+								           
+
+															     
+     	      </div>
+    </div>
+    <div id="splashDiv" class="fxDisplay fxJustifyCenter fxAlignCenter">
+    <div id="splashLogo">
+     <img id="loader" src="stylesheets/loader.gif" />
+	 </div>
+  </div>
+  
+	<div id="header" class="fxFixed">
+		<div id="headerContainer">
+		
+			<img id="mainLogo" src="stylesheets/mainLogo.png" />
+			
+			<div  id="headerMenu">
+				<a><img class="menuImg" src="stylesheets/nectar.png" />eJUICE</a>
+				<a><img class="menuImg" src="stylesheets/kits.png" />STARTER KIT</a>				
+				<a><img class="menuImg" src="stylesheets/atty.png" />ATOMIZATION</a>
+				<a><img class="menuImg" src="stylesheets/power.png" />POWER SECTION</a>
+				<a><img class="menuImg" src="stylesheets/coil.png" />COIL FACTORY</a>				
+			</div>
+		
+			<img id="menuBurger" src="stylesheets/menu.png" onclick="toggleMenu();" />
+			
+		</div>
+	</div>
+	
+
+	
+
+	
+
+	
+
+	
+	
+	
+	<div class="content fxStretch">
+			<div id="goldRibbon" class="fxFixed">
+				Nectar Collection
+			</div>
+	
+		<div id="contentContainer" class="fxDisplay fxWrap fxJustifyCenter">
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/1.png">						
+				<img class="topseller" src="./liquids/topseller.png">		
+				<span class="nectarName">Dragon's Kiss</span>
+				<span class="nectarInfo">vanilla enriched, caramelized dragon-fruit!</span>
+			</div>
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/2.png">		
+				<span class="nectarName">Nautical Spice</span>
+				<span class="nectarInfo">a creamy watermelon, kiwi, strawberry and lime fusion!</span>
+			</div>		
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/3.png">		
+				<span class="nectarName">Wild Frost</span>
+				<span class="nectarInfo">A wide range of cool-sensation infused wild berries!</span>
+			</div>		
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/4.png">		
+				<img class="topseller" src="./liquids/topseller.png">		
+				<span class="nectarName">Monkey Munch</span>
+				<span class="nectarInfo">ape's favorite... banana cinnamon cookie!</span>
+			</div>		
+
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/5.png">		
+				<span class="nectarName">Crimson Fuzz</span>
+				<span class="nectarInfo">a creamy, strawberry enriched kiwi smoothie!</span>
+			</div>		
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/6.png">		
+				<img class="topseller" src="./liquids/topseller.png">		
+				<span class="nectarName">Black Energy</span>
+				<span class="nectarInfo">blackcurrant/pomegranate candy with a slight lemon hint!</span>
+			</div>		
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/7.png">		
+				<span class="nectarName">Pastry Pot</span>
+				<span class="nectarInfo">mama's traditional vanilla cupcake!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/8.png">		
+				<span class="nectarName">Classic Analog</span>
+				<span class="nectarInfo">simply tobacco, in its liquid form!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/9.png">		
+				<img class="topseller" src="./liquids/topseller.png">		
+				<span class="nectarName">Passion Husky</span>
+				<span class="nectarInfo">passion-fruit caramel with a creamy coconut background!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/10.png">		
+				<span class="nectarName">Coral Milk</span>
+				<span class="nectarInfo">whipped cream covered peachy raspberry dessert!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/11.png">		
+				<span class="nectarName">Angry Melons</span>
+				<span class="nectarInfo">exotic papaya & melon mix with fused marshmallows!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/12.png">		
+				<img class="topseller" src="./liquids/topseller.png">		
+				<span class="nectarName">Scarlet's Bar</span>
+				<span class="nectarInfo">the known bar of joy! the strawberry cereal bar!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/13.png">		
+				<span class="nectarName">Nutty Scutt</span>
+				<span class="nectarInfo">a vanilla tobacco blend with pistachios and caramel!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/14.png">		
+				<span class="nectarName">Rose Junket</span>
+				<span class="nectarInfo">a creamy caramelly strawberry pudding!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/15.png">		
+				<span class="nectarName">Arctic Ruby</span>
+				<span class="nectarInfo">a cool minty shot of juicy creamy raspberries!</span>
+			</div>	
+
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/16.png">		
+				<span class="nectarName">Rainbow Oil</span>
+				<span class="nectarInfo">gummy bears, milky bottles, and all the fun in between!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/17.png">		
+				<span class="nectarName">Persian Malt</span>
+				<span class="nectarInfo">a greek yoghurt smoothie with Peaches and Oranges!</span>
+			</div>		
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/18.png">		
+				<span class="nectarName">Bubble Trouble</span>
+				<span class="nectarInfo">a classic fruity bubblegum, only without the chewing!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/19.png">		
+				<span class="nectarName">Liquid Pepper</span>
+				<span class="nectarInfo">a simple smooth and creamy cooling peppermint!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/20.png">		
+				<span class="nectarName">Purple Maze</span>
+				<span class="nectarInfo">blueberry & raspberry filled sugar glazed doughnuts!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/21.png">		
+				<span class="nectarName">Hue Cannon</span>
+				<span class="nectarInfo">fruity cereal covered, italian cream-filled cannoli!</span>
+			</div>		
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/22.png">		
+				<span class="nectarName">The First Sin</span>
+				<span class="nectarInfo">mama didn't eat the apple, she put it in a pie and fried it!</span>
+			</div>				
+		</div>
+	</div>
+
+
  
-          <td>Order</td>
-          <td><div id="resultDivContainer"></div></td>
-    </tr>
-    
-         <tr style="display:none">
-
-          <td>FB ID</td>
-          <td><div id="fbid"></div></td>
-    </tr>
-    
-
-    
-     <tr>
- 
-          <td>Email</td>
-          <td><div id="email"></div></td>
-    </tr>
-  </table>
-
-<button id="sendOrder" type="button" onclick="JSONTest()">Test Order</button>
-  
-
-<a href="#" id="fbLogin" style="display:none" onclick="fb_login();"><img src="https://plaaant.com/img/facebook-login.png" border="0" alt=""></a>
-  <a href="#" id="fbLogout" style="display:none" onclick="fb_logout();">not you?</a>
-  
-  
-  
-  <a href="#" onclick="fb_message();">try send message</a>
-
-</body>
+  </body>
 </html>
