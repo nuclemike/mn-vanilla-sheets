@@ -276,12 +276,14 @@ border: 0;
 
 #splashDiv{
 	left: 0;
-	top: 0;
+	top: -80px;
 	position: absolute;
 	width: 100%;
 	z-index: 99999999;
+	border-bottom: 2px solid #f4ce64;
 	height: 100%;
 	background: url(floralBGWhite.png);
+	box-shadow: 0 0 100px rgba(0,0,0,0.5);
 }
 
 #splashLogo{
