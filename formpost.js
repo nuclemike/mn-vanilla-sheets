@@ -22,9 +22,8 @@
                
              },
             200:function(){
-                window.location.assign("http://m.me/mamasnectar")
+                window.location.assign("http://m.me/mamasnectar");
               $('#notAuthorizedPanelContact').hide();
-  });
              }
         }    ,
         success: function (result) {
