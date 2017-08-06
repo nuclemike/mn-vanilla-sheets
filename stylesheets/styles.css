@@ -192,17 +192,16 @@ input#liquidOrderCustomerEmail{
 }
 
 #notAuthorizedPanelContact{
-		    /* border: 0; */
-		    color: #fff;
-		    font-family: quantico;
-		    padding: 14px 20px 14px 52px;
-		    border-radius: 3px;
-		    display: block;
-		    font-size: 15px;
-		    margin: 20px auto;
-		    background: url("chat.png") no-repeat 16px center #3B5997;
-		    display: inline-block;
-		    text-decoration: none;
+border: 0;
+    color: #fff;
+    font-family: quantico;
+    height: 36px;
+    padding: 0 20px 0 48px;
+    display: block;
+    border-radius: 3px;
+    font-size: 15px;
+    margin: 20px auto;
+    background: url(chat.png) no-repeat 14px center #3B5997;
 }
 
 #sendOrder{
