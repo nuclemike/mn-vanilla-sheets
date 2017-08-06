@@ -276,7 +276,7 @@ border: 0;
 
 #splashDiv{
 	left: 0;
-	top: -300px;
+	top: 0;
 	position: absolute;
 	width: 100%;
 	z-index: 999;
