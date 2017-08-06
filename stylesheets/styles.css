@@ -20,6 +20,8 @@ body {
 		background: url(floralBGWhite.png);
 }
 
+#hitCounter{
+}
 
 .content {
 	overflow-y:auto;
