@@ -23,7 +23,6 @@
               
             }        
         ,                
-        dataType: "xml",
         statusCode:{
             0: function(){
                
