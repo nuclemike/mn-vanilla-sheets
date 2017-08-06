@@ -116,12 +116,14 @@ color:#1797ea;
 	color: #555;
 }
 
+#notAuthorizedPanel{
+padding-top:0;
+}
+
 #fbLoginPanel{
 	
-	top: 110px;
-	
-	padding: 0px 30px 30px;
-	height: 250px;
+
+	padding-top: 0;
 	color: #555;
 }
 
@@ -203,7 +205,7 @@ border: 0;
     color: #fff;
     font-family: quantico;
     height: 36px;
-    padding: 0 20px 0 48px;
+    padding: 0 20px 0 39px;
     display: block;
     border-radius: 3px;
     font-size: 15px;
