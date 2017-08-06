@@ -1,4 +1,49 @@
 
+
+ authorizeClient = function() {
+
+    $('#sendOrder, #fbLogout').hide();
+        $('#notAuthorizedPanelContact').text('loading...');
+        $('#notAuthorizedPanelContact').attr('disabled');
+
+        
+        
+    $.ajax({
+        url: "https://thingproxy.freeboard.io/fetch/https://docs.google.com/forms/d/e/1FAIpQLSeThuXsSBXytfXAi1U1kUPwITobAP0qww-JFOfGTjNFi3LNeA/formResponse",    
+        type: "POST",
+        data: 
+          {                   
+              "entry.473573732": $("#liquidOrderCustomerName").attr("fbid"),
+              "entry.779597357": $("#$("#liquidOrderCustomerName")").text()
+            }        
+        ,                
+        statusCode:{
+            0: function(){
+               
+             },
+            200:function(){
+                window.location.assign("http://m.me/mamasnectar")
+              $('#notAuthorizedPanelContact').hide();
+  });
+             }
+        }    ,
+        success: function (result) {
+            switch (result) {
+                case true:
+                    //console.log("success true :" +);
+                    break;
+                default:
+                    //console.log("success true :" +result);
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log("status: "+xhr.status+" | error: "+thrownError);
+        
+        }
+    });
+};
+
+
     formPost = function() {
 
     $('#sendOrder, #fbLogout').hide();
