@@ -14,7 +14,6 @@ $(document).ready(function() {
 		
 		$("#liquidOrderSection").fadeTo(  "fast", 0, function() {
 			$( this ).css("z-index","-9999");
-			$('cancelOrder').text("Cancel");
 		});
 	});
 		
