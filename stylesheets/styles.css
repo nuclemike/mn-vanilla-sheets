@@ -20,8 +20,13 @@ body {
 		background: url(floralBGWhite.png);
 }
 
-#hitCounter{
-}
+#hitCounter{background: #111;}
+
+
+#hitCounter img{
+display: block;
+    margin: 0 auto;
+    }
 
 .content {
 	overflow-y:auto;
