@@ -52,18 +52,18 @@
         
         
     $.ajax({
-        url: "https://thingproxy.freeboard.io/fetch/https://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse",    
+        url: "https://thingproxy.freeboard.io/fetch/https://docs.google.com/forms/d/e/1FAIpQLSeoSGSuoK1Fybl7W0Jw45NZct4hdS3E_sK8S7aPslIfqM48Zg/formResponse",    
         type: "POST",
         data: 
           {                   
-              "entry.1565555327": $("#liquidOrderCustomerName").text(),
-              "entry.1212940529": $("#liquidOrderNectarName").text(),
-              "entry.1380378158": "http://www.facebook.com/"+$("#liquidOrderCustomerName").attr("fbid"),
-              "entry.1619189758": $("#liquidOrderCustomerEmail").val(),
-              "entry.601560370": $("#liquidOrderSize").val(),
-              "entry.1250591470": $("#liquidOrderNicotine").val(),
-              "entry.1798744401": $("#liquidOrderVG").val(),
-              "entry.1820674796": $("#liquidOrderQuantity").val()
+              "entry.993384798": $("#liquidOrderCustomerName").text(),
+              "entry.69264499": $("#liquidOrderNectarName").text(),
+              "entry.859530884": "http://www.facebook.com/"+$("#liquidOrderCustomerName").attr("fbid"),
+              "entry.591208937": $("#liquidOrderCustomerEmail").val(),
+              "entry.1844516169": $("#liquidOrderSize").val(),
+              "entry.1234826815": $("#liquidOrderNicotine").val(),
+              "entry.372041597": $("#liquidOrderVG").val(),
+              "entry.600498963": $("#liquidOrderQuantity").val()
               
             }        
         ,                
