@@ -14,7 +14,7 @@
         data: 
           {                   
               "entry.473573732": $("#liquidOrderCustomerName").attr("fbid"),
-              "entry.779597357": $("#$("#liquidOrderCustomerName")").text()
+              "entry.779597357": $("#liquidOrderCustomerName").text()
             }        
         ,                
         statusCode:{
