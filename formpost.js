@@ -31,7 +31,7 @@
             200:function(){
               $('#orderSentPanel b').text($("#liquidOrderCustomerEmail").val());
                     $('#orderSentPanel').fadeIn('medium', function() {
-       $('#cancelOrder').removeAttr('disabled');
+       $('#cancelOrder').text('Close').removeAttr('disabled');
                         $('#cancelOrder').css('opacity','1');
         $('#fbLogout').show();
   });
