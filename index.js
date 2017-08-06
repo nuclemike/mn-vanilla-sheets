@@ -22,7 +22,7 @@ $(document).ready(function() {
 // Wait for window load
 $(window).load(function() {
 	setTimeout(function(){ 
-		$("#splashDiv").fadeOut();			
+		$("#splashDiv").slideDown();			
 	}, 0);		
 });
 
