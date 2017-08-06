@@ -22,7 +22,8 @@ $(document).ready(function() {
 // Wait for window load
 $(window).load(function() {
 	setTimeout(function(){ 
-		$("#splashDiv").hide('slide', { direction: "down" }, 1000);//.slideDown();			
+		$("#splashDiv").slideUp();
+		$(".content").show();
 	}, 0);		
 });
 
