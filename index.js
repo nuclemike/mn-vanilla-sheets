@@ -22,7 +22,7 @@ $(document).ready(function() {
 // Wait for window load
 $(window).load(function() {
 	setTimeout(function(){ 
-		$("#splashDiv").slideUp();
+		$("#splashDiv").slideUp('slow');
 		$(".content").show();
 	}, 0);		
 });
