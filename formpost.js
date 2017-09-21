@@ -61,13 +61,7 @@
         else { $("#liquidOrderVG").removeClass("requiredField")}
      
      if ($( ".requiredField" ).length) {return false};
-     
-     
-              "entry.48792472": $("#liquidOrderCustomerNickname").val(),
-              "entry.1844516169": $("#liquidOrderSize").val(),
-              "entry.1234826815": $("#liquidOrderNicotine").val(),
-              "entry.372041597": $("#liquidOrderVG").val(),
-              "entry.600498963": $("#liquidOrderQuantity").val()
+
      
     $('#sendOrder, #fbLogout').hide();
         $('#cancelOrder').css('opacity','0');
