@@ -94,6 +94,7 @@
       document.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome dear Vaper!';
       document.getElementById('liquidOrderCustomerName').setAttribute("fbid",""); 
       document.getElementById('liquidOrderCustomerEmail').value = '';
+      document.getElementById('liquidOrderCustomerNickname').value = '';
     
       document.getElementById('fbLoginPanel').style.display = "block";
       document.getElementById('sendOrder').style.display = "none";      
@@ -110,6 +111,7 @@
       document.getElementById('liquidOrderCustomerName').innerHTML = response.name;      
       document.getElementById('liquidOrderCustomerName').setAttribute("fbid",response.id); 
       document.getElementById('liquidOrderCustomerEmail').value = response.email;
+      document.getElementById('liquidOrderCustomerNickname').value = response.name;
       
       document.getElementById('sendOrder').style.display = "block";      
       document.getElementById('fbLogout').style.display = "block";
@@ -125,7 +127,8 @@
 
       document.getElementById('liquidOrderCustomerName').innerHTML = response.name;      
       document.getElementById('liquidOrderCustomerName').setAttribute("fbid",response.id); 
-      document.getElementById('liquidOrderCustomerEmail').value = response.email;
+      document.getElementById('liquidOrderCustomerEmail').value = response.email;    
+      document.getElementById('liquidOrderCustomerNickname').value = response.name;
     
       document.getElementById('sendOrder').style.display = "block";      
       document.getElementById('fbLogout').style.display = "block";
