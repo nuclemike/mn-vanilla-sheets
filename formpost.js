@@ -44,7 +44,31 @@
 
 
     formPost = function() {
-
+      if ($("#liquidOrderCustomerEmail").val()=="") {
+        $("#liquidOrderCustomerEmail").addClass("requiredField")}
+        else { $("#liquidOrderCustomerEmail").removeClass("requiredField")}
+     
+      if ($("#liquidOrderCustomerNickname").val()=="") {
+        $("#liquidOrderCustomerNickname").addClass("requiredField")}
+        else { $("#liquidOrderCustomerNickname").removeClass("requiredField")}
+     
+      if ($("#liquidOrderNicotine").val()=="") {
+        $("#liquidOrderNicotine").addClass("requiredField")}
+        else { $("#liquidOrderNicotine").removeClass("requiredField")}
+     
+      if ($("#liquidOrderVG").val()=="") {
+        $("#liquidOrderVG").addClass("requiredField")}
+        else { $("#liquidOrderVG").removeClass("requiredField")}
+     
+     if ($( ".requiredField" ).length) {return false};
+     
+     
+              "entry.48792472": $("#liquidOrderCustomerNickname").val(),
+              "entry.1844516169": $("#liquidOrderSize").val(),
+              "entry.1234826815": $("#liquidOrderNicotine").val(),
+              "entry.372041597": $("#liquidOrderVG").val(),
+              "entry.600498963": $("#liquidOrderQuantity").val()
+     
     $('#sendOrder, #fbLogout').hide();
         $('#cancelOrder').css('opacity','0');
         $('#cancelOrder').attr('disabled');
@@ -60,6 +84,7 @@
               "entry.69264499": $("#liquidOrderNectarName").text(),
               "entry.859530884": "http://www.facebook.com/"+$("#liquidOrderCustomerName").attr("fbid"),
               "entry.591208937": $("#liquidOrderCustomerEmail").val(),
+              "entry.48792472": $("#liquidOrderCustomerNickname").val(),
               "entry.1844516169": $("#liquidOrderSize").val(),
               "entry.1234826815": $("#liquidOrderNicotine").val(),
               "entry.372041597": $("#liquidOrderVG").val(),
