@@ -216,9 +216,9 @@ border: 0;
 
 #totalCostSection {float: left;}
 
-#totalCost{float: left;font-size: 12px;}
+#totalCost{float: left;font-size: 12px;line-height: 8px;}
 
-#totalCostValue{float: left;clear: left;font-size: 22px;color: yellowgreen;font-weight: bold;}
+#totalCostValue{float: left;clear: left;font-size: 22px;color: #4ab74a;font-weight: bold;}
 
 #sendOrder{
 	    background: #f1cd63;
