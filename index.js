@@ -57,7 +57,7 @@ function updateCost() {
 	
 	total = price * qty;
 	
-	$("#totalCostValue").text(total);
+	$("#totalCostValue").text(total.toFixed(2));
 	
 }
 
