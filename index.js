@@ -47,7 +47,7 @@ function toggleMenu() {
 
 function updateCost() {
     var size = $("#liquidOrderSize").itemIndex();
-	var qty = $("#liquidOrderQuantity").itemIndex +1; 
+	var qty = $("#liquidOrderQuantity").itemIndex() +1; 
 	var price = 0.00;
 	var total = 0.00;
 	
