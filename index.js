@@ -46,14 +46,14 @@ function toggleMenu() {
 }
 
 function updateCost() {
-    var size = $("#liquidOrderSize").selectedIndex;
-	var qty = $("#liquidOrderQuantity").selectedIndex +1; 
+    var size = $("#liquidOrderSize").val();
+	var qty = $("#liquidOrderQuantity").val(); 
 	var price = 0.00;
 	var total = 0.00;
 	
-	if (size == 0) {price = 6}
-	else if (size == 1) {price = 10.50}
-	else if (size == 2) {price = 19.50}
+	if (size == 30) {price = 6}
+	else if (size == 60) {price = 10.50}
+	else if (size == 120) {price = 19.50}
 	
 	total = price * qty;
 	
