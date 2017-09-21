@@ -214,11 +214,9 @@ border: 0;
     background: url(unlock.png) no-repeat 14px center #3B5997;
 }
 
-#totalCost{
-}
+#totalCost{float: left;font-size: 12px;}
 
-#totalCostValue{
-}
+#totalCostValue{float: left;clear: left;font-size: 22px;color: yellowgreen;font-weight: bold;}
 
 #sendOrder{
 	    background: #f1cd63;
