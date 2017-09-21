@@ -45,4 +45,19 @@ function toggleMenu() {
     $("#headerMenu").toggleClass("open");
 }
 
+function updateCost() {
+    var size = $("#liquidOrderSize").val();
+	var qty = $("#liquidOrderQuantity").itemIndex +1; 
+	var price = 0.00;
+	var total = 0.00;
+	
+	if (size == 0) {price = 6}
+	else if (size == 1) {price = 10.50}
+	else if (size == 2) {price = 19.50}
+	
+	total = price * qty;
+	
+	$("#totalCostValue").text(total);
+	
+}
 
