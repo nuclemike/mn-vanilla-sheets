@@ -214,6 +214,12 @@ border: 0;
     background: url(unlock.png) no-repeat 14px center #3B5997;
 }
 
+#totalCost{
+}
+
+#totalCostValue{
+}
+
 #sendOrder{
 	    background: #f1cd63;
 	    border: 0;
