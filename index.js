@@ -46,8 +46,8 @@ function toggleMenu() {
 }
 
 function updateCost() {
-    var size = $("#liquidOrderSize").itemIndex();
-	var qty = $("#liquidOrderQuantity").itemIndex() +1; 
+    var size = $("#liquidOrderSize").selectedIndex;
+	var qty = $("#liquidOrderQuantity").selectedIndex +1; 
 	var price = 0.00;
 	var total = 0.00;
 	
