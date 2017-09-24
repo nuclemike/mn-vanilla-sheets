@@ -49,7 +49,7 @@ function toggleMenu() {
   function testAPI() {
     
     var url = "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=ctrlq&name=";
-    var name = "Amit Agarwal"
+    var name = "nuclemike@gmail.com"
 
     var request = jQuery.ajax({
       crossDomain: true,
