@@ -45,18 +45,25 @@ function toggleMenu() {
     $("#headerMenu").toggleClass("open");
 }
 
-function testAPI() {
- 
-$.ajax({
-        url:('https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec'),
-        dataType:'json',
-        type: 'post',
-        data: '',
-        success:function(response){
-              $('#testapi').text(response);
-        }
+  // Make an AJAX call to Google Script
+  function testAPI() {
+    
+    var url = "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=ctrlq&name=";
+    var name = "Amit Agarwal"
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: url + encodeURIComponent(name),
+      method: "GET",
+      dataType: "jsonp"
     });
-}
+
+  }
+
+  // print the returned data
+  function ctrlq(e) {
+    console.log(e.result)
+  }
 
 function updateCost() {
     var size = $("#liquidOrderSize").val();
