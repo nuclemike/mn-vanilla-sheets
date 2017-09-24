@@ -45,6 +45,19 @@ function toggleMenu() {
     $("#headerMenu").toggleClass("open");
 }
 
+function testAPI() {
+ 
+$.ajax({
+        url:('https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec'),
+        dataType:'json',
+        type: 'post',
+        data: ''
+        success:function(response){
+              $('#testapi').text(response);
+        }
+    });
+}
+
 function updateCost() {
     var size = $("#liquidOrderSize").val();
 	var qty = $("#liquidOrderQuantity").val(); 
