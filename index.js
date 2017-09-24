@@ -51,7 +51,7 @@ $.ajax({
         url:('https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec'),
         dataType:'json',
         type: 'post',
-        data: ''
+        data: '',
         success:function(response){
               $('#testapi').text(response);
         }
