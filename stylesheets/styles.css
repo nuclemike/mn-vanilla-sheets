@@ -281,6 +281,124 @@ border: 0;
 }
 
 
+/* LOGIN PUPOP */
+
+
+
+#loginPopup{
+	background: rgba(80,80,80,0.9);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+#loginPopupForm{
+	/* background: white; */
+	/* height: 450px; */
+	/* width: 600px; */
+	padding: 30px;
+	position: relative;
+	border-radius: 10px;
+	color: #999;
+	/* box-shadow: 215px 0 0 0 #eee inset; */
+	font-family: 'Raleway', sans-serif;
+}
+
+
+
+#loginPopupData{
+	background: white;
+	border-radius: 8px;
+	padding: 20px;
+	position: relative;
+}
+
+
+
+#loggingInPopupPanel{
+	position: absolute;
+	top: 110px;
+	background-color: white;
+	font-size: 15px;
+	text-align: center;
+	width: 100%;
+	left: 0;
+	padding: 30px;
+	height: 300px;
+	color: #555;
+    background: url(/stylesheets/sending.gif) center 30px no-repeat white;
+    padding-top: 163px;
+}
+
+#sendingPanel h4, #orderSentPanel h4, #fbLoginPanel h4, #notAuthorizedPanel h4{
+	font-size:31px;
+	margin:20px;
+	color: #888;
+}
+
+#orderSentPanel h4{color: #4ab74a;}
+
+
+#loginPopupTable{
+	width: 320px;
+	font-size: 15px;
+	color:#444;
+	margin-top: 16px;
+	border-top: 1px solid #eee;
+	padding-top: 18px;
+	margin-bottom: 20px;
+}
+
+
+#loginPopupTable td{
+	padding:5px 0;
+}
+
+.requiredField{
+	border-color: tomato !important;
+}
+
+#loginPopupTable input{font-family: 'Raleway', sans-serif;border: 1px solid #ddd;border-radius:3px;height: 35px;padding: 0 7px;color:#444;width: 100px;font-size: 15px;}
+
+input#loginPopupEmail, input#loginPopupPassword{
+	width:212px;
+}
+
+
+#loginPopupWelcome{/* position: absolute; */font-size: 21px;left: 91px;top: 30px;color: #444;}
+
+#cancelLoginPopupButton{
+    background: #ddd;
+    border: 0;
+    color: #666;
+    font-family: quantico;
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 3px;
+    font-size: 15px;
+    float: right;
+}
+
+
+#proceedLoginPopupButton{
+	    background: #f1cd63;
+	    border: 0;
+	    color: #444;
+	    font-family: quantico;
+	    height: 36px;
+	    padding: 0 20px;
+	    border-radius: 3px;
+	    font-size: 15px;
+	    float: right;
+	    margin-left: 10px;
+}
+}
+
+
+
+
 /*SPLASH*/
 
 
