@@ -49,8 +49,8 @@ function toggleMenu() {
 }
 
 function loginPopup() {
-		$(', #loggingInPanel').hide();		
-   		$("#loginPopupSection").css("z-index","9999").fadeTo( "medium", 1 );
+		$(', #loggingInPopupPanel').hide();		
+   		$("#loginPopup").css("z-index","9999").fadeTo( "medium", 1 );
 	}
 
   // Make an AJAX call to Google Script
