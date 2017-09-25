@@ -95,11 +95,11 @@ function loginPopup() {
     console.log(response.result)
 	  if (response.success == true){
 		//closeLoginPopup();  
-		  $('loginPopupError').text(response.name);
+		  $('#loginPopupError').text(response.name);
 	  }
 	  else
 	  {
-		  $('loginPopupError').text(response.name);
+		  $('#loginPopupError').text(response.name);
 	  }
   }
 
