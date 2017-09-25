@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+	
+	
 	$(".nectar").click(function() {
 		var imageUrl = $(this).children(".nectarFlask").attr("src");
 		var nectarName = $(this).children(".nectarName").text();
@@ -7,7 +10,7 @@ $(document).ready(function() {
 		$('#orderSentPanel, #sendingPanel').hide();
 		$('#sendOrder').toggle(!$('#authorizationText').hasClass('denied'));
    		$("#liquidOrderSection").css("z-index","9999").fadeTo( "medium", 1 );
-	});
+	});	
 	
 	
 	$("#cancelOrder").click(function() {
@@ -44,6 +47,11 @@ if( navigator.userAgent.match(/Android/i)
 function toggleMenu() {
     $("#headerMenu").toggleClass("open");
 }
+
+function loginPopup() {
+		$(', #loggingInPanel').hide();		
+   		$("#loginPopupSection").css("z-index","9999").fadeTo( "medium", 1 );
+	}
 
   // Make an AJAX call to Google Script
   function getLabRequests() {
