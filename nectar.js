@@ -3,5 +3,11 @@
 //	  window.localStorage.setItem('pass', response.pass);
 //	  window.localStorage.setItem('mobile', response.mobile);
       
-document.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome '+localStorage.getItem("name")+'!';
-document.getElementById('liquidOrderCustomerEmail').innerHTML = localStorage.getItem("email");
+
+function readLocalStorage() {
+      document.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome '+localStorage.getItem("name")+'!';
+      document.getElementById('liquidOrderCustomerEmail').innerHTML = localStorage.getItem("email");
+}
+
+readLocalStorage();
+
