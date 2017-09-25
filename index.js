@@ -46,9 +46,9 @@ function toggleMenu() {
 }
 
   // Make an AJAX call to Google Script
-  function testAPI() {
+  function getLabRequests() {
     
-    var url = "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=ctrlq&name=";
+    var url = "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=gLRCb&name=";
     var name = "nuclemike@gmail.com"
 
     var request = jQuery.ajax({
@@ -61,7 +61,28 @@ function toggleMenu() {
   }
 
   // print the returned data
-  function ctrlq(e) {
+  function gLRCb(e) {
+    console.log(e.result)
+  }
+
+  // Make an AJAX call to Google Script
+  function login() {
+    
+    var url = "https://script.google.com/macros/s/AKfycbzDWblHNTvXICpwOrT2Yi1NWbXS39IDnODUb6j7DX8gj-DEDGc/exec?callback=loginCb";
+    var user = "nuclemike@gmail.com"
+    var pass = "12345"
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: url + '&user='+encodeURIComponent(user)+'&pass='+encodeURIComponent(pass),
+      method: "GET",
+      dataType: "jsonp"
+    });
+
+  }
+
+  // print the returned data
+  function loginCb(e) {
     console.log(e.result)
   }
 
