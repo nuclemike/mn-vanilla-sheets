@@ -77,8 +77,8 @@ function loginPopup() {
   function login() {
     
     var url = "https://script.google.com/macros/s/AKfycbzDWblHNTvXICpwOrT2Yi1NWbXS39IDnODUb6j7DX8gj-DEDGc/exec?callback=loginCb";
-    var user = $('loginPopupEmail').val();
-    var pass = $('loginPopupPassword').val();
+    var user = $('#loginPopupEmail').val();
+    var pass = $('#loginPopupPassword').val();
 
     var request = jQuery.ajax({
       crossDomain: true,
