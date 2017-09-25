@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Mama's Nectar Collection</title>
+
 
         <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/global.css">
@@ -15,14 +16,14 @@
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
-    <script src="auths.js"></script>
+    <script src="https://drive.google.com/uc?export=download&id=0B0MLWVankH2PS3JEVHltenlnclU"></script>
 <script src="index.js"></script>
-
+<script src="formpost.js"></script>
     <script src="fbLogin.js"></script>
     <meta name="viewport" content="width=device-width">
    
   </head>
-	<body class="fxDisplay fxDirCol">
+	<body>
       		<div id="liquidOrderSection" class="fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
 			
     			<div id="liquidOrderForm" class="fxDisplay">
@@ -42,27 +43,26 @@
 															       
 				<span id="authorizationText" class="denied">Unauthorized: Please login with Facebook.</span>
 				
-								<div style="display:none;" id="googleIframeWrap">
-					<iframe scrolling="no" id="googleIframe" name="googleIframe" onload="iframeLoaded();"></iframe>
-				</div>
-				
-						<form action="http://docs.google.com/forms/d/e/1FAIpQLSeCCI4TI1CVp-6FgzFk4_XRsgUa9cTDVzUK0dg_1U-gHFzkzQ/formResponse" target="googleIframe" method="post">
-					 
-							
-				<input type="hidden"  name="entry.1380378158" id="liquidOrderCustomerProfile">														       
-				<input type="hidden" name="entry.1565555327"	 id="liquidOrderCustomer">
-				<input type="hidden" name="entry.1212940529" id="liquidOrderFlavor">
+						
+						
 							
 					<table id="liquidOrderTable">
 					<tr>
       						<td>E-Mail</td>      
       						<td>
-							<input type="text" name="entry.1619189758" id="liquidOrderCustomerEmail"></td>
-	  				</tr>					
+							<input type="text" id="liquidOrderCustomerEmail">
+						</td>
+	  				</tr>	
+					<tr>
+      						<td>Nickname</td>      
+      						<td>
+							<input type="text" id="liquidOrderCustomerNickname">
+						</td>
+	  				</tr>		
       					<tr> 
           					<td>Size</td>
           					<td>
-							<select name="entry.601560370" id="liquidOrderSize"">
+							<select id="liquidOrderSize" onchange="updateCost()">
   								<option disabled value="30">30ml</option>
   								<option selected value="60">60ml</option>
   								<option value="120">120ml</option>
@@ -72,7 +72,7 @@
       					<tr> 
           					<td>Quantity</td>
           					<td>
-							<select name="entry.1820674796" id="liquidOrderQuantity"">								
+							<select id="liquidOrderQuantity" onchange="updateCost()">								
 								<option selected value="1">1 Bottle</option>
 								<option value="2">2 Bottles</option>
 								<option value="3">3 Bottles</option>
@@ -84,7 +84,7 @@
       					<tr> 
           					<td>Nicotine</td>
           					<td>
-							<select name="entry.1250591470" id="liquidOrderNicotine"">
+							<select id="liquidOrderNicotine"">
 								<option disabled selected value> -- select -- </option>
 								<option value="0">Zero</option>
 								<option value="1">1mg</option>
@@ -111,7 +111,7 @@
       					<tr> 
           					<td>VG Ratio</td>
           					<td>
-							<select name="entry.1798744401" id="liquidOrderVG"">
+							<select id="liquidOrderVG"">
 								<option disabled selected value> -- select -- </option>
 								<option value="50">50%</option>
 								<option value="55">55%</option>
@@ -132,17 +132,33 @@
 				
 						
 				<div id="fbLoginPanel">
-					<span><b>Welcome to the Lab Request Ordering System!</b><br/><br/> Please login with Facebook so you'll be identified and can place a Mama's Nectar Lab Request!</span>
+					<h4>Welcome!</h4>
+					<span><b> This is the Lab Request Ordering System!</b><br/><br/> Please login with Facebook so you'll be identified and can place a Mama's Nectar Lab Request!</span>
 					<button id="fbLogin" class="denied" type="button" onclick="fb_login();">Login with Facebook</button>  
 				</div>
 					
 				<div id="notAuthorizedPanel" style="display:none;">
-					<span>We're sorry, but you are not yet Authorized. Contact Us now via chat so you'll get yourself activated and start using the Lab Request System!</span>
-					<a id="notAuthorizedPanelContact" href="http://m.me/mamasnectar">contact us!</a>
+					<h4>We're sorry!</h4>
+					<span><b>You are not yet Authorized.</b> Contact Us now via the button below so you'll get yourself activated and start using the Lab Request System!</span>
+					<button id="notAuthorizedPanelContact" class="denied" type="button" onclick="authorizeClient();">Ask for Authorization</button>
 				</div>
-										
-				<button id="sendOrder" style="display:none" class="denied" type="submit" >Place Order!</button>				
-				<button id="cancelOrder" type="button">Cancel</button>
+				
+				<div id="sendingPanel" style="display:none;">
+					<h4>just a moment...</h4>					
+				</div>
+				
+				<div id="orderSentPanel" style="display:none;">
+					<h4>Thanks!</h4>
+					<span>Your lab request has been sent! An auto email will be sent to <b></b> when your order is ready for pickup. </span>					
+				</div>
+				
+				<div id="totalCostSection">
+					<span id="totalCost">Total</span>
+					<span id="totalCostValue">€10.50</span>	
+				</div>
+				
+				<button id="sendOrder" style="display:none" class="denied" onclick="formPost()" >Send Request!</button>				
+				<button id="cancelOrder" type="button">Close</button>
 		
   </form>
   
@@ -155,12 +171,12 @@
      	      </div>
     </div>
     <div id="splashDiv" class="fxDisplay fxJustifyCenter fxAlignCenter">
-    <div id="splashLogo">
-     <img id="loader" src="stylesheets/loader.gif" />
-	 </div>
+    
+     <img id="loader" src="stylesheets/sending.gif" />
+	
   </div>
   
-	<div id="header" class="fxFixed">
+	<div id="header" >
 		<div id="headerContainer">
 		
 			<img id="mainLogo" src="stylesheets/mainLogo.png" />
@@ -188,15 +204,23 @@
 	
 	
 	
-	<div class="content fxStretch">
+	<div style="display:none" class="content">
 			<div id="goldRibbon" class="fxFixed">
 				Nectar Collection
 			</div>
+		
+		<div id="loginSection">
+		Login to place or view your Lab-Requests	
+		</div>		
+
+		<div id="myLabRequests">
+			
+		</div>
 	
 		<div id="contentContainer" class="fxDisplay fxWrap fxJustifyCenter">
 			<div class="nectar">
 				<img class="nectarFlask" src="./liquids/1.png">						
-				<img class="topseller" src="./liquids/topseller.png">		
+						
 				<span class="nectarName">Dragon's Kiss</span>
 				<span class="nectarInfo">vanilla enriched, caramelized dragon-fruit!</span>
 			</div>
@@ -215,7 +239,6 @@
 			
 			<div class="nectar">
 				<img class="nectarFlask" src="./liquids/4.png">		
-				<img class="topseller" src="./liquids/topseller.png">		
 				<span class="nectarName">Monkey Munch</span>
 				<span class="nectarInfo">ape's favorite... banana cinnamon cookie!</span>
 			</div>		
@@ -227,10 +250,9 @@
 			</div>		
 			
 			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/6.png">		
-				<img class="topseller" src="./liquids/topseller.png">		
+				<img class="nectarFlask" src="./liquids/6.png">			
 				<span class="nectarName">Black Energy</span>
-				<span class="nectarInfo">blackcurrant/pomegranate candy with a slight lemon hint!</span>
+				<span class="nectarInfo">blackcurrant / pomegranate candy with a slight lemon hint!</span>
 			</div>		
 			
 			<div class="nectar">
@@ -246,8 +268,7 @@
 			</div>	
 			
 			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/9.png">		
-				<img class="topseller" src="./liquids/topseller.png">		
+				<img class="nectarFlask" src="./liquids/9.png">			
 				<span class="nectarName">Passion Husky</span>
 				<span class="nectarInfo">passion-fruit caramel with a creamy coconut background!</span>
 			</div>	
@@ -266,7 +287,6 @@
 			
 			<div class="nectar">
 				<img class="nectarFlask" src="./liquids/12.png">		
-				<img class="topseller" src="./liquids/topseller.png">		
 				<span class="nectarName">Scarlet's Bar</span>
 				<span class="nectarInfo">the known bar of joy! the strawberry cereal bar!</span>
 			</div>	
@@ -330,8 +350,12 @@
 				<span class="nectarInfo">mama didn't eat the apple, she put it in a pie and fried it!</span>
 			</div>				
 		</div>
-	</div>
 
+		<div id="hitCounter">
+			<img src="//counter.websiteout.net/compte.php?S=www.mamasnectar.com&amp;C=36&amp;D=9&amp;N=0&amp;M=1" border="0">
+		</div>
+		
+	</div>
 
  
   </body>
