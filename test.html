@@ -24,6 +24,56 @@
    
   </head>
 	<body>
+		
+		
+      		<div id="loginSection" class="fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
+			
+    			<div id="loginForm" class="fxDisplay">
+				
+
+        		<div id="liquidOrderData">
+				
+
+				<span id="loginWelcome">Welcome dear Vaper!"</span>
+															       
+		
+				<table id="loginTable">
+					<tr>
+						<td>E-Mail</td>      
+						<td>
+							<input type="text" id="loginEmail">
+						</td>
+	  				</tr>	
+					<tr>
+						<td>Password</td>      
+						<td>
+							<input type="passsword" id="loginPassword">
+						</td>
+	  				</tr>					
+					<tr>
+						<td colspan="2">
+							<span id="loginError"></span>
+						</td>
+	  				</tr>						
+      								
+  				</table>			
+			
+				
+				<div id="loggingInPanel" style="display:none;">
+					<h4>logging in...</h4>					
+				</div>
+				
+			
+				<button id="proceedLoginButton" style="display:none" onclick="login()" >Login</button>				
+				<button id="cancelLoginButton" type="button">Cancel</button>
+
+  
+			</div>		
+		
+		
+		
+		
+		
       		<div id="liquidOrderSection" class="fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
 			
     			<div id="liquidOrderForm" class="fxDisplay">
@@ -35,13 +85,7 @@
 					<span id="liquidOrderNectarName">...</span>
 				</div>
         		<div id="liquidOrderData">
-  				<a href="#" id="fbLogout" style="display:none" onclick="fb_logout();">logout</a>
-				<img id="liquidOrderCustomerThumbnail" src="stylesheets/user.jpg"></td>
-				
-
-				<span id="liquidOrderCustomerName">Welcome dear Vaper!"</span>
-															       
-				<span id="authorizationText" class="denied">Unauthorized: Please login with Facebook.</span>
+  				<span id="liquidOrderCustomerName">Welcome dear Vaper!"</span>
 				
 						
 						
@@ -50,7 +94,7 @@
 					<tr>
       						<td>E-Mail</td>      
       						<td>
-							<input type="text" id="liquidOrderCustomerEmail">
+							<input type="text" disabled id="liquidOrderCustomerEmail">
 						</td>
 	  				</tr>	
 					<tr>
@@ -133,17 +177,7 @@
 			
 				
 						
-				<div id="fbLoginPanel">
-					<h4>Welcome!</h4>
-					<span><b> This is the Lab Request Ordering System!</b><br/><br/> Please login with Facebook so you'll be identified and can place a Mama's Nectar Lab Request!</span>
-					<button id="fbLogin" class="denied" type="button" onclick="fb_login();">Login with Facebook</button>  
-				</div>
-					
-				<div id="notAuthorizedPanel" style="display:none;">
-					<h4>We're sorry!</h4>
-					<span><b>You are not yet Authorized.</b> Contact Us now via the button below so you'll get yourself activated and start using the Lab Request System!</span>
-					<button id="notAuthorizedPanelContact" class="denied" type="button" onclick="authorizeClient();">Ask for Authorization</button>
-				</div>
+			
 				
 				<div id="sendingPanel" style="display:none;">
 					<h4>just a moment...</h4>					
@@ -162,8 +196,7 @@
 				<button id="sendOrder" style="display:none" class="denied" onclick="formPost()" >Send Request!</button>				
 				<button id="cancelOrder" type="button">Close</button>
 		
-  </form>
-  
+
 			</div>
   
 								      
