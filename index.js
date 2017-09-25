@@ -96,6 +96,11 @@ function loginPopup() {
 	  if (response.success == true){
 		//closeLoginPopup();  
 		  $('#loginPopupError').text(response.name);
+		  window.localStorage.setItem('name', response.name);
+		  window.localStorage.setItem('email', response.email);
+		  readLocalStorage();
+		  //window.localStorage.setItem('pass', response.pass);
+		  //window.localStorage.setItem('mobile', response.mobile);
 	  }
 	  else
 	  {
