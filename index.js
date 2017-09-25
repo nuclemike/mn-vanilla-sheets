@@ -92,7 +92,7 @@ function loginPopup() {
   // print the returned data
   function loginCb(response) {
 	//  window.localStorage.setItem('myCat', 'Tom');
-    console.log(response.result)
+    console.log(response)
 	  if (response.success == true){
 		//closeLoginPopup();  
 		  $('#loginPopupError').text(response.name);
