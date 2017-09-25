@@ -77,8 +77,8 @@ function loginPopup() {
   function login() {
     
     var url = "https://script.google.com/macros/s/AKfycbzDWblHNTvXICpwOrT2Yi1NWbXS39IDnODUb6j7DX8gj-DEDGc/exec?callback=loginCb";
-    var user = "nuclemike@gmail.com"
-    var pass = "12345"
+    var user = $('loginPopupEmail').val();
+    var pass = $('loginPopupPassword').val();
 
     var request = jQuery.ajax({
       crossDomain: true,
@@ -90,9 +90,24 @@ function loginPopup() {
   }
 
   // print the returned data
-  function loginCb(e) {
-    console.log(e.result)
+  function loginCb(response) {
+	//  window.localStorage.setItem('myCat', 'Tom');
+    console.log(response.result)
+	  if (response.success == true){
+		//closeLoginPopup();  
+		  $('loginPopupError').text(response.name);
+	  }
+	  else
+	  {
+		  $('loginPopupError').text(response.name);
+	  }
   }
+
+function closeLoginPopup() {
+	$("#loginPopup").fadeTo(  "fast", 0, function() {
+		$( this ).css("z-index","-9999");
+	});
+}
 
 function updateCost() {
     var size = $("#liquidOrderSize").val();
