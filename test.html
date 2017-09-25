@@ -16,7 +16,7 @@
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
-    <script src="https://drive.google.com/uc?export=download&id=0B0MLWVankH2PS3JEVHltenlnclU"></script>
+
 <script src="index.js"></script>
 <script src="formpost.js"></script>
     <script src="fbLogin.js"></script>
@@ -63,8 +63,9 @@
           					<td>Size</td>
           					<td>
 							<select id="liquidOrderSize" onchange="updateCost()">
-  								<option disabled value="30">30ml</option>
-  								<option selected value="60">60ml</option>
+								<option disabled selected value> -- select -- </option>
+  								<option value="30">30ml</option>
+  								<option value="60">60ml</option>
   								<option value="120">120ml</option>
   							</select>
 					   	</td>
@@ -72,8 +73,9 @@
       					<tr> 
           					<td>Quantity</td>
           					<td>
-							<select id="liquidOrderQuantity" onchange="updateCost()">								
-								<option selected value="1">1 Bottle</option>
+							<select id="liquidOrderQuantity" onchange="updateCost()">	
+								<option disabled selected value> -- select -- </option>
+								<option value="1">1 Bottle</option>
 								<option value="2">2 Bottles</option>
 								<option value="3">3 Bottles</option>
 								<option value="4">4 Bottles</option>
