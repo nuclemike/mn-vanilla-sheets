@@ -10,5 +10,7 @@ function readLocalStorage() {
       document.getElementById('loginSectionName').innerHTML = 'Welcome '+localStorage.getItem("name")+'!';
 }
 
-readLocalStorage();
+window.onload = function(){
+  readLocalStorage();
+};
 
