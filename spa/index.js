@@ -2,31 +2,7 @@ $(document).ready(function() {
 
 	
 	
-	$(".nectar").click(function() {
-		var imageUrl = $(this).children(".nectarFlask").attr("src");
-		var nectarName = $(this).children(".nectarName").text();
-		document.getElementById("liquidOrderNectarThumbnail").setAttribute("src", imageUrl);
-		document.getElementById("liquidOrderNectarName").innerHTML = nectarName;
-		$('#orderSentPanel, #sendingPanel').hide();
-		$('#sendOrder').toggle(!$('#authorizationText').hasClass('denied'));
-   		$("#liquidOrderSection").css("z-index","9999").fadeTo( "medium", 1 );
-		
-		/*
-		      document.getElementById('authorizationText').innerHTML = "Authorized Mama's Nectar relative!";
-      document.getElementById('authorizationText').className = "";        
-      document.getElementById('liquidOrderCustomerThumbnail').setAttribute("src","http://graph.facebook.com/"+response.id+"/picture?width=100&height=100");
 
-      document.getElementById('liquidOrderCustomerName').innerHTML = response.name;      
-      document.getElementById('liquidOrderCustomerName').setAttribute("fbid",response.id); 
-      document.getElementById('liquidOrderCustomerEmail').value = response.email;    
-      document.getElementById('liquidOrderCustomerNickname').value = response.name;
-    
-      document.getElementById('sendOrder').style.display = "block";      
-      document.getElementById('fbLogout').style.display = "block";
-      document.getElementById('fbLoginPanel').style.display = "none";
-      document.getElementById('notAuthorizedPanel').style.display = "none";   
-		*/
-	});	
 	
 	
 	$("#cancelOrder").click(function() {
@@ -76,10 +52,18 @@ function loadContent(pageName) {
 
 
 function placeLabRequest(nectarName) {
-	
-	
+
 	var imgUrl = './liquids/' + nectarName.replace(/[^a-z0-9]/gi,'') +'.png';
-    alert(nectarName + '  -  ' + imgUrl);
+
+	document.getElementById("liquidOrderNectarThumbnail").setAttribute("src", imgUrl);
+	document.getElementById("liquidOrderNectarName").innerHTML = nectarName;
+	document.getElementById('liquidOrderCustomerName').innerHTML = sessionStorage.getItem("name");
+	document.getElementById('liquidOrderCustomerEmail').value = sessionStorage.getItem("email");   
+	document.getElementById('liquidOrderCustomerNickname').value = sessionStorage.getItem("name");
+	$('#orderSentPanel, #sendingPanel').hide();
+	$("#liquidOrderSection").css("z-index","9999").fadeTo( "medium", 1 );
+
+
 }
 
 
@@ -93,9 +77,7 @@ function authenticatedFunction(func) {
 
 var afterLoginFunction = null;
     
-    function bassa() {
-    alert('bassa');
-}
+
 
 function toggleMenu() {
     $("#headerMenu").toggleClass("open");
