@@ -1,0 +1,8 @@
+		<script>loadMyLab();</script>
+    <div id="labRequestsSection">
+			<span id="loggedInName"></span>
+			<button id="loginSectionLogout" onclick="logout()">Logout</button>	
+			<div id="labRequestsInnerSection">
+				
+			</div>
+		</div>	
