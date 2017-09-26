@@ -17,26 +17,23 @@ function populateUser(success) {
 }
 
 // Make an AJAX call to Google Script
-function getLabRequests(success) {
-      if (success){
-            var url = "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=gLRCb&email=";
-            var email =  sessionStorage.getItem("email");
+function loadMyLab() {
+      
+      var url = "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=gLRCb&email=";
+      var email =  sessionStorage.getItem("email");
 
-            var request = jQuery.ajax({
-                  crossDomain: true,
-                  url: url + encodeURIComponent(email),
-                  method: "GET",
-                  dataType: "jsonp"
-            });
-      }
-      else{
-           console.log('Lab requests Denied!') 
-      }
+      var request = jQuery.ajax({
+            crossDomain: true,
+            url: url + encodeURIComponent(email),
+            method: "GET",
+            dataType: "jsonp"
+      });
+     
 }
 
   // print the returned data
       function gLRCb(e) {
-            console.log(e)
+         
             
             if (e.error){
                   alert(e.message);
@@ -110,7 +107,6 @@ function getLabRequests(success) {
 window.onload = function(){
   var success = loadSession();
   populateUser(success);
-  getLabRequests(success);
 };
 
 function loadSession() {
