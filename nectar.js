@@ -1,27 +1,21 @@
-// window.localStorage.setItem('name', response.name);
-//	  window.localStorage.setItem('email', response.email);
-//	  window.localStorage.setItem('pass', response.pass);
-//	  window.localStorage.setItem('mobile', response.mobile);
-      
 
-function readLocalStorage() {
-      document.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome '+localStorage.getItem("name")+'!';
-      document.getElementById('liquidOrderCustomerEmail').value = localStorage.getItem("email");
-      document.getElementById('loginSectionName').innerHTML = 'Welcome '+localStorage.getItem("name")+'!';
-}
-
-
-function populateUser() {
-      document.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome '+localStorage.getItem("name")+'!';
-      document.getElementById('liquidOrderCustomerEmail').value = localStorage.getItem("email");
-      document.getElementById('loginSectionName').innerHTML = 'Welcome '+localStorage.getItem("name")+'!';
+function populateUser(success) {
+      if(success)
+      {
+            document.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';
+            document.getElementById('liquidOrderCustomerEmail').value = sessionStorage.getItem("email");
+            document.getElementById('loginSectionName').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';
+      }
+      else {
+            document.getElementById('liquidOrderCustomerName').innerHTML = 'Unauthorized';
+            document.getElementById('liquidOrderCustomerEmail').value = 'Unauthorized';
+            document.getElementById('loginSectionName').innerHTML = 'Please login';            
+      }
 }
 
 // Make an AJAX call to Google Script
-function getLabRequests() {
-      if (localStorage.getItem("email") == null){
-      }
-      else{
+function getLabRequests(success) {
+      if (success){
             var url = "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=gLRCb&name=";
             var name = "nuclemike@gmail.com"
 
@@ -32,6 +26,9 @@ function getLabRequests() {
                   dataType: "jsonp"
             });
       }
+      else{
+           console.log('Lab requests Denied!') 
+      }
 }
 
   // print the returned data
@@ -40,16 +37,17 @@ function getLabRequests() {
   }
 
 window.onload = function(){
-  loadSession();
-  getLabRequests();
+  var success = loadSession();
+  populateUser(success);
+  getLabRequests(success);
 };
 
 function loadSession() {
-      sessionStorage.setItem('name', localStorage.getItem("name") || saessionStorage.getItem("name"));      
-      sessionStorage.setItem('email', localStorage.getItem("email") || saessionStorage.getItem("email"));            
-      sessionStorage.setItem('pass', localStorage.getItem("pass") || saessionStorage.getItem("pass"));            
-      sessionStorage.setItem('mobile', localStorage.getItem("mobile") || saessionStorage.getItem("mobile"));      
+      sessionStorage.setItem('name', localStorage.getItem("name") || sessionStorage.getItem("name"));      
+      sessionStorage.setItem('email', localStorage.getItem("email") || sessionStorage.getItem("email"));            
+      sessionStorage.setItem('pass', localStorage.getItem("pass") || sessionStorage.getItem("pass"));            
+      sessionStorage.setItem('mobile', localStorage.getItem("mobile") || sessionStorage.getItem("mobile"));  
+      return Boolean(sessionStorage.getItem("name"));
 }
 
-var j = i || 10; //j is now 10
 
