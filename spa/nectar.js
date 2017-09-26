@@ -2,23 +2,17 @@
 function populateUser(success) {
       if(success)
       {
-            document.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';
-            document.getElementById('liquidOrderCustomerEmail').value = sessionStorage.getItem("email");
-            document.getElementById('loggedInName').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';   
+            document.getElementById('headerLogin').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!  <a onclick="logout()">Logout</a>';   
       }
       else {
-            document.getElementById('liquidOrderCustomerName').innerHTML = 'Unauthorized';
-            document.getElementById('liquidOrderCustomerEmail').value = 'Unauthorized';
-            
+            document.getElementById('headerLogin').innerHTML = '<a onclick="loginPopup()">Login</a>';       
       }
-      
-      $('#loginSection').toggle(!success);
-      $('#labRequestsSection').toggle(success)
+     
 }
 
 // Make an AJAX call to Google Script
 function loadMyLab() {
-      
+      document.getElementById("myLabName").innerHTML = sessionStorage.getItem("name");
       var url = "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=gLRCb&email=";
       var email =  sessionStorage.getItem("email");
 
