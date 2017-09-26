@@ -16,12 +16,12 @@ function populateUser(success) {
 // Make an AJAX call to Google Script
 function getLabRequests(success) {
       if (success){
-            var url = "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=gLRCb&name=";
-            var name = "nuclemike@gmail.com"
+            var url = "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=gLRCb&email=";
+            var email =  sessionStorage.getItem("email");
 
             var request = jQuery.ajax({
                   crossDomain: true,
-                  url: url + encodeURIComponent(name),
+                  url: url + encodeURIComponent(email),
                   method: "GET",
                   dataType: "jsonp"
             });
@@ -34,6 +34,8 @@ function getLabRequests(success) {
   // print the returned data
   function gLRCb(e) {
     console.log(e.result)
+        
+        labRequestsInnerSection
   }
 
 window.onload = function(){
