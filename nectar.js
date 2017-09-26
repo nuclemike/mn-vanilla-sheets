@@ -47,7 +47,8 @@ function loadSession() {
       sessionStorage.setItem('email', localStorage.getItem("email") || sessionStorage.getItem("email"));            
       sessionStorage.setItem('pass', localStorage.getItem("pass") || sessionStorage.getItem("pass"));            
       sessionStorage.setItem('mobile', localStorage.getItem("mobile") || sessionStorage.getItem("mobile"));  
-      return Boolean(sessionStorage.getItem("name"));
+      var result = (sessionStorage.getItem("name") != null )
+      return result;
 }
 
 
