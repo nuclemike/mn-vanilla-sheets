@@ -74,7 +74,7 @@ function getLabRequests(success) {
                   
                   $('#labRequestsInnerSection').innerHtml(pendingRequests);
             }
-    /
+    
       }
 
 window.onload = function(){
