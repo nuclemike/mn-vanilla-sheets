@@ -60,9 +60,20 @@ function loadContent(pageName) {
 
 
 function placeLabRequest(nectarName) {
-	var imgUrl = nectarName.replace(/[^a-z0-9]/gi,'');
-    alert(nectarName + '-' + imgUrl);
+	
+	
+	var imgUrl = './liquids/' + nectarName.replace(/[^a-z0-9]/gi,'') +'.png';
+    alert(nectarName + '  -  ' + imgUrl);
 }
+
+
+function authenticatedFunction(func) {
+  if (loadSession()) func()
+	else
+		alert('you need to login')
+}
+
+authenticatedFunction(function(){ placeLabRequest('test') });
 
 function toggleMenu() {
     $("#headerMenu").toggleClass("open");
