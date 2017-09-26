@@ -55,7 +55,7 @@ function placeLabRequest(nectarName) {
 
 	var imgUrl = './liquids/' + nectarName.replace(/[^a-z0-9]/gi,'') +'.png';
 
-	document.getElementById("liquidOrderNectarThumbnail").setAttribute("src", imgUrl.toLowerCase(););
+	document.getElementById("liquidOrderNectarThumbnail").setAttribute("src", imgUrl.toLowerCase());
 	document.getElementById("liquidOrderNectarName").innerHTML = nectarName;
 	document.getElementById('liquidOrderCustomerName').innerHTML = sessionStorage.getItem("name");
 	document.getElementById('liquidOrderCustomerEmail').value = sessionStorage.getItem("email");   
