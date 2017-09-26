@@ -73,6 +73,16 @@ function loginPopup() {
     console.log(e.result)
   }
 
+function logout() {
+	localStorage.removeItem('name');
+	localStorage.removeItem('email');
+	localStorage.removeItem('pass');
+	localStorage.removeItem('mobile');	
+	readLocalStorage();
+}
+
+
+
   // Make an AJAX call to Google Script
   function login() {
     
@@ -98,9 +108,10 @@ function loginPopup() {
 		  $('#loginPopupError').text(response.name);
 		  window.localStorage.setItem('name', response.name);
 		  window.localStorage.setItem('email', response.email);
+		  window.localStorage.setItem('pass', response.pass);
+		  window.localStorage.setItem('mobile', response.mobile);
 		  readLocalStorage();
-		  //window.localStorage.setItem('pass', response.pass);
-		  //window.localStorage.setItem('mobile', response.mobile);
+
 	  }
 	  else
 	  {
