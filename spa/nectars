@@ -1,0 +1,155 @@
+
+		<div id="goldRibbon" class="fxFixed">
+			<div id="loginSection">
+				Welcome to Mama's Nectar! Please <button id="loginSectionButton" onclick="loginPopup()">Login</button> to place or view Lab-Requests!</span>
+		</div>		
+		
+		<div id="labRequestsSection">
+			<span id="loggedInName"></span>
+			<button id="loginSectionLogout" onclick="logout()">Logout</button>	
+			<div id="labRequestsInnerSection">
+				
+			</div>
+		</div>	
+			</div>
+		
+		<h1 id="pageTitle">Nectar Collection</h1>
+		
+		<div id="contentContainer" class="fxDisplay fxWrap fxJustifyCenter">
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/1.png">						
+						
+				<span class="nectarName">Dragon's Kiss</span>
+				<span class="nectarInfo">vanilla enriched, caramelized dragon-fruit!</span>
+			</div>
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/2.png">		
+				<span class="nectarName">Nautical Spice</span>
+				<span class="nectarInfo">a creamy watermelon, kiwi, strawberry and lime fusion!</span>
+			</div>		
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/3.png">		
+				<span class="nectarName">Wild Frost</span>
+				<span class="nectarInfo">A wide range of cool-sensation infused wild berries!</span>
+			</div>		
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/4.png">		
+				<span class="nectarName">Monkey Munch</span>
+				<span class="nectarInfo">ape's favorite... banana cinnamon cookie!</span>
+			</div>		
+
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/5.png">		
+				<span class="nectarName">Crimson Fuzz</span>
+				<span class="nectarInfo">a creamy, strawberry enriched kiwi smoothie!</span>
+			</div>		
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/6.png">			
+				<span class="nectarName">Black Energy</span>
+				<span class="nectarInfo">blackcurrant / pomegranate candy with a slight lemon hint!</span>
+			</div>		
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/7.png">		
+				<span class="nectarName">Pastry Pot</span>
+				<span class="nectarInfo">mama's traditional vanilla cupcake!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/8.png">		
+				<span class="nectarName">Classic Analog</span>
+				<span class="nectarInfo">simply tobacco, in its liquid form!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/9.png">			
+				<span class="nectarName">Passion Husky</span>
+				<span class="nectarInfo">passion-fruit caramel with a creamy coconut background!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/10.png">		
+				<span class="nectarName">Coral Milk</span>
+				<span class="nectarInfo">whipped cream covered peachy raspberry dessert!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/11.png">		
+				<span class="nectarName">Angry Melons</span>
+				<span class="nectarInfo">exotic papaya & melon mix with fused marshmallows!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/12.png">		
+				<span class="nectarName">Scarlet's Bar</span>
+				<span class="nectarInfo">the known bar of joy! the strawberry cereal bar!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/13.png">		
+				<span class="nectarName">Nutty Scutt</span>
+				<span class="nectarInfo">a vanilla tobacco blend with pistachios and caramel!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/14.png">		
+				<span class="nectarName">Rose Junket</span>
+				<span class="nectarInfo">a creamy caramelly strawberry pudding!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/15.png">		
+				<span class="nectarName">Arctic Ruby</span>
+				<span class="nectarInfo">a cool minty shot of juicy creamy raspberries!</span>
+			</div>	
+
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/16.png">		
+				<span class="nectarName">Rainbow Oil</span>
+				<span class="nectarInfo">gummy bears, milky bottles, and all the fun in between!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/17.png">		
+				<span class="nectarName">Persian Malt</span>
+				<span class="nectarInfo">a greek yoghurt smoothie with Peaches and Oranges!</span>
+			</div>		
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/18.png">		
+				<span class="nectarName">Bubble Trouble</span>
+				<span class="nectarInfo">a classic fruity bubblegum, only without the chewing!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/19.png">		
+				<span class="nectarName">Liquid Pepper</span>
+				<span class="nectarInfo">a simple smooth and creamy cooling peppermint!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/20.png">		
+				<span class="nectarName">Purple Maze</span>
+				<span class="nectarInfo">blueberry & raspberry filled sugar glazed doughnuts!</span>
+			</div>	
+			
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/21.png">		
+				<span class="nectarName">Hue Cannon</span>
+				<span class="nectarInfo">fruity cereal covered, italian cream-filled cannoli!</span>
+			</div>		
+			<div class="nectar">
+				<img class="nectarFlask" src="./liquids/22.png">		
+				<span class="nectarName">The First Sin</span>
+				<span class="nectarInfo">mama didn't eat the apple, she put it in a pie and fried it!</span>
+			</div>				
+		</div>
+
+		<div id="hitCounter">
+			<img src="//counter.websiteout.net/compte.php?S=www.mamasnectar.com&amp;C=36&amp;D=9&amp;N=0&amp;M=1" border="0">
+		</div>
+		
