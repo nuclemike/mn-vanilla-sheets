@@ -10,6 +10,22 @@ $(document).ready(function() {
 		$('#orderSentPanel, #sendingPanel').hide();
 		$('#sendOrder').toggle(!$('#authorizationText').hasClass('denied'));
    		$("#liquidOrderSection").css("z-index","9999").fadeTo( "medium", 1 );
+		
+		/*
+		      document.getElementById('authorizationText').innerHTML = "Authorized Mama's Nectar relative!";
+      document.getElementById('authorizationText').className = "";        
+      document.getElementById('liquidOrderCustomerThumbnail').setAttribute("src","http://graph.facebook.com/"+response.id+"/picture?width=100&height=100");
+
+      document.getElementById('liquidOrderCustomerName').innerHTML = response.name;      
+      document.getElementById('liquidOrderCustomerName').setAttribute("fbid",response.id); 
+      document.getElementById('liquidOrderCustomerEmail').value = response.email;    
+      document.getElementById('liquidOrderCustomerNickname').value = response.name;
+    
+      document.getElementById('sendOrder').style.display = "block";      
+      document.getElementById('fbLogout').style.display = "block";
+      document.getElementById('fbLoginPanel').style.display = "none";
+      document.getElementById('notAuthorizedPanel').style.display = "none";   
+		*/
 	});	
 	
 	
