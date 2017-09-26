@@ -59,8 +59,9 @@ function loadContent(pageName) {
 
 
 
-function placeLabRequest(imgUrl) {
-    alert(imgUrl);
+function placeLabRequest(nectarName) {
+	var imgUrl = nectarName.replace(/[^a-z0-9]/gi,'');
+    alert(nectarName + '-' + imgUrl);
 }
 
 function toggleMenu() {
