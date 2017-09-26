@@ -85,11 +85,13 @@ function placeLabRequest(nectarName) {
 
 function authenticatedFunction(func) {
   if (loadSession()) func()
-	else
-		alert('you need to login')
+	else{
+		loginPopup();
+		afterLoginFunction = func
+	}
 }
 
-var testfunc = bassa;
+var afterLoginFunction = null;
     
     function bassa() {
     alert('bassa');
@@ -100,7 +102,7 @@ function toggleMenu() {
 }
 
 function loginPopup() {
-		$(', #loggingInPopupPanel').hide();		
+		$('#loggingInPopupPanel').hide();		
    		$("#loginPopup").css("z-index","9999").fadeTo( "medium", 1 );
 	}
 
@@ -155,15 +157,19 @@ function loginCb(response) {
 
 		closeLoginPopup();  
 		populateUser(true);
+		if (afterLoginFunction != null) afterLoginFunction();
+		afterLoginFunction = null;
 
 	}
 	else 
 	{
 		$('#loginPopupError').text(response.name);
+		afterLoginFunction = null;
 	}
 }
 
 function closeLoginPopup() {
+	afterLoginFunction = null;
 	$("#loginPopup").fadeTo(  "fast", 0, function() {
 		$( this ).css("z-index","-9999");
 	});
