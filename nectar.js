@@ -42,34 +42,64 @@ function getLabRequests(success) {
                   alert(e.message);
             }
             else {
-                  var pendingRequests = '';                  
+                  var html = '';                  
                   
                   if (e.pending.length > 0){
-                        pendingRequests += '<table>';
-                        pendingRequests += '<tr>';
-                        pendingRequests += '<th>Nectar</th>';
-                        pendingRequests += '<th>Size</th>';
-                        pendingRequests += '<th>Nicotine</th>';
-                        pendingRequests += '<th>VP/PG</th>';
-                        pendingRequests += '<th>Quantity</th>';
-                        pendingRequests += '<th>Nickname</th>';
-                        pendingRequests += '</tr>';
+                        html += '<h2>Processing</h2>';
+                        html += '<table>';
+                        html += '<tr>';
+                        html += '<th>Nectar</th>';
+                        html += '<th>Size</th>';
+                        html += '<th>Nicotine</th>';
+                        html += '<th>VP/PG</th>';
+                        html += '<th>Quantity</th>';
+                        html += '<th>Nickname</th>';
+                        html += '</tr>';
                         
                         e.pending.forEach( function (item){
-                              pendingRequests += '<tr>';
-                              pendingRequests += '<td>' + item.flavor + '</td>';
-                              pendingRequests += '<td>' + item.size + '</td>';
-                              pendingRequests += '<td>' + item.nicotine + '</td>';
-                              pendingRequests += '<td>' + item.vg + '</td>';
-                              pendingRequests += '<td>' + item.quantity + '</td>';
-                              pendingRequests += '<td>' + item.nickname + '</td>';
-                              pendingRequests += '</tr>';
+                              html += '<tr>';
+                              html += '<td>' + item.flavor + '</td>';
+                              html += '<td>' + item.size + '</td>';
+                              html += '<td>' + item.nicotine + '</td>';
+                              html += '<td>' + item.vg + '</td>';
+                              html += '<td>' + item.quantity + '</td>';
+                              html += '<td>' + item.nickname + '</td>';
+                              html += '</tr>';
                         });
-                        pendingRequests += '</table>';
+                        html += '</table>';
                   }
                   else{     
-                        pendingRequests = '<span>you have no Pending Lab-Requests</span><br>'
+                        html = '<span>you have no Pending Lab-Requests</span><br><br>'
                   }
+               
+                  
+                  if (e.ready.length > 0){
+                        html += '<h2>Ready for Pickup!</h2>';
+                        html += '<table>';
+                        html += '<tr>';
+                        html += '<th>Nectar</th>';
+                        html += '<th>Size</th>';
+                        html += '<th>Nicotine</th>';
+                        html += '<th>VP/PG</th>';
+                        html += '<th>Quantity</th>';
+                        html += '<th>Nickname</th>';
+                        html += '</tr>';
+                        
+                        e.ready.forEach( function (item){
+                              html += '<tr>';
+                              html += '<td>' + item.flavor + '</td>';
+                              html += '<td>' + item.size + '</td>';
+                              html += '<td>' + item.nicotine + '</td>';
+                              html += '<td>' + item.vg + '</td>';
+                              html += '<td>' + item.quantity + '</td>';
+                              html += '<td>' + item.nickname + '</td>';
+                              html += '</tr>';
+                        });
+                        html += '</table>';
+                  }
+                  else{     
+                        html = '<span>you have no Lab-Requests ready for pickup</span><br><br>'
+                  }                
 
                   
                   document.getElementById('labRequestsInnerSection').innerHTML = pendingRequests;
