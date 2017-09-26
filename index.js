@@ -60,7 +60,11 @@ function logout() {
 	localStorage.removeItem('email');
 	localStorage.removeItem('pass');
 	localStorage.removeItem('mobile');	
-	readLocalStorage();
+	sessionStorage.removeItem('name');
+	sessionStorage.removeItem('email');
+	sessionStorage.removeItem('pass');
+	sessionStorage.removeItem('mobile');	
+	populateUser(false);
 }
 
 
