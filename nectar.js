@@ -4,13 +4,16 @@ function populateUser(success) {
       {
             document.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';
             document.getElementById('liquidOrderCustomerEmail').value = sessionStorage.getItem("email");
-            document.getElementById('loginSectionName').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';
+            document.getElementById('loggedInName').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';   
       }
       else {
             document.getElementById('liquidOrderCustomerName').innerHTML = 'Unauthorized';
             document.getElementById('liquidOrderCustomerEmail').value = 'Unauthorized';
-            document.getElementById('loginSectionName').innerHTML = 'Please login';            
+            
       }
+      
+      $('#loginSection').toggle(!success);
+      $('#labRequestsSection').toggle(success)
 }
 
 // Make an AJAX call to Google Script
