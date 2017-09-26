@@ -5,7 +5,7 @@ function populateUser(success) {
             document.getElementById('headerLogin').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!  <a onclick="logout()">Logout</a>';   
       }
       else {
-            document.getElementById('headerLogin').innerHTML = '<a onclick="loginPopup()">Login</a>';       
+            document.getElementById('headerLogin').innerHTML = '';       
       }
      
 }
