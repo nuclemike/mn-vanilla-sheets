@@ -43,12 +43,23 @@ window.onload = function(){
 };
 
 function loadSession() {
-      sessionStorage.setItem('name', localStorage.getItem("name") || sessionStorage.getItem("name"));      
-      sessionStorage.setItem('email', localStorage.getItem("email") || sessionStorage.getItem("email"));            
-      sessionStorage.setItem('pass', localStorage.getItem("pass") || sessionStorage.getItem("pass"));            
-      sessionStorage.setItem('mobile', localStorage.getItem("mobile") || sessionStorage.getItem("mobile"));  
-      var result = !(sessionStorage.getItem("name") == null)
-      return result;
+      if (sessionStorage.getItem("name") != null) {
+            return true;
+                        
+      }
+      else {
+            if (localStorage.getItem("name") != null) {
+                  sessionStorage.setItem('name', localStorage.getItem("name"));       
+                  sessionStorage.setItem('email', localStorage.getItem("email"));
+                  sessionStorage.setItem('pass', localStorage.getItem("pass"));
+                  sessionStorage.setItem('mobile', localStorage.getItem("mobile"));
+                  return true;
+            } 
+            else return false;
+      }
+            
+   
+
 }
 
 
