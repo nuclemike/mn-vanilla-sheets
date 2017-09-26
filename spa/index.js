@@ -155,10 +155,10 @@ function loginCb(response) {
 			localStorage.setItem('mobile', response.mobile);
 		}
 
-		closeLoginPopup();  
+		
 		populateUser(true);
 		if (afterLoginFunction != null) afterLoginFunction();
-		afterLoginFunction = null;
+		closeLoginPopup();  
 
 	}
 	else 
