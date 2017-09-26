@@ -26,7 +26,7 @@ $(document).ready(function() {
 $(window).load(function() {
 	setTimeout(function(){ 
 		$("#splashDiv").slideUp('slow');
-		$(".content").show();
+		//$(".content").show();
 	}, 0);		
 });
 
@@ -43,6 +43,15 @@ if( navigator.userAgent.match(/Android/i)
 	{
  	$("body").addClass('mobile');
 	}
+
+function loadContent(pageName) {
+	$( "#pageContent" ).load( pageName+".html", function() {
+		alert( "Load was performed." );
+	});
+}
+
+
+
 
 function toggleMenu() {
     $("#headerMenu").toggleClass("open");
