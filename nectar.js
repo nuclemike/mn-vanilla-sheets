@@ -72,7 +72,7 @@ function getLabRequests(success) {
                   }
 
                   
-                  document.getElementById('labRequestsInnerSection').innerHTML(pendingRequests);
+                  document.getElementById('labRequestsInnerSection').innerHTML = pendingRequests;
             }
     
       }
