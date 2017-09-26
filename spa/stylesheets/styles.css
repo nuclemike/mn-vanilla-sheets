@@ -424,42 +424,6 @@ input#loginPopupPassword{
 
 
 
-/*SPLASH*/
-
-
-#splashDiv{
-	left: 0;
-	top: 0;
-	position: absolute;
-	width: 100%;
-	z-index: 999;
-	border-bottom: 2px solid #f4ce64;
-	height: 100%;
-	background: url(floralBGWhite.png);
-	box-shadow: 0 0 19px 14px rgba(0,0,0,0.2);
-}
-
-#splashLogo{
-	width: 250px;
-	max-width:80%;
-	-webkit-animation: pulse 0.7s ease-out;
-	-moz-animation: pulse 0.7s ease-out;
-	animation: pulse 0.7s ease-out;
-	-webkit-animation-iteration-count: infinite;
-	-moz-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-	height: 106px;
-	background-image: url(mainLogo.png);
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center center;
-	position: relative;
-}
-
-#loader{
-	
-}
-
 /*HEADER*/
 
 #header{
@@ -476,6 +440,9 @@ input#loginPopupPassword{
 	margin:0 auto;
 }
 
+#headerLogin {
+	color:white;
+}
 
 #headerMenu {
     float: right;
