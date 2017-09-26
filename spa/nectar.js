@@ -5,7 +5,9 @@ function populateUser(success) {
             document.getElementById('headerLogin').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!  <a onclick="logout()">Logout</a>';   
       }
       else {
-            document.getElementById('headerLogin').innerHTML = '';       
+            document.getElementById('headerLogin').innerHTML = '';   
+            var isInMyLab = document.getElementById("labRequestsSection");
+            if (isInMyLab) loadContent('nectars');
       }
      
 }
