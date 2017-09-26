@@ -59,6 +59,9 @@ function loadContent(pageName) {
 
 
 
+function placeLabRequest(imgUrl) {
+    alert(imgUrl);
+}
 
 function toggleMenu() {
     $("#headerMenu").toggleClass("open");
