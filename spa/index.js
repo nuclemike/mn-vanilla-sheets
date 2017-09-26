@@ -48,11 +48,11 @@ if( navigator.userAgent.match(/Android/i)
 	}
 
 function loadContent(pageName) {
-	$( "body" ).prepend('<div id="pageLoader"></div>');
+	$( "#pageLoader" ).show();
 	$( "#pageContent" ).hide();
 	
 	$( "#pageContent" ).load( pageName+".html", function() {
-		$("#pageLoader").remove();
+		$("#pageLoader").hide();
 		$(this).show();
 	});
 }
