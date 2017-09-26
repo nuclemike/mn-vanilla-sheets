@@ -19,6 +19,8 @@ $(document).ready(function() {
 			$( this ).css("z-index","-9999");
 		});
 	});
+	
+	loadContent('nectars');
 		
 });
 
