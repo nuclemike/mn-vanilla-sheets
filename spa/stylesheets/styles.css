@@ -521,26 +521,18 @@ input#loginPopupPassword{
 	background: -ms-radial-gradient(center, ellipse cover, rgba(255,172,48,1) 0%, rgba(220,167,78,1) 100%);
 	background: radial-gradient(ellipse at center, rgba(255,172,48,1) 0%, rgba(220,167,78,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffac30', endColorstr='#dca74e', GradientType=1 );
-	/* font-family: "Beleren"; */
+	font-family: "Beleren";
 	text-align: center;
 	padding: 13px 0;
-	/* margin-bottom: 5%; */
-	font-size: 20px;
-	color: #fff3df;
+	margin-bottom: 5%;
+	font-size: 35px;
+	color: #ffdfaf;
 }
 
 /*CONTENT*/
 
 /*SUB HEADER*/
-#pageTitle{
-	font-family: "Beleren";
-	text-align: center;
-	padding: 25px 0;
-	margin: 0 0 0 0;
-	font-size: 40px;
-	color: #444444;
-	text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0,0,0,0.5);
-}
+
 
 #contentContainer{
 	width: 100%;
