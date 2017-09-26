@@ -25,13 +25,14 @@ $(document).ready(function() {
 });
 
 // Wait for window load
+/*
 $(window).load(function() {
 	setTimeout(function(){ 
 		$("#splashDiv").slideUp('slow');
 		//$(".content").show();
 	}, 0);		
 });
-
+*/
 
 
 if( navigator.userAgent.match(/Android/i)
@@ -47,8 +48,12 @@ if( navigator.userAgent.match(/Android/i)
 	}
 
 function loadContent(pageName) {
+	$( "body" ).prepend('<div id="pageLoader"></div>');
+	$( "#pageContent" ).hide();
+	
 	$( "#pageContent" ).load( pageName+".html", function() {
-		alert( "Load was performed." );
+		$("#pageLoader").remove();
+		$(this).show();
 	});
 }
 
