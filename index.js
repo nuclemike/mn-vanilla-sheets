@@ -53,25 +53,7 @@ function loginPopup() {
    		$("#loginPopup").css("z-index","9999").fadeTo( "medium", 1 );
 	}
 
-  // Make an AJAX call to Google Script
-  function getLabRequests() {
-    
-    var url = "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=gLRCb&name=";
-    var name = "nuclemike@gmail.com"
 
-    var request = jQuery.ajax({
-      crossDomain: true,
-      url: url + encodeURIComponent(name),
-      method: "GET",
-      dataType: "jsonp"
-    });
-
-  }
-
-  // print the returned data
-  function gLRCb(e) {
-    console.log(e.result)
-  }
 
 function logout() {
 	localStorage.removeItem('name');
