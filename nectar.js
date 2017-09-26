@@ -35,11 +35,47 @@ function getLabRequests(success) {
 }
 
   // print the returned data
-  function gLRCb(e) {
-    console.log(e)
-        
-    //labRequestsInnerSection
-  }
+      function gLRCb(e) {
+            console.log(e)
+            
+            if (e.error){
+                  alert(e.message);
+            }
+            else {
+                  var pendingRequests = '';                  
+                  
+                  if (e.pending.length > 0){
+                        pendingRequests = '<table>';
+                        pendingRequests = '<tr>';
+                        pendingRequests += '<th>Nectar</th>';
+                        pendingRequests += '<th>Size</th>';
+                        pendingRequests += '<th>Nicotine</th>';
+                        pendingRequests += '<th>VP/PG</th>';
+                        pendingRequests += '<th>Quantity</th>';
+                        pendingRequests += '<th>Nickname</th>';
+                        pendingRequests = '</tr>';
+                        
+                        e.pending.forEach( function (item){
+                              pendingRequests = '<tr>';
+                              pendingRequests += '<td>' + item.flavor + '</td>';
+                              pendingRequests += '<td>' + item.size + '</td>';
+                              pendingRequests += '<td>' + item.nicotine + '</td>';
+                              pendingRequests += '<td>' + item.vg + '</td>';
+                              pendingRequests += '<td>' + item.quantity + '</td>';
+                              pendingRequests += '<td>' + item.nickname + '</td>';
+                              pendingRequests = '</tr>';
+                        });
+                        pendingRequests = '</table>';
+                  }
+                  else{     
+                        pendingRequests = '<span>you have no Pending Lab-Requests</span><br>'
+                  }
+
+                  
+                  $'#labRequestsInnerSection').innerHtml(pendingRequests);
+            }
+    /
+      }
 
 window.onload = function(){
   var success = loadSession();
