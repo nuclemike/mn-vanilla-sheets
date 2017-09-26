@@ -45,27 +45,27 @@ function getLabRequests(success) {
                   var pendingRequests = '';                  
                   
                   if (e.pending.length > 0){
-                        pendingRequests = '<table>';
-                        pendingRequests = '<tr>';
+                        pendingRequests += '<table>';
+                        pendingRequests += '<tr>';
                         pendingRequests += '<th>Nectar</th>';
                         pendingRequests += '<th>Size</th>';
                         pendingRequests += '<th>Nicotine</th>';
                         pendingRequests += '<th>VP/PG</th>';
                         pendingRequests += '<th>Quantity</th>';
                         pendingRequests += '<th>Nickname</th>';
-                        pendingRequests = '</tr>';
+                        pendingRequests += '</tr>';
                         
                         e.pending.forEach( function (item){
-                              pendingRequests = '<tr>';
+                              pendingRequests += '<tr>';
                               pendingRequests += '<td>' + item.flavor + '</td>';
                               pendingRequests += '<td>' + item.size + '</td>';
                               pendingRequests += '<td>' + item.nicotine + '</td>';
                               pendingRequests += '<td>' + item.vg + '</td>';
                               pendingRequests += '<td>' + item.quantity + '</td>';
                               pendingRequests += '<td>' + item.nickname + '</td>';
-                              pendingRequests = '</tr>';
+                              pendingRequests += '</tr>';
                         });
-                        pendingRequests = '</table>';
+                        pendingRequests += '</table>';
                   }
                   else{     
                         pendingRequests = '<span>you have no Pending Lab-Requests</span><br>'
