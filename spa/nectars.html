@@ -1,4 +1,4 @@
-<script src="delete.js"></script>
+
 		<div id="goldRibbon" class="fxFixed">
 			<div id="loginSection">
 				Welcome to Mama's Nectar! Please <button id="loginSectionButton" onclick="loginPopup()">Login</button> to place or view Lab-Requests!</span>
@@ -15,7 +15,7 @@
 
 		
 		<div id="contentContainer" class="fxDisplay fxWrap fxJustifyCenter">
-			<div class="nectar">
+			<div class="nectar" onclick="placeLabRequest($(this).children(".nectarFlask").attr("src"))">
 				<img class="nectarFlask" src="./liquids/1.png">						
 						
 				<span class="nectarName">Dragon's Kiss</span>
