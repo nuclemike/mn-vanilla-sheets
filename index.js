@@ -90,13 +90,20 @@ function logout() {
 	//  window.localStorage.setItem('myCat', 'Tom');
     console.log(response)
 	  if (response.success == true){
-		//closeLoginPopup();  
-		  $('#loginPopupError').text(response.name);
-		  window.localStorage.setItem('name', response.name);
-		  window.localStorage.setItem('email', response.email);
-		  window.localStorage.setItem('pass', response.pass);
-		  window.localStorage.setItem('mobile', response.mobile);
-		  readLocalStorage();
+		
+		if (document.getElementById('rememberMe').checked) {
+			localStorage.setItem('name', response.name);
+			localStorage.setItem('email', response.email);
+			localStorage.setItem('pass', response.pass);
+			localStorage.setItem('mobile', response.mobile);
+		} else {
+			sessionStorage.setItem('name', response.name);
+			sessionStorage.setItem('email', response.email);
+			sessionStorage.setItem('pass', response.pass);
+			sessionStorage.setItem('mobile', response.mobile);
+		}
+		  closeLoginPopup();  
+		  populateUser(true);
 
 	  }
 	  else
