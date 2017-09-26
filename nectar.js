@@ -36,9 +36,9 @@ function getLabRequests(success) {
 
   // print the returned data
   function gLRCb(e) {
-    console.log(e.result)
+    console.log(e)
         
-        labRequestsInnerSection
+    //labRequestsInnerSection
   }
 
 window.onload = function(){
