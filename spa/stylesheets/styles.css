@@ -1,0 +1,756 @@
+/*GLOBAL*/
+@font-face {
+  font-family: 'dotsfont';
+  src: url('dotsfont.eot');
+  src: url('dotsfont.eot?#iefix') format('embedded-opentype'),
+       url('dotsfont.woff') format('woff'),
+       url('dotsfont.ttf') format('truetype'),
+       url('dotsfont.svg#dotsfontregular') format('svg');
+}
+
+[conceal]:not(:active):not(:focus) {
+  font-family: 'dotsfont';
+}
+
+*{box-sizing:border-box}
+
+html{
+	margin:0;
+	height:100%; 
+	padding-top: 103px;
+}
+
+body {
+	font-family: 'Quantico', sans-serif;
+	margin:0;
+	height:100%;
+	/* padding-top: 103px; */
+	position:relative;
+	transition:box-shadow 0.3s;
+	transition-delay:0.5s;
+	box-shadow: 0 0 0 0 rgba(0,0,0,0.3) inset;
+	background: url(floralBGWhite.png);
+}
+
+#hitCounter{background: #fff;padding: 5px;border-top: 1px solid #e9e9e9;}
+
+
+#hitCounter img{
+display: block;
+    margin: 0 auto;
+    }
+
+#loginSectionButton{
+	background: rgba(255,255,255,0.5);
+	border: 0;
+	font-family: 'Quantico', sans-serif;
+	font-size: 22px;
+	color: #8a6d42;
+}
+
+/*LIQUID ORDER POPUP*/
+
+#liquidOrderSection{
+	background: rgba(80,80,80,0.9);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+#liquidOrderForm{
+	/* background: white; */
+	/* height: 450px; */
+	/* width: 600px; */
+	padding: 30px;
+	position: relative;
+	border-radius: 10px;
+	color: #999;
+	/* box-shadow: 215px 0 0 0 #eee inset; */
+	font-family: 'Raleway', sans-serif;
+}
+
+
+#liquidOrderFlask{
+	background: #eee;
+	margin: 20px 0;
+	padding: 30px 30px;
+	border-radius: 20px 0 0 20px;
+	box-shadow: -18px 0 10px -10px rgba(0,0,0,0.1) inset;
+	position: relative;
+}
+
+#liquidOrderData{
+	background: white;
+	border-radius: 8px;
+	padding: 20px;
+	position: relative;
+}
+
+
+
+#liquidOrderNectarThumbnail{
+    width: 160px;
+}
+
+#liquidOrderTitle{
+	color: #444;
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 45px;
+	display: block;
+}
+#fbLogout{
+	position:absolute;
+	right:15px;
+	top:10px;
+	font-family:quantico;
+	text-decoration:none;
+font-size:14px;
+color:#1797ea;
+}
+
+#yourVeryOwn{
+    display: block;
+    width: 160px;
+    color: #d87b00;
+    text-align: center;
+    font-family: 'Quantico', sans-serif;
+}
+
+#sendingPanel, #orderSentPanel, #fbLoginPanel, #notAuthorizedPanel{
+	position: absolute;
+	top: 110px;
+	background-color: white;
+	font-size: 15px;
+	text-align: center;
+	width: 100%;
+	left: 0;
+	padding: 30px;
+	height: 300px;
+	color: #555;
+}
+
+#notAuthorizedPanel{
+padding-top:0;
+}
+
+#fbLoginPanel{
+	
+
+	padding-top: 0;
+	color: #555;
+}
+
+#sendingPanel{
+    background: url(/stylesheets/sending.gif) center 30px no-repeat white;
+    padding-top: 163px;
+}
+
+#sendingPanel h4, #orderSentPanel h4, #fbLoginPanel h4, #notAuthorizedPanel h4{
+	font-size:31px;
+	margin:20px;
+	color: #888;
+}
+
+#orderSentPanel h4{color: #4ab74a;}
+
+
+#liquidOrderTable{
+	width: 320px;
+	font-size: 15px;
+	color:#444;
+	margin-top: 76px;
+	border-top: 1px solid #eee;
+	padding-top: 18px;
+	margin-bottom: 20px;
+}
+
+
+#liquidOrderTable td{
+	padding:5px 0;
+}
+
+.requiredField{
+	border-color: tomato !important;
+}
+
+#liquidOrderTable input, #liquidOrderTable select{font-family: 'Raleway', sans-serif;border: 1px solid #ddd;border-radius:3px;height: 35px;padding: 0 7px;color:#444;width: 100px;font-size: 15px;}
+
+input#liquidOrderCustomerEmail, input#liquidOrderCustomerNickname{
+	width:212px;
+}
+
+#liquidOrderNectarName{
+    color: #444;
+    font-family: "Beleren";
+    font-size: 25px;
+    line-height: 16px;
+    display: block;
+    text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0,0,0,0.5);
+    width: 100%;
+    text-align: center;
+}
+
+#liquidOrderCustomerName{position: absolute;font-size: 21px;left: 91px;top: 30px;color: #444;}
+
+#cancelOrder{
+    background: #ddd;
+    border: 0;
+    color: #666;
+    font-family: quantico;
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 3px;
+    font-size: 15px;
+    float: right;
+}
+
+#fbLogin{
+		    border: 0;
+		    color: #fff;
+		    font-family: quantico;
+		    height: 36px;
+		    padding: 0 20px 0 34px;
+			display:block;
+		    border-radius: 3px;
+		    font-size: 15px;
+		    margin: 20px auto;
+		    background: url("fblogin.png") no-repeat 10px center #3B5997;
+}
+
+#notAuthorizedPanelContact{
+border: 0;
+    color: #fff;
+    font-family: quantico;
+    height: 36px;
+    padding: 0 20px 0 39px;
+    display: block;
+    border-radius: 3px;
+    font-size: 15px;
+    margin: 20px auto;
+    background: url(unlock.png) no-repeat 14px center #3B5997;
+}
+
+#totalCostSection {float: left;}
+
+#totalCost{float: left;font-size: 12px;line-height: 8px;}
+
+#totalCostValue{float: left;clear: left;font-size: 22px;color: #4ab74a;font-weight: bold;}
+
+#sendOrder{
+	    background: #f1cd63;
+	    border: 0;
+	    color: #444;
+	    font-family: quantico;
+	    height: 36px;
+	    padding: 0 20px;
+	    border-radius: 3px;
+	    font-size: 15px;
+	    float: right;
+	    margin-left: 10px;
+}
+}
+
+#fbLogout{
+    font-size: 12px;
+    position: absolute;
+    left: 435px;
+    font-family: 'Quantico', sans-serif;
+    color: #444;
+    top: 45px;
+    text-decoration: none;
+}
+
+#liquidOrderCustomerThumbnail{
+	border: 1px solid #555;
+	border-radius: 100%;
+	width: 60px;
+	left: 20px;
+	position: absolute;
+	top: 20px;
+	box-shadow: 1px 0px 3px silver;
+	}
+
+#authorizationIcon {
+	position: absolute;
+	top: 56px;
+	left: 92px;
+}
+
+#authorizationText {
+	    font-size: 11px;
+	    position: absolute;
+	    left: 92px;
+	    font-family: 'Quantico', sans-serif;
+	    color: #4ab74a;	    
+	    top: 56px;
+	    background:url("ok.png") no-repeat;
+	    padding-left: 20px;
+}
+
+#authorizationText.denied {
+	color: tomato;
+	background:url("error.png") no-repeat;	   
+}
+
+
+/* LOGIN PUPOP */
+
+
+
+#loginPopup{
+	background: rgba(80,80,80,0.9);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+#loginPopupForm{
+	/* background: white; */
+	/* height: 450px; */
+	/* width: 600px; */
+	padding: 30px;
+	position: relative;
+	border-radius: 10px;
+	color: #999;
+	/* box-shadow: 215px 0 0 0 #eee inset; */
+	font-family: 'Raleway', sans-serif;
+}
+
+
+
+#loginPopupData{
+	background: white;
+	border-radius: 8px;
+	padding: 20px;
+	position: relative;
+}
+
+
+
+#loggingInPopupPanel{
+	position: absolute;
+	top: 110px;
+	background-color: white;
+	font-size: 15px;
+	text-align: center;
+	width: 100%;
+	left: 0;
+	padding: 30px;
+	height: 300px;
+	color: #555;
+    background: url(/stylesheets/sending.gif) center 30px no-repeat white;
+    padding-top: 163px;
+}
+
+#sendingPanel h4, #orderSentPanel h4, #fbLoginPanel h4, #notAuthorizedPanel h4{
+	font-size:31px;
+	margin:20px;
+	color: #888;
+}
+
+#orderSentPanel h4{color: #4ab74a;}
+
+
+#loginPopupTable{
+	width: 320px;
+	font-size: 15px;
+	color:#444;
+	margin-top: 16px;
+	border-top: 1px solid #eee;
+	padding-top: 18px;
+	margin-bottom: 20px;
+}
+
+
+#loginPopupTable td{
+	padding:5px 0;
+}
+
+.requiredField{
+	border-color: tomato !important;
+}
+
+#loginPopupTable input{font-family: 'Raleway', sans-serif;border: 1px solid #ddd;border-radius:3px;height: 35px;padding: 0 7px;color:#444;width: 100px;font-size: 15px;}
+
+input#loginPopupEmail, input#loginPopupPassword{
+	width:212px;
+}
+
+input#loginPopupPassword{
+	font-family: 'dotsfont';
+}
+
+
+#loginPopupWelcome{/* position: absolute; */font-size: 21px;left: 91px;top: 30px;color: #444;}
+
+#cancelLoginPopupButton{
+    background: #ddd;
+    border: 0;
+    color: #666;
+    font-family: quantico;
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 3px;
+    font-size: 15px;
+    float: right;
+}
+
+
+#proceedLoginPopupButton{
+	    background: #f1cd63;
+	    border: 0;
+	    color: #444;
+	    font-family: quantico;
+	    height: 36px;
+	    padding: 0 20px;
+	    border-radius: 3px;
+	    font-size: 15px;
+	    float: right;
+	    margin-left: 10px;
+}
+}
+
+
+
+
+/*SPLASH*/
+
+
+#splashDiv{
+	left: 0;
+	top: 0;
+	position: absolute;
+	width: 100%;
+	z-index: 999;
+	border-bottom: 2px solid #f4ce64;
+	height: 100%;
+	background: url(floralBGWhite.png);
+	box-shadow: 0 0 19px 14px rgba(0,0,0,0.2);
+}
+
+#splashLogo{
+	width: 250px;
+	max-width:80%;
+	-webkit-animation: pulse 0.7s ease-out;
+	-moz-animation: pulse 0.7s ease-out;
+	animation: pulse 0.7s ease-out;
+	-webkit-animation-iteration-count: infinite;
+	-moz-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	height: 106px;
+	background-image: url(mainLogo.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+}
+
+#loader{
+	
+}
+
+/*HEADER*/
+
+#header{
+	    background: url(floralBG.png);
+	    position: fixed;
+	    top: 0;
+	    width: 100%;
+	    left: 0;
+	    z-index: 999;
+}
+
+#headerContainer{
+	width:1000px;
+	margin:0 auto;
+}
+
+
+#headerMenu {
+    float: right;
+    margin-top: 26px;
+    color: rgba(255,255,255,0.5);
+}
+
+#headerMenu a{
+     font-size: 15px;
+     float: left;
+     margin: 0 10px;
+     cursor:pointer;
+}
+
+#headerMenu a:hover{
+     color:#caae77
+}
+
+
+#headerMenu a:hover .menuImg{
+	opacity: 0.7;
+}
+
+.menuImg{  
+    margin: 0 10px;
+  display: block;
+  margin: 0 auto 6px;
+  opacity: 0.3;
+}
+
+#menuBurger{
+	display:none;
+	float: right;
+}
+
+/*SUB HEADER*/
+#goldRibbon{
+	background: rgba(255,172,48,1);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(255,172,48,1) 0%, rgba(220,167,78,1) 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,172,48,1)), color-stop(100%, rgba(220,167,78,1)));
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(255,172,48,1) 0%, rgba(220,167,78,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(255,172,48,1) 0%, rgba(220,167,78,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(255,172,48,1) 0%, rgba(220,167,78,1) 100%);
+	background: radial-gradient(ellipse at center, rgba(255,172,48,1) 0%, rgba(220,167,78,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffac30', endColorstr='#dca74e', GradientType=1 );
+	/* font-family: "Beleren"; */
+	text-align: center;
+	padding: 13px 0;
+	/* margin-bottom: 5%; */
+	font-size: 20px;
+	color: #fff3df;
+}
+
+/*CONTENT*/
+
+/*SUB HEADER*/
+#pageTitle{
+	font-family: "Beleren";
+	text-align: center;
+	padding: 25px 0;
+	margin: 0 0 0 0;
+	font-size: 40px;
+	color: #444444;
+	text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+#contentContainer{
+	width: 100%;
+	max-width:1000px;
+	margin: 0 auto;
+}
+
+#sideBar{
+	display:none;
+	width: 300px;
+	color: white;
+	font-size: 18px;
+	overflow-y: auto;
+	text-shadow: 0 0 10px black;
+	text-align: right;
+}
+
+#mainLogo{
+	width: 230px;
+	float:left;
+	padding: 5px;
+}
+
+#sideBar ul{
+	list-style:none outside none;
+	margin:0px;
+	padding: 0;
+}
+
+
+#sideBar li{
+	margin: 31px 41px 32px 0;
+	color: #655a44;
+}
+
+#sideBar li:first-child{
+	color: #cecece;
+}
+
+
+
+
+/*NECTARS*/
+
+
+.nectar {
+    float: left;
+    width: 250px;
+    TEXT-ALIGN: center;
+    margin-bottom: 5%;
+    max-width:250px;
+    padding:10px 0;
+    border-radius:20px;
+    position: relative;
+}
+
+.nectar:hover, .nectar.active {
+   
+    background-color: rgba(170,170,170,0.4);
+   
+}
+
+.nectarFlask{
+	width:75%;
+}
+
+.topseller{
+	width: 30%;
+	left: 56%;
+	position: absolute;
+	top: 8%;
+}
+
+.nectarName{
+	color: #444;
+	font-family: "Beleren";
+	font-size: 30px;
+	margin-bottom: 0.3em;
+	display: block;
+	text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+.nectarInfo{
+	color: rgba(0,0,0,0.5);
+	line-height: 0.91em;
+	/* margin-bottom: 20px; */
+	display: block;
+	/* height:40px; */
+	padding: 0 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+	#headerContainer{
+		width:100%;
+	}
+}
+
+
+
+
+@media only screen and (max-width: 850px) {
+	#headerMenu a{
+		margin: 0 7px;
+		font-size:13px;
+	}
+}
+	
+
+@media only screen and (max-width: 750px) {	
+	html{
+		padding-top: 69px;
+	}
+	#header{
+		display:block;
+		width:100%;
+		/* height:120px; */
+	}
+
+	#menuBurger{
+		display:none;
+	}
+
+	#mainLogo{
+		 width:150px;
+
+	}
+
+	#menu{
+		width: 39px;
+		float:right;
+		margin: 42px;
+	}
+
+
+	#headerMenu{
+		
+		right:0;
+		top:120px;
+		position:absolute;
+		background-color: #121212;
+		height:100%;
+		width:250px;
+		right: -250px;
+		transition: right 0.3s;
+	}
+
+	#headerMenu.open{
+		right: 0px;
+	}
+	
+	#liquidOrderForm{
+		flex-direction: column;
+		width: 95%;
+		padding: 0;
+	}
+	#liquidOrderFlask{
+		margin: 0 10px 0px 10px;
+		border-radius: 10px 10px 0 0;
+		box-shadow: 0 -18px 10px -10px rgba(0,0,0,0.1) inset;
+		padding: 15px;
+		height: 100px;
+	}
+	#liquidOrderTitle{
+		margin:0;
+		position: absolute;
+		bottom: 76px;
+		width: auto;
+		right: 10px;
+		font-size: 13px;
+	}
+
+	#liquidOrderNectarThumbnail{
+		width: auto;
+		float: left;
+		height: 50px;
+		margin-top: 12px;
+		margin-left: 10px;
+	}
+
+	#yourVeryOwn{
+		position:absolute;
+		top: 29px;
+		width: auto;
+		lefT: 87px;
+	}
+
+	#liquidOrderNectarName{
+		float: left;
+		margin-left: 33px;
+		margin-top: 37px;
+		width: auto;
+	}
+
+}
+
+@media only screen and (max-width: 600px) {	
+	.nectar {
+	    width: 50%;
+	}
+	.nectarFlask{
+		width:85%;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	#goldRibbon{
+		font-size:10vw;
+	}
+	.nectarName{
+		font-size: 6vw;
+	}
+	.nectarInfo{    
+		padding: 0 2vw;
+	    	font-size: 4vw;
+	}
+}
+
+
+
