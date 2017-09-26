@@ -40,9 +40,12 @@ display: block;
     margin: 0 auto;
     }
 
-.content {
-	
-	
+#loginSectionButton{
+	background: rgba(255,255,255,0.5);
+	border: 0;
+	font-family: 'Quantico', sans-serif;
+	font-size: 22px;
+	color: #8a6d42;
 }
 
 /*LIQUID ORDER POPUP*/
@@ -512,15 +515,26 @@ input#loginPopupPassword{
 	background: -ms-radial-gradient(center, ellipse cover, rgba(255,172,48,1) 0%, rgba(220,167,78,1) 100%);
 	background: radial-gradient(ellipse at center, rgba(255,172,48,1) 0%, rgba(220,167,78,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffac30', endColorstr='#dca74e', GradientType=1 );
-	font-family: "Beleren";
+	/* font-family: "Beleren"; */
 	text-align: center;
-	padding: 30px 0;
+	padding: 13px 0;
 	margin-bottom: 5%;
-	font-size: 40px;
-	color: #ffd798;
+	font-size: 20px;
+	color: #fff3df;
 }
 
 /*CONTENT*/
+
+/*SUB HEADER*/
+#pageTitle{
+	
+	font-family: "Beleren";
+	text-align: center;
+	padding: 13px 0;
+	margin-bottom: 5%;
+	font-size: 20px;
+	color: #fff3df;
+}
 
 #contentContainer{
 	width: 100%;
