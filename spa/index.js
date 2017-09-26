@@ -1,19 +1,5 @@
 $(document).ready(function() {
-
-	
-	
-
-	
-	
-	$("#cancelOrder").click(function() {
-		
-		$("#liquidOrderSection").fadeTo(  "fast", 0, function() {
-			$( this ).css("z-index","-9999");
-		});
-	});
-	
-	loadContent('nectars');
-		
+	loadContent('nectars');	
 });
 
 // Wait for window load
@@ -24,7 +10,7 @@ $(window).load(function() {
 		//$(".content").show();
 	}, 0);		
 });
-*/
+
 
 
 if( navigator.userAgent.match(/Android/i)
@@ -38,6 +24,7 @@ if( navigator.userAgent.match(/Android/i)
 	{
  	$("body").addClass('mobile');
 	}
+*/
 
 function loadContent(pageName) {
 	$( "#pageLoader" ).show();
@@ -51,7 +38,7 @@ function loadContent(pageName) {
 
 
 
-function placeLabRequest(nectarName) {
+function labRequestPopup(nectarName) {
 
 	var imgUrl = './liquids/' + nectarName.replace(/[^a-z0-9]/gi,'') +'.png';
 
@@ -65,6 +52,13 @@ function placeLabRequest(nectarName) {
 
 
 }
+
+function closeLabRequestPopup() {
+		
+		$("#liquidOrderSection").fadeTo(  "fast", 0, function() {
+			$( this ).css("z-index","-9999");
+		});
+	}
 
 
 function authenticatedFunction(func) {
