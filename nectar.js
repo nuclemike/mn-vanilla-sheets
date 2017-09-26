@@ -7,6 +7,7 @@
 function readLocalStorage() {
       document.getElementById('liquidOrderCustomerName').innerHTML = 'Welcome '+localStorage.getItem("name")+'!';
       document.getElementById('liquidOrderCustomerEmail').value = localStorage.getItem("email");
+      document.getElementById('loginSectionName').innerHTML = 'Welcome '+localStorage.getItem("name")+'!';
 }
 
 readLocalStorage();
