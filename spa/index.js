@@ -89,7 +89,11 @@ function authenticatedFunction(func) {
 		alert('you need to login')
 }
 
-
+var testfunc = bassa;
+    
+    function bassa() {
+    alert('bassa');
+}
 
 function toggleMenu() {
     $("#headerMenu").toggleClass("open");
