@@ -72,7 +72,7 @@ function getLabRequests(success) {
                   }
 
                   
-                  $'#labRequestsInnerSection').innerHtml(pendingRequests);
+                  $('#labRequestsInnerSection').innerHtml(pendingRequests);
             }
     /
       }
