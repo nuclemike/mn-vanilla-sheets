@@ -73,7 +73,7 @@ function authenticatedFunction(func) {
 		alert('you need to login')
 }
 
-authenticatedFunction(function(){ placeLabRequest('test') });
+
 
 function toggleMenu() {
     $("#headerMenu").toggleClass("open");
