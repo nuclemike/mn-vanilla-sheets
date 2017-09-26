@@ -15,7 +15,7 @@
 
 		
 		<div id="contentContainer" class="fxDisplay fxWrap fxJustifyCenter">
-			<div class="nectar" onclick="authenticatedFunction(function(){ placeLabRequest('test') });">
+			<div class="nectar" onclick="authenticatedFunction(function(){ placeLabRequest($(this).children('.nectarName').text()) });">
 				<img class="nectarFlask" src="./liquids/dragonskiss.png">						
 						
 				<span class="nectarName">Dragon's Kiss</span>
