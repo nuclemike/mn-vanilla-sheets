@@ -86,31 +86,31 @@ function logout() {
   }
 
   // print the returned data
-  function loginCb(response) {
-	//  window.localStorage.setItem('myCat', 'Tom');
-    console.log(response)
-	  if (response.success == true){
-		
+function loginCb(response) {
+	console.log(response)
+	if (response.success == true){
+
+		sessionStorage.setItem('name', response.name);
+		sessionStorage.setItem('email', response.email);
+		sessionStorage.setItem('pass', response.pass);
+		sessionStorage.setItem('mobile', response.mobile);
+
 		if (document.getElementById('rememberMe').checked) {
 			localStorage.setItem('name', response.name);
 			localStorage.setItem('email', response.email);
 			localStorage.setItem('pass', response.pass);
 			localStorage.setItem('mobile', response.mobile);
-		} else {
-			sessionStorage.setItem('name', response.name);
-			sessionStorage.setItem('email', response.email);
-			sessionStorage.setItem('pass', response.pass);
-			sessionStorage.setItem('mobile', response.mobile);
 		}
-		  closeLoginPopup();  
-		  populateUser(true);
 
-	  }
-	  else
-	  {
-		  $('#loginPopupError').text(response.name);
-	  }
-  }
+		closeLoginPopup();  
+		populateUser(true);
+
+	}
+	else 
+	{
+		$('#loginPopupError').text(response.name);
+	}
+}
 
 function closeLoginPopup() {
 	$("#loginPopup").fadeTo(  "fast", 0, function() {
