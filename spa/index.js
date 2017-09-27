@@ -50,7 +50,7 @@ function labRequestPopup(nectarName) {
 	document.getElementById("liquidOrderFlask").setAttribute("style", "background-image:url('"+imgUrl.toLowerCase()+"')");
 	document.getElementById("liquidOrderNectarName").innerHTML = nectarName;
 	document.getElementById('liquidOrderCustomerName').innerHTML = sessionStorage.getItem("name");
-	document.getElementById('liquidOrderCustomerEmail').value = sessionStorage.getItem("email");   
+	document.getElementById('liquidOrderCustomerEmail').innerHTML = sessionStorage.getItem("email");   
 	document.getElementById('liquidOrderCustomerNickname').value = sessionStorage.getItem("name");
 	$('#orderSentPanel, #sendingPanel').hide();
 	$("#liquidOrderSection").css("z-index","9999").fadeTo( "medium", 1 );
