@@ -220,8 +220,8 @@ input#liquidOrderCustomerNickname{
 }
 
 #loginPopupShadow.loading #loginPopupTable *,
-#loginPopupShadow.loading buttons{
-	opacity:0.5 !important;
+#loginPopupShadow.loading button{
+	opacity:0.7 !important;
 	pointer-events:none !important;
 }
 
