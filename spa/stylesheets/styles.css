@@ -208,7 +208,7 @@ input#liquidOrderCustomerNickname{
 
 #totalCostValue{float: left;clear: left;font-size: 22px;color: #4ab74a;font-weight: bold;}
 
-#sendOrder{
+#sendOrder, #goToMyLab{
 	    background: #f1cd63;
 	    border: 0;
 	    color: #444;
@@ -221,6 +221,9 @@ input#liquidOrderCustomerNickname{
 	    margin-left: 10px;
 }
 
+#goToMyLab{
+	background-color:#ffb7b7;
+}
 
 
 
