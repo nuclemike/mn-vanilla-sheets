@@ -2,11 +2,18 @@ $(document).ready(function() {
 	loadContent('nectars');	
 });
 
+window.onload = function(){
+  var success = loadSession();
+  populateUser(success);
+};
+
 function pageLoaded() {
 	$("#pageLoader").hide();
 	$( "#pageContent" ).show()
 }
 
+var afterLoginFunction = null;
+    
 function loadContent(pageName) {
 	$( "#pageLoader" ).show();
 	$( "#pageContent" ).hide();
@@ -18,37 +25,6 @@ function loadContent(pageName) {
 }
 
 
-
-function labRequestPopup(nectarName) {
-
-	var imgUrl = './liquids/' + nectarName.replace(/[^a-z0-9]/gi,'') +'.png';
-
-	document.getElementById("liquidOrderFlask").setAttribute("style", "background-image:url('"+imgUrl.toLowerCase()+"')");
-	document.getElementById("liquidOrderNectarName").innerHTML = nectarName;
-	document.getElementById('liquidOrderCustomerName').innerHTML = sessionStorage.getItem("name");
-	document.getElementById('liquidOrderCustomerEmail').innerHTML = sessionStorage.getItem("email");   
-	document.getElementById('totalCostValue').innerHTML = "€0.00";
-	document.getElementById('liquidOrderCustomerNickname').value = sessionStorage.getItem("name");
-	document.getElementById('liquidOrderQuantity').value = 1;
-	document.getElementById('liquidOrderSize').value = '';
-	document.getElementById('liquidOrderNicotine').value = '';
-	document.getElementById('liquidOrderVG').value = '';
-	
-	$('#orderSentPanel, #sendingPanel, #goToMyLab').hide();
-	 $('#sendOrder, #cancelOrder').show();
-	$("#liquidOrderSection").css("z-index","9999").fadeTo( "medium", 1 );
-
-
-}
-
-function closeLabRequestPopup() {
-		
-		$("#liquidOrderSection").fadeTo(  "fast", 0, function() {
-			$( this ).css("z-index","-9999");
-		});
-	}
-
-
 function authenticatedFunction(func) {
   if (loadSession()) func()
 	else{
@@ -57,8 +33,18 @@ function authenticatedFunction(func) {
 	}
 }
 
-var afterLoginFunction = null;
-    
+function populateUser(success) {
+      if(success)
+      {
+            document.getElementById('headerLogin').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!  <a onclick="logout()">Logout</a>';   
+      }
+      else {
+            document.getElementById('headerLogin').innerHTML = '';   
+            var isInMyLab = document.getElementById("labRequestsSection");
+            if (isInMyLab) loadContent('nectars');
+      }
+     
+}
 
 
 function toggleMenu() {
@@ -86,53 +72,6 @@ function logout() {
 
 
 
-  // Make an AJAX call to Google Script
-  function login() {
-
-
-    var loginObj = { user:$('#loginPopupEmail').val(),
-		    pass:$('#loginPopupPassword').val() }
-    
-    var request = jQuery.ajax({
-      crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycbzDWblHNTvXICpwOrT2Yi1NWbXS39IDnODUb6j7DX8gj-DEDGc/exec?callback=loginCb",
-      method: "GET",
-      dataType: "jsonp",
-      data : loginObj
-    });
-
-  }
-
-  // print the returned data
-function loginCb(response) {
-	console.log(response)
-	if (response.success == true){
-
-		sessionStorage.setItem('name', response.name);
-		sessionStorage.setItem('email', response.email);
-		sessionStorage.setItem('pass', response.pass);
-		sessionStorage.setItem('mobile', response.mobile);
-
-		if (document.getElementById('rememberMe').checked) {
-			localStorage.setItem('name', response.name);
-			localStorage.setItem('email', response.email);
-			localStorage.setItem('pass', response.pass);
-			localStorage.setItem('mobile', response.mobile);
-		}
-
-		
-		populateUser(true);
-		if (afterLoginFunction != null) afterLoginFunction();
-		closeLoginPopup();  
-
-	}
-	else 
-	{
-		$('#loginPopupError').text(response.name);
-		afterLoginFunction = null;
-	}
-}
-
 function closeLoginPopup() {
 	afterLoginFunction = null;
 	$("#loginPopupShadow").fadeTo(  "fast", 0, function() {
@@ -140,19 +79,23 @@ function closeLoginPopup() {
 	});
 }
 
-function updateCost() {
-    var size = $("#liquidOrderSize").val();
-	var qty = $("#liquidOrderQuantity").val(); 
-	var price = 0.00;
-	var total = 0.00;
-	
-	if (size == 30) {price = 6}
-	else if (size == 60) {price = 10.50}
-	else if (size == 120) {price = 19.50}
-	
-	total = price * qty;
-	
-	$("#totalCostValue").text("€"+total.toFixed(2));
-	
-}
 
+function loadSession() {
+      if (sessionStorage.getItem("name") != null) {
+            return true;
+                        
+      }
+      else {
+            if (localStorage.getItem("name") != null) {
+                  sessionStorage.setItem('name', localStorage.getItem("name"));       
+                  sessionStorage.setItem('email', localStorage.getItem("email"));
+                  sessionStorage.setItem('pass', localStorage.getItem("pass"));
+                  sessionStorage.setItem('mobile', localStorage.getItem("mobile"));
+                  return true;
+            } 
+            else return false;
+      }
+            
+   
+
+}
