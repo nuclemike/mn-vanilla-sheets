@@ -53,7 +53,9 @@ function toggleMenu() {
 
 function loginPopup() {
 		$('#loginPopupWelcome').text('Authorization Required');
-		$('#loggingInPopupPanel').hide();		
+			  $('#loginPopupEmail').val('');
+	  $('#loginPopupPassword').val('');
+	  $('#loginPopupError').text('');
    		$("#loginPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
 	}
 
