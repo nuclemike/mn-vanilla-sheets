@@ -1,4 +1,13 @@
-
+<script>
+	var nrOfImages = $("#pageContent img").length;
+		    $("#pageContent img").load(function() {
+			if(--nrOfImages == 0)
+			{
+			    pageLoaded();
+			}
+		    });
+</script>
+	
 		<div id="goldRibbon" class="fxFixed">Nectar Collection</div>
 
 
