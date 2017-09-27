@@ -763,7 +763,7 @@ a {} #headerMenu {
 }
 @media only screen and (max-width: 500px) {
     #goldRibbon {
-        font-size: 6vw;
+        font-size: 7vw;
     }
     .nectarName {
         font-size: 6vw;
