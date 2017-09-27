@@ -13,7 +13,7 @@
 
     var request = jQuery.ajax({
       crossDomain: true,
-      url: url + '&aaa='+encodeURIComponent(flavor)+'&bbb='+encodeURIComponent(email)+'&ccc='+encodeURIComponent(email)+'&ddd='+encodeURIComponent(email)
+      url: url + '&aaa='+encodeURIComponent(flavor)+'&bbb='+encodeURIComponent(email)+'&ccc='+encodeURIComponent(email)+'&ddd='+encodeURIComponent(email)+'&ccc='+encodeURIComponent(email)+'&ccc='+encodeURIComponent(email)+'&ccc='+encodeURIComponent(email)
       method: "GET",
       dataType: "jsonp"
     });
