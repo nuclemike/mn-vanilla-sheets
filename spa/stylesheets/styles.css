@@ -582,12 +582,12 @@ a {} #headerMenu {
     width: 80px;
     left: 26px;
     position: absolute;
-    top: 15px;
+    top: 23px;
 }
 .myLabRequestNectar {
     color: #444;
     font-family: "Beleren";
-    font-size: 26px;
+    font-size: 20px;
     line-height: 21px;
     text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0, 0, 0, 0.5);
     text-align: center;
@@ -595,9 +595,7 @@ a {} #headerMenu {
     left: 15px;
     width: 100px;
     top: 123px;
-    display: table-row-group;
-    height: 72px;
-    vertical-align: middle;
+    height: 47px;
 }
 
 .myLabRequestVaper {
@@ -632,6 +630,35 @@ a {} #headerMenu {
 .myLabRequestNicotine b,
 .myLabRequestVg b {
     color: #dbba86;
+}
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
+
+.myLabRequestStatePending,
+.myLabRequestStateReady {
+    margin-top: 16px;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-right:15px;
+}
+
+.myLabRequestStatePending {
+    color: #ff4e2e;
+  animation: blinker 1s linear infinite;
+    }
+
+.myLabRequestStateReady {
+  color: white;
+  background-color: #87c30d;
+  text-align: center;
 }
 
 .myLabRequestQty {
