@@ -49,6 +49,7 @@
 
   // print the returned data
 function postRequestCallback(response) {
+	$('#sendingPanel').hide();
 	if (response.success) {
 		$('#orderSentPanelEmail').text($("#liquidOrderCustomerEmail").text());
 		$('#orderSentPanelRequestID').text(response.requestID);
