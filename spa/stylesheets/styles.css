@@ -171,7 +171,7 @@ display: block;
 #liquidOrderTable input, #liquidOrderTable select{font-family: 'Raleway', sans-serif;border: 1px solid #ddd;border-radius:3px;height: 35px;padding: 0 7px;color:#444;width: 150px;font-size: 15px;}
 
 #liquidOrderCustomerEmail{margin-left: 55px;}
-input#liquidOrderCustomerNickname{
+input#liquidOrderCustomerVaper{
 	width: 100%;
 }
 
