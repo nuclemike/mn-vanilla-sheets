@@ -219,6 +219,12 @@ input#liquidOrderCustomerNickname{
 	width: 100%;
 }
 
+#loginPopupShadow.loading #loginPopupTable *,
+#loginPopupShadow.loading buttons{
+	opacity:0.5 !important;
+	pointer-events:none !important;
+}
+
 #loginPopupForm{
 	/* background: white; */
 	/* height: 450px; */
