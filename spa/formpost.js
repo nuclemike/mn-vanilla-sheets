@@ -27,21 +27,22 @@
         $('#sendingPanel').fadeIn('medium');
         
         
-  var url = "https://script.google.com/macros/s/AKfycby2yL0OxsZFDEzESDNHBTqGdZuZHwCzkbBjQ6_prTtZDt3iHACU/exec?callback=postRqCb";
 
-	var flavor = 'a';//$('#loginPopupEmail').val();
-	var email = 'b';//$('#loginPopupPassword').val();
-	var size = 'c';//$('#loginPopupPassword').val();
-	var nicotine = 'd';//$('#loginPopupPassword').val();
-	var vg = 'e';//$('#loginPopupPassword').val();
-	var qty = 'f';//$('#loginPopupPassword').val();
-	var nickname = 'g';//$('#loginPopupPassword').val();
+	var requestObj = { email : $('#liquidOrderNectarName').text(),
+			   pass : sessionStorage.getItem("pass"),
+			   qty : $('#liquidOrderQuantity').val(),
+			   flavor : $('#liquidOrderNectarName').text(),
+			   size : $('#liquidOrderSize').val(),
+			   nicotine : $('#liquidOrderNicotine').val(),
+			   vg : $('#liquidOrderVG').val(),
+			   nickname : $('#liquidOrderCustomerNickname').val() }			   	
 
     var request = jQuery.ajax({
       crossDomain: true,
-      url: url + '&flv='+encodeURIComponent(flavor)+'&eml='+encodeURIComponent(email)+'&siz='+encodeURIComponent(email)+'&nct='+encodeURIComponent(email)+'&vgr='+encodeURIComponent(email)+'&qty='+encodeURIComponent(email)+'&nnm='+encodeURIComponent(email),
+      url: "https://script.google.com/macros/s/AKfycby2yL0OxsZFDEzESDNHBTqGdZuZHwCzkbBjQ6_prTtZDt3iHACU/exec?callback=postRqCb",
       method: "GET",
-      dataType: "jsonp"
+      dataType: "jsonp",
+      data: requestObj
     });
 
   }
