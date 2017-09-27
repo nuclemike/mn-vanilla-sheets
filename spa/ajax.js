@@ -53,7 +53,7 @@ function postRequestCallback(response) {
 	if (response.success) {
 		$('#orderSentPanelEmail').text($("#liquidOrderCustomerEmail").text());
 		$('#orderSentPanelRequestID').text('#'+response.requestID);
-		$('#orderSentPanel').fadeIn('medium');
+		$('#orderSentPanel').show();
 		$('#cancelOrder, #goToMyLab').show();
 	}
 	else {
