@@ -155,7 +155,7 @@ function loadMyLab() {
 				
 				
 				var imgUrl = 'liquids/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
-				html += '<div class="myLabRequestWrapper">';
+				html += '<div class="myLabRequestWrapper fxFixed">';
 				html += '<img class="myLabRequestFlask" src="'+imgUrl.toLowerCase()+'"/>';
 				html += '<span class="myLabRequestNectar">' + item.flavor + '</span>';
 				html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
@@ -187,7 +187,7 @@ function loadMyLab() {
                         e.pending.forEach( function (item){
 
 				var imgUrl = 'liquids/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
-				html += '<div class="myLabRequestWrapper">';
+				html += '<div class="myLabRequestWrapper fxFixed">';
 				html += '<img class="myLabRequestFlask" src="'+imgUrl.toLowerCase()+'"/>';
 				html += '<span class="myLabRequestNectar">' + item.flavor + '</span>';
 				html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
