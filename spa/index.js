@@ -35,7 +35,7 @@ function loadContent(pageName) {
 		if (pageName != 'nectars')
 		{
 		var nrOfImages = $("img").length;
-		    $("img").load(function() {
+		    $("#pageContent img").load(function() {
 			if(--nrOfImages == 0)
 			{
 			    $("#pageLoader").hide();
