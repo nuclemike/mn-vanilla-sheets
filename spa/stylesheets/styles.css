@@ -205,9 +205,6 @@ input#liquidOrderCustomerNickname{
 }
 
 
-#totalCostSection {float: left;}
-
-#totalCost{float: left;font-size: 12px;line-height: 8px;}
 
 #totalCostValue{float: left;clear: left;font-size: 22px;color: #4ab74a;font-weight: bold;}
 
