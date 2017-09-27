@@ -539,20 +539,34 @@ a {} #headerMenu {
     width: 155px;
     margin-right: 0;
 }
-#myLabRequestDumpDiv {} .myLabRequestTitle {} .myLabRequestContainer {
+#myLabRequestDumpDiv {
+    margin: 0 2%;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+.myLabRequestTitle {
+    padding: 20px 50px;
+    font-size: 25px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: #c38d36;
+    display: block;
+}
+.myLabRequestContainer {
     padding: 0 40px;
 }
 .myLabRequestWrapper {
     margin: 10px;
-    background: white;
+    background: #fffefa;
     border-radius: 5px;
-    /* border: 1px solid #ddd; */
+    border: 1px solid #ddds;
     /* font-family: 'Raleway', sans-serif; */
     
     height: 187px;
     position: relative;
     width: 330px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2), 128px 0 0 0 #faf6ea inset;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), 128px 0 0 0 #faf6ea inset;
 }
 .myLabRequestFlask {
     width: 94px;
