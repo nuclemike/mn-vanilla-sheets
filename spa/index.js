@@ -31,7 +31,7 @@ function loadContent(pageName) {
 	$( "#pageContent" ).hide();
 	
 	$( "#pageContent" ).load( pageName+".html", function() {
-		$("#pageLoader").hide();
+		if (pageName != 'mylab') $("#pageLoader").hide();
 		$(this).show();
 	});
 }
