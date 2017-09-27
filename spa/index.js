@@ -52,6 +52,7 @@ function toggleMenu() {
 }
 
 function loginPopup() {
+		$('#loginPopupWelcome').text('Authorization Required');
 		$('#loggingInPopupPanel').hide();		
    		$("#loginPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
 	}
@@ -73,6 +74,7 @@ function logout() {
 
 
 function closeLoginPopup() {
+	if $('#loginPopupShadow').hasClass('loading') return false;
 	afterLoginFunction = null;
 	$("#loginPopupShadow").fadeTo(  "fast", 0, function() {
 		$( this ).css("z-index","-9999");
