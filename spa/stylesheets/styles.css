@@ -540,12 +540,11 @@ a {} #headerMenu {
 }
 #myAccountDetails label {
     clear: left;
-    width: 155px;
+    width: 40%;
     margin-right: 0;
 }
 #myLabRequestDumpDiv {
     margin: 0 2%;
-
 }
 .myLabRequestTitle {
     padding: 10px 10px;
@@ -764,13 +763,25 @@ a {} #headerMenu {
 }
 @media only screen and (max-width: 500px) {
     #goldRibbon {
-        font-size: 10vw;
+        font-size: 6vw;
     }
     .nectarName {
         font-size: 6vw;
     }
     .nectarInfo {
         padding: 0 2vw;
+        font-size: 4vw;
+    }
+    #myAccountDetails {
+        width: 96%;
+    }
+    #myAccountDetailsTitle {
+        font-size: 25px;
+        padding: 5%;
+    }
+    #myAccountDetails span,
+    #myAccountDetails label {
+        margin: 0 0 0 5%;
         font-size: 4vw;
     }
 }
