@@ -116,13 +116,15 @@ function logout() {
     var user = $('#loginPopupEmail').val();
     var pass = $('#loginPopupPassword').val();
 
-    var dataObj = {user:user,pass:pass}
+    var loginObj = { user:$('#loginPopupEmail').val(),
+		    pass:$('#loginPopupPassword').val() }
+    
     var request = jQuery.ajax({
       crossDomain: true,
-      url: url,//; + '&user='+encodeURIComponent(user)+'&pass='+encodeURIComponent(pass),
+      url: url,
       method: "GET",
       dataType: "jsonp",
-      data : dataObj
+      data : loginObj
     });
 
   }
