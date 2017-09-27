@@ -11,7 +11,7 @@
 html {
     margin: 0;
     height: 100%;
-    padding-top: 103px;
+    padding-top: 105px;
 }
 body {
     font-family: 'Quantico', sans-serif;
@@ -368,11 +368,14 @@ input#loginPopupPassword {
     width: 100%;
     left: 0;
     z-index: 999;
+    max-width: 100%;
+    height: 105px;
 }
 #headerContainer {
-    width: 1000px;
+    width: 100%;
     position: relative;
     margin: 0 auto;
+    max-width: 1000px;
 }
 #headerLogin {
     color: #85745a;
@@ -411,7 +414,7 @@ a {} #headerMenu {
     opacity: 0.3;
 }
 #menuBurger {
-    display: none;
+    /* display: none; */
     float: right;
 }
 #goldRibbon {
@@ -527,7 +530,7 @@ a {} #headerMenu {
     font-family: 'Raleway', sans-serif;
     padding: 50px;
     margin-bottom: 5%;
-    width: 100%;
+    width: 96%;
     max-width: 600px;
 }
 #myAccountDetails span,
@@ -564,19 +567,18 @@ a {} #headerMenu {
     padding-bottom: 5%;
 }
 .myLabRequestWrapper {
-    margin: 10px;
+    /* margin: 10px; */
     background: #fffefa;
     border-radius: 5px;
     border: 1px solid #ddds;
     /* font-family: 'Raleway', sans-serif; */
-    
-    height: 187px;
+    height: 134px;
     position: relative;
-    width: 330px;
+    width: 100%;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), 128px 0 0 0 #faf6ea inset;
 }
 .myLabRequestFlask {
-    width: 94px;
+    width: 80px;
     left: 18px;
     position: absolute;
     top: 15px;
@@ -664,11 +666,6 @@ a {} #headerMenu {
 }
 /* ################################### MEDIA QUERIES ################################### */
 
-@media only screen and (max-width: 1000px) {
-    #headerContainer {
-        width: 100%;
-    }
-}
 @media only screen and (max-width: 850px) {
     #headerMenu a {
         margin: 0 7px;
@@ -676,38 +673,28 @@ a {} #headerMenu {
     }
 }
 @media only screen and (max-width: 750px) {
+
     html {
-        padding-top: 69px;
+        padding-top :90px;
     }
+
     #header {
-        display: block;
-        width: 100%;
-        /* height:120px; */
+        height:90px;
     }
-    #menuBurger {
-        display: none;
-    }
+
+
     #mainLogo {
-        width: 150px;
+        width: 200px;
     }
-    #menu {
-        width: 39px;
-        float: right;
-        margin: 42px;
+
+    #goldRibbon{
+        font-size:25px;
+        padding:11px;
     }
-    #headerMenu {
-        right: 0;
-        top: 120px;
-        position: absolute;
-        background-color: #121212;
-        height: 100%;
-        width: 250px;
-        right: -250px;
-        transition: right 0.3s;
-    }
-    #headerMenu.open {
-        right: 0px;
-    }
+
+ 
+
+ 
     #liquidOrderForm {
         flex-direction: column;
         width: 95%;
@@ -774,7 +761,7 @@ a {} #headerMenu {
     }
     #myAccountDetails {
         width: 96%;
-        padding: 30px;
+        padding: 50px;
     }
     #myAccountDetailsTitle {
       
@@ -785,13 +772,12 @@ a {} #headerMenu {
    padding-left: 5%;
    line-height:1.5em;
    margin-bottom:20px;
-   font-size: 4vw;
+   font-s;ize: 18px;
    }
 
     #myAccountDetails label {
    width: 100%;
    padding-left: 0%;
-   font-size: 4vw;
    margin-bottom:0px;
    }
 }
