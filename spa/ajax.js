@@ -150,13 +150,13 @@ function loadMyLab() {
                   
                   if (e.pending.length > 0){
                         html += '<span class="myLabRequestTitle">Processing</span>';
-                        html += '<div class="myLabRequestContainer">';
+                        html += '<div class="myLabRequestContainer fxDisplay fxWrap fxJustifyCenter">';
                         
                         e.pending.forEach( function (item){
 				
 				
 				var imgUrl = 'liquids/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
-		
+				html += '<div class="myLabRequestWrapper">';
 				html += '<img class="myLabRequestFlask" src="'+imgUrl.toLowerCase()+'"/>';
 				html += '<span class="myLabRequestNectar">' + item.flavor + '</span>';
 				html += '<span class="myLabRequestReference">' + item.reference + '</span>';
@@ -166,7 +166,7 @@ function loadMyLab() {
 				html += '<span class="myLabRequestVg">' + item.vg + '</span>';
 				html += '<span class="myLabRequestQty">' + item.quantity + '</span>';
 				html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
-				
+				html += '</div>';
 
                         });
                         html += '</div>';
@@ -178,12 +178,12 @@ function loadMyLab() {
                   
                 if (e.ready.length > 0){
                         html += '<span class="myLabRequestTitle">Ready for Pickup</span>';
-                        html += '<div class="myLabRequestContainer">';
+                        html += '<div class="myLabRequestContainer fxDisplay fxWrap fxJustifyCenter">';
                         
                         e.pending.forEach( function (item){
 
 				var imgUrl = 'liquids/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
-		
+				html += '<div class="myLabRequestWrapper">';
 				html += '<img class="myLabRequestFlask" src="'+imgUrl.toLowerCase()+'"/>';
 				html += '<span class="myLabRequestNectar">' + item.flavor + '</span>';
 				html += '<span class="myLabRequestReference">' + item.reference + '</span>';
@@ -192,7 +192,8 @@ function loadMyLab() {
 				html += '<span class="myLabRequestNicotine">' + item.nicotine + '</span>';
 				html += '<span class="myLabRequestVg">' + item.vg + '</span>';
 				html += '<span class="myLabRequestQty">' + item.quantity + '</span>';
-				html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';				
+				html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
+				html += '</div>';				
 				
 
                         });
