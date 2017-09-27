@@ -577,6 +577,7 @@ a {} #headerMenu {
     width: 335PX;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2), 134px 0 0 0 #fbf9f0 inset;
     font-size: 15px;
+    overflow: hidden;
 }
 .myLabRequestFlask {
     width: 80px;
@@ -659,6 +660,7 @@ a {} #headerMenu {
   color: white;
   background-color: #87c30d;
   text-align: center;
+  box-shadow: 0px 8px 0 15px #87c30d;
 }
 
 .myLabRequestQty {
