@@ -46,14 +46,6 @@ display: block;
     margin: 0 auto;
     }
 
-#loginSectionButton{
-	background: rgba(255,255,255,0.5);
-	border: 0;
-	font-family: 'Quantico', sans-serif;
-	font-size: 22px;
-	color: #8a6d42;
-}
-
 /*LIQUID ORDER POPUP*/
 
 #liquidOrderSection{
@@ -127,16 +119,6 @@ display: block;
 	color: #555;
 }
 
-#notAuthorizedPanel{
-padding-top:0;
-}
-
-#fbLoginPanel{
-	
-
-	padding-top: 0;
-	color: #555;
-}
 
 #sendingPanel{
     background: url(/stylesheets/sending.gif) center 30px no-repeat white;
@@ -306,6 +288,14 @@ input#liquidOrderCustomerNickname{
 
 input#loginPopupEmail, input#loginPopupPassword{
 	width:212px;
+}
+
+#rememberMe:checked + label{
+	
+}
+
+#rememberMe:checked + label{
+	
 }
 
 input#loginPopupPassword{
