@@ -2,21 +2,19 @@
   function test() {
     
     var url = "https://script.google.com/macros/s/AKfycby2yL0OxsZFDEzESDNHBTqGdZuZHwCzkbBjQ6_prTtZDt3iHACU/exec?callback=testCb";
-   
-   var object= {'Flavor':'flv',
-                'E-Mail':'eml',
-                'Size':'sz',
-                'Nicotine':'3',
-                'VG':'70',
-                'Quantity':'1',
-                'Nickname':'nkn',
-                'State':''}
+
+	var flavor = 'a';//$('#loginPopupEmail').val();
+	var email = 'b';//$('#loginPopupPassword').val();
+	var size = 'c';//$('#loginPopupPassword').val();
+	var nicotine = 'd';//$('#loginPopupPassword').val();
+	var vg = 'e';//$('#loginPopupPassword').val();
+	var qty = 'f';//$('#loginPopupPassword').val();
+	var nickname = 'g';//$('#loginPopupPassword').val();
 
     var request = jQuery.ajax({
       crossDomain: true,
-      url: url,// + '&user='+encodeURIComponent(user)+'&pass='+encodeURIComponent(pass),
+      url: url + '&a='+encodeURIComponent(flavor)+'&b='+encodeURIComponent(email)+'&c='+encodeURIComponent(size)+'&d='+encodeURIComponent(nicotine)+'&e='+encodeURIComponent(vg)+'&f='+encodeURIComponent(qty)+'&g='+encodeURIComponent(nickname),
       method: "GET",
-     data : object,
       dataType: "jsonp"
     });
 
