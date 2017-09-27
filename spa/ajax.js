@@ -145,67 +145,58 @@ function loadMyLab() {
                   var html = '';                  
                   
                   if (e.pending.length > 0){
-                        html += '<h2>Processing</h2>';
-                        html += '<table>';
-                        html += '<tr>';
-                        html += '<th>Nectar</th>';
-                        html += '<th>Size</th>';
-                        html += '<th>Nicotine</th>';
-                        html += '<th>VP/PG</th>';
-                        html += '<th>Quantity</th>';
-                        html += '<th>Vaper</th>';
-                        html += '</tr>';
+                        html += '<h2 class="myLabRequestTitle">Processing</h2>';
+                        html += '<div class="myLabRequestContainer">';
                         
                         e.pending.forEach( function (item){
-                              html += '<tr>';
-                              html += '<td>' + item.flavor + '</td>';
-                              html += '<td>' + item.size + '</td>';
-                              html += '<td>' + item.nicotine + '</td>';
-                              html += '<td>' + item.vg + '</td>';
-                              html += '<td>' + item.quantity + '</td>';
-                              html += '<td>' + item.vaper + '</td>';
-                              html += '</tr>';
+                              html += '<img class="myLabRequestFlask" src=""/>';
+                              html += '<span class="myLabRequestNectar">' + item.flavor + '</span>';
+				html += '<span class="myLabRequestReference">' + item.reference + '</span>';
+				html += '<span class="myLabRequestDate">' + item.datetime + '</span>';
+				html += '<span class="myLabRequestSize">' + item.size + '</span>';
+				html += '<span class="myLabRequestNicotine">' + item.nicotine + '</span>';
+				html += '<span class="myLabRequestVg">' + item.vg + '</span>';
+				html += '<span class="myLabRequestQty">' + item.quantity + '</span>';
+				html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
+				
+
                         });
-                        html += '</table>';
+                        html += '</div>';
                   }
                   else{     
-                        html = '<span>you have no Pending Lab-Requests</span><br><br>'
+                       
                   }
                
                   
-                  if (e.ready.length > 0){
-                        html += '<h2>Ready for Pickup!</h2>';
-                        html += '<table>';
-                        html += '<tr>';
-                        html += '<th>Nectar</th>';
-                        html += '<th>Size</th>';
-                        html += '<th>Nicotine</th>';
-                        html += '<th>VP/PG</th>';
-                        html += '<th>Quantity</th>';
-                        html += '<th>Vaper</th>';
-                        html += '</tr>';
+                if (e.ready.length > 0){
+                        html += '<h2 class="myLabRequestTitle">Processing</h2>';
+                        html += '<div class="myLabRequestContainer">';
                         
-                        e.ready.forEach( function (item){
-                              html += '<tr>';
-                              html += '<td>' + item.flavor + '</td>';
-                              html += '<td>' + item.size + '</td>';
-                              html += '<td>' + item.nicotine + '</td>';
-                              html += '<td>' + item.vg + '</td>';
-                              html += '<td>' + item.quantity + '</td>';
-                              html += '<td>' + item.vaper + '</td>';
-                              html += '</tr>';
+                        e.pending.forEach( function (item){
+                              html += '<img class="myLabRequestFlask" src=""/>';
+                              html += '<span class="myLabRequestNectar">' + item.flavor + '</span>';
+				html += '<span class="myLabRequestReference">' + item.reference + '</span>';
+				html += '<span class="myLabRequestDate">' + item.datetime + '</span>';
+				html += '<span class="myLabRequestSize">' + item.size + '</span>';
+				html += '<span class="myLabRequestNicotine">' + item.nicotine + '</span>';
+				html += '<span class="myLabRequestVg">' + item.vg + '</span>';
+				html += '<span class="myLabRequestQty">' + item.quantity + '</span>';
+				html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
+				
+
                         });
-                        html += '</table>';
+                        html += '</div>';
                   }
                   else{     
-                        html = '<span>you have no Lab-Requests ready for pickup</span><br><br>'
-                  }                
+                       
+                  }       
 
                   
                   document.getElementById('labRequestsInnerSection').innerHTML = html;
             }
     pageLoaded();
       }
+
 
 
 	  
