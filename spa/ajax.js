@@ -145,15 +145,20 @@ function loadMyLab() {
                   alert(e.message);
             }
             else {
-                  var html = '';                  
+		var html = '';     
+		var imgUrl = '';
                   
                   if (e.pending.length > 0){
                         html += '<span class="myLabRequestTitle">Processing</span>';
                         html += '<div class="myLabRequestContainer">';
                         
                         e.pending.forEach( function (item){
-                              html += '<img class="myLabRequestFlask" src=""/>';
-                              html += '<span class="myLabRequestNectar">' + item.flavor + '</span>';
+				
+				
+				var imgUrl = 'liquids/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
+		
+				html += '<img class="myLabRequestFlask" src="'+imgUrl.toLowerCase()+'"/>';
+				html += '<span class="myLabRequestNectar">' + item.flavor + '</span>';
 				html += '<span class="myLabRequestReference">' + item.reference + '</span>';
 				html += '<span class="myLabRequestDate">' + item.datetime + '</span>';
 				html += '<span class="myLabRequestSize">' + item.size + '</span>';
@@ -176,15 +181,18 @@ function loadMyLab() {
                         html += '<div class="myLabRequestContainer">';
                         
                         e.pending.forEach( function (item){
-                              html += '<img class="myLabRequestFlask" src=""/>';
-                              html += '<span class="myLabRequestNectar">' + item.flavor + '</span>';
+
+				var imgUrl = 'liquids/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
+		
+				html += '<img class="myLabRequestFlask" src="'+imgUrl.toLowerCase()+'"/>';
+				html += '<span class="myLabRequestNectar">' + item.flavor + '</span>';
 				html += '<span class="myLabRequestReference">' + item.reference + '</span>';
 				html += '<span class="myLabRequestDate">' + item.datetime + '</span>';
 				html += '<span class="myLabRequestSize">' + item.size + '</span>';
 				html += '<span class="myLabRequestNicotine">' + item.nicotine + '</span>';
 				html += '<span class="myLabRequestVg">' + item.vg + '</span>';
 				html += '<span class="myLabRequestQty">' + item.quantity + '</span>';
-				html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
+				html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';				
 				
 
                         });
