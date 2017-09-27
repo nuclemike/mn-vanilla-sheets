@@ -148,9 +148,9 @@ function loadMyLab() {
 		var html = '';     
                   
                   if (e.pending.length > 0){
-                        html += '<span class="myLabRequestTitle">Processing</span>';
-                        html += '<div class="myLabRequestContainer fxDisplay fxWrap fxJustifyCenter">';
                         
+                        html += '<div class="myLabRequestContainer fxDisplay fxWrap fxJustifyCenter">';
+                        html += '<h2 class="myLabRequestTitle">Processing</h2>';
                         e.pending.forEach( function (item){
 				
 				
@@ -181,8 +181,8 @@ function loadMyLab() {
                
                   
                 if (e.ready.length > 0){
-                        html += '<span class="myLabRequestTitle">Ready for Pickup</span>';
                         html += '<div class="myLabRequestContainer fxDisplay fxWrap fxJustifyCenter">';
+                        html += '<h2 class="myLabRequestTitle">Ready for Pickup</h2>';
                         
                         e.pending.forEach( function (item){
 
