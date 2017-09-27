@@ -47,10 +47,6 @@ function populateUser(success) {
 }
 
 
-function toggleMenu() {
-    $("#headerMenu").toggleClass("open");
-}
-
 function loginPopup() {
 		$('#loginPopupWelcome').text('Authorization Required');
 			  $('#loginPopupEmail').val('');
