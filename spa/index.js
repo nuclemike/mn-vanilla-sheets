@@ -34,7 +34,7 @@ function loadContent(pageName) {
 		//if (pageName != 'mylab' || pageName != 'nectars') $("#pageLoader").hide();
 		if (pageName == 'nectars')
 		{
-		var nrOfImages = $("img").length;
+		var nrOfImages = $("#pageContent img").length;
 		    $("#pageContent img").load(function() {
 			if(--nrOfImages == 0)
 			{
