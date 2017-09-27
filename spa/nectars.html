@@ -237,7 +237,13 @@
 								<option value="100">MAX</option>								
   							</select>
 					   	</td>
-    					</tr>   					
+    					</tr>   	
+      					<tr> 
+          					<td>Price</td>
+          					<td>
+							<span id="totalCostValue">€0.00</span>	
+					   	</td>
+    					</tr>					
   				</table>			
 			
 				
@@ -254,11 +260,7 @@
 					<h4>Thanks!</h4>
 					<span>Your lab request has been sent! An auto email will be sent to <b></b> when your order is ready for pickup. </span>					
 				</div>
-				
-				<div id="totalCostSection">
-					<span id="totalCost">Total</span>
-					<span id="totalCostValue">€10.50</span>	
-				</div>
+		
 				
 				<button id="sendOrder" onclick="formPost()" >Send Request!</button>				
 				<button id="cancelOrder" onclick="closeLabRequestPopup()" type="button">Close</button>
