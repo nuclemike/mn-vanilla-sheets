@@ -74,7 +74,7 @@ function postRequestCallback(response) {
     
     var request = jQuery.ajax({
       crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycbzDWblHNTvXICpwOrT2Yi1NWbXS39IDnODUb6j7DX8gj-DEDGc/exec?callback=loginCallback",
+      url: "https://script.google.com/macros/s/AKfycbw5G9k4sGNtTxQOaEVmSVo0VNEXEhPjfqvwAbecgVBCKyB5JuI/exec?callback=loginCallback",
       method: "GET",
       dataType: "jsonp",
       data : loginObj
