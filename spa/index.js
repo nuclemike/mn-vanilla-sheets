@@ -58,7 +58,7 @@ function labRequestPopup(nectarName) {
 	document.getElementById('liquidOrderNicotine').value = '';
 	document.getElementById('liquidOrderVG').value = '';
 	
-	$('#orderSentPanel, #sendingPanel').hide();
+	$('#orderSentPanel, #sendingPanel, #goToMyLab').hide();
 	 $('#sendOrder, #cancelOrder').show();
 	$("#liquidOrderSection").css("z-index","9999").fadeTo( "medium", 1 );
 
