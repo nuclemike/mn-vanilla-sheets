@@ -115,9 +115,11 @@ display: block;
 	width: 100%;
 	left: 0;
 	padding: 30px;
-	height: 295px;
+	height: 300px;
 	color: #555;
 }
+ 
+#sendingPanel, #orderSentPanel{text-align:center;color: #555;}
 
 
 #sendingPanel{
@@ -132,6 +134,18 @@ display: block;
 }
 
 #orderSentPanel h4{color: #4ab74a;}
+
+#orderSentPanel i{
+	/* background:#eee; */
+	/* display: inline-block; */
+	padding: 10px;
+	/* line-height: 23px; */
+	border-radius: 20px;
+}
+
+#orderSentPanelRequestID{
+	font-size:30px;
+}
 
 #liquidOrderMainIcon{position: absolute;}
 
@@ -154,11 +168,11 @@ display: block;
 	border-color: tomato !important;
 }
 
-#liquidOrderTable input, #liquidOrderTable select{font-family: 'Raleway', sans-serif;border: 1px solid #ddd;border-radius:3px;height: 35px;padding: 0 7px;color:#444;width: 100px;font-size: 15px;}
+#liquidOrderTable input, #liquidOrderTable select{font-family: 'Raleway', sans-serif;border: 1px solid #ddd;border-radius:3px;height: 35px;padding: 0 7px;color:#444;width: 150px;font-size: 15px;}
 
 #liquidOrderCustomerEmail{margin-left: 55px;}
 input#liquidOrderCustomerNickname{
-	width:212px;
+	width: 100%;
 }
 
 #liquidOrderNectarName{
@@ -178,7 +192,7 @@ input#liquidOrderCustomerNickname{
 
 
 
-#totalCostValue{float: left;clear: left;font-size: 22px;color: #4ab74a;font-weight: bold;}
+#totalCostValue{float: left;clear: left;font-size: 30px;color: #4ab74a;font-weight: bold;}
 
 #sendOrder, #goToMyLab, #cancelOrder{
 	    background: #f1cd63;
