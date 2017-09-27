@@ -79,7 +79,7 @@ function toggleMenu() {
 
 function loginPopup() {
 		$('#loggingInPopupPanel').hide();		
-   		$("#loginPopup").css("z-index","9999").fadeTo( "medium", 1 );
+   		$("#loginPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
 	}
 
 
@@ -146,7 +146,7 @@ function loginCb(response) {
 
 function closeLoginPopup() {
 	afterLoginFunction = null;
-	$("#loginPopup").fadeTo(  "fast", 0, function() {
+	$("#loginPopupShadow").fadeTo(  "fast", 0, function() {
 		$( this ).css("z-index","-9999");
 	});
 }
