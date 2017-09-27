@@ -47,7 +47,7 @@ function labRequestPopup(nectarName) {
 
 	var imgUrl = './liquids/' + nectarName.replace(/[^a-z0-9]/gi,'') +'.png';
 
-	document.getElementById("liquidOrderNectarThumbnail").setAttribute("style", "background-image:url('"+imgUrl.toLowerCase()+"')");
+	document.getElementById("liquidOrderFlask").setAttribute("style", "background-image:url('"+imgUrl.toLowerCase()+"')");
 	document.getElementById("liquidOrderNectarName").innerHTML = nectarName;
 	document.getElementById('liquidOrderCustomerName').innerHTML = sessionStorage.getItem("name");
 	document.getElementById('liquidOrderCustomerEmail').value = sessionStorage.getItem("email");   
