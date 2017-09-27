@@ -205,7 +205,7 @@ function loadMyLab() {
 
                   
                   document.getElementById('myLabRequestContainer').innerHTML = html;
-            }
+         
     pageLoaded();
       }
 
