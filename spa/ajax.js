@@ -155,7 +155,7 @@ function loadMyLab() {
 				html += '<div class="myLabRequestWrapper fxFixed">';
 				html += '<span class="myLabRequestQty">' + item.quantity + 'x</span>';
 				html += '<img class="myLabRequestFlask" src="'+imgUrl.toLowerCase()+'"/>';
-				html += '<span class="myLabRequestNectar">' + item.flavor + '</span>';
+				html += '<span class="myLabRequestNectar fxDisplay fxJustifyCenter fxAlignCenter">' + item.flavor + '</span>';
 				html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
 
 				html += '<span class="myLabRequestDate"><b>Ordered</b>' + item.datetime + '</span>';
