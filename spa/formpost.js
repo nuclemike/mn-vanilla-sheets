@@ -50,7 +50,8 @@
   // print the returned data
 function postRqCb(response) {
 	if (response.success) {
-		$('#orderSentPanel b').text($("#liquidOrderCustomerEmail").val());
+		$('#orderSentPanelEmail').text($("#liquidOrderCustomerEmail").text());
+		$('#orderSentPanelRequestID').text($("#liquidOrderCustomerEmail").text());
 		$('#orderSentPanel').fadeIn('medium');
 		$('#cancelOrder').show();
 	}
