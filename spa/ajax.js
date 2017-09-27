@@ -148,7 +148,7 @@ function loadMyLab() {
                   var html = '';                  
                   
                   if (e.pending.length > 0){
-                        html += '<h2 class="myLabRequestTitle">Processing</h2>';
+                        html += '<span class="myLabRequestTitle">Processing</span>';
                         html += '<div class="myLabRequestContainer">';
                         
                         e.pending.forEach( function (item){
@@ -172,7 +172,7 @@ function loadMyLab() {
                
                   
                 if (e.ready.length > 0){
-                        html += '<h2 class="myLabRequestTitle">Processing</h2>';
+                        html += '<span class="myLabRequestTitle">Ready for Pickup</span>';
                         html += '<div class="myLabRequestContainer">';
                         
                         e.pending.forEach( function (item){
