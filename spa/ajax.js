@@ -69,7 +69,7 @@ function postRequestCallback(response) {
   function login() {
 
 
-    var loginObj = { user:$('#loginPopupEmail').val(),
+    var loginObj = { email:$('#loginPopupEmail').val(),
 		    pass:$('#loginPopupPassword').val() }
     
     var request = jQuery.ajax({
