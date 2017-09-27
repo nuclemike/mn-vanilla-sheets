@@ -103,6 +103,7 @@ function loginCallback(response) {
 		
 		populateUser(true);
 		if (afterLoginFunction != null) afterLoginFunction();
+		$('#loginPopupShadow').removeClass('loading');
 		closeLoginPopup();  
 
 	}
@@ -110,9 +111,10 @@ function loginCallback(response) {
 	{
 		$('#loginPopupError').text(response.name);
 		afterLoginFunction = null;
-	}
-	$('#loginPopupShadow').removeClass('loading');
+		$('#loginPopupShadow').removeClass('loading');
 	$('#loginPopupWelcome').text('Authorization Required');
+	}
+	
 }
 
 
