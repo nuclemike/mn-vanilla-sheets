@@ -10,9 +10,6 @@
         $("#liquidOrderSize").addClass("requiredField")}
         else { $("#liquidOrderSize").removeClass("requiredField")}        
         
-      if ($("#liquidOrderQuantity").val()=="") {
-        $("#liquidOrderQuantity").addClass("requiredField")}
-        else { $("#liquidOrderQuantity").removeClass("requiredField")}
      
       if ($("#liquidOrderNicotine").val()=="") {
         $("#liquidOrderNicotine").addClass("requiredField")}
