@@ -192,23 +192,13 @@ input#liquidOrderCustomerNickname{
 
 #liquidOrderCustomerName{display: block;font-size: 21px;font-weight: bold;/* top: 30px; */color: #444;}
 
-#cancelOrder{
-    background: #ddd;
-    border: 0;
-    color: #666;
-    font-family: quantico;
-    height: 36px;
-    padding: 0 20px;
-    border-radius: 3px;
-    font-size: 15px;
-    float: right;
-}
+
 
 
 
 #totalCostValue{float: left;clear: left;font-size: 22px;color: #4ab74a;font-weight: bold;}
 
-#sendOrder, #goToMyLab{
+#sendOrder, #goToMyLab, #cancelOrder{
 	    background: #f1cd63;
 	    border: 0;
 	    color: #444;
@@ -223,6 +213,11 @@ input#liquidOrderCustomerNickname{
 
 #goToMyLab{
 	background-color:#ffb7b7;
+}
+
+#cancelOrder{
+    background: #ddd;
+    color: #666;    
 }
 
 
