@@ -648,7 +648,8 @@ a {} #headerMenu {
     font-size: 18px;
     font-weight: bold;
     text-align: center;
-    margin-right:15px;
+    margin: 15px 0 0 -15px;
+    line-height: 36px;
 }
 
 .myLabRequestStatePending {
@@ -660,7 +661,6 @@ a {} #headerMenu {
   color: white;
   background-color: #87c30d;
   text-align: center;
-  box-shadow: 0px 8px 0 15px #87c30d;
 }
 
 .myLabRequestQty {
