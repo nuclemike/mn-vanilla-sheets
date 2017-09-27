@@ -161,7 +161,7 @@ function loadMyLab() {
 				html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
 				html += '<span class="myLabRequestDate"><b>Ordered</b>' + item.datetime + '</span>';
 				html += '<span class="myLabRequestSize"><b>Size</b>' + item.size + 'ml</span>';
-				html += '<span class="myLabRequestNicotine">' + item.nicotine + '</span>';
+				html += '<span class="myLabRequestNicotine"><b>Nicotine</b>' + item.nicotine + '</span>';
 				
 				var vgText = '';
 				if (Math.round(item.vg) == 100) {vgText="MAX-VG"}
