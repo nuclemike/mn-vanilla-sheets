@@ -550,13 +550,14 @@ a {} #headerMenu {
     margin: 0 2%;
 }
 .myLabRequestTitle {
-    padding: 10px 10px;
-    font-size: 25px;
+    padding: 0;
+    margin: 8% 5% 3%;
+    font-size: 30px;
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
     color: #c38d36;
     display: block;
-    width: 100%;
+    text-align: center;
 }
 .myLabRequestContainer {
     padding: 0 40px;
@@ -570,12 +571,12 @@ a {} #headerMenu {
     margin: 1VW;
     background: #FFF;
     border-radius: 5px;
-    border: 1px solid #ddds;
-    /* font-family: 'Raleway', sans-serif; */
+    padding-left: 148px;
     height: 188px;
     position: relative;
     width: 335PX;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2), 134px 0 0 0 #fbf9f0 inset;
+    font-size: 15px;
 }
 .myLabRequestFlask {
     width: 80px;
@@ -598,43 +599,30 @@ a {} #headerMenu {
     height: 72px;
     vertical-align: middle;
 }
-.myLabRequestReference {
-    position: absolute;
-    top: 122px;
-    left: 148px;
-    color: #a17733;
-    font-size: 14px;
+
+.myLabRequestVaper {
+    margin-top: 16px;
+    display: block;
+    font-size: 17px;
+    color: #7a4d30;
+    font-weight: bold;
 }
+
 .myLabRequestDate {
-    position: absolute;
-    top: 36px;
-    left: 148px;
     font-size: 14px;
     color: #d0cab6;
-    font-weight: normal;
+    display: block;
+    margin-bottom:13px
 }
-.myLabRequestSize {
-    position: absolute;
-    top: 67px;
-    left: 148px;
-    font-size: 15px;
+.myLabRequestSize,
+.myLabRequestNicotine,
+.myLabRequestVg,
+.myLabRequestReference {
     color: #a17733;
+    display: block;
+    line-height:16px
 }
-.myLabRequestNicotine {
-    position: absolute;
-    top: 85px;
-    left: 148px;
-    color: #a17733;
-    font-size: 14px;
-}
-.myLabRequestVg {
-    position: absolute;
-    top: 104px;
-    left: 148px;
-    color: #a17733;
-    font-size: 14px;
-}
-.myLabRequestDate b {
+.myLabRequestWrapper b {
     width: 75px;
     display: inline-block;
     font-weight: normal;
@@ -644,10 +632,8 @@ a {} #headerMenu {
 .myLabRequestNicotine b,
 .myLabRequestVg b {
     color: #dbba86;
-    width: 75px;
-    display: inline-block;
-    font-weight: normal;
 }
+
 .myLabRequestQty {
     position: absolute;
     font-weight: bold;
@@ -655,18 +641,10 @@ a {} #headerMenu {
     left: 6px;
     color: #444;
     font-size: 28px;
-    font-family: 'Quantico', sans-serif;
     text-align: right;
     width: 35px;
 }
-.myLabRequestVaper {
-    position: absolute;
-    top: 16px;
-    left: 148px;
-    font-size: 17px;
-    color: #7a4d30;
-    font-weight: bold;
-}
+
 /* ################################### MEDIA QUERIES ################################### */
 
 @media only screen and (max-width: 850px) {
