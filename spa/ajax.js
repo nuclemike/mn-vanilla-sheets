@@ -123,8 +123,8 @@ function loginCallback(response) {
 // Make an AJAX call to Google Script
 function loadMyLab() {
       document.getElementById("myAccountName").innerHTML = sessionStorage.getItem("name");
-	document.getElementById("myAccountEmail").innerHTML = sessionStorage.getItem("name");
-	document.getElementById("myAccountMobile").innerHTML = sessionStorage.getItem("name");
+	document.getElementById("myAccountEmail").innerHTML = sessionStorage.getItem("email");
+	document.getElementById("myAccountMobile").innerHTML = sessionStorage.getItem("mobile");
 	
     
       var request = jQuery.ajax({
