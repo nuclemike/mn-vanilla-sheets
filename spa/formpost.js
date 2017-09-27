@@ -28,7 +28,7 @@
         
         
 
-	var requestObj = { email : $('#liquidOrderNectarName').text(),
+	var requestObj = { email : $('#liquidOrderCustomerEmail').text(),
 			   pass : sessionStorage.getItem("pass"),
 			   qty : $('#liquidOrderQuantity').val(),
 			   flavor : $('#liquidOrderNectarName').text(),
