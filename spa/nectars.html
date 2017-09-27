@@ -1,8 +1,10 @@
 <script>
 	var nrOfImages = $("#pageContent img").length;
 		    $("#pageContent img").load(function() {
+			    console.log('imgloaded');
 			if(--nrOfImages == 0)
 			{
+				console.log('allloaded');
 			    pageLoaded();
 			}
 		    });
