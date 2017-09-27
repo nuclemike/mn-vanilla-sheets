@@ -83,8 +83,7 @@ function postRequestCallback(response) {
   }
 
   // print the returned data
-function loginCallback(response) {
-	console.log(response)
+function loginCallback(response) {	
 	if (response.success == true){
 
 		sessionStorage.setItem('name', response.name);
