@@ -105,14 +105,14 @@ display: block;
     display: block;
     width: 160px;
     color: #d87b00;
-    font-size: 16px;
-    MARGIN-BOTTOM: 228PX;
-    line-height: 13px;
+    font-size: 22px;
+    MARGIN-BOTTOM: 249PX;
+    line-height: 18px;
     text-align: center;
-    font-family: 'Quantico', sans-serif;
+    margin-top: 10px;
 }
 
-#yourVeryOwn b{font-size: 19px;}
+#yourVeryOwn b{/* font-size: 19px; */}
 
 #sendingPanel, #orderSentPanel{
 	position: absolute;
@@ -598,15 +598,16 @@ input#loginPopupPassword{
 
 	#yourVeryOwn{
 		position:absolute;
-		top: 34px;
+		top: 32px;
 		width: auto;
 		lefT: 91px;
 		margin: 0;
 		text-align: left;
+		font-size: 16px;
 	}
 
 		#yourVeryOwn b{
-		font-size: 16px;
+		/* font-size: 16px; */
 		margin-right: 5px;
 	}	
 
