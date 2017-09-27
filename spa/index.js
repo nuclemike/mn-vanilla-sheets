@@ -31,7 +31,7 @@ function loadContent(pageName) {
 	$( "#pageContent" ).hide();
 	
 	$( "#pageContent" ).load( pageName+".html", function() {
-		if (pageName != 'mylab') $("#pageLoader").hide();
+		if (pageName != 'mylab' || pageName != 'nectars') $("#pageLoader").hide();
 		$(this).show();
 	});
 }
