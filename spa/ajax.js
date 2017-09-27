@@ -145,20 +145,19 @@ function loadMyLab() {
                   alert(e.message);
             }
             else {
-		var html = '';     
-                  
-                  if (e.pending.length > 0){
+		var html = '';
+                
                         
-                        html += '<div class="myLabRequestContainer fxDisplay fxWrap fxJustifyCenter">';
-                        html += '<h2 class="myLabRequestTitle">Processing</h2>';
                         e.pending.forEach( function (item){
 				
 				
 				var imgUrl = 'liquids/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
 				html += '<div class="myLabRequestWrapper fxFixed">';
+				html += '<span class="myLabRequestQty">' + item.quantity + 'x</span>';
 				html += '<img class="myLabRequestFlask" src="'+imgUrl.toLowerCase()+'"/>';
 				html += '<span class="myLabRequestNectar">' + item.flavor + '</span>';
-				html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
+				html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
+
 				html += '<span class="myLabRequestDate"><b>Ordered</b>' + item.datetime + '</span>';
 				html += '<span class="myLabRequestSize"><b>Size</b>' + item.size + 'ml</span>';
 				html += '<span class="myLabRequestNicotine"><b>Nicotine</b>' + item.nicotine + '</span>';
@@ -168,29 +167,20 @@ function loadMyLab() {
 				else {vgText = Math.round(item.vg)+"/"+ Math.round(100-item.vg)}
 				
 				html += '<span class="myLabRequestVg"><b>VG/PG</b>' + vgText + '</span>';
-				html += '<span class="myLabRequestQty">' + item.quantity + 'x</span>';
-				html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
+				html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
 				html += '</div>';
 
                         });
-                        html += '</div>';
-                  }
-                  else{     
-                       
-                  }
-               
-                  
-                if (e.ready.length > 0){
-                        html += '<div class="myLabRequestContainer fxDisplay fxWrap fxJustifyCenter">';
-                        html += '<h2 class="myLabRequestTitle">Ready for Pickup</h2>';
-                        
+                      
                         e.pending.forEach( function (item){
 
 				var imgUrl = 'liquids/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
 				html += '<div class="myLabRequestWrapper fxFixed">';
+				html += '<span class="myLabRequestQty">' + item.quantity + 'x</span>';
 				html += '<img class="myLabRequestFlask" src="'+imgUrl.toLowerCase()+'"/>';
 				html += '<span class="myLabRequestNectar">' + item.flavor + '</span>';
-				html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
+				html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
+
 				html += '<span class="myLabRequestDate"><b>Ordered</b>' + item.datetime + '</span>';
 				html += '<span class="myLabRequestSize"><b>Size</b>' + item.size + 'ml</span>';
 				html += '<span class="myLabRequestNicotine"><b>Nicotine</b>' + item.nicotine + '</span>';
@@ -200,20 +190,21 @@ function loadMyLab() {
 				else {vgText = Math.round(item.vg)+"/"+ Math.round(100-item.vg)}
 				
 				html += '<span class="myLabRequestVg"><b>VG/PG</b>' + vgText + '</span>';
-				html += '<span class="myLabRequestQty">' + item.quantity + 'x</span>';
-				html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
+				html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
 				html += '</div>';				
 				
 
                         });
                         html += '</div>';
                   }
-                  else{     
-                       
-                  }       
+                  
+	      
+	      if (html == '') {
+	      		html = '<span id="noLabRequests">You don\'t have any lab-requests</span>"'
+	      }
 
                   
-                  document.getElementById('myLabRequestDumpDiv').innerHTML = html;
+                  document.getElementById('myLabRequestContainer').innerHTML = html;
             }
     pageLoaded();
       }
