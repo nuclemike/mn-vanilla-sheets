@@ -97,7 +97,7 @@ function loadMyLab() {
                   
                   document.getElementById('labRequestsInnerSection').innerHTML = html;
             }
-    $("#pageLoader").hide();
+    pageLoaded();
       }
 
 window.onload = function(){
