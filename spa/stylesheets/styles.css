@@ -66,10 +66,6 @@ display: block;
 }
 
 #liquidOrderForm{
-	/* background: white; */
-	/* height: 450px; */
-	/* width: 600px; */
-	padding: 30px;
 	position: relative;
 	border-radius: 10px;
 	color: #999;
@@ -125,7 +121,7 @@ color:#1797ea;
     font-family: 'Quantico', sans-serif;
 }
 
-#sendingPanel, #orderSentPanel, #fbLoginPanel, #notAuthorizedPanel{
+#sendingPanel, #orderSentPanel{
 	position: absolute;
 	top: 110px;
 	background-color: white;
@@ -213,31 +209,6 @@ input#liquidOrderCustomerEmail, input#liquidOrderCustomerNickname{
     float: right;
 }
 
-#fbLogin{
-		    border: 0;
-		    color: #fff;
-		    font-family: quantico;
-		    height: 36px;
-		    padding: 0 20px 0 34px;
-			display:block;
-		    border-radius: 3px;
-		    font-size: 15px;
-		    margin: 20px auto;
-		    background: url("fblogin.png") no-repeat 10px center #3B5997;
-}
-
-#notAuthorizedPanelContact{
-border: 0;
-    color: #fff;
-    font-family: quantico;
-    height: 36px;
-    padding: 0 20px 0 39px;
-    display: block;
-    border-radius: 3px;
-    font-size: 15px;
-    margin: 20px auto;
-    background: url(unlock.png) no-repeat 14px center #3B5997;
-}
 
 #totalCostSection {float: left;}
 
@@ -257,17 +228,7 @@ border: 0;
 	    float: right;
 	    margin-left: 10px;
 }
-}
 
-#fbLogout{
-    font-size: 12px;
-    position: absolute;
-    left: 435px;
-    font-family: 'Quantico', sans-serif;
-    color: #444;
-    top: 45px;
-    text-decoration: none;
-}
 
 #liquidOrderCustomerThumbnail{
 	border: 1px solid #555;
@@ -306,7 +267,7 @@ border: 0;
 
 
 
-#loginPopup{
+#loginPopupShadow{
 	background: rgba(80,80,80,0.9);
 	position: fixed;
 	top: 0;
@@ -346,7 +307,6 @@ border: 0;
 	text-align: center;
 	width: 100%;
 	left: 0;
-	padding: 30px;
 	height: 300px;
 	color: #555;
     background: url(/stylesheets/sending.gif) center 30px no-repeat white;
