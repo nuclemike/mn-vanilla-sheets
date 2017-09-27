@@ -32,7 +32,7 @@ function loadContent(pageName) {
 	
 	$( "#pageContent" ).load( pageName+".html", function() {
 		//if (pageName != 'mylab' || pageName != 'nectars') $("#pageLoader").hide();
-		if (pageName != 'nectars')
+		if (pageName == 'nectars')
 		{
 		var nrOfImages = $("img").length;
 		    $("#pageContent img").load(function() {
