@@ -122,7 +122,10 @@ function loginCallback(response) {
 
 // Make an AJAX call to Google Script
 function loadMyLab() {
-      document.getElementById("myLabName").innerHTML = sessionStorage.getItem("name");
+      document.getElementById("myAccountName").innerHTML = sessionStorage.getItem("name");
+	document.getElementById("myAccountEmail").innerHTML = sessionStorage.getItem("name");
+	document.getElementById("myAccountMobile").innerHTML = sessionStorage.getItem("name");
+	
     
       var request = jQuery.ajax({
             crossDomain: true,
@@ -192,7 +195,7 @@ function loadMyLab() {
                   }       
 
                   
-                  document.getElementById('labRequestsInnerSection').innerHTML = html;
+                  document.getElementById('myLabRequestDumpDiv').innerHTML = html;
             }
     pageLoaded();
       }
