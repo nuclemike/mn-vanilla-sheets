@@ -509,8 +509,8 @@ a {} #headerMenu {
 /* ################################### MY LAB ################################### */
 
 #myAccountDetailsTitle {
-    padding: 29px 50px;
-    margin: 0;
+    padding: 0;
+    margin: 0 0 7%;
     font-size: 25px;
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
@@ -525,13 +525,14 @@ a {} #headerMenu {
     border-radius: 5px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     font-family: 'Raleway', sans-serif;
-    padding-bottom: 20px;
+    padding: 50px;
     margin-bottom: 5%;
+    width: 100%;
+    max-width: 600px;
 }
 #myAccountDetails span,
 #myAccountDetails label {
     float: left;
-    margin: 0px 50px;
     line-height: 30px;
 }
 #myAccountDetails span {
@@ -540,8 +541,7 @@ a {} #headerMenu {
 }
 #myAccountDetails label {
     clear: left;
-    width: 40%;
-    margin-right: 0;
+    width: 42%;
 }
 #myLabRequestDumpDiv {
     margin: 0 2%;
@@ -774,14 +774,24 @@ a {} #headerMenu {
     }
     #myAccountDetails {
         width: 96%;
+        padding: 30px;
     }
     #myAccountDetailsTitle {
-        font-size: 25px;
-        padding: 5%;
+      
     }
     #myAccountDetails span,
     #myAccountDetails label {
-        margin: 0 0 0 5%;
-        font-size: 4vw;
-    }
+   width: 100%;
+   padding-left: 5%;
+   line-height:1.5em;
+   margin-bottom:20px;
+   font-size: 4vw;
+   }
+
+    #myAccountDetails label {
+   width: 100%;
+   padding-left: 0%;
+   font-size: 4vw;
+   margin-bottom:0px;
+   }
 }
