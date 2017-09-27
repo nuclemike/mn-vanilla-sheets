@@ -236,7 +236,7 @@ input#liquidOrderCustomerNickname{
 #loginPopupData{
 	background: white;
 	border-radius: 8px;
-	padding: 20px;
+	padding: 33px;
 	position: relative;
 }
 
@@ -323,11 +323,11 @@ input#loginPopupPassword{
 
 #loginPopupMainIcon{
 	position:absolute;
-	top: 17px;
-	left: 18px;
+	top: 26px;
+	left: 27px;
 }
 
-#loginPopupWelcome{line-height: 41px;font-size: 21px;margin-left: 52px;top: 30px;color: #444;}
+#loginPopupWelcome{line-height: 41px;font-size: 21px;margin-left: 49px;top: 30px;color: #444;}
 
 #cancelLoginPopupButton{
     background: #ddd;
@@ -348,7 +348,7 @@ input#loginPopupPassword{
 	    color: #444;
 	    font-family: quantico;
 	    height: 36px;
-	    padding: 0 20px;
+	    padding: 0 30px;
 	    border-radius: 3px;
 	    font-size: 15px;
 	    float: right;
