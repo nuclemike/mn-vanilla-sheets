@@ -51,9 +51,9 @@
 function postRqCb(response) {
 	if (response.success) {
 		$('#orderSentPanelEmail').text($("#liquidOrderCustomerEmail").text());
-		$('#orderSentPanelRequestID').text($("#liquidOrderCustomerEmail").text());
+		$('#orderSentPanelRequestID').text(response.requestID);
 		$('#orderSentPanel').fadeIn('medium');
-		$('#cancelOrder').show();
+		$('#cancelOrder, #goToMyLab').show();
 	}
 	else {
 		
