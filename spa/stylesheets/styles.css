@@ -664,7 +664,7 @@ a {} #headerMenu {
 .myLabRequestQty {
     position: absolute;
     font-weight: bold;
-    top: 10px;
+    top: 3px;
     left: 6px;
     color: #444;
     font-size: 28px;
