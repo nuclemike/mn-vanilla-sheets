@@ -52,6 +52,8 @@ function labRequestPopup(nectarName) {
 	document.getElementById('liquidOrderCustomerName').innerHTML = sessionStorage.getItem("name");
 	document.getElementById('liquidOrderCustomerEmail').innerHTML = sessionStorage.getItem("email");   
 	document.getElementById('liquidOrderCustomerNickname').value = sessionStorage.getItem("name");
+	document.getElementById('liquidOrderQuantity').value = 1;
+	
 	$('#orderSentPanel, #sendingPanel').hide();
 	$("#liquidOrderSection").css("z-index","9999").fadeTo( "medium", 1 );
 
