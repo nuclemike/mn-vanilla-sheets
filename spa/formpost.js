@@ -58,7 +58,7 @@ function postRqCb(response) {
 	}
 	else {
 		
-		alert('error');
+		alert('error : ' + response.error);
 		$('#cancelOrder').show();
 
 	}
