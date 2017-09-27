@@ -327,7 +327,7 @@ input#loginPopupPassword{
 	left: 27px;
 }
 
-#loginPopupWelcome{line-height: 41px;font-size: 21px;margin-left: 49px;top: 30px;color: #444;}
+#loginPopupWelcome{line-height: 41px;font-size: 21px;margin-left: 49px;top: 30px;color: #d3644a;font-weight: bold;}
 
 #cancelLoginPopupButton{
     background: #ddd;
