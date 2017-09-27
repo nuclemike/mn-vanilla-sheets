@@ -15,14 +15,13 @@ function populateUser(success) {
 // Make an AJAX call to Google Script
 function loadMyLab() {
       document.getElementById("myLabName").innerHTML = sessionStorage.getItem("name");
-      var url = "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=gLRCb&email=";
-      var email =  sessionStorage.getItem("email");
-
+    
       var request = jQuery.ajax({
             crossDomain: true,
-            url: url + encodeURIComponent(email),
+            url: "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=gLRCb"
             method: "GET",
-            dataType: "jsonp"
+            dataType: "jsonp",
+            data : {email : sessionStorage.getItem("email")}
       });
      
 }
