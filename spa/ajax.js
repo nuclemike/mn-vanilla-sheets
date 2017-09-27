@@ -148,7 +148,7 @@ function loadMyLab() {
 		var html = '';
                 
                         
-                        e.pending.forEach( function (item){
+                        e.ready.forEach( function (item){
 				
 				
 				var imgUrl = 'liquids/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
@@ -168,6 +168,7 @@ function loadMyLab() {
 				
 				html += '<span class="myLabRequestVg"><b>VG/PG</b>' + vgText + '</span>';
 				html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
+				html += '<span class="myLabRequestStateReady">Ready for Pickup!</span>';
 				html += '</div>';
 
                         });
@@ -191,6 +192,7 @@ function loadMyLab() {
 				
 				html += '<span class="myLabRequestVg"><b>VG/PG</b>' + vgText + '</span>';
 				html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
+				html += '<span class="myLabRequestStatePending">Processing</span>';
 				html += '</div>';				
 				
 
