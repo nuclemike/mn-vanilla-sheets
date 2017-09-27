@@ -31,7 +31,17 @@ function loadContent(pageName) {
 	$( "#pageContent" ).hide();
 	
 	$( "#pageContent" ).load( pageName+".html", function() {
-		if (pageName != 'mylab' || pageName != 'nectars') $("#pageLoader").hide();
+		//if (pageName != 'mylab' || pageName != 'nectars') $("#pageLoader").hide();
+		if (pageName != 'nectars')
+		{
+		var nrOfImages = $("img").length;
+		    $("img").load(function() {
+			if(--nrOfImages == 0)
+			{
+			    $("#pageLoader").hide();
+			}
+		    });
+		}
 		$(this).show();
 	});
 }
