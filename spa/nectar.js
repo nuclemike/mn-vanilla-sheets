@@ -5,7 +5,7 @@ function populateUser(success) {
             document.getElementById('headerLogin').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!  <a onclick="logout()">Logout</a>';   
       }
       else {
-            document.getElementById('headerLogin').innerHTML = 'You are not yet authorized until you <a onclick="loginPopup()">Login</a>';   
+            document.getElementById('headerLogin').innerHTML = '';   
             var isInMyLab = document.getElementById("labRequestsSection");
             if (isInMyLab) loadContent('nectars');
       }
