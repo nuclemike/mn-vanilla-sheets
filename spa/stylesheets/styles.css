@@ -583,19 +583,19 @@ a {}
 
 /* ################################### MY LAB ################################### */
 
-.myAccountDetailsTitle{
+#myAccountDetailsTitle{
 }
 
-.myAccountDetails{
+#myAccountDetails{
 }
 
-.myAccountDetails span{
+#myAccountDetails span{
 }
 
-.myAccountDetails label{
+#myAccountDetails label{
 }
 
-.myLabRequestDumpDiv{
+#myLabRequestDumpDiv{
 }
 
 .myLabRequestTitle{
