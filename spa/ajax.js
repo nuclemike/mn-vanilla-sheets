@@ -2,9 +2,9 @@
 
 
   function formPost() {
-      if ($("#liquidOrderCustomerNickname").val()=="") {
-        $("#liquidOrderCustomerNickname").addClass("requiredField")}
-        else { $("#liquidOrderCustomerNickname").removeClass("requiredField")}
+      if ($("#liquidOrderCustomerVaper").val()=="") {
+        $("#liquidOrderCustomerVaper").addClass("requiredField")}
+        else { $("#liquidOrderCustomerVaper").removeClass("requiredField")}
      
       if ($("#liquidOrderSize").val()=="") {
         $("#liquidOrderSize").addClass("requiredField")}
@@ -35,7 +35,7 @@
 			   size : $('#liquidOrderSize').val(),
 			   nicotine : $('#liquidOrderNicotine').val(),
 			   vg : $('#liquidOrderVG').val(),
-			   nickname : $('#liquidOrderCustomerNickname').val() }			   	
+			   vaper : $('#liquidOrderCustomerVaper').val() }			   	
 
     var request = jQuery.ajax({
       crossDomain: true,
@@ -153,7 +153,7 @@ function loadMyLab() {
                         html += '<th>Nicotine</th>';
                         html += '<th>VP/PG</th>';
                         html += '<th>Quantity</th>';
-                        html += '<th>Nickname</th>';
+                        html += '<th>Vaper</th>';
                         html += '</tr>';
                         
                         e.pending.forEach( function (item){
@@ -163,7 +163,7 @@ function loadMyLab() {
                               html += '<td>' + item.nicotine + '</td>';
                               html += '<td>' + item.vg + '</td>';
                               html += '<td>' + item.quantity + '</td>';
-                              html += '<td>' + item.nickname + '</td>';
+                              html += '<td>' + item.vaper + '</td>';
                               html += '</tr>';
                         });
                         html += '</table>';
@@ -182,7 +182,7 @@ function loadMyLab() {
                         html += '<th>Nicotine</th>';
                         html += '<th>VP/PG</th>';
                         html += '<th>Quantity</th>';
-                        html += '<th>Nickname</th>';
+                        html += '<th>Vaper</th>';
                         html += '</tr>';
                         
                         e.ready.forEach( function (item){
@@ -192,7 +192,7 @@ function loadMyLab() {
                               html += '<td>' + item.nicotine + '</td>';
                               html += '<td>' + item.vg + '</td>';
                               html += '<td>' + item.quantity + '</td>';
-                              html += '<td>' + item.nickname + '</td>';
+                              html += '<td>' + item.vaper + '</td>';
                               html += '</tr>';
                         });
                         html += '</table>';
