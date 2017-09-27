@@ -111,17 +111,14 @@ function logout() {
 
   // Make an AJAX call to Google Script
   function login() {
-    
-    var url = "https://script.google.com/macros/s/AKfycbzDWblHNTvXICpwOrT2Yi1NWbXS39IDnODUb6j7DX8gj-DEDGc/exec?callback=loginCb";
-    var user = $('#loginPopupEmail').val();
-    var pass = $('#loginPopupPassword').val();
+
 
     var loginObj = { user:$('#loginPopupEmail').val(),
 		    pass:$('#loginPopupPassword').val() }
     
     var request = jQuery.ajax({
       crossDomain: true,
-      url: url,
+      url: "https://script.google.com/macros/s/AKfycbzDWblHNTvXICpwOrT2Yi1NWbXS39IDnODUb6j7DX8gj-DEDGc/exec?callback=loginCb",
       method: "GET",
       dataType: "jsonp",
       data : loginObj
