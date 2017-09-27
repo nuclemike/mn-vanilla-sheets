@@ -114,6 +114,7 @@ function loginCallback(response) {
 		afterLoginFunction = null;
 	}
 	$('#loginPopupShadow').removeClass('loading');
+	$('#loginPopupWelcome').text('Authorization Required');
 }
 
 
