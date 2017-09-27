@@ -1,30 +1,3 @@
-  // Make an AJAX call to Google Script
-  function formPcccost() {
-    
-    var url = "https://script.google.com/macros/s/AKfycby2yL0OxsZFDEzESDNHBTqGdZuZHwCzkbBjQ6_prTtZDt3iHACU/exec?callback=testCb";
-
-	var flavor = 'a';//$('#loginPopupEmail').val();
-	var email = 'b';//$('#loginPopupPassword').val();
-	var size = 'c';//$('#loginPopupPassword').val();
-	var nicotine = 'd';//$('#loginPopupPassword').val();
-	var vg = 'e';//$('#loginPopupPassword').val();
-	var qty = 'f';//$('#loginPopupPassword').val();
-	var nickname = 'g';//$('#loginPopupPassword').val();
-
-    var request = jQuery.ajax({
-      crossDomain: true,
-      url: url + '&flv='+encodeURIComponent(flavor)+'&eml='+encodeURIComponent(email)+'&siz='+encodeURIComponent(email)+'&nct='+encodeURIComponent(email)+'&vgr='+encodeURIComponent(email)+'&qty='+encodeURIComponent(email)+'&nnm='+encodeURIComponent(email),
-      method: "GET",
-      dataType: "jsonp"
-    });
-
-  }
-
-  // print the returned data
-function tecccstCb(response) {
-	console.log(response)
-	
-}
 
 
 
