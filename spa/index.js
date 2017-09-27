@@ -74,7 +74,7 @@ function logout() {
 
 
 function closeLoginPopup() {
-	if $('#loginPopupShadow').hasClass('loading') return false;
+	if ($('#loginPopupShadow').hasClass('loading')) return false;
 	afterLoginFunction = null;
 	$("#loginPopupShadow").fadeTo(  "fast", 0, function() {
 		$( this ).css("z-index","-9999");
