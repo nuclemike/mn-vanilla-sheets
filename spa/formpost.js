@@ -1,56 +1,47 @@
+  // Make an AJAX call to Google Script
+  function test() {
+    
+    var url = "https://script.google.com/macros/s/AKfycby2yL0OxsZFDEzESDNHBTqGdZuZHwCzkbBjQ6_prTtZDt3iHACU/exec?callback=testCb";
+   
+   var object= {'Flavor':'flv',
+                'E-Mail':'eml',
+                'Size':'sz',
+                'Nicotine':'3',
+                'VG':'70',
+                'Quantity':'1',
+                'Nickname':'nkn',
+                'State':''}
 
-
- authorizeClient = function() {
-
-    $('#sendOrder, #fbLogout').hide();
-        $('#notAuthorizedPanelContact').text('loading...');
-        $('#notAuthorizedPanelContact').attr('disabled');
-
-        
-        
-    $.ajax({
-        url: "https://thingproxy.freeboard.io/fetch/https://docs.google.com/forms/d/e/1FAIpQLSeThuXsSBXytfXAi1U1kUPwITobAP0qww-JFOfGTjNFi3LNeA/formResponse",    
-        type: "POST",
-        data: 
-          {                   
-              "entry.473573732": $("#liquidOrderCustomerName").attr("fbid"),
-              "entry.779597357": $("#liquidOrderCustomerName").text()
-            }        
-        ,                
-        statusCode:{
-            0: function(){
-               
-             },
-            200:function(){
-                window.location.assign("http://m.me/mamasnectar");
-              $('#notAuthorizedPanelContact').hide();
-             }
-        }    ,
-        success: function (result) {
-            switch (result) {
-                case true:
-                    //console.log("success true :" +);
-                    break;
-                default:
-                    //console.log("success true :" +result);
-            }
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-            console.log("status: "+xhr.status+" | error: "+thrownError);
-        
-        }
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: url,// + '&user='+encodeURIComponent(user)+'&pass='+encodeURIComponent(pass),
+      method: "GET",
+     data : object,
+      dataType: "jsonp"
     });
-};
+
+  }
+
+  // print the returned data
+function testCb(response) {
+	console.log(response)
+	
+}
+
 
 
     formPost = function() {
-      if ($("#liquidOrderCustomerEmail").val()=="") {
-        $("#liquidOrderCustomerEmail").addClass("requiredField")}
-        else { $("#liquidOrderCustomerEmail").removeClass("requiredField")}
-     
       if ($("#liquidOrderCustomerNickname").val()=="") {
         $("#liquidOrderCustomerNickname").addClass("requiredField")}
         else { $("#liquidOrderCustomerNickname").removeClass("requiredField")}
+     
+      if ($("#liquidOrderSize").val()=="") {
+        $("#liquidOrderSize").addClass("requiredField")}
+        else { $("#liquidOrderSize").removeClass("requiredField")}        
+        
+      if ($("#liquidOrderQuantity").val()=="") {
+        $("#liquidOrderQuantity").addClass("requiredField")}
+        else { $("#liquidOrderQuantity").removeClass("requiredField")}
      
       if ($("#liquidOrderNicotine").val()=="") {
         $("#liquidOrderNicotine").addClass("requiredField")}
@@ -63,7 +54,7 @@
      if ($( ".requiredField" ).length) {return false};
 
      
-    $('#sendOrder, #fbLogout').hide();
+    $('#sendOrder').hide();
         $('#cancelOrder').css('opacity','0');
         $('#cancelOrder').attr('disabled');
         $('#sendingPanel').fadeIn('medium');
