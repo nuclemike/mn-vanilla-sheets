@@ -103,7 +103,7 @@ display: block;
 	color: #444;
 	font-size: 20px;
 	text-align: center;
-	margin-bottom: 45px;
+	margin-bottom: 25px;
 	display: block;
 }
 #fbLogout{
@@ -120,9 +120,14 @@ color:#1797ea;
     display: block;
     width: 160px;
     color: #d87b00;
+    font-size: 16px;
+    MARGIN-BOTTOM: 228PX;
+    line-height: 13px;
     text-align: center;
     font-family: 'Quantico', sans-serif;
 }
+
+#yourVeryOwn b{font-size: 19px;}
 
 #sendingPanel, #orderSentPanel{
 	position: absolute;
@@ -623,6 +628,8 @@ input#loginPopupPassword{
 		box-shadow: 0 -18px 10px -10px rgba(0,0,0,0.1) inset;
 		padding: 15px;
 		height: 100px;
+		background-size: 70px;
+		background-position-x: 12px;
 	}
 	#liquidOrderTitle{
 		margin:0;
@@ -643,15 +650,26 @@ input#loginPopupPassword{
 
 	#yourVeryOwn{
 		position:absolute;
-		top: 29px;
+		top: 34px;
 		width: auto;
-		lefT: 87px;
+		lefT: 91px;
+		margin: 0;
+		text-align: left;
 	}
+
+		#yourVeryOwn b{
+		font-size: 16px;
+		margin-right: 5px;
+	}	
+
+	#yourVeryOwn br{
+		display:none
+	}	
 
 	#liquidOrderNectarName{
 		float: left;
-		margin-left: 33px;
-		margin-top: 37px;
+		margin-left: 87px;
+		margin-top: 38px;
 		width: auto;
 	}
 
