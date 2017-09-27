@@ -68,7 +68,10 @@ function postRequestCallback(response) {
   // Make an AJAX call to Google Script
   function login() {
 $('#loginPopupShadow').addClass('loading');
-	  $('#loginPopupWelcome').text('just a sec...');
+	  $('#loginPopupEmail').text('')
+	  $('#loginPopupPassword').text('')
+	  $('#loginPopupError').text('')
+	  $('#loginPopupWelcome').text('Authorizing...');
 
     var loginObj = { email:$('#loginPopupEmail').val(),
 		    pass:$('#loginPopupPassword').val() }
