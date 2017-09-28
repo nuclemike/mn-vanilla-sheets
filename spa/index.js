@@ -18,8 +18,13 @@ function loadContent(pageName) {
 	$( "#pageLoader" ).show();
 	$( "#pageContent" ).hide();
 	
+	if (pageName == 'mylab')
+		$( "#headerMyLab" ).addClass('selected').siblings().removeClass('selected')
+	else if if (pageName == 'nectars')
+		$( "#headerNectar" ).addClass('selected').siblings().removeClass('selected')
+	
 	$( "#pageContent" ).load( pageName+".html", function() {
-		//if (pageName != 'mylab' || pageName != 'nectars') pageLoaded();
+		//after load html (images excluded)
 		
 	});
 }
