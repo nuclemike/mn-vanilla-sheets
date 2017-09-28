@@ -153,23 +153,24 @@ function loadMyLab() {
 				
 				var imgUrl = 'liquids/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
 				html += '<div class="myLabRequestWrapper fxFixed">';
-				html += '<span class="myLabRequestQty">' + item.quantity + 'x</span>';
-				html += '<img class="myLabRequestFlask" src="'+imgUrl.toLowerCase()+'"/>';
-				html += '<span class="myLabRequestNectar fxDisplay fxJustifyCenter fxAlignCenter">' + item.flavor + '</span>';
-				html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
+					html += '<div class="myLabRequestFlask" style="background-image:url('+imgUrl.toLowerCase()+')">';
+						html += '<span class="myLabRequestQty">' + item.quantity + 'x</span>';						
+						html += '<span class="myLabRequestNectar fxDisplay fxJustifyCenter fxAlignCenter">' + item.flavor + '</span>';
+					html += '</div>';
+					html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
 
-				html += '<span class="myLabRequestDate"><b>Ordered</b>' + item.datetime + '</span>';
-				html += '<span class="myLabRequestSize"><b>Size</b>' + item.size + 'ml</span>';
-				html += '<span class="myLabRequestNicotine"><b>Nicotine</b>' + item.nicotine + '</span>';
-				
-				var vgText = '';
-				if (Math.round(item.vg) == 100) {vgText="MAX-VG"}
-				else {vgText = Math.round(item.vg)+"/"+ Math.round(100-item.vg)}
-				
-				html += '<span class="myLabRequestVg"><b>VG/PG</b>' + vgText + '</span>';
-				html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
-				html += '<span class="myLabRequestStateReady">Ready for Pickup!</span>';
-				html += '</div>';
+					html += '<span class="myLabRequestDate"><b>Ordered</b>' + item.datetime + '</span>';
+					html += '<span class="myLabRequestSize"><b>Size</b>' + item.size + 'ml</span>';
+					html += '<span class="myLabRequestNicotine"><b>Nicotine</b>' + item.nicotine + '</span>';
+
+					var vgText = '';
+					if (Math.round(item.vg) == 100) {vgText="MAX-VG"}
+					else {vgText = Math.round(item.vg)+"/"+ Math.round(100-item.vg)}
+
+					html += '<span class="myLabRequestVg"><b>VG/PG</b>' + vgText + '</span>';
+					html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
+					html += '<span class="myLabRequestStatePending">Processing</span>';
+				html += '</div>';	
 
                         });
                       
@@ -177,22 +178,23 @@ function loadMyLab() {
 
 				var imgUrl = 'liquids/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
 				html += '<div class="myLabRequestWrapper fxFixed">';
-				html += '<span class="myLabRequestQty">' + item.quantity + 'x</span>';
-				html += '<img class="myLabRequestFlask" src="'+imgUrl.toLowerCase()+'"/>';
-				html += '<span class="myLabRequestNectar fxDisplay fxJustifyCenter fxAlignCenter">' + item.flavor + '</span>';
-				html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
+					html += '<div class="myLabRequestFlask" style="background-image:url('+imgUrl.toLowerCase()+')">';
+						html += '<span class="myLabRequestQty">' + item.quantity + 'x</span>';						
+						html += '<span class="myLabRequestNectar fxDisplay fxJustifyCenter fxAlignCenter">' + item.flavor + '</span>';
+					html += '</div>';
+					html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
 
-				html += '<span class="myLabRequestDate"><b>Ordered</b>' + item.datetime + '</span>';
-				html += '<span class="myLabRequestSize"><b>Size</b>' + item.size + 'ml</span>';
-				html += '<span class="myLabRequestNicotine"><b>Nicotine</b>' + item.nicotine + '</span>';
-				
-				var vgText = '';
-				if (Math.round(item.vg) == 100) {vgText="MAX-VG"}
-				else {vgText = Math.round(item.vg)+"/"+ Math.round(100-item.vg)}
-				
-				html += '<span class="myLabRequestVg"><b>VG/PG</b>' + vgText + '</span>';
-				html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
-				html += '<span class="myLabRequestStatePending">Processing</span>';
+					html += '<span class="myLabRequestDate"><b>Ordered</b>' + item.datetime + '</span>';
+					html += '<span class="myLabRequestSize"><b>Size</b>' + item.size + 'ml</span>';
+					html += '<span class="myLabRequestNicotine"><b>Nicotine</b>' + item.nicotine + '</span>';
+
+					var vgText = '';
+					if (Math.round(item.vg) == 100) {vgText="MAX-VG"}
+					else {vgText = Math.round(item.vg)+"/"+ Math.round(100-item.vg)}
+
+					html += '<span class="myLabRequestVg"><b>VG/PG</b>' + vgText + '</span>';
+					html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
+					html += '<span class="myLabRequestStatePending">Processing</span>';
 				html += '</div>';				
 				
 
