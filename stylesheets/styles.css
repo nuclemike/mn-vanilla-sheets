@@ -182,11 +182,19 @@ input#liquidOrderCustomerVaper {
 }
 #totalCostValue {
     float: left;
-    clear: left;
     font-size: 30px;
     color: #4ab74a;
     font-weight: bold;
 }
+
+#totalCostSave{
+        font-size: 15px;
+        color: #cc5336;
+        font-weight: bold;
+        margin-left: 13px;
+        line-height: 35px;
+}
+
 #sendOrder,
 #goToMyLab,
 #cancelOrder {
