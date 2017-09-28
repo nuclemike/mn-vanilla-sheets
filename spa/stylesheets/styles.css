@@ -549,16 +549,6 @@ a {} #headerMenu {
 #myLabRequestDumpDiv {
     margin: 0 2%;
 }
-.myLabRequestTitle {
-    padding: 0;
-    margin: 8% 5% 3%;
-    font-size: 30px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    color: #c38d36;
-    display: block;
-    text-align: center;
-}
 
 myLabRequestSubTitle{
     padding: 0;
@@ -570,6 +560,19 @@ myLabRequestSubTitle{
     display: block;
     text-align: center;    
 }
+
+.myLabRequestTitle b{
+    padding: 0;
+    margin: 8% 5% 3%;
+    font-size: 30px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: #c38d36;
+    display: block;
+    text-align: center;
+}
+
+
 
 #myLabRequestContainer {
     max-width: 1000px;
