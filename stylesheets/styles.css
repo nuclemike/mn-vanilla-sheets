@@ -54,8 +54,6 @@ body {
     position: relative;
     border-radius: 10px;
     color: #999;
-    /* box-shadow: 215px 0 0 0 #eee inset; */
-    
     font-family: 'Raleway', sans-serif;
 }
 #liquidOrderFlask {
@@ -132,7 +130,7 @@ body {
     position: absolute;
 }
 #liquidOrderTable {
-    width: 320px;
+    width: 350px;
     font-size: 15px;
     color: #444;
     margin-top: 16px;
@@ -191,8 +189,10 @@ input#liquidOrderCustomerVaper {
         font-size: 15px;
         color: #cc5336;
         font-weight: bold;
-        margin-left: 13px;
-        line-height: 35px;
+        margin-left: 15px;
+        line-height: 15px;
+        float: left;
+        margin-top: 4px;
 }
 
 #sendOrder,
@@ -745,6 +745,7 @@ input#loginPopupPassword {
         flex-direction: column;
         width: 95%;
         padding: 0;
+        max-width: 350px;
     }
     #liquidOrderFlask {
         margin: 0 10px 0px 10px;
@@ -784,6 +785,9 @@ input#loginPopupPassword {
         margin-left: 87px;
         margin-top: 38px;
         width: auto;
+    }
+    #liquidOrderTable{
+        width:100%
     }
 }
 @media only screen and (max-width: 600px) {
