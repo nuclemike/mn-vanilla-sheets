@@ -68,17 +68,21 @@ function postRequestCallback(response) {
 
   // Make an AJAX call to Google Script
   function login() {
-	        if ($("#loginPopupEmail").val()=="") {
-        $("#loginPopupEmail").addClass("requiredField")}
-        else { $("#loginPopupEmail").removeClass("requiredField")}
+	if ($("#loginPopupEmail").val()=="") {
+		$("#loginPopupEmail").addClass("requiredField")}
+	else { 
+		$("#loginPopupEmail").removeClass("requiredField")
+	}
+
+	if ($("#loginPopupPassword").val()=="") {
+		$("#loginPopupPassword").addClass("requiredField")}
+	else { 
+		$("#loginPopupPassword").removeClass("requiredField")
+	}
      
-      if ($("#loginPopupPassword").val()=="") {
-        $("#loginPopupPassword").addClass("requiredField")}
-        else { $("#loginPopupPassword").removeClass("requiredField")}
-     
-     if ($( ".requiredField" ).length) {return false};
+	if ($( ".requiredField" ).length) {return false};
 	  
-$('#loginPopupShadow').addClass('loading');
+	$('#loginPopupShadow').addClass('loading');
 
 	  $('#loginPopupWelcome').text('Authorizing...');
 
@@ -124,6 +128,7 @@ function loginCallback(response) {
 		afterLoginFunction = null;
 		$('#loginPopupShadow').removeClass('loading');
 	$('#loginPopupWelcome').text('Authorization Required');
+		$("#loginPopupEmail").focus()
 	}
 	
 }
