@@ -571,31 +571,34 @@ a {} #headerMenu {
     margin: 1VW;
     background: #FFF;
     border-radius: 5px;
-    padding-left: 148px;
+    padding-left: 0%;
     height: 188px;
     position: relative;
     width: 335PX;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2), 134px 0 0 0 #fbf9f0 inset;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     font-size: 15px;
     overflow: hidden;
 }
 .myLabRequestFlask {
-    width: 80px;
-    left: 26px;
+    width: 39%;
+    height: 100%;
     position: absolute;
-    top: 23px;
+    background-repeat: no-repeat;
+    background-position: center 25%;
+    background-size: 65%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 .myLabRequestNectar {
     color: #444;
     font-family: "Beleren";
-    font-size: 20px;
-    line-height: 21px;
+    font-size: 19px;
+    line-height: 18px;
     text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0, 0, 0, 0.5);
     text-align: center;
     position: absolute;
-    left: 15px;
-    width: 100px;
-    top: 123px;
+    left: 10%;
+    width: 80%;
+    bottom: 10%;
     height: 47px;
 }
 
@@ -605,13 +608,16 @@ a {} #headerMenu {
     font-size: 17px;
     color: #7a4d30;
     font-weight: bold;
+    float: right;
+    width: 56%;
 }
 
 .myLabRequestDate {
     font-size: 14px;
     color: #d0cab6;
-    display: block;
-    margin-bottom:13px
+    margin-bottom:13px;
+    float: right;
+    width: 56%;
 }
 .myLabRequestSize,
 .myLabRequestNicotine,
@@ -619,7 +625,9 @@ a {} #headerMenu {
 .myLabRequestReference {
     color: #a17733;
     display: block;
-    line-height:16px
+    line-height:16px;
+    float: right;
+    width: 56%;
 }
 .myLabRequestWrapper b {
     width: 75px;
@@ -650,11 +658,13 @@ a {} #headerMenu {
     text-align: center;
     margin: 15px 0 0 -15px;
     line-height: 36px;
+    float: right;
+    width: 56%;
 }
 
 .myLabRequestStatePending {
     color: #ff4e2e;
-  animation: blinker 1s linear infinite;
+    animation: blinker 1s linear infinite;
     }
 
 .myLabRequestStateReady {
@@ -666,12 +676,11 @@ a {} #headerMenu {
 .myLabRequestQty {
     position: absolute;
     font-weight: bold;
-    top: 3px;
-    left: 6px;
+    top: 13%;
+    left: 17%;
     color: #444;
-    font-size: 28px;
+    font-size: 21px;
     text-align: right;
-    width: 35px;
 }
 
 /* ################################### MEDIA QUERIES ################################### */
