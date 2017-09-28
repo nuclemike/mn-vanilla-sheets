@@ -376,6 +376,8 @@ input#loginPopupPassword {
     position: relative;
     margin: 0 auto;
     max-width: 1000px;
+    display: table;
+    height: 100%;
 }
 #headerLogin {
     color: #85745a;
@@ -390,28 +392,27 @@ input#loginPopupPassword {
     cursor: pointer;
 }
 a {} #headerMenu {
-    float: right;
-    margin-top: 39px;
-    color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    right: 0;
+    bottom: 10%;
 }
 #headerMenu a {
     font-size: 15px;
     float: left;
     margin: 0 10px;
     cursor: pointer;
+    color: #8a8072;
 }
 #headerMenu a:hover {
-    color: #caae77
+    color: #ffd074;
 }
 #headerMenu a:hover .menuImg {
-    opacity: 0.7;
+    opacity: 1;
 }
 .menuImg {
-    margin: 0 10px;
     display: block;
     margin: 0 auto 6px;
-    height: 30px;
-    opacity: 0.3;
+    opacity: 0.8;
 }
 #menuBurger {
     /* display: none; */
