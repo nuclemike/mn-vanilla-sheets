@@ -188,12 +188,12 @@ function loadMyLab() {
 
                         });
                       
-                        html += '</div>';
+                        if (e.requests.length > 0) {html += '</div>');
                   }
                   
 	      
-	      if (html == '') {
-	      		html = '<span id="noLabRequests">You don\'t have any lab-requests</span>"'
+	     if (e.requests.length > 0) {
+	      		$('#myAccountDetails.noLabRequests').remove();
 	      }
 
                   
