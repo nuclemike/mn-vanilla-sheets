@@ -40,18 +40,20 @@ function closeLabRequestPopup() {
 
 
 function updateCost() {
-    var size = $("#liquidOrderSize").val();
+        var size = $("#liquidOrderSize").val();
 	var qty = $("#liquidOrderQuantity").val(); 
 	var price = 0.00;
 	var total = 0.00;
+	var youSave = '';
 	
-	if (size == 30) {price = 6}
-	else if (size == 60) {price = 10.50}
-	else if (size == 120) {price = 19.50}
+	if (size == 30) {price = 6; }
+	else if (size == 60) {price = 10.50; youSave="you save €1.50!";}
+	else if (size == 120) {price = 19.50; youSave="you save €4.50!"}
 	
 	total = price * qty;
 	
-	$("#totalCostValue").text("€"+total.toFixed(2));
+	$("#totalCostValue").text("€"+total.toFixed(2));	
+	$("#totalCostSave").text(youSave);
 	
 }
 
