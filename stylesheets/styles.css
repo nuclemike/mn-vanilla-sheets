@@ -28,7 +28,6 @@ body {
 
 input, select {
 	background-color:white;
-	box-shadow: 0 0 0 100px white inset;
 }
 
 #pageLoader {
