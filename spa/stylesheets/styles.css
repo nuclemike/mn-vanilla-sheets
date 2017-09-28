@@ -399,10 +399,12 @@ input#loginPopupPassword {
     cursor: pointer;
     color: #8a8072;
 }
-#headerMenu a:hover {
+#headerMenu a:hover,
+#headerMenu a.selected{
     color: #ffd074;
 }
-#headerMenu a:hover .menuImg {
+#headerMenu a:hover .menuImg,
+#headerMenu a.selected .menuImg{
     opacity: 1;
 }
 .menuImg {
