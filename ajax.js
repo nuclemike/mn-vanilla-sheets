@@ -187,7 +187,7 @@ function loadLabCallback(e) {
 		});
 
 		if (e.requests.length > 0) {
-			html += '</div>');
+			html += '</div>';
 	     		$('#myAccountDetails.noLabRequests').remove();
 			document.getElementById('myLabRequestContainer').innerHTML = html;	
 		}
