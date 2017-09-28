@@ -148,7 +148,7 @@ function loadMyLab() {
 		var html = '';
                 
                         
-                        e.requestsArray.forEach( function (item){
+                        e.requests.forEach( function (item){
 				
 				
 				var imgUrl = 'liquids/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
