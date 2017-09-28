@@ -390,19 +390,25 @@ input#loginPopupPassword {
 #headerMenu {
     position: absolute;
     right: 0;
-    bottom: 10%;
+    bottom: 0;
 }
 #headerMenu a {
     font-size: 15px;
     float: left;
-    margin: 0 10px;
     cursor: pointer;
     color: #8a8072;
+    padding: 0 10px 10px;
 }
-#headerMenu a:hover,
-#headerMenu a.selected{
+#headerMenu a:hover{
+    box-shadow:0 -80px 70px -70px rgba(255,255,255,0.5) inset;
     color: #ffd074;
 }
+
+#headerMenu a.selected{
+    color: #ffd074;
+    
+}
+
 #headerMenu a:hover .menuImg,
 #headerMenu a.selected .menuImg{
     opacity: 1;
@@ -698,7 +704,7 @@ input#loginPopupPassword {
 
 @media only screen and (max-width: 850px) {
     #headerMenu a {
-        margin: 0 7px;
+        padding: 0 7px 6px;
         font-size: 13px;
     }
 }
