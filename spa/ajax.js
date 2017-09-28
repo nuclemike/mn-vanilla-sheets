@@ -169,7 +169,7 @@ function loadMyLab() {
 
 					html += '<span class="myLabRequestVg"><b>VG/PG</b>' + vgText + '</span>';
 					html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
-					html += '<span class="myLabRequestStateReady">Processing</span>';
+					html += '<span class="myLabRequestStateReady">Ready for Pickup!</span>';
 				html += '</div>';	
 
                         });
