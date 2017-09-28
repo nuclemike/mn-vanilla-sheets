@@ -26,7 +26,7 @@ body {
     background: url(floralBGWhite.png);
 }
 
-input {
+input, select {
 	background-color:white;
 	-webkit-appearance: none;
 	-moz-appearance: none;
