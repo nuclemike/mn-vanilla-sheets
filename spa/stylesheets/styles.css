@@ -550,7 +550,7 @@ a {} #headerMenu {
     margin: 0 2%;
 }
 
-myLabRequestSubTitle{
+.myLabRequestTitle{
     padding: 0;
     margin: 8% 5% 3%;
     font-size: 30px;
