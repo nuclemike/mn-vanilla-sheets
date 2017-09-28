@@ -53,7 +53,7 @@ function updateCost() {
 	total = price * qty;
 	
 	$("#totalCostValue").text("€"+total.toFixed(2));	
-	$("#totalCostSave").innerHTML(youSave);
+	$("#totalCostSave").innerHTML = youSave;
 	
 }
 
