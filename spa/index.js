@@ -36,10 +36,12 @@ function authenticatedFunction(func) {
 function populateUser(success) {
       if(success)
       {
-            document.getElementById('headerLogin').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!  <a onclick="logout()">Logout</a>';   
+            document.getElementById('headerLogin').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';   
+	    $('#headerLogout, #headerNectars').show();
       }
       else {
             document.getElementById('headerLogin').innerHTML = "Welcome to Mama's Nectar!";   
+	      $('#headerLogout, #headerNectars').hide();
             var isInMyLab = document.getElementById("labRequestsSection");
             if (isInMyLab) loadContent('nectars');
       }
