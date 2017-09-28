@@ -753,14 +753,6 @@ input#loginPopupPassword{
 }
 
 
-@media only screen and (max-width: 400px) {
-	#mainLogoSmall{
-		display:block !important;
-	}
-	.mainLogo{
-		display:none;
-	}	
-}
 
 
 
