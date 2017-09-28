@@ -20,7 +20,7 @@ function loadContent(pageName) {
 	
 	if (pageName == 'mylab')
 		$( "#headerMyLab" ).addClass('selected').siblings().removeClass('selected')
-	else if if (pageName == 'nectars')
+	else if (pageName == 'nectars')
 		$( "#headerNectar" ).addClass('selected').siblings().removeClass('selected')
 	
 	$( "#pageContent" ).load( pageName+".html", function() {
