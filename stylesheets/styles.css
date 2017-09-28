@@ -28,9 +28,6 @@ body {
 
 input, select {
 	background-color:white;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
 	box-shadow: 0 0 0 100px white inset;
 }
 
