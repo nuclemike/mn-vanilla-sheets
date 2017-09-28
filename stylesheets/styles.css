@@ -27,7 +27,10 @@ body {
 }
 
 input {
-	background-color:cornsilk;
+	background-color:white;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
 
 #pageLoader {
