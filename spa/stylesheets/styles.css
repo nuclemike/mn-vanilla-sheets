@@ -379,19 +379,15 @@ input#loginPopupPassword {
     display: table;
     height: 100%;
 }
-#headerLogin {
+#headerLoginText {
     color: #85745a;
     position: absolute;
     right: 10px;
     top: 4px;
     /* font-family: 'Raleway', sans-serif; */
 }
-#headerLogin a {
-    color: #d7d7d7;
-    text-decoration: underline;
-    cursor: pointer;
-}
-a {} #headerMenu {
+
+#headerMenu {
     position: absolute;
     right: 0;
     bottom: 10%;
