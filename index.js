@@ -49,7 +49,7 @@ function populateUser(success) {
 		document.getElementById('headerLoginText').innerHTML = "Welcome to Mama's Nectar!";   
 		$('#headerLogout, #headerMyLab').hide();
 		$('#headerLogin').show();
-		var isInMyLab = document.getElementById("labRequestsSection");
+		var isInMyLab = document.getElementById("myLabRequestTitle");
 		if (isInMyLab) loadContent('nectars');
 	}
 
