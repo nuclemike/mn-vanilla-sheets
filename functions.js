@@ -47,13 +47,13 @@ function updateCost() {
 	var youSave = '';
 	
 	if (size == 30) {price = 6; }
-	else if (size == 60) {price = 10.50; youSave="you save €1.50!";}
-	else if (size == 120) {price = 19.50; youSave="you save €4.50!"}
+	else if (size == 60) {price = 10.50; youSave="you save<br>€1.50!";}
+	else if (size == 120) {price = 19.50; youSave="you save<br>€4.50!"}
 	
 	total = price * qty;
 	
 	$("#totalCostValue").text("€"+total.toFixed(2));	
-	$("#totalCostSave").text(youSave);
+	$("#totalCostSave").innerHTML(youSave);
 	
 }
 
