@@ -559,7 +559,12 @@ a {} #headerMenu {
     display: block;
     text-align: center;
 }
-#myLabRequestContainer {max-width: 1000px;margin: 0 auto;padding: 0 2%;}
+#myLabRequestContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2%;
+}
+
 .myLabRequestWrapper {
     margin: 2%;
     background: #FFF;
@@ -572,6 +577,32 @@ a {} #headerMenu {
     font-size: 15px;
     overflow: hidden;
 }
+
+.myLabRequestWrapper:after {
+    
+    position:absolute;    
+    right:0;
+    bottom:0;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;    
+    line-height: 36px;    
+    width: 61%;
+    
+    content:'Processing';   
+    color: #de5d46;
+    animation: blinker 1s linear infinite;
+    background-color: #ffeee8;    
+}
+
+.myLabRequestWrapper.stateR:after {
+    content:'Ready for Pickup!';   
+    color: white;
+    animation: none;;
+    background-color: #87c30d;
+}
+
+
 .myLabRequestFlask {
     width: 39%;
     height: 100%;
@@ -643,29 +674,7 @@ a {} #headerMenu {
 }
 
 .myLabRequestStatePending,
-.myLabRequestStateReady {
-    margin-top: 16px;
-    display: block;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    margin: 15px 0 0;
-    line-height: 36px;
-    float: right;
-    width: 61%;
-}
 
-.myLabRequestStatePending {
-    color: #de5d46;
-    animation: blinker 1s linear infinite;
-    background-color: #ffeee8;
-    }
-
-.myLabRequestStateReady {
-  color: white;
-  background-color: #87c30d;
-  text-align: center;
-}
 
 .myLabRequestQty {
     position: absolute;
