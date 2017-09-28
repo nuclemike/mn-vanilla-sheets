@@ -34,18 +34,20 @@ function authenticatedFunction(func) {
 }
 
 function populateUser(success) {
-      if(success)
-      {
-            document.getElementById('headerLogin').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';   
-	    $('#headerLogout, #headerMyLab').show();
-      }
-      else {
-            document.getElementById('headerLogin').innerHTML = "Welcome to Mama's Nectar!";   
-	      $('#headerLogout, #headerMyLab').hide();
-            var isInMyLab = document.getElementById("labRequestsSection");
-            if (isInMyLab) loadContent('nectars');
-      }
-     
+	if(success)
+	{
+		document.getElementById('headerLogin').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';   
+		$('#headerLogout, #headerMyLab').show();
+		$('#headerLogin').hide();
+	}
+	else {
+		document.getElementById('headerLogin').innerHTML = "Welcome to Mama's Nectar!";   
+		$('#headerLogout, #headerMyLab').hide();
+		$('#headerLogin').show();
+		var isInMyLab = document.getElementById("labRequestsSection");
+		if (isInMyLab) loadContent('nectars');
+	}
+
 }
 
 
