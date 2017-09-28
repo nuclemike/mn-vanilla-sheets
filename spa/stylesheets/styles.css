@@ -646,7 +646,7 @@ a {} #headerMenu {
 }
 
 @keyframes blinker {  
-  50% { opacity: 0; }
+  50% { color: transparent; }
 }
 
 .myLabRequestStatePending,
@@ -656,15 +656,16 @@ a {} #headerMenu {
     font-size: 18px;
     font-weight: bold;
     text-align: center;
-    margin: 15px 0 0 -15px;
+    margin: 15px 0 0;
     line-height: 36px;
     float: right;
-    width: 56%;
+    width: 61%;
 }
 
 .myLabRequestStatePending {
-    color: #ff4e2e;
+    color: #de5d46;
     animation: blinker 1s linear infinite;
+    background-color: #ffeee8;
     }
 
 .myLabRequestStateReady {
