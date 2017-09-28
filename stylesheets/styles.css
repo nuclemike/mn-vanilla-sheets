@@ -546,14 +546,6 @@ input#loginPopupPassword {
 }
 
 #myAccountDetailsTitle.noLabRequests {
-    padding: 0;
-    margin: 0 0 7%;
-    font-size: 25px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    color: #c38d36;
-    display: block;
-    width: 100%;
     margin: 0;
     color: #b7b7b7;
     text-align:center;
