@@ -1,34 +1,111 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Mama's Nectar</title>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+	<head>
 
-    <link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<meta Property="og:image" content="logo.jpg" />
+		<meta Property="og:description" content="Most probably the finest quality tailor-made e-liquid in the mediterranean! Mama's Nectar, your closest relative, to your daily vape!" />		
+		<meta Property="og:title" Content="Mama's Nectar" />
+		<meta name="description" content="Most probably the finest quality tailor-made e-liquid in the mediterranean! Mama's Nectar, your closest relative, to your daily vape!" />
+		
+		<title>Mama's Nectar</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/global.css">
+		<link rel="stylesheet" href="stylesheets/styles.css">
+		<link rel="stylesheet" href="stylesheets/global.css">
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-    <script src="index.js"></script>
-    
-    <meta name="viewport" content="width=device-width">
+		<link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+		<script src="functions.js"></script>
+		<script src="ajax.js"></script>
+		<script src="index.js"></script>
+
+
+		<meta name="viewport" content="width=device-width">
    
-  </head>
-  <body class="fxDisplay fxDirCol">
+	</head>
+	<body>
+		
+		<img src="logo.jpg" style="display:none;"/>
+      		<div id="loginPopupShadow" onclick="event.target.id=='loginPopupShadow' && closeLoginPopup();" class="fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
+			
+    			<div id="loginPopupForm" class="fxDisplay">
+				
+
+				<form id="loginPopupData" onsubmit="login();return false;">
+
+					<img id="loginPopupMainIcon" src="stylesheets/access.png">
+					<span id="loginPopupWelcome">Authorization Required</span>
+
+
+					<table id="loginPopupTable">
+						<tr>
+							<td>E-Mail</td>      
+							<td>
+								<input type="text" id="loginPopupEmail">
+							</td>
+						</tr>	
+						<tr>
+							<td>Password</td>      
+							<td>
+								<input type="text" id="loginPopupPassword">
+							</td>
+						</tr>	
+						<tr>
+							<td></td>      
+							<td>	
+								<input type="checkbox" name="rememberMe" style="display:none;" id="rememberMe">
+								<label id="loginRememberCheckBox" for="rememberMe"></label>
+								<span>remember me</span>
+							</td>
+						</tr>					
+						
+						<tr>
+							<td colspan="2">
+								<span id="loginPopupError"></span>
+							</td>
+						</tr>						
+
+					</table>			
+
+
+					<div id="loggingInPopupPanel" style="display:none;">
+						<h4>logging in...</h4>					
+					</div>
+
+
+					<input type="submit" id="proceedLoginPopupButton" onclick="login()" value="Proceed" />
+					<button id="cancelLoginPopupButton" onclick="closeLoginPopup()">Cancel</button>
+
+
+				</form>		
+		
+			</div>
+		</div>
+		
+		
+		
+
+
   
-    <div id="splashDiv" class="fxDisplay fxJustifyCenter fxAlignCenter">
-    <div id="splashLogo">
-     <img id="loader" src="stylesheets/loader.gif" />
-	 </div>
-  </div>
-  
-	<div id="header" class="fxFixed">
+	<div id="header" >
 		<div id="headerContainer">
 		
 			<img id="mainLogo" src="stylesheets/mainLogo.png" />
+			<img id="mainLogoSmall" style="display:none;" src="stylesheets/mainLogoSmall.png" />
 			
+			<span id="headerLoginText"></span>
+			<div  id="headerMenu">
+				<a id="headerMyLab" style="display:none" onclick="authenticatedFunction(function(){ loadContent('mylab') });"><img class="menuImg" src="stylesheets/mylab.png" />myLAB</a>
+				<a id="headerNectar" onclick="loadContent('nectars')"><img class="menuImg" src="stylesheets/nectars.png" />NECTAR</a>
+				<a id="headerLogout" style="display:none" onclick="logout()"><img class="menuImg" src="stylesheets/logout.png" />LOGOUT</a>								
+				<a id="headerLogin" style="display:none" onclick="loginPopup()"><img class="menuImg" src="stylesheets/login.png" />LOGIN</a>								
+			</div>
+		
 			
 		</div>
 	</div>
@@ -39,155 +116,18 @@
 	
 
 	
-
+	<div id="pageLoader"></div>
 	
 	
 	
-	<div class="content fxStretch">
-			<div id="goldRibbon" class="fxFixed">
-				Nectar Collection
-			</div>
+	<div id="pageContent" style="display:none;">
 	
-		<div id="contentContainer" class="fxDisplay fxWrap fxJustifyCenter">
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/1.png">						
-				<img class="topseller" src="./liquids/topseller.png">		
-				<span class="nectarName">Dragon's Kiss</span>
-				<span class="nectarInfo">vanilla enriched, caramelized dragon-fruit!</span>
-			</div>
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/2.png">		
-				<span class="nectarName">Nautical Spice</span>
-				<span class="nectarInfo">a creamy watermelon, kiwi, strawberry and lime fusion!</span>
-			</div>		
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/3.png">		
-				<span class="nectarName">Wild Frost</span>
-				<span class="nectarInfo">A wide range of cool-sensation infused wild berries!</span>
-			</div>		
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/4.png">		
-				<img class="topseller" src="./liquids/topseller.png">		
-				<span class="nectarName">Monkey Munch</span>
-				<span class="nectarInfo">ape's favorite... banana cinnamon cookie!</span>
-			</div>		
-
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/5.png">		
-				<span class="nectarName">Crimson Fuzz</span>
-				<span class="nectarInfo">a creamy, strawberry enriched kiwi smoothie!</span>
-			</div>		
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/6.png">		
-				<img class="topseller" src="./liquids/topseller.png">		
-				<span class="nectarName">Black Energy</span>
-				<span class="nectarInfo">blackcurrant/pomegranate candy with a slight lemon hint!</span>
-			</div>		
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/7.png">		
-				<span class="nectarName">Pastry Pot</span>
-				<span class="nectarInfo">mama's traditional vanilla cupcake!</span>
-			</div>	
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/8.png">		
-				<span class="nectarName">Classic Analog</span>
-				<span class="nectarInfo">simply tobacco, in its liquid form!</span>
-			</div>	
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/9.png">		
-				<img class="topseller" src="./liquids/topseller.png">		
-				<span class="nectarName">Passion Husky</span>
-				<span class="nectarInfo">passion-fruit caramel with a creamy coconut background!</span>
-			</div>	
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/10.png">		
-				<span class="nectarName">Coral Milk</span>
-				<span class="nectarInfo">whipped cream covered peachy raspberry dessert!</span>
-			</div>	
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/11.png">		
-				<span class="nectarName">Angry Melons</span>
-				<span class="nectarInfo">exotic papaya & melon mix with fused marshmallows!</span>
-			</div>	
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/12.png">		
-				<img class="topseller" src="./liquids/topseller.png">		
-				<span class="nectarName">Scarlet's Bar</span>
-				<span class="nectarInfo">the known bar of joy! the strawberry cereal bar!</span>
-			</div>	
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/13.png">		
-				<span class="nectarName">Nutty Scutt</span>
-				<span class="nectarInfo">a vanilla tobacco blend with pistachios and caramel!</span>
-			</div>	
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/14.png">		
-				<span class="nectarName">Rose Junket</span>
-				<span class="nectarInfo">a creamy caramelly strawberry pudding!</span>
-			</div>	
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/15.png">		
-				<span class="nectarName">Arctic Ruby</span>
-				<span class="nectarInfo">a cool minty shot of juicy creamy raspberries!</span>
-			</div>	
-
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/16.png">		
-				<span class="nectarName">Rainbow Oil</span>
-				<span class="nectarInfo">gummy bears, milky bottles, and all the fun in between!</span>
-			</div>	
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/17.png">		
-				<span class="nectarName">Persian Malt</span>
-				<span class="nectarInfo">a greek yoghurt smoothie with Peaches and Oranges!</span>
-			</div>		
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/18.png">		
-				<span class="nectarName">Bubble Trouble</span>
-				<span class="nectarInfo">a classic fruity bubblegum, only without the chewing!</span>
-			</div>	
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/19.png">		
-				<span class="nectarName">Liquid Pepper</span>
-				<span class="nectarInfo">a simple smooth and creamy cooling peppermint!</span>
-			</div>	
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/20.png">		
-				<span class="nectarName">Purple Maze</span>
-				<span class="nectarInfo">blueberry & raspberry filled sugar glazed doughnuts!</span>
-			</div>	
-			
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/21.png">		
-				<span class="nectarName">Hue Cannon</span>
-				<span class="nectarInfo">fruity cereal covered, italian cream-filled cannoli!</span>
-			</div>		
-			<div class="nectar">
-				<img class="nectarFlask" src="./liquids/22.png">		
-				<span class="nectarName">The First Sin</span>
-				<span class="nectarInfo">mama didn't eat the apple, she put it in a pie and fried it!</span>
-			</div>				
-		</div>
+		
 	</div>
-
-
+	
+		<div id="hitCounter">
+			<img src="//counter.websiteout.net/compte.php?S=www.mamasnectar.com&amp;C=36&amp;D=9&amp;N=0&amp;M=1" border="0">
+		</div>
  
   </body>
 </html>

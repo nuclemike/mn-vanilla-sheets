@@ -1,56 +1,67 @@
 $(document).ready(function() {
-
-	
-	
-	$(".nectar").click(function() {
-		var imageUrl = $(this).children(".nectarFlask").attr("src");
-		var nectarName = $(this).children(".nectarName").text();
-		document.getElementById("liquidOrderNectarThumbnail").setAttribute("src", imageUrl);
-		document.getElementById("liquidOrderNectarName").innerHTML = nectarName;
-		$('#orderSentPanel, #sendingPanel').hide();
-		$('#sendOrder').toggle(!$('#authorizationText').hasClass('denied'));
-   		$("#liquidOrderSection").css("z-index","9999").fadeTo( "medium", 1 );
-	});	
-	
-	
-	$("#cancelOrder").click(function() {
-		
-		$("#liquidOrderSection").fadeTo(  "fast", 0, function() {
-			$( this ).css("z-index","-9999");
-		});
-	});
-		
+	loadContent('nectars');	
 });
 
-// Wait for window load
-$(window).load(function() {
-	setTimeout(function(){ 
-		$("#splashDiv").slideUp('slow');
-		$(".content").show();
-	}, 0);		
-});
+window.onload = function(){
+  var success = loadSession();
+  populateUser(success);
+};
 
-
-
-if( navigator.userAgent.match(/Android/i)
- || navigator.userAgent.match(/webOS/i)
- || navigator.userAgent.match(/iPhone/i)
- || navigator.userAgent.match(/iPad/i)
- || navigator.userAgent.match(/iPod/i)
- || navigator.userAgent.match(/BlackBerry/i)
- || navigator.userAgent.match(/Windows Phone/i)
- ) 	
-	{
- 	$("body").addClass('mobile');
-	}
-
-function toggleMenu() {
-    $("#headerMenu").toggleClass("open");
+function pageLoaded() {
+	$("#pageLoader").hide();
+	$( "#pageContent" ).show()
 }
 
+var afterLoginFunction = null;
+    
+function loadContent(pageName) {
+	$( "#pageLoader" ).show();
+	$( "#pageContent" ).hide();
+	
+	if (pageName == 'mylab')
+		$( "#headerMyLab" ).addClass('selected').siblings().removeClass('selected')
+	else if (pageName == 'nectars')
+		$( "#headerNectar" ).addClass('selected').siblings().removeClass('selected')
+	
+	$( "#pageContent" ).load( pageName+".html", function() {
+		//after load html (images excluded)
+		
+	});
+}
+
+
+function authenticatedFunction(func) {
+  if (loadSession()) func()
+	else{
+		loginPopup();
+		afterLoginFunction = func
+	}
+}
+
+function populateUser(success) {
+	if(success)
+	{
+		document.getElementById('headerLoginText').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';   
+		$('#headerLogout, #headerMyLab').show();
+		$('#headerLogin').hide();
+	}
+	else {
+		document.getElementById('headerLoginText').innerHTML = "Welcome to Mama's Nectar!";   
+		$('#headerLogout, #headerMyLab').hide();
+		$('#headerLogin').show();
+		var isInMyLab = document.getElementById("labRequestsSection");
+		if (isInMyLab) loadContent('nectars');
+	}
+
+}
+
+
 function loginPopup() {
-		$(', #loggingInPopupPanel').hide();		
-   		$("#loginPopup").css("z-index","9999").fadeTo( "medium", 1 );
+		$('#loginPopupWelcome').text('Authorization Required');
+			  $('#loginPopupEmail').val('');
+	  $('#loginPopupPassword').val('');
+	  $('#loginPopupError').text('');
+   		$("#loginPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
 	}
 
 
@@ -69,68 +80,31 @@ function logout() {
 
 
 
-  // Make an AJAX call to Google Script
-  function login() {
-    
-    var url = "https://script.google.com/macros/s/AKfycbzDWblHNTvXICpwOrT2Yi1NWbXS39IDnODUb6j7DX8gj-DEDGc/exec?callback=loginCb";
-    var user = $('#loginPopupEmail').val();
-    var pass = $('#loginPopupPassword').val();
-
-    var request = jQuery.ajax({
-      crossDomain: true,
-      url: url + '&user='+encodeURIComponent(user)+'&pass='+encodeURIComponent(pass),
-      method: "GET",
-      dataType: "jsonp"
-    });
-
-  }
-
-  // print the returned data
-function loginCb(response) {
-	console.log(response)
-	if (response.success == true){
-
-		sessionStorage.setItem('name', response.name);
-		sessionStorage.setItem('email', response.email);
-		sessionStorage.setItem('pass', response.pass);
-		sessionStorage.setItem('mobile', response.mobile);
-
-		if (document.getElementById('rememberMe').checked) {
-			localStorage.setItem('name', response.name);
-			localStorage.setItem('email', response.email);
-			localStorage.setItem('pass', response.pass);
-			localStorage.setItem('mobile', response.mobile);
-		}
-
-		closeLoginPopup();  
-		populateUser(true);
-
-	}
-	else 
-	{
-		$('#loginPopupError').text(response.name);
-	}
-}
-
 function closeLoginPopup() {
-	$("#loginPopup").fadeTo(  "fast", 0, function() {
+	if ($('#loginPopupShadow').hasClass('loading')) return false;
+	afterLoginFunction = null;
+	$("#loginPopupShadow").fadeTo(  "fast", 0, function() {
 		$( this ).css("z-index","-9999");
 	});
 }
 
-function updateCost() {
-    var size = $("#liquidOrderSize").val();
-	var qty = $("#liquidOrderQuantity").val(); 
-	var price = 0.00;
-	var total = 0.00;
-	
-	if (size == 30) {price = 6}
-	else if (size == 60) {price = 10.50}
-	else if (size == 120) {price = 19.50}
-	
-	total = price * qty;
-	
-	$("#totalCostValue").text("€"+total.toFixed(2));
-	
-}
 
+function loadSession() {
+      if (sessionStorage.getItem("name") != null) {
+            return true;
+                        
+      }
+      else {
+            if (localStorage.getItem("name") != null) {
+                  sessionStorage.setItem('name', localStorage.getItem("name"));       
+                  sessionStorage.setItem('email', localStorage.getItem("email"));
+                  sessionStorage.setItem('pass', localStorage.getItem("pass"));
+                  sessionStorage.setItem('mobile', localStorage.getItem("mobile"));
+                  return true;
+            } 
+            else return false;
+      }
+            
+   
+
+}
