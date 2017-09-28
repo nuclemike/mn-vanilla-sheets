@@ -98,11 +98,9 @@
 			<img id="mainLogo" src="stylesheets/mainLogo.png" />
 			<span id="headerLogin"></span>
 			<div  id="headerMenu">
-				<a onclick="authenticatedFunction(function(){ loadContent('mylab') });"><img class="menuImg" src="stylesheets/nectar.png" />myLAB</a>
-				<a onclick="loadContent('nectars')"><img class="menuImg" src="stylesheets/nectar.png" />NECTARS</a>
-				<a><img class="menuImg" src="stylesheets/kits.png" />STARTERS</a>				
-				<a><img class="menuImg" src="stylesheets/atty.png" />ATOMIZATION</a>
-				<a><img class="menuImg" src="stylesheets/power.png" />POWER</a>			
+				<a id="headerMyLab" style="display:none" onclick="authenticatedFunction(function(){ loadContent('mylab') });"><img class="menuImg" src="stylesheets/mylab.png" />myLAB</a>
+				<a onclick="loadContent('nectars')"><img class="menuImg" src="stylesheets/nectars.png" />NECTAR</a>
+				<a id="headerLogout" style="display:none"><img class="menuImg" src="stylesheets/logout.png" />LOGOUT</a>								
 			</div>
 		
 			
