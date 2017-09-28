@@ -68,6 +68,16 @@ function postRequestCallback(response) {
 
   // Make an AJAX call to Google Script
   function login() {
+	        if ($("#loginPopupEmail").val()=="") {
+        $("#loginPopupEmail").addClass("requiredField")}
+        else { $("#loginPopupEmail").removeClass("requiredField")}
+     
+      if ($("#loginPopupPassword").val()=="") {
+        $("#loginPopupPassword").addClass("requiredField")}
+        else { $("#loginPopupPassword").removeClass("requiredField")}
+     
+     if ($( ".requiredField" ).length) {return false};
+	  
 $('#loginPopupShadow').addClass('loading');
 
 	  $('#loginPopupWelcome').text('Authorizing...');
