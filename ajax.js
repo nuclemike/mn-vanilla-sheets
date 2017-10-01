@@ -47,6 +47,7 @@
 
   }
 
+  
   // print the returned data
 function postRequestCallback(response) {
 	$('#sendingPanel').hide();
