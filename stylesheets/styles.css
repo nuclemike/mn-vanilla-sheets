@@ -619,13 +619,27 @@ input#loginPopupPassword {
     background-color: #ffeee8;    
 }
 
-.myLabRequestWrapper.stateR:after {
+.myLabRequestWrapper.stateR:after,
+.myLabRequestWrapper.stateN:after {
     content:'Ready for Pickup!';   
     color: white;
     animation: none;;
     background-color: #87c30d;
 }
 
+.myLabRequestWrapper.stateB:after {
+    content:'Back-Order';   
+    color: white;
+    animation: none;;
+    background-color: #0db3c3;
+}
+
+.myLabRequestWrapper.stateU:after {
+    content:'Unpaid';   
+    color: white;
+    animation: none;;
+    background-color: #c3470d;
+}
 
 .myLabRequestFlask {
     width: 39%;
