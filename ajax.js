@@ -84,24 +84,18 @@ function postRequestCallback(response) {
 
 	$('#loginPopupShadow').addClass('loading');
 
-	  $('#loginPopupWelcome').text('Authorizing...');
+	$('#loginPopupWelcome').text('Authorizing...');
 
-    var loginObj = { email:$('#loginPopupEmail').val(),
-		    pass:$('#loginPopupPassword').val() }
-/*
-    var request = jQuery.ajax({
-      crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycbw5G9k4sGNtTxQOaEVmSVo0VNEXEhPjfqvwAbecgVBCKyB5JuI/exec?callback=loginCallback",
-      method: "GET",
-      dataType: "jsonp",
-      data : loginObj
-    });*/
+	var loginObj = { 	email:$('#loginPopupEmail').val(),
+		    		pass:$('#loginPopupPassword').val() }
+
 	  
-	      $.ajax({url: "https://script.google.com/macros/s/AKfycbw5G9k4sGNtTxQOaEVmSVo0VNEXEhPjfqvwAbecgVBCKyB5JuI/exec", 
-		      data : loginObj,
-		      success: function(result){
-        loginCallback(result);
-    }});
+	$.ajax({url: "https://script.google.com/macros/s/AKfycbw5G9k4sGNtTxQOaEVmSVo0VNEXEhPjfqvwAbecgVBCKyB5JuI/exec", 
+		data : loginObj,
+		method: "GET",
+		success: function(result){
+		loginCallback(result);
+	}});
 
   }
 
