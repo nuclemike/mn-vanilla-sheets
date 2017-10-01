@@ -1,6 +1,4 @@
 
-
-
   function formPost() {
       if ($("#liquidOrderCustomerVaper").val()=="") {
 	$("#liquidOrderCustomerVaper").addClass("requiredField")}
@@ -203,9 +201,4 @@ function loadLabCallback(e) {
 
 	pageLoaded();
 }
-
-
-
-
-
 
