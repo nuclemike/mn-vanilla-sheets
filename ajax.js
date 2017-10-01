@@ -100,7 +100,9 @@ function postRequestCallback(response) {
         $.ajax({url: "https://script.google.com/macros/s/AKfycbw5G9k4sGNtTxQOaEVmSVo0VNEXEhPjfqvwAbecgVBCKyB5JuI/exec", 
 				type : "GET",
 				data : loginObj,
-				success: loginCallback(result)
+				success:function(data) {
+					loginCallback(data); 
+				}
 		 });
 
   }
