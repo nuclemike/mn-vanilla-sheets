@@ -89,7 +89,7 @@ function postRequestCallback(response) {
 
     var loginObj = { email:$('#loginPopupEmail').val(),
 		    pass:$('#loginPopupPassword').val() }
-
+/*
     var request = jQuery.ajax({
       crossDomain: true,
       url: "https://script.google.com/macros/s/AKfycbw5G9k4sGNtTxQOaEVmSVo0VNEXEhPjfqvwAbecgVBCKyB5JuI/exec?callback=loginCallback",
@@ -97,6 +97,13 @@ function postRequestCallback(response) {
       dataType: "jsonp",
       data : loginObj
     });
+*/
+
+        $.ajax({url: "https://script.google.com/macros/s/AKfycbw5G9k4sGNtTxQOaEVmSVo0VNEXEhPjfqvwAbecgVBCKyB5JuI/exec", 
+				type : "GET",
+				data : loginObj,
+				success: loginCallback(result)
+		 });
 
   }
 
