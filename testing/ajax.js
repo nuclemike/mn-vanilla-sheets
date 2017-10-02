@@ -118,7 +118,7 @@ function postRequestCallback(response) {
 		$("#changePasswordConfirm").removeClass("requiredField")
 	}
 	
-	if ($("#changePasswordNew").val()=="")!=$("#changePasswordConfirm").val()=="") {
+	if ($("#changePasswordNew").val() != $("#changePasswordConfirm").val()) {
 		$("#changePasswordNew").addClass("requiredField")
 		$("#changePasswordConfirm").addClass("requiredField")}
 	else { 
