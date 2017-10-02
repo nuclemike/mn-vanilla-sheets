@@ -157,7 +157,7 @@ function changePassCb(response) {
 		alert(response.error);
 	}
 
-	$'#changePasswordSection').slideDown();
+	$('#changePasswordSection').slideDown();
 
 }
 
