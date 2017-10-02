@@ -15,7 +15,7 @@ function labRequestPopup(nectarName) {
 	document.getElementById('liquidOrderCustomerName').innerHTML = sessionStorage.getItem("name");
 	document.getElementById('liquidOrderCustomerEmail').innerHTML = sessionStorage.getItem("email");   
 	
-	document.getElementById('liquidOrderCustomerVaper').value = sessionStorage.getItem("name");
+	document.getElementById('liquidOrderCustomerVaper').value = '';
 	document.getElementById('liquidOrderQuantity').value = 1;
 	document.getElementById('liquidOrderSize').value = '';
 	document.getElementById('liquidOrderNicotine').value = '';

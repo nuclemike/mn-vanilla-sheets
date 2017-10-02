@@ -1,8 +1,5 @@
 
-  function formPost() {
-      if ($("#liquidOrderCustomerVaper").val()=="") {
-	$("#liquidOrderCustomerVaper").addClass("requiredField")}
-	else { $("#liquidOrderCustomerVaper").removeClass("requiredField")}
+  function formPost() {       	
 
       if ($("#liquidOrderSize").val()=="") {
 	$("#liquidOrderSize").addClass("requiredField")}
@@ -24,7 +21,8 @@
 
 	$('#sendingPanel').fadeIn('medium');
 
-
+	var vaperText = $("#liquidOrderCustomerVaper").val();  
+      if (vaperText=="") { vaperText = $("#liquidOrderCustomerName").text(); }	 
 
 	var requestObj = { email : $('#liquidOrderCustomerEmail').text(),
 			   pass : sessionStorage.getItem("pass"),
@@ -33,7 +31,7 @@
 			   size : $('#liquidOrderSize').val(),
 			   nicotine : $('#liquidOrderNicotine').val(),
 			   vg : $('#liquidOrderVG').val(),
-			   vaper : $('#liquidOrderCustomerVaper').val() }			   	
+			   vaper : vaperText }			   	
 
     var request = jQuery.ajax({
       crossDomain: true,
