@@ -77,7 +77,7 @@ function postRequestCallback(response) {
 		$("#loginPopupPassword").removeClass("requiredField")
 	}
 
-	if ($( ".requiredField" ).length) {return false};
+	if ($( "#loginPopupTable .requiredField" ).length) {return false};
 
 	$('#loginPopupShadow').addClass('loading');
 
@@ -96,6 +96,71 @@ function postRequestCallback(response) {
 
 
   }
+  
+  
+  
+  function changePassword(){
+	  if ($("#changePasswordCurrent").val()=="") {
+		$("#changePasswordCurrent").addClass("requiredField")}
+	else { 
+		$("#changePasswordCurrent").removeClass("requiredField")
+	}
+
+	if ($("#changePasswordNew").val()=="") {
+		$("#changePasswordNew").addClass("requiredField")}
+	else { 
+		$("#changePasswordNew").removeClass("requiredField")
+	}
+	
+	if ($("#changePasswordConfirm").val()=="") {
+		$("#changePasswordConfirm").addClass("requiredField")}
+	else { 
+		$("#changePasswordConfirm").removeClass("requiredField")
+	}
+	
+	if ($("#changePasswordNew").val()=="")!=$("#changePasswordConfirm").val()=="") {
+		$("#changePasswordNew").addClass("requiredField")
+		$("#changePasswordConfirm").addClass("requiredField")}
+	else { 
+		$("#changePasswordConfirm").removeClass("requiredField")
+	}
+
+	if ($( "#changePasswordSection .requiredField" ).length) {return false};
+
+	$('#changePasswordProceed').addClass('loading');
+
+
+    var loginObj = { email:$('#loginPopupEmail').val(),
+		    pass:$('#loginPopupPassword').val() }
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: "https://script.google.com/macros/s/AKfycbxAm1XNsZtOY1oYXdKIsYtaoUDzbkrnkpXUKFJ5HD4v05WqnZ0/exec?callback=changePassCb",
+      method: "GET",
+      dataType: "jsonp",
+      data : loginObj
+    });
+  }
+
+  
+
+// print the returned data
+function changePassCb(response) {	
+	if (response.success == true){
+		alert("Password Changed Successfully.");
+		logout();
+		location.reload();
+	}
+
+	else
+	{
+		alert(response.error);
+	}
+
+	$'#changePasswordSection').slideDown();
+
+}
+
 
   // print the returned data
 function loginCallback(response) {	

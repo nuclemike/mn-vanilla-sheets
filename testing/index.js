@@ -34,7 +34,7 @@ function authenticatedFunction(func) {
   if (loadSession()) func()
 	else{
 		loginPopup();
-		afterLoginFunction = func
+		afterLoginFunction = func;
 	}
 }
 
@@ -64,6 +64,14 @@ function loginPopup() {
    		$("#loginPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
 	}
 
+	
+	function changePassword() {
+		$'#changePasswordSection').slideDown();
+		$("#changePasswordCurrent").removeClass("requiredField").val("");
+		$("#changePasswordNew").removeClass("requiredField").val("");
+	    $("#changePasswordConfirm").removeClass("requiredField").val("");
+		 $("#changePasswordProceed").val("");
+	}
 
 
 function logout() {

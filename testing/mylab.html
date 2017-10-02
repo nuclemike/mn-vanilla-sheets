@@ -1,4 +1,4 @@
-<div id="goldRibbon" class="fxFixed">My Laboratory</div>	
+<div id="goldRibbon"d class="fxFixed">My Laboratory</div>	
 
 
 	<div  id="myAccountDetails">
@@ -6,35 +6,14 @@
 		<label>Name and Surname</label><span id="myAccountName"></span>
 		<label>Email Address</label><span id="myAccountEmail"></span>
 		<label>Mobile Number</label><span id="myAccountMobile"></span>
-		<label>Password</label>
-		<table id="changePasswordTable">
-			<tr>
-				<td>Current Password</td>      
-				<td>
-					<input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePasswordCurrent">
-				</td>
-			</tr>	
-			<tr>
-				<td>New Password</td>      
-				<td>
-					<input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePasswordNew">
-				</td>
-			</tr>	
-			<tr>
-				<td>Confirm New Password</td>      
-				<td>
-					<input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePasswordConfirm">
-				</td>
-			</tr>							
-			<tr>
-				<td></td>      
-				<td>	
-					
-					<input type="button" id="" onclick="" value="Cancel" />
-					<input type="submit" id="" onclick="" value="Proceed" />
-				</td>
-			</tr>					
-		</table>			
+		<label>Password</label><span id="changePasswordLink"></span>
+		<div style="display:none" id="changePasswordSection">
+			<label>Current Password</label><input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePasswordCurrent">
+			<label>New Password</label><input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePasswordNew">
+			<label>Confirm New Password</label><input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePasswordConfirm">
+				<input type="button" id="changePasswordCancel" onclick="cancelChangePassword()" value="Cancel" />
+				<input type="submit" id="changePasswordProceed" onclick="changePassword()" value="Proceed" />
+		</div>			
 	</div>
 
 <h2 class="myLabRequestTitle"><b>My Lab-Requests</b><br>latest first</h2>
