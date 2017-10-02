@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+	<head>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<meta name="theme-color" content="#101010" />
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<meta Property="og:image" content="http://www.mamasnectar.com/logo.jpg" />
+		<meta Property="og:description" content="Most probably the finest quality tailor-made e-liquid in the mediterranean! Mama's Nectar, your closest relative, to your daily vape!" />		
+		<meta Property="og:title" Content="Mama's Nectar" />
+		<meta name="description" content="Most probably the finest quality tailor-made e-liquid in the mediterranean! Mama's Nectar, your closest relative, to your daily vape!" />
+		
+		<title>Mama's Nectar</title>
+
+		<link rel="stylesheet" href="stylesheets/styles.css?ver=1">
+		<link rel="stylesheet" href="stylesheets/global.css">
+
+		<link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
+		
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+		<script src="functions.js"></script>
+		<script src="ajax.js?ver=4"></script>
+		<script src="index.js"></script>
+
+
+		<meta name="viewport" content="width=device-width">
+   
+	</head>
+	<body>
+		
+		<img src="logo.jpg" style="display:none;"/>
+      		<div id="loginPopupShadow" onclick="event.target.id=='loginPopupShadow' && closeLoginPopup();" class="fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
+			
+    			<div id="loginPopupForm" class="fxDisplay">
+				
+
+				<form id="loginPopupData" onsubmit="login();return false;">
+
+					<img id="loginPopupMainIcon" src="stylesheets/access.png">
+					<span id="loginPopupWelcome">Authorization Required</span>
+
+
+					<table id="loginPopupTable">
+						<tr>
+							<td>E-Mail</td>      
+							<td>
+								<input type="email"  autocorrect="off" autocapitalize="off" spellcheck="false" id="loginPopupEmail">
+							</td>
+						</tr>	
+						<tr>
+							<td>Password</td>      
+							<td>
+								<input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="loginPopupPassword">
+							</td>
+						</tr>	
+						<tr>
+							<td></td>      
+							<td>	
+								<input type="checkbox" name="rememberMe" style="display:none;" id="rememberMe">
+								<label id="loginRememberCheckBox" for="rememberMe"></label>
+								<span>remember me</span>
+							</td>
+						</tr>					
+						
+						<tr>
+							<td colspan="2">
+								<span id="loginPopupError"></span>
+							</td>
+						</tr>						
+
+					</table>			
+
+
+					<input type="submit" id="proceedLoginPopupButton" onclick="login()" value="Proceed" />
+					<input type="button" id="cancelLoginPopupButton" onclick="closeLoginPopup()" value="Cancel" />
+
+
+				</form>		
+		
+			</div>
+		</div>
+		
+		
+		
+
+
+  
+	<div id="header" >
+		<div id="headerContainer">
+		
+			<img id="mainLogo" src="stylesheets/mainLogo.png" />
+			<img id="mainLogoSmall" style="display:none;" src="stylesheets/mainLogoSmall.png" />
+			
+			<span id="headerLoginText"></span>
+			<div  id="headerMenu">
+				<a id="headerMyLab" style="display:none" onclick="authenticatedFunction(function(){ loadContent('mylab') });"><img class="menuImg" src="stylesheets/mylab.png" />myLAB</a>
+				<a id="headerNectar" onclick="loadContent('nectars')"><img class="menuImg" src="stylesheets/nectars.png" />NECTAR</a>
+				<a id="headerLogout" style="display:none" onclick="logout()"><img class="menuImg" src="stylesheets/logout.png" />LOGOUT</a>								
+				<a id="headerLogin" style="display:none" onclick="loginPopup()"><img class="menuImg" src="stylesheets/login.png" />LOGIN</a>								
+			</div>
+		
+			
+		</div>
+	</div>
+	
+
+	
+
+	
+
+	
+	<div id="pageLoader"></div>
+	
+	
+	
+	<div id="pageContent" style="display:none;">
+	
+		
+	</div>
+	
+		<div id="hitCounter">
+			<img src="//counter.websiteout.net/compte.php?S=www.mamasnectar.com&amp;C=36&amp;D=9&amp;N=0&amp;M=1" border="0">
+		</div>
+ 
+  </body>
+</html>
