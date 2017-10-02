@@ -163,7 +163,24 @@ input, select {
 }
 input#liquidOrderCustomerVaper {
     width: 100%;
+    font-weight: bold;
+    font-size: 20px;
 }
+
+
+#liquidOrderCustomerVaper::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #d87b00;
+}
+#liquidOrderCustomerVaper::-moz-placeholder { /* Firefox 19+ */
+  color: #d87b00;
+}
+#liquidOrderCustomerVaper:-ms-input-placeholder { /* IE 10+ */
+  color: #d87b00;
+}
+#liquidOrderCustomerVaper:-moz-placeholder { /* Firefox 18- */
+  color: #d87b00;
+}
+
 #liquidOrderNectarName {
     color: #444;
     font-family: "Beleren";
