@@ -863,11 +863,21 @@ animation: blinker 1s linear infinite;
 		display:none;
 	}	
 
+	.credPopupTitle{
+    font-size: 17px;
+    }	
+
 	.credPopupTable{
-    width: 280px;
+    width: 100%;
+    min-width: 230px;
+    }
+
+    .credPopupTable td:first-child{
+        font-size:0
     }
     
-	.credPopupForm input[type=email], .credPopupForm input[type=password] {
-    width: 180px;
+	.credPopupForm input[type=email], 
+	.credPopupForm input[type=password] {
+    width: 100% !important;
     }
 }
