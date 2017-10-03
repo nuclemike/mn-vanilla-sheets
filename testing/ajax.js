@@ -135,11 +135,11 @@ function proceedChangePass(){
 
 	if ($("#changePassNew").length<8) {
 		$("#changePassNew").addClass("requiredField");
-		$('#loginPopupError').text("Password should be at least 8 characters.");
+		$('#changePassPopupError').text("Password should be at least 8 characters.");
 	}
 	else { 
 		$("#changePassNew").removeClass("requiredField");
-		$('#loginPopupError').text("");
+		$('#changePassPopupError').text("");
 	}
 	
 	if ($("#changePassConfirm").length<8) {
@@ -184,7 +184,7 @@ function proceedChangePass(){
 
 function changePassCb(response) {	
 	if (response.success == true){
-		alert("Password Changed Successfully. P.");
+		alert("Password Changed Successfully. Please login again using you new password.");
 		logout();
 	}
 	else 
