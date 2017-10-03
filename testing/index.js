@@ -61,8 +61,8 @@ function loginPopup() {
 	$('#loginPopupEmail').val('');
 	$('#loginPopupPassword').val('');
 	$('#loginPopupError').text('');
-   	("#loginPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
-	}
+   	$("#loginPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
+}
 	
 function changePasswordPopup() {
 	$('#loginPopupWelcome').text('Change Password');
@@ -71,7 +71,7 @@ function changePasswordPopup() {
 	$('#changePasswordConfirm').val('');
 	$('#loginPopupError').text('');
 	$("#changePasswordPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
-	}	
+}	
 
 
 function logout() {
