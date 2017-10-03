@@ -381,12 +381,12 @@ input#loginPopupPassword {
 }
 
 
-.changePasswordSection{
+#changePasswordSection{
 	float:left;
 	clear:both;
 }
 
-.changePasswordCancel{
+#changePasswordCancel{
 	float:left;
 	clear:left;
 }
