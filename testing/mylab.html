@@ -6,13 +6,13 @@
 		<label>Name and Surname</label><span id="myAccountName"></span>
 		<label>Email Address</label><span id="myAccountEmail"></span>
 		<label>Mobile Number</label><span id="myAccountMobile"></span>
-		<label>Password</label><span onclick="changePassword()" id="changePasswordLink"></span>
+		<label>Password</label><span onclick="changePassword()" id="changePasswordLink">change password</span>
 		<div style="display:none" id="changePasswordSection">
 			<label>Current Password</label><input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePasswordCurrent">
 			<label>New Password</label><input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePasswordNew">
 			<label>Confirm New Password</label><input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePasswordConfirm">
 				<input type="button" id="changePasswordCancel" onclick="cancelChangePassword()" value="Cancel" />
-				<input type="submit" id="changePasswordProceed" onclick="changePassword()" value="Proceed" />
+				<input type="submit" id="changePasswordProceed" onclick="proceedChangePassword()" value="Proceed" />
 		</div>			
 	</div>
 

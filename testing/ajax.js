@@ -99,7 +99,7 @@ function postRequestCallback(response) {
   
   
   
-  function changePasswordProceed(){
+  function proceedchangePassword(){
 	  if ($("#changePasswordCurrent").val()=="") {
 		$("#changePasswordCurrent").addClass("requiredField")}
 	else { 
