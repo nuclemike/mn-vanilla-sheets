@@ -72,11 +72,11 @@ function login() {
 		$("#loginPopupPassword").removeClass("requiredField")
 	}
 
-	if ($( "#loginPopupTable .requiredField" ).length) {return false};
+	if ($( "#loginPopupShadow .requiredField" ).length) {return false};
 
 	$('#loginPopupShadow').addClass('loading');
 
-	  $('#loginPopupWelcome').text('Authorizing...');
+	  $('#loginPopupTitle').text('Authorizing...');
 
     var loginObj = { email:$('#loginPopupEmail').val(),
 		    pass:$('#loginPopupPassword').val() }
@@ -111,7 +111,7 @@ function loginCb(response) {
 		populateUser(true);
 		if (afterLoginFunction != null) afterLoginFunction();
 		$('#loginPopupShadow').removeClass('loading');
-		closeLoginPopup('loginPopupShadow');  
+		closeCredPopup('loginPopupShadow');  
 
 	}
 	else 
@@ -119,59 +119,59 @@ function loginCb(response) {
 		$('#loginPopupError').text(response.name);
 		afterLoginFunction = null;
 		$('#loginPopupShadow').removeClass('loading');
-		$('#loginPopupWelcome').text('Authorization Required');
+		$('#loginPopupTitle').text('Authorization Required');
 		$("#loginPopupEmail").focus()
 	}
 
 }
 
 function proceedChangePassword(){
-	  if ($("#changePasswordCurrent").val()=="") {
-		$("#changePasswordCurrent").addClass("requiredField");
+	  if ($("#changePassCurrent").val()=="") {
+		$("#changePassCurrent").addClass("requiredField");
 	}
 	else { 
-		$("#changePasswordCurrent").removeClass("requiredField");
+		$("#changePassCurrent").removeClass("requiredField");
 	}
 
-	if ($("#changePasswordNew").length<8) {
-		$("#changePasswordNew").addClass("requiredField");
-		$('#loginPopupError').text("Password should be at least 8 characters.");
+	if ($("#changePassNew").length<8) {
+		$("#changePassNew").addClass("requiredField");
+		$('#changePassPopupError').text("Password should be at least 8 characters.");
 	}
 	else { 
-		$("#changePasswordNew").removeClass("requiredField");
-		$('#loginPopupError').text("");
+		$("#changePassNew").removeClass("requiredField");
+		$('#changePassPopupError').text("");
 	}
 	
-	if ($("#changePasswordConfirm").length<8) {
-		$("#changePasswordConfirm").addClass("requiredField");
+	if ($("#changePassConfirm").length<8) {
+		$("#changePassConfirm").addClass("requiredField");
 	}
 	else { 
-		$("#changePasswordConfirm").removeClass("requiredField");
+		$("#changePassConfirm").removeClass("requiredField");
 	}
 	
-	if ($("#changePasswordNew").val() != $("#changePasswordConfirm").val()) {
-		$("#changePasswordNew").addClass("requiredField");
-		$("#changePasswordConfirm").addClass("requiredField");
-		$('#loginPopupError').text("Passwords do not match!");
+	if ($("#changePassNew").val() != $("#changePassConfirm").val()) {
+		$("#changePassNew").addClass("requiredField");
+		$("#changePassConfirm").addClass("requiredField");
+		$('#changePassPopupError').text("Passwords do not match!");
 	}
 	else { 
-		$("#changePasswordConfirm").removeClass("requiredField");
-		$("#changePasswordConfirm").removeClass("requiredField");
-		$('#loginPopupError').text("");
+		$("#changePassConfirm").removeClass("requiredField");
+		$("#changePassConfirm").removeClass("requiredField");
+		$('#changePassPopupError').text("");
 	}
 
-	if ($( "#loginPopupTable .requiredField" ).length) {return false};
+	if ($( "#changePassPopupShadow .requiredField" ).length) {return false};
 	
 	
-		$('#loginPopupShadow').addClass('loading');
+		$('#changePassPopupShadow').addClass('loading');
 
-	  $('#loginPopupWelcome').text('Please wait...');
+	  $('#changePassPopupTitle').text('Please wait...');
 
 
 
     var loginObj = { 	email: sessionStorage.getItem("email"),
-						pass:$('#changePasswordCurrent').val(),
-						newpass:$('#changePasswordConfirm').val()	}
+						pass:$('#changePasswCurrent').val(),
+						newpass:$('#changePassConfirm').val()	}
 
     var request = jQuery.ajax({
       crossDomain: true,
@@ -189,10 +189,10 @@ function changePassCb(response) {
 	}
 	else 
 	{
-		$('#loginPopupError').text(response.name);
+		$('#changePassPopupError').text(response.name);
 		afterLoginFunction = null;
-		$('#loginPopupShadow').removeClass('loading');
-		$('#loginPopupWelcome').text('Change Password');		
+		$('#changePassPopupShadow').removeClass('loading');
+		$('#changePassPopupTitle').text('Change Password');		
 	}
 
 

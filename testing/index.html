@@ -34,18 +34,18 @@
 	<body>
 		
 		<img src="logo.jpg" style="display:none;"/>
-      		<div id="loginPopupShadow" onclick="event.target.id=='loginPopupShadow' && closeLoginPopup('loginPopupShadow');" class="loginPopupShadow fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
+      		<div id="loginPopupShadow" onclick="event.target.id=='loginPopupShadow' && closeCredPopup('loginPopupShadow');" class="credPopupShadow fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
 			
-    			<div id="loginPopupForm" class="fxDisplay">
+    			<div class="credPopupForm fxDisplay">
 				
 
-				<form id="loginPopupData" onsubmit="login();return false;">
+				<form class="credPopupData" onsubmit="login();return false;">
 
-					<img id="loginPopupMainIcon" src="stylesheets/access.png">
-					<span id="loginPopupWelcome">Authorization Required</span>
+					<img class="credPopupMainIcon" src="stylesheets/access.png">
+					<span class="credPopupTitle" id="loginPopupTitle">Authorization Required</span>
 
 
-					<table id="loginPopupTable">
+					<table class="credPopupTable">
 						<tr>
 							<td>E-Mail</td>      
 							<td>
@@ -69,7 +69,7 @@
 						
 						<tr>
 							<td colspan="2">
-								<span id="loginPopupError"></span>
+								<span id="loginPopupError" class="credPopupError"></span>
 							</td>
 						</tr>						
 
@@ -77,7 +77,7 @@
 
 
 					<input type="submit" id="proceedLoginPopupButton" onclick="login()" value="Proceed" />
-					<input type="button" id="cancelLoginPopupButton" onclick="closeLoginPopup('loginPopupShadow')" value="Cancel" />
+					<input type="button" id="cancelLoginPopupButton" onclick="closeCredPopup('loginPopupShadow')" value="Cancel" />
 
 
 				</form>		

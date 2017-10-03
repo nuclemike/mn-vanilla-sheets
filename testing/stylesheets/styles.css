@@ -238,7 +238,7 @@ input#liquidOrderCustomerVaper {
 }
 /* ################################### LOGIN PUPOP ################################### */
 
-.loginPopupShadow {
+.credPopupShadow {
     background: rgba(80, 80, 80, 0.9);
     position: fixed;
     top: 0;
@@ -246,19 +246,19 @@ input#liquidOrderCustomerVaper {
     height: 100%;
     width: 100%;
 }
-.loginPopupShadow.loading #loginPopupTable,
-.loginPopupShadow.loading input
+.credPopupShadow.loading .credPopupTable,
+.credPopupShadow.loading input
  {
     opacity: 0.5 !important;
     pointer-events: none !important;
 }
 
-.loginPopupShadow.loading #loginPopupWelcome
+.credPopupShadow.loading .credPopupTitle
  {
 animation: blinker 1s linear infinite;
 }
 
-#loginPopupForm {
+.credPopupForm {
     /* background: white; */
     /* height: 450px; */
     /* width: 600px; */
@@ -271,7 +271,7 @@ animation: blinker 1s linear infinite;
     
     font-family: 'Raleway', sans-serif;
 }
-#loginPopupData {
+.credPopupData {
     background: white;
     border-radius: 8px;
     padding: 33px;
@@ -288,7 +288,7 @@ animation: blinker 1s linear infinite;
 #orderSentPanel h4 {
     color: #4ab74a;
 }
-#loginPopupTable {
+.credPopupTable {
     width: 320px;
     font-size: -2px;
     color: #444;
@@ -297,13 +297,13 @@ animation: blinker 1s linear infinite;
     padding-top: 18px;
     margin-bottom: 12px;
 }
-#loginPopupTable td {
+.credPopupTable td {
     padding: 5px 0;
 }
 .requiredField {
     border-color: tomato !important;
 }
-#loginPopupTable input {
+.credPopupTable input {
     font-family: 'Raleway', sans-serif;
     border: 1px solid #ddd;
     border-radius: 3px;
@@ -314,8 +314,8 @@ animation: blinker 1s linear infinite;
     font-size: 15px;
     font-weight: bold;
 }
-#loginPopupForm input[type=email],
-#loginPopupForm input[type=password] {
+.credPopupForm input[type=email],
+.credPopupForm input[type=password] {
     width: 212px;
 }
 #rememberMe + label {
@@ -331,7 +331,7 @@ animation: blinker 1s linear infinite;
     background-color: #f1cd63;
 }
 
-#loginPopupError {
+.credPopupError {
     color: white;
     text-align: center;
     line-height: 45px;
@@ -342,12 +342,12 @@ animation: blinker 1s linear infinite;
     margin: 5px 0;
     border-radius: 4px;
 }
-#loginPopupMainIcon {
+.credPopupMainIcon {
     position: absolute;
     top: 26px;
     left: 27px;
 }
-#loginPopupWelcome {
+.credPopupTitle {
     line-height: 41px;
     font-size: 21px;
     margin-left: 49px;

@@ -57,20 +57,20 @@ function populateUser(success) {
 
 
 function loginPopup() {
-	$('#loginPopupWelcome').text('Authorization Required');
+	$('#loginPopupTitle').text('Authorization Required');
 	$('#loginPopupEmail').val('');
 	$('#loginPopupPassword').val('');
 	$('#loginPopupError').text('');
    	$("#loginPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
 }
 	
-function changePasswordPopup() {
-	$('#loginPopupWelcome').text('Change Password');
-	$('#changePasswordCurrent').val('');
-	$('#changePasswordNew').val('');
-	$('#changePasswordConfirm').val('');
-	$('#loginPopupError').text('');
-	$("#changePasswordPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
+function changePassPopup() {
+	$('#changePassPopupTitle').text('Change Password');
+	$('#changePassCurrent').val('');
+	$('#changePassNew').val('');
+	$('#changePassConfirm').val('');
+	$('#changePassPopupError').text('');
+	$("#changePassPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
 }	
 
 
@@ -88,7 +88,7 @@ function logout() {
 
 
 
-function closeLoginPopup(id) {
+function closeCredPopup(id) {
 	if ($('#'+id).hasClass('loading')) return false;
 	afterLoginFunction = null;
 	$('#'+id).fadeTo(  "fast", 0, function() {
