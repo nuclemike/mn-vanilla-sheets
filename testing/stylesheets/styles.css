@@ -312,6 +312,10 @@ animation: blinker 1s linear infinite;
 .credPopupForm input[type=password] {
     width: 212px;
 }
+
+#changePassPopupShadow input[type=password]{
+    width: 150px;
+}
 #rememberMe + label {
     border: 1px solid #ddd;
     border-radius: 3px;
