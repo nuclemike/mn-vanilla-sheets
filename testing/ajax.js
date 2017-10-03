@@ -133,7 +133,7 @@ function proceedChangePass(){
 		$("#changePassCurrent").removeClass("requiredField");
 	}
 
-	if ($("#changePassNew").length<8) {
+	if ($("#changePassNew").val().length<8) {
 		$("#changePassNew").addClass("requiredField");
 		$('#changePassPopupError').text("Password should be at least 8 characters.");
 	}
@@ -142,7 +142,7 @@ function proceedChangePass(){
 		$('#changePassPopupError').text("");
 	}
 	
-	if ($("#changePassConfirm").length<8) {
+	if ($("#changePassConfirm").val().length<8) {
 		$("#changePassConfirm").addClass("requiredField");
 	}
 	else { 
