@@ -238,7 +238,7 @@ input#liquidOrderCustomerVaper {
 }
 /* ################################### LOGIN PUPOP ################################### */
 
-#loginPopupShadow {
+.loginPopupShadow {
     background: rgba(80, 80, 80, 0.9);
     position: fixed;
     top: 0;
@@ -246,14 +246,14 @@ input#liquidOrderCustomerVaper {
     height: 100%;
     width: 100%;
 }
-#loginPopupShadow.loading #loginPopupTable,
-#loginPopupShadow.loading input
+.loginPopupShadow.loading #loginPopupTable,
+.loginPopupShadow.loading input
  {
     opacity: 0.5 !important;
     pointer-events: none !important;
 }
 
-#loginPopupShadow.loading #loginPopupWelcome
+.loginPopupShadow.loading #loginPopupWelcome
  {
 animation: blinker 1s linear infinite;
 }
@@ -280,7 +280,6 @@ animation: blinker 1s linear infinite;
 
 #sendingPanel h4,
 #orderSentPanel h4,
-#fbLoginPanel h4,
 #notAuthorizedPanel h4 {
     font-size: 31px;
     margin: 20px;
@@ -315,8 +314,8 @@ animation: blinker 1s linear infinite;
     font-size: 15px;
     font-weight: bold;
 }
-input#loginPopupEmail,
-input#loginPopupPassword {
+#loginPopupForm input[type=email],
+#loginPopupForm input[type=password] {
     width: 212px;
 }
 #rememberMe + label {
@@ -381,15 +380,6 @@ input#loginPopupPassword {
 }
 
 
-#changePasswordSection{
-	float:left;
-	clear:both;
-}
-
-#changePasswordCancel{
-	float:left;
-	clear:left;
-}
 /* ################################### HEADER ################################### */
 
 #header {

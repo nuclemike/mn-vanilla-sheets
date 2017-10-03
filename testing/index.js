@@ -57,25 +57,21 @@ function populateUser(success) {
 
 
 function loginPopup() {
-		$('#loginPopupWelcome').text('Authorization Required');
-			  $('#loginPopupEmail').val('');
-	  $('#loginPopupPassword').val('');
-	  $('#loginPopupError').text('');
-   		$("#loginPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
-	}
-
-	
-	function changePassword() {
-		$('#changePasswordSection').slideDown();
-		$("#changePasswordCurrent").removeClass("requiredField").val("");
-		$("#changePasswordNew").removeClass("requiredField").val("");
-	    $("#changePasswordConfirm").removeClass("requiredField").val("");
-		 $("#changePasswordProceed").val("Proceed");
+	$('#loginPopupWelcome').text('Authorization Required');
+	$('#loginPopupEmail').val('');
+	$('#loginPopupPassword').val('');
+	$('#loginPopupError').text('');
+   	("#loginPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
 	}
 	
-		function cancelChangePassword() {
-		$('#changePasswordSection').slideUp();
-	}
+function changePasswordPopup() {
+	$('#loginPopupWelcome').text('Change Password');
+	$('#changePasswordCurrent').val('');
+	$('#changePasswordNew').val('');
+	$('#changePasswordConfirm').val('');
+	$('#loginPopupError').text('');
+	$("#changePasswordPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
+	}	
 
 
 function logout() {
@@ -87,18 +83,19 @@ function logout() {
 	sessionStorage.removeItem('email');
 	sessionStorage.removeItem('pass');
 	sessionStorage.removeItem('mobile');	
-	populateUser(false);
+	location.reload();
 }
 
 
 
-function closeLoginPopup() {
-	if ($('#loginPopupShadow').hasClass('loading')) return false;
+function closeLoginPopup(id) {
+	if ($('#'+id).hasClass('loading')) return false;
 	afterLoginFunction = null;
-	$("#loginPopupShadow").fadeTo(  "fast", 0, function() {
+	$('#'+id).fadeTo(  "fast", 0, function() {
 		$( this ).css("z-index","-9999");
 	});
 }
+
 
 
 function loadSession() {

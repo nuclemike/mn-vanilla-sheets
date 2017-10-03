@@ -1,19 +1,62 @@
+      		<div id="changePasswordPopupShadow" class="loginPopupShadow" onclick="event.target.id=='loginPopupShadow' && closeLoginPopup('changePasswordPopupShadow');" class="fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
+			
+    			<div id="loginPopupForm" class="fxDisplay">
+				
+
+				<form id="loginPopupData" onsubmit="proceedChangePassword();return false;">
+
+					<img id="loginPopupMainIcon" src="stylesheets/access.png">
+					<span id="loginPopupWelcome">Change Password</span>
+
+
+					<table id="loginPopupTable">
+						<tr>
+							<td>Current Password</td>
+							<td>
+								<input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePasswordCurrent">
+							</td>
+						</tr>	
+						<tr>
+							<td>New Password</td>      
+							<td>
+								<input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePasswordNew">
+							</td>
+						</tr>	
+						<tr>
+							<td>Confirm Password</td>      
+							<td>
+								<input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePasswordConfirm">
+							</td>
+						</tr>						
+						
+						<tr>
+							<td colspan="2">
+								<span id="loginPopupError"></span>
+							</td>
+						</tr>						
+
+					</table>			
+
+
+					<input type="submit" id="proceedLoginPopupButton" onclick="proceedChangePassword()" value="Proceed" />
+					<input type="button" id="cancelLoginPopupButton" onclick="closeLoginPopup('changePasswordPopupShadow')" value="Cancel" />
+
+
+				</form>		
+		
+			</div>
+		</div>
+
 <div id="goldRibbon"d class="fxFixed">My Laboratory</div>	
 
 
 	<div  id="myAccountDetails">
 		<h2 id="myAccountDetailsTitle">My Account Details</h2>
+		<label>User ID</label><span id="myUserID"></span>
 		<label>Name and Surname</label><span id="myAccountName"></span>
 		<label>Email Address</label><span id="myAccountEmail"></span>
 		<label>Mobile Number</label><span id="myAccountMobile"></span>
 		<label>Password</label><span onclick="changePassword()" id="changePasswordLink">change password</span>
-		<div style="display:none" id="changePasswordSection">
-			<label>Current Password</label><input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePasswordCurrent">
-			<label>New Password</label><input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePasswordNew">
-			<label>Confirm New Password</label><input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePasswordConfirm">
-				<input type="button" id="changePasswordCancel" onclick="cancelChangePassword()" value="Cancel" />
-				<input type="submit" id="changePasswordProceed" onclick="proceedChangePassword()" value="Proceed" />
-		</div>			
 	</div>
 
 <h2 class="myLabRequestTitle"><b>My Lab-Requests</b><br>latest first</h2>

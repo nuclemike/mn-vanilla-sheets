@@ -25,9 +25,8 @@
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
 		<script src="functions.js?ver=1"></script>
-		<script src="ajax.js?ver=7"></script>
-		<script src="index.js?ver=3"></script>
-
+		<script src="ajax.js?ver=5"></script>
+		<script src="index.js?ver=1"></script>
 
 		<meta name="viewport" content="width=device-width">
    
@@ -35,7 +34,7 @@
 	<body>
 		
 		<img src="logo.jpg" style="display:none;"/>
-      		<div id="loginPopupShadow" onclick="event.target.id=='loginPopupShadow' && closeLoginPopup();" class="fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
+      		<div id="loginPopupShadow" class="loginPopupShadow" onclick="event.target.id=='loginPopupShadow' && closeLoginPopup('loginPopupShadow');" class="fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
 			
     			<div id="loginPopupForm" class="fxDisplay">
 				
@@ -77,8 +76,8 @@
 					</table>			
 
 
-					<input type="submit" id="proceedLoginPopupButton" onclick="changePassword()" value="Proceed" />
-					<input type="button" id="cancelLoginPopupButton" onclick="cancelChangePassword()" value="Cancel" />
+					<input type="submit" id="proceedLoginPopupButton" onclick="login()" value="Proceed" />
+					<input type="button" id="cancelLoginPopupButton" onclick="closeLoginPopup('loginPopupShadow')" value="Cancel" />
 
 
 				</form>		
