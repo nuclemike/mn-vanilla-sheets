@@ -152,12 +152,12 @@ function proceedChangePass(){
 	if ($("#changePassNew").val() != $("#changePassConfirm").val()) {
 		$("#changePassNew").addClass("requiredField");
 		$("#changePassConfirm").addClass("requiredField");
-		$('#loginPopupError').text("Passwords do not match!");
+		$('#changePassPopupError').text("Passwords do not match!");
 	}
 	else { 
 		$("#changePassConfirm").removeClass("requiredField");
 		$("#changePassConfirm").removeClass("requiredField");
-		$('#loginPopupError').text("");
+		$('#changePassPopupError').text("");
 	}
 
 	if ($( "#changePassPopupShadow .requiredField" ).length) {return false};
@@ -184,12 +184,12 @@ function proceedChangePass(){
 
 function changePassCb(response) {	
 	if (response.success == true){
-		alert("Password Changed Successfully. Please login again using you new password.");
+		alert("Password Changed Successfully. Please login again using your new password.");
 		logout();
 	}
 	else 
 	{
-		$('#changePassPopupError').text(response.name);
+		$('#changePassPopupError').text(response.error);
 		afterLoginFunction = null;
 		$('#changePassPopupShadow').removeClass('loading');
 		$('#changePassPopupTitle').text('Change Password');		

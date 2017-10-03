@@ -89,6 +89,8 @@ input, select {
     text-align: center;
     margin-top: 10px;
 }
+
+
 #sendingPanel,
 #orderSentPanel {
     position: absolute;
@@ -117,6 +119,7 @@ input, select {
 #orderSentPanel h4 {
     color: #4ab74a;
 }
+
 #orderSentPanel i {
     /* background:#eee; */
     /* display: inline-block; */
@@ -278,16 +281,7 @@ animation: blinker 1s linear infinite;
     position: relative;
 }
 
-#sendingPanel h4,
-#orderSentPanel h4,
-#notAuthorizedPanel h4 {
-    font-size: 31px;
-    margin: 20px;
-    color: #888;
-}
-#orderSentPanel h4 {
-    color: #4ab74a;
-}
+
 .credPopupTable {
     width: 320px;
     font-size: -2px;
@@ -355,7 +349,7 @@ animation: blinker 1s linear infinite;
     color: #d3644a;
     font-weight: bold;
 }
-#cancelLoginPopupButton {
+.CredPopupButton {
     background: #ddd;
     border: 0;
     color: #666;
@@ -366,16 +360,10 @@ animation: blinker 1s linear infinite;
     font-size: 15px;
     float: right;
 }
-#proceedLoginPopupButton {
+.proceedCredPopupButton {
     background: #f1cd63;
-    border: 0;
     color: #444;
-    font-family: quantico;
-    height: 36px;
     padding: 0 30px;
-    border-radius: 3px;
-    font-size: 15px;
-    float: right;
     margin-left: 10px;
 }
 
