@@ -130,8 +130,9 @@ function postRequestCallback(response) {
 	$('#changePasswordProceed').val('loading');
 
 
-    var loginObj = { email: sessionStorage.getItem("email"),
-		    pass:$('#changePasswordConfirm').val() }
+    var loginObj = { 	email: sessionStorage.getItem("email"),
+						pass:$('#changePasswordCurrent').val(),
+						newpass:$('#changePasswordConfirm').val()	}
 
     var request = jQuery.ajax({
       crossDomain: true,
