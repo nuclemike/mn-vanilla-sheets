@@ -125,7 +125,7 @@ function loginCb(response) {
 
 }
 
-function proceedChangePassword(){
+function proceedChangePass(){
 	  if ($("#changePassCurrent").val()=="") {
 		$("#changePassCurrent").addClass("requiredField");
 	}
