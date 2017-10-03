@@ -127,11 +127,11 @@ function postRequestCallback(response) {
 
 	if ($( "#changePasswordSection .requiredField" ).length) {return false};
 
-	$('#changePasswordProceed').addClass('loading');
+	$('#changePasswordProceed').val('loading');
 
 
-    var loginObj = { email:$('#loginPopupEmail').val(),
-		    pass:$('#loginPopupPassword').val() }
+    var loginObj = { email: sessionStorage.getItem("email"),
+		    pass:$('#changePasswordConfirm').val() }
 
     var request = jQuery.ajax({
       crossDomain: true,

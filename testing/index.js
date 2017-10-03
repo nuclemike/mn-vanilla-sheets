@@ -72,6 +72,10 @@ function loginPopup() {
 	    $("#changePasswordConfirm").removeClass("requiredField").val("");
 		 $("#changePasswordProceed").val("");
 	}
+	
+		function cancelChangePassword() {
+		$('#changePasswordSection').slideUp();
+	}
 
 
 function logout() {
