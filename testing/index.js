@@ -70,7 +70,7 @@ function loginPopup() {
 		$("#changePasswordCurrent").removeClass("requiredField").val("");
 		$("#changePasswordNew").removeClass("requiredField").val("");
 	    $("#changePasswordConfirm").removeClass("requiredField").val("");
-		 $("#changePasswordProceed").val("");
+		 $("#changePasswordProceed").val("Proceed");
 	}
 	
 		function cancelChangePassword() {

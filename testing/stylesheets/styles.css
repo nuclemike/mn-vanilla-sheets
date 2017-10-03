@@ -379,6 +379,17 @@ input#loginPopupPassword {
     float: right;
     margin-left: 10px;
 }
+
+
+.changePasswordSection{
+	float:left;
+	clear:both;
+}
+
+.changePasswordCancel{
+	float:left;
+	clear:left;
+}
 /* ################################### HEADER ################################### */
 
 #header {
