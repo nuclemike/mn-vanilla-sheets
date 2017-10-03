@@ -111,7 +111,7 @@ function loginCb(response) {
 		populateUser(true);
 		if (afterLoginFunction != null) afterLoginFunction();
 		$('#loginPopupShadow').removeClass('loading');
-		closeCredPopup('loginPopupShadow');  
+		closeLoginPopup('loginPopupShadow');  
 
 	}
 	else 
@@ -119,7 +119,7 @@ function loginCb(response) {
 		$('#loginPopupError').text(response.name);
 		afterLoginFunction = null;
 		$('#loginPopupShadow').removeClass('loading');
-		$('#loginPopupTitle').text('Authorization Required');
+		$('#loginPopupWelcome').text('Authorization Required');
 		$("#loginPopupEmail").focus()
 	}
 
@@ -135,11 +135,11 @@ function proceedChangePassword(){
 
 	if ($("#changePassNew").length<8) {
 		$("#changePassNew").addClass("requiredField");
-		$('#changePassPopupError').text("Password should be at least 8 characters.");
+		$('#loginPopupError').text("Password should be at least 8 characters.");
 	}
 	else { 
 		$("#changePassNew").removeClass("requiredField");
-		$('#changePassPopupError').text("");
+		$('#loginPopupError').text("");
 	}
 	
 	if ($("#changePassConfirm").length<8) {
@@ -152,12 +152,12 @@ function proceedChangePassword(){
 	if ($("#changePassNew").val() != $("#changePassConfirm").val()) {
 		$("#changePassNew").addClass("requiredField");
 		$("#changePassConfirm").addClass("requiredField");
-		$('#changePassPopupError').text("Passwords do not match!");
+		$('#loginPopupError').text("Passwords do not match!");
 	}
 	else { 
 		$("#changePassConfirm").removeClass("requiredField");
 		$("#changePassConfirm").removeClass("requiredField");
-		$('#changePassPopupError').text("");
+		$('#loginPopupError').text("");
 	}
 
 	if ($( "#changePassPopupShadow .requiredField" ).length) {return false};
@@ -170,7 +170,7 @@ function proceedChangePassword(){
 
 
     var loginObj = { 	email: sessionStorage.getItem("email"),
-						pass:$('#changePasswCurrent').val(),
+						pass:$('#changePassCurrent').val(),
 						newpass:$('#changePassConfirm').val()	}
 
     var request = jQuery.ajax({
@@ -184,7 +184,7 @@ function proceedChangePassword(){
 
 function changePassCb(response) {	
 	if (response.success == true){
-		alert("Password Changed Successfully. Please login using your new password.");
+		alert("Password Changed Successfully. P.");
 		logout();
 	}
 	else 
