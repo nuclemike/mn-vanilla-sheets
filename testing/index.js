@@ -66,7 +66,7 @@ function loginPopup() {
 
 	
 	function changePassword() {
-		$'#changePasswordSection').slideDown();
+		$('#changePasswordSection').slideDown();
 		$("#changePasswordCurrent").removeClass("requiredField").val("");
 		$("#changePasswordNew").removeClass("requiredField").val("");
 	    $("#changePasswordConfirm").removeClass("requiredField").val("");
