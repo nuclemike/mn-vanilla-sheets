@@ -3,6 +3,7 @@ $(document).ready(function() {
 });
 
 window.onload = function(){
+	/*
 	var isMobile = {
     Android: function() {
         return navigator.userAgent.match(/Android/i);
@@ -23,7 +24,7 @@ window.onload = function(){
         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
     }
 if( isMobile.any() ) alert('Mobile');
-};
+};*/
   var success = loadSession();
   populateUser(success);
 };

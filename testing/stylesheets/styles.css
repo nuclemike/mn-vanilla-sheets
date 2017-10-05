@@ -21,8 +21,11 @@ body {
     background: url(floralBGWhite.png);
 }
 
-input, select {
+input, select, textarea {
 	background-color:white;
+	
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
 }
 
 #pageLoader {
