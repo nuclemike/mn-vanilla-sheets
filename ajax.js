@@ -1,5 +1,5 @@
 
-  function formPost() {       	
+function sendRequest() {       	
 
       if ($("#liquidOrderSize").val()=="") {
 	$("#liquidOrderSize").addClass("requiredField")}
@@ -35,7 +35,7 @@
 
     var request = jQuery.ajax({
       crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycby2yL0OxsZFDEzESDNHBTqGdZuZHwCzkbBjQ6_prTtZDt3iHACU/exec?callback=postRequestCallback",
+      url: "https://script.google.com/macros/s/AKfycby2yL0OxsZFDEzESDNHBTqGdZuZHwCzkbBjQ6_prTtZDt3iHACU/exec?callback=sendRequestCb",
       method: "GET",
       dataType: "jsonp",
       data: requestObj
@@ -43,9 +43,7 @@
 
   }
 
-  
-  // print the returned data
-function postRequestCallback(response) {
+function sendRequestCb(response) {
 	$('#sendingPanel').hide();
 	if (response.success) {
 		$('#orderSentPanelEmail').text($("#liquidOrderCustomerEmail").text());
@@ -61,10 +59,7 @@ function postRequestCallback(response) {
 	}
 } 
 
-
-
-  // Make an AJAX call to Google Script
-  function login() {
+function login() {
 	if ($("#loginPopupEmail").val()=="") {
 		$("#loginPopupEmail").addClass("requiredField")}
 	else { 
@@ -77,18 +72,18 @@ function postRequestCallback(response) {
 		$("#loginPopupPassword").removeClass("requiredField")
 	}
 
-	if ($( ".requiredField" ).length) {return false};
+	if ($( "#loginPopupShadow .requiredField" ).length) {return false};
 
 	$('#loginPopupShadow').addClass('loading');
 
-	  $('#loginPopupWelcome').text('Authorizing...');
+	  $('#loginPopupTitle').text('Authorizing...');
 
     var loginObj = { email:$('#loginPopupEmail').val(),
 		    pass:$('#loginPopupPassword').val() }
 
     var request = jQuery.ajax({
       crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycbw5G9k4sGNtTxQOaEVmSVo0VNEXEhPjfqvwAbecgVBCKyB5JuI/exec?callback=loginCallback",
+      url: "https://script.google.com/macros/s/AKfycbw5G9k4sGNtTxQOaEVmSVo0VNEXEhPjfqvwAbecgVBCKyB5JuI/exec?callback=loginCb",
       method: "GET",
       dataType: "jsonp",
       data : loginObj
@@ -96,17 +91,17 @@ function postRequestCallback(response) {
 
 
   }
-
-  // print the returned data
-function loginCallback(response) {	
+  
+function loginCb(response) {	
 	if (response.success == true){
-
+		sessionStorage.setItem('userid', response.userid);
 		sessionStorage.setItem('name', response.name);
 		sessionStorage.setItem('email', response.email);
 		sessionStorage.setItem('pass', response.pass);
 		sessionStorage.setItem('mobile', response.mobile);
 
 		if (document.getElementById('rememberMe').checked) {
+			localStorage.setItem('userid', response.userid);
 			localStorage.setItem('name', response.name);
 			localStorage.setItem('email', response.email);
 			localStorage.setItem('pass', response.pass);
@@ -117,7 +112,7 @@ function loginCallback(response) {
 		populateUser(true);
 		if (afterLoginFunction != null) afterLoginFunction();
 		$('#loginPopupShadow').removeClass('loading');
-		closeLoginPopup();  
+		closeCredPopup('loginPopupShadow');  
 
 	}
 	else 
@@ -125,16 +120,87 @@ function loginCallback(response) {
 		$('#loginPopupError').text(response.name);
 		afterLoginFunction = null;
 		$('#loginPopupShadow').removeClass('loading');
-	$('#loginPopupWelcome').text('Authorization Required');
+		$('#loginPopupWelcome').text('Authorization Required');
 		$("#loginPopupEmail").focus()
 	}
 
 }
 
+function proceedChangePass(){
+	  if ($("#changePassCurrent").val()=="") {
+		$("#changePassCurrent").addClass("requiredField");
+	}
+	else { 
+		$("#changePassCurrent").removeClass("requiredField");
+	}
+
+	if ($("#changePassNew").val().length<8) {
+		$("#changePassNew").addClass("requiredField");
+		$('#changePassPopupError').text("Password should be at least 8 characters.");
+	}
+	else { 
+		$("#changePassNew").removeClass("requiredField");
+		$('#changePassPopupError').text("");
+	}
+	
+	if ($("#changePassConfirm").val().length<8) {
+		$("#changePassConfirm").addClass("requiredField");
+	}
+	else { 
+		$("#changePassConfirm").removeClass("requiredField");
+	}
+	
+	if ($("#changePassNew").val() != $("#changePassConfirm").val()) {
+		$("#changePassNew").addClass("requiredField");
+		$("#changePassConfirm").addClass("requiredField");
+		$('#changePassPopupError').text("Passwords do not match!");
+	}
+	else { 
+		$("#changePassConfirm").removeClass("requiredField");
+		$("#changePassConfirm").removeClass("requiredField");
+		$('#changePassPopupError').text("");
+	}
+
+	if ($( "#changePassPopupShadow .requiredField" ).length) {return false};
+	
+	
+		$('#changePassPopupShadow').addClass('loading');
+
+	  $('#changePassPopupTitle').text('Please wait...');
 
 
-// Make an AJAX call to Google Script
-	function loadMyLab() {
+
+    var loginObj = { 	email: sessionStorage.getItem("email"),
+						pass:$('#changePassCurrent').val(),
+						newpass:$('#changePassConfirm').val()	}
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: "https://script.google.com/macros/s/AKfycbxAm1XNsZtOY1oYXdKIsYtaoUDzbkrnkpXUKFJ5HD4v05WqnZ0/exec?callback=changePassCb",
+      method: "GET",
+      dataType: "jsonp",
+      data : loginObj
+    });
+  }
+
+function changePassCb(response) {	
+	if (response.success == true){
+		alert("Password Changed Successfully. Please login again using your new password.");
+		logout();
+	}
+	else 
+	{
+		$('#changePassPopupError').text(response.error);
+		afterLoginFunction = null;
+		$('#changePassPopupShadow').removeClass('loading');
+		$('#changePassPopupTitle').text('Change Password');		
+	}
+
+
+}
+
+function loadMyLab() {
+	document.getElementById("myUserID").innerHTML = sessionStorage.getItem("userid");
 	document.getElementById("myAccountName").innerHTML = sessionStorage.getItem("name");
 	document.getElementById("myAccountEmail").innerHTML = sessionStorage.getItem("email");
 	document.getElementById("myAccountMobile").innerHTML = sessionStorage.getItem("mobile");
@@ -142,7 +208,7 @@ function loginCallback(response) {
 
 	var request = jQuery.ajax({
 		crossDomain: true,
-		url: "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=loadLabCallback",
+		url: "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=loadMyLabCb",
 		method: "GET",
 		dataType: "jsonp",
 		data : {email : sessionStorage.getItem("email")}
@@ -150,8 +216,7 @@ function loginCallback(response) {
 
 }
 
-  // print the returned data
-function loadLabCallback(e) {
+function loadMyLabCb(e) {
 
 
 	if (e.error) { alert(e.message) }

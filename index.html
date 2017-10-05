@@ -13,7 +13,7 @@
 		
 		<title>Mama's Nectar</title>
 
-		<link rel="stylesheet" href="stylesheets/styles.css?ver=1">
+		<link rel="stylesheet" href="stylesheets/styles.css?ver=8">
 		<link rel="stylesheet" href="stylesheets/global.css">
 
 		<link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
@@ -24,44 +24,42 @@
 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
-		<script src="functions.js?ver=1"></script>
-		<script src="ajax.js?ver=4"></script>
-		<script src="index.js"></script>
-
-
-		<meta name="viewport" content="width=device-width">
+		<script src="functions.js?ver=3"></script>
+		<script src="ajax.js?ver=16"></script>
+		<script src="index.js?ver=8"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
    
 	</head>
 	<body>
 		
 		<img src="logo.jpg" style="display:none;"/>
-      		<div id="loginPopupShadow" onclick="event.target.id=='loginPopupShadow' && closeLoginPopup();" class="fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
+      		<div id="loginPopupShadow" onclick="event.target.id=='loginPopupShadow' && closeCredPopup('loginPopupShadow');" class="credPopupShadow fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
 			
-    			<div id="loginPopupForm" class="fxDisplay">
+    			<div class="credPopupForm fxDisplay">
 				
 
-				<form id="loginPopupData" onsubmit="login();return false;">
+				<form class="credPopupData" onsubmit="login();return false;">
 
-					<img id="loginPopupMainIcon" src="stylesheets/access.png">
-					<span id="loginPopupWelcome">Authorization Required</span>
+					<img class="credPopupMainIcon" src="stylesheets/access.png">
+					<span class="credPopupTitle" id="loginPopupTitle">Authorization Required</span>
 
 
-					<table id="loginPopupTable">
+					<table class="credPopupTable">
 						<tr>
 							<td>E-Mail</td>      
-							<td>
-								<input type="email"  autocorrect="off" autocapitalize="off" spellcheck="false" id="loginPopupEmail">
+							<td align="right">
+								<input placeholder="email" type="email"  autocorrect="off" autocapitalize="off" spellcheck="false" id="loginPopupEmail">
 							</td>
 						</tr>	
 						<tr>
 							<td>Password</td>      
-							<td>
-								<input type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="loginPopupPassword">
+							<td align="right">
+								<input placeholder="password" type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="loginPopupPassword">
 							</td>
 						</tr>	
 						<tr>
 							<td></td>      
-							<td>	
+							<td align="right">	
 								<input type="checkbox" name="rememberMe" style="display:none;" id="rememberMe">
 								<label id="loginRememberCheckBox" for="rememberMe"></label>
 								<span>remember me</span>
@@ -70,15 +68,15 @@
 						
 						<tr>
 							<td colspan="2">
-								<span id="loginPopupError"></span>
+								<span id="loginPopupError" class="credPopupError"></span>
 							</td>
 						</tr>						
 
 					</table>			
 
 
-					<input type="submit" id="proceedLoginPopupButton" onclick="login()" value="Proceed" />
-					<input type="button" id="cancelLoginPopupButton" onclick="closeLoginPopup()" value="Cancel" />
+					<input type="submit" class="CredPopupButton proceedCredPopupButton" value="Proceed" />
+					<input type="button" class="CredPopupButton" onclick="closeCredPopup('loginPopupShadow')" value="Cancel" />
 
 
 				</form>		

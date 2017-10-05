@@ -3,6 +3,28 @@ $(document).ready(function() {
 });
 
 window.onload = function(){
+	/*
+	var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+if( isMobile.any() ) alert('Mobile');
+};*/
   var success = loadSession();
   populateUser(success);
 };
@@ -34,7 +56,7 @@ function authenticatedFunction(func) {
   if (loadSession()) func()
 	else{
 		loginPopup();
-		afterLoginFunction = func
+		afterLoginFunction = func;
 	}
 }
 
@@ -57,36 +79,50 @@ function populateUser(success) {
 
 
 function loginPopup() {
-		$('#loginPopupWelcome').text('Authorization Required');
-			  $('#loginPopupEmail').val('');
-	  $('#loginPopupPassword').val('');
-	  $('#loginPopupError').text('');
-   		$("#loginPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
-	}
-
+	$('body').css('overflow','hidden');
+	$('#loginPopupTitle').text('Authorization Required');
+	$('#loginPopupEmail').val('');
+	$('#loginPopupPassword').val('');
+	$('#loginPopupError').text('');
+   	$("#loginPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
+}
+	
+function changePassPopup() {
+	$('#changePassPopupTitle').text('Change Password');
+		$('body').css('overflow','hidden');
+	$('#changePassCurrent').val('');
+	$('#changePassNew').val('');
+	$('#changePassConfirm').val('');
+	$('#changePassPopupError').text('');
+	$("#changePassPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );
+}	
 
 
 function logout() {
+	localStorage.removeItem('userid');
 	localStorage.removeItem('name');
 	localStorage.removeItem('email');
 	localStorage.removeItem('pass');
 	localStorage.removeItem('mobile');	
+	sessionStorage.removeItem('userid');
 	sessionStorage.removeItem('name');
 	sessionStorage.removeItem('email');
 	sessionStorage.removeItem('pass');
 	sessionStorage.removeItem('mobile');	
-	populateUser(false);
+	location.reload();
 }
 
 
 
-function closeLoginPopup() {
-	if ($('#loginPopupShadow').hasClass('loading')) return false;
+function closeCredPopup(id) {
+		$('body').css('overflow','auto');
+	if ($('#'+id).hasClass('loading')) return false;
 	afterLoginFunction = null;
-	$("#loginPopupShadow").fadeTo(  "fast", 0, function() {
+	$('#'+id).fadeTo(  "fast", 0, function() {
 		$( this ).css("z-index","-9999");
 	});
 }
+
 
 
 function loadSession() {
@@ -96,6 +132,7 @@ function loadSession() {
       }
       else {
             if (localStorage.getItem("name") != null) {
+				sessionStorage.setItem('userid', localStorage.getItem("userid"));       
                   sessionStorage.setItem('name', localStorage.getItem("name"));       
                   sessionStorage.setItem('email', localStorage.getItem("email"));
                   sessionStorage.setItem('pass', localStorage.getItem("pass"));
