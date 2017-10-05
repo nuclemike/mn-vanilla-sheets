@@ -99,10 +99,12 @@ function changePassPopup() {
 
 
 function logout() {
+	localStorage.removeItem('userid');
 	localStorage.removeItem('name');
 	localStorage.removeItem('email');
 	localStorage.removeItem('pass');
 	localStorage.removeItem('mobile');	
+	sessionStorage.removeItem('userid');
 	sessionStorage.removeItem('name');
 	sessionStorage.removeItem('email');
 	sessionStorage.removeItem('pass');
@@ -130,6 +132,7 @@ function loadSession() {
       }
       else {
             if (localStorage.getItem("name") != null) {
+				sessionStorage.setItem('userid', localStorage.getItem("userid"));       
                   sessionStorage.setItem('name', localStorage.getItem("name"));       
                   sessionStorage.setItem('email', localStorage.getItem("email"));
                   sessionStorage.setItem('pass', localStorage.getItem("pass"));

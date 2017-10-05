@@ -94,13 +94,14 @@ function login() {
   
 function loginCb(response) {	
 	if (response.success == true){
-
+sessionStorage.setItem('userid', response.name);
 		sessionStorage.setItem('name', response.name);
 		sessionStorage.setItem('email', response.email);
 		sessionStorage.setItem('pass', response.pass);
 		sessionStorage.setItem('mobile', response.mobile);
 
 		if (document.getElementById('rememberMe').checked) {
+			localStorage.setItem('userid', response.name);
 			localStorage.setItem('name', response.name);
 			localStorage.setItem('email', response.email);
 			localStorage.setItem('pass', response.pass);
