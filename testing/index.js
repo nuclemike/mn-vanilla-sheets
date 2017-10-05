@@ -22,8 +22,8 @@ window.onload = function(){
     any: function() {
         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
     }
-};
 if( isMobile.any() ) alert('Mobile');
+};
   var success = loadSession();
   populateUser(success);
 };
@@ -78,6 +78,7 @@ function populateUser(success) {
 
 
 function loginPopup() {
+	$('body').css('overflow','hidden');
 	$('#loginPopupTitle').text('Authorization Required');
 	$('#loginPopupEmail').val('');
 	$('#loginPopupPassword').val('');
@@ -87,6 +88,7 @@ function loginPopup() {
 	
 function changePassPopup() {
 	$('#changePassPopupTitle').text('Change Password');
+		$('body').css('overflow','hidden');
 	$('#changePassCurrent').val('');
 	$('#changePassNew').val('');
 	$('#changePassConfirm').val('');
@@ -110,6 +112,7 @@ function logout() {
 
 
 function closeCredPopup(id) {
+		$('body').css('overflow','auto');
 	if ($('#'+id).hasClass('loading')) return false;
 	afterLoginFunction = null;
 	$('#'+id).fadeTo(  "fast", 0, function() {
