@@ -6,14 +6,13 @@
 html {
     margin: 0;
     height: 100%;
-    padding-top: 105px;
+    /* padding-top: 105px; */
 }
 body {
     font-family: 'Quantico', sans-serif;
     margin: 0;
     height: 100%;
-    /* padding-top: 103px; */
-    
+    overflow: hidden;
     position: relative;
     transition: box-shadow 0.3s;
     transition-delay: 0.5s;
@@ -22,10 +21,26 @@ body {
 }
 
 input, select, textarea {
-	background-color:white;
-	
+	background-color:white;	
   -webkit-appearance: none;
   -webkit-border-radius: 0;
+}
+
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: transparent;
+  font-weight:normal;
+}
+input::-moz-placeholder { /* Firefox 19+ */
+  color: transparent;
+  font-weight:normal;
+}
+input:-ms-input-placeholder { /* IE 10+ */
+  color: transparent;
+  font-weight:normal;
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: transparent;
+  font-weight:normal;
 }
 
 #pageLoader {
@@ -50,7 +65,7 @@ input, select, textarea {
 
 #liquidOrderSection {
     background: rgba(80, 80, 80, 0.9);
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     height: 100%;
@@ -176,15 +191,19 @@ input#liquidOrderCustomerVaper {
 
 #liquidOrderCustomerVaper::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #d87b00;
+  font-weight:bold;
 }
 #liquidOrderCustomerVaper::-moz-placeholder { /* Firefox 19+ */
   color: #d87b00;
+font-weight:bold;  
 }
 #liquidOrderCustomerVaper:-ms-input-placeholder { /* IE 10+ */
   color: #d87b00;
+font-weight:bold;  
 }
 #liquidOrderCustomerVaper:-moz-placeholder { /* Firefox 18- */
   color: #d87b00;
+font-weight:bold;  
 }
 
 #liquidOrderNectarName {
@@ -246,7 +265,7 @@ input#liquidOrderCustomerVaper {
 
 .credPopupShadow {
     background: rgba(80, 80, 80, 0.9);
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     height: 100%;
@@ -379,7 +398,7 @@ animation: blinker 1s linear infinite;
 
 #header {
     background: url(floralBG.png);
-    position: fixed;
+    /* position: absolute; */
     top: 0;
     width: 100%;
     left: 0;
@@ -748,7 +767,7 @@ animation: blinker 1s linear infinite;
 @media only screen and (max-width: 750px) {
 
     html {
-        padding-top :90px;
+        /* padding-top :90px; */
     }
 
     #header {
@@ -878,6 +897,19 @@ animation: blinker 1s linear infinite;
     .credPopupTable td:first-child{
         font-size:0
     }
+
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #cecece;
+}
+input::-moz-placeholder { /* Firefox 19+ */
+  color: #cecece;
+}
+input:-ms-input-placeholder { /* IE 10+ */
+  color: #cecece;
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: #cecece;
+}    
     
 	.credPopupForm input[type=email], 
 	.credPopupForm input[type=password] {
