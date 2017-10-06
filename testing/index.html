@@ -30,7 +30,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
    
 	</head>
-	<body>
+	<body class="fxDisplay fxDirCol">
 		
 		<img src="logo.jpg" style="display:none;"/>
       		<div id="loginPopupShadow" onclick="event.target.id=='loginPopupShadow' && closeCredPopup('loginPopupShadow');" class="credPopupShadow fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
@@ -89,7 +89,7 @@
 
 
   
-	<div id="header" >
+	<div id="header fxFixed" >
 		<div id="headerContainer">
 		
 			<img id="mainLogo" src="stylesheets/mainLogo.png" />
@@ -116,15 +116,15 @@
 	<div id="pageLoader"></div>
 	
 	
+	<div class="fxStretch" style="overflow:auto;">
 	
-	<div id="pageContent" style="display:none;">
-	
-		
-	</div>
+		<div id="pageContent" class="fxStretch" style="display:none;">		
+		</div>
 	
 		<div id="hitCounter">
 			<img src="//counter.websiteout.net/compte.php?S=www.mamasnectar.com&amp;C=36&amp;D=9&amp;N=0&amp;M=1" border="0">
 		</div>
- 
+		
+	</div>
   </body>
 </html>
