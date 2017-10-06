@@ -43,6 +43,11 @@ input:-moz-placeholder { /* Firefox 18- */
   font-weight:normal;
 }
 
+#scrollContent{
+	-webkit-overflow-scrolling: touch;
+	overflow-y:auto;	
+}
+
 #pageLoader {
     height: 100%;
     background: url("/stylesheets/sending.gif") no-repeat center center;
