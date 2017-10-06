@@ -6,13 +6,14 @@
 html {
     margin: 0;
     height: 100%;
-    padding-top: 105px;
+    /* padding-top: 105px; */
 }
 body {
     font-family: 'Quantico', sans-serif;
     margin: 0;
     height: 100%;
-    /* position: relative; */
+    overflow: hidden;
+    position: relative;
     transition: box-shadow 0.3s;
     transition-delay: 0.5s;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3) inset;
@@ -40,6 +41,11 @@ input:-ms-input-placeholder { /* IE 10+ */
 input:-moz-placeholder { /* Firefox 18- */
   color: transparent;
   font-weight:normal;
+}
+
+#scrollContent{
+	-webkit-overflow-scrolling: touch;
+	overflow-y:auto;	
 }
 
 #pageLoader {
@@ -397,7 +403,7 @@ animation: blinker 1s linear infinite;
 
 #header {
     background: url(floralBG.png);
-    position: fixed;
+    /* position: absolute; */
     top: 0;
     width: 100%;
     left: 0;
@@ -766,7 +772,7 @@ animation: blinker 1s linear infinite;
 @media only screen and (max-width: 750px) {
 
     html {
-        padding-top :90px;
+        /* padding-top :90px; */
     }
 
     #header {

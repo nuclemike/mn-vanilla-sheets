@@ -7,7 +7,7 @@
 
 
 function labRequestPopup(nectarName) {
-	$('body').css('overflow','hidden');
+	//$('body').css('overflow','hidden');
 	var imgUrl = './liquids/' + nectarName.replace(/[^a-z0-9]/gi,'') +'.png';
 
 	document.getElementById("liquidOrderFlask").setAttribute("style", "background-image:url('"+imgUrl.toLowerCase()+"')");
@@ -31,7 +31,7 @@ function labRequestPopup(nectarName) {
 }
 
 function closeLabRequestPopup() {
-			$('body').css('overflow','auto');
+		//	$('body').css('overflow','auto');
 		$("#liquidOrderSection").fadeTo(  "fast", 0, function() {
 			$( this ).css("z-index","-9999");
 		});

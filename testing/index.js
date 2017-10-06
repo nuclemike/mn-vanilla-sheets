@@ -79,7 +79,7 @@ function populateUser(success) {
 
 
 function loginPopup() {
-	$('body').css('overflow','hidden');
+	//$('body').css('overflow','hidden');
 	$('#loginPopupTitle').text('Authorization Required');
 	$('#loginPopupEmail').val('');
 	$('#loginPopupPassword').val('');
@@ -89,7 +89,7 @@ function loginPopup() {
 	
 function changePassPopup() {
 	$('#changePassPopupTitle').text('Change Password');
-		$('body').css('overflow','hidden');
+	//	$('body').css('overflow','hidden');
 	$('#changePassCurrent').val('');
 	$('#changePassNew').val('');
 	$('#changePassConfirm').val('');
@@ -115,7 +115,7 @@ function logout() {
 
 
 function closeCredPopup(id) {
-		$('body').css('overflow','auto');
+	//	$('body').css('overflow','auto');
 	if ($('#'+id).hasClass('loading')) return false;
 	afterLoginFunction = null;
 	$('#'+id).fadeTo(  "fast", 0, function() {
