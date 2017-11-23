@@ -83,7 +83,7 @@ function login() {
 
     var request = jQuery.ajax({
       crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycbyZoLVI3iRbDxNhI-rDFW41lJLqpw7CRg_hVQPg1Ry2vOKP4huN/exec?callback=loginCb",
+      url: "https://script.google.com/macros/s/AKfycbxy0-IFjWMY1RSJ-XP2fXiwna9704312qTCpK51Rl29Cu0wpDg/exec?callback=loginCb",
       method: "GET",
       dataType: "jsonp",
       data : loginObj
