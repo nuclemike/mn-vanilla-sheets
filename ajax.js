@@ -208,7 +208,7 @@ function loadMyLab() {
 
 	var request = jQuery.ajax({
 		crossDomain: true,
-		url: "https://script.google.com/macros/s/AKfycbwlPr1tGcEfREwpFbMoXyQaqWMnW5hcWNRd_Eqos_HUZxLu5LX7/exec?callback=loadMyLabCb",
+		url: "https://script.google.com/macros/s/AKfycbyRBEk58Arjd4MXOlqpBbGyltbpJyv0US6Y8d4WpHncw5GNdq0K/exec?callback=loadMyLabCb",
 		method: "GET",
 		dataType: "jsonp",
 		data : {email : sessionStorage.getItem("email")}
