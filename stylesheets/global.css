@@ -10,31 +10,46 @@
 }
 */
 
-.fxDisplay{
-	display:flex;	
+
+.fxDisplay {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
 }
 
-.fxDirCol{
-	flex-direction:column;
+.fxDirCol {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
 
 
-.fxAlignCenter{
-	align-items:center;
+.fxAlignCenter {
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
-.fxJustifyCenter{
-	justify-content:center;
+
+.fxJustifyCenter {
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
-.fxFixed{
-	flex:0 0 auto;
+.fxFixed {
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
 }
 
-.fxStretch{
-	flex:1 1 auto;
+.fxStretch {
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
 }
 
-.fxWrap{
-	flex-wrap:wrap;
+.fxWrap {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
 }

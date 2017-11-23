@@ -7,7 +7,7 @@
 
 
 function labRequestPopup(nectarName) {
-	$('body').css('overflow','hidden');
+	$('#scrollContent').css('overflow','hidden');
 	var imgUrl = './liquids/' + nectarName.replace(/[^a-z0-9]/gi,'') +'.png';
 
 	document.getElementById("liquidOrderFlask").setAttribute("style", "background-image:url('"+imgUrl.toLowerCase()+"')");
@@ -16,6 +16,7 @@ function labRequestPopup(nectarName) {
 	document.getElementById('liquidOrderCustomerEmail').innerHTML = sessionStorage.getItem("email");   
 	
 	document.getElementById('liquidOrderCustomerVaper').value = '';
+	document.getElementById("liquidOrderCustomerVaper").setAttribute("placeholder", sessionStorage.getItem("name"));
 	document.getElementById('liquidOrderQuantity').value = 1;
 	document.getElementById('liquidOrderSize').value = '';
 	document.getElementById('liquidOrderNicotine').value = '';
@@ -31,7 +32,7 @@ function labRequestPopup(nectarName) {
 }
 
 function closeLabRequestPopup() {
-			$('body').css('overflow','auto');
+			$('#scrollContent').css('overflow','auto');
 		$("#liquidOrderSection").fadeTo(  "fast", 0, function() {
 			$( this ).css("z-index","-9999");
 		});
