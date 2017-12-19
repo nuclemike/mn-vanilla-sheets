@@ -65,6 +65,12 @@
 								<span>remember me</span>
 							</td>
 						</tr>					
+
+						<tr>
+							<td colspan="2">
+								<a>forgot password?</a>
+							</td>
+						</tr>	
 						
 						<tr>
 							<td colspan="2">
@@ -83,6 +89,45 @@
 		
 			</div>
 		</div>
+		
+		    <div id="forgotPasswordPopupShadow" onclick="event.target.id=='forgotPasswordPopupShadow' && closeCredPopup('forgotPasswordPopupShadow');" class="credPopupShadow fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
+			
+    			<div class="credPopupForm fxDisplay">
+				
+
+				<form class="credPopupData" onsubmit="login();return false;">
+
+					<img class="credPopupMainIcon" src="stylesheets/access.png">
+					<span class="credPopupTitle" id="loginPopupTitle">Forgot Password</span>
+
+
+					<table class="credPopupTable">
+						<tr>
+							<td>E-Mail</td>      
+							<td align="right">
+								<input placeholder="email" type="email"  autocorrect="off" autocapitalize="off" spellcheck="false" id="forgotPasswordPopupEmail">
+							</td>
+						</tr>	
+					
+						
+						<tr>
+							<td colspan="2">
+								<span id="forgotPasswordPopupError" class="credPopupError"></span>
+							</td>
+						</tr>						
+
+					</table>			
+
+
+					<input type="submit" class="CredPopupButton proceedCredPopupButton" value="Retreive Password" />
+					<input type="button" class="CredPopupButton" onclick="closeCredPopup('loginPopupShadow')" value="Cancel" />
+
+
+				</form>		
+		
+			</div>
+		</div>
+		
 		
 		
 		
