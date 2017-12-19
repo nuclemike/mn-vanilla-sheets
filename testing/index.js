@@ -77,6 +77,14 @@ function populateUser(success) {
 
 }
 
+function forgotPasswordPopup(){
+	closeCredPopup('loginPopupShadow')
+	$('#scrollContent').css('overflow','hidden');
+	$('#forgotPasswordPopupEmail').val('');
+	
+	$('#forgotPasswordPopupError').text('');
+   	$("#forgotPasswordPopupShadow").css("z-index","9999").fadeTo( "medium", 1 );	
+}
 
 function loginPopup() {
 	$('#scrollContent').css('overflow','hidden');
