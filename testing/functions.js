@@ -9,7 +9,21 @@
 function labRequestPopup(nectarName) {
 	$('#scrollContent').css('overflow','hidden');
 	var imgUrl = './liquids/' + nectarName.replace(/[^a-z0-9]/gi,'') +'.png';
-
+	var op = document.getElementById("liquidOrderSize").getElementsByTagName("option");
+	
+	op.disabled = false;
+	
+	if (nectarname == 'Rainbow Oil'){
+		// Get all options within <select id='foo'>...</select>
+		
+		for (var i = 0; i < op.length; i++) {
+			// lowercase comparison for case-insensitivity
+			if (op[i].value.toLowerCase() == "60ml" || op[i].value.toLowerCase() == "120ml" ) {
+				op[i].disabled = true;
+			}
+		}
+	}
+	
 	document.getElementById("liquidOrderFlask").setAttribute("style", "background-image:url('"+imgUrl.toLowerCase()+"')");
 	document.getElementById("liquidOrderNectarName").innerHTML = nectarName;
 	document.getElementById('liquidOrderCustomerName').innerHTML = sessionStorage.getItem("name");
