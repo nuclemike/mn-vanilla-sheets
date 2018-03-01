@@ -13,7 +13,7 @@ function labRequestPopup(nectarName) {
 	
 	op.disabled = false;
 	
-	if (nectarname == 'Rainbow Oil'){
+	if (nectarName == 'Rainbow Oil'){
 		// Get all options within <select id='foo'>...</select>
 		
 		for (var i = 0; i < op.length; i++) {
