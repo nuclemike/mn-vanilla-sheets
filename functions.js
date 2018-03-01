@@ -9,6 +9,19 @@
 function labRequestPopup(nectarName) {
 	$('#scrollContent').css('overflow','hidden');
 	var imgUrl = './liquids/' + nectarName.replace(/[^a-z0-9]/gi,'') +'.png';
+	var op = document.getElementById("liquidOrderSize").getElementsByTagName("option");
+	
+	op.disabled = false;
+	op[1].text ='30ml';
+	op[2].text ='60ml';
+	op[3].text ='120ml';
+				
+	if (nectarName == 'Tropic Terror') {
+		op[2].disabled = true; //60ml
+		op[2].text = op[2].text+' (Out of Stock)';
+		op[3].disabled = true; //120ml
+		op[3].text = op[3].text+' (Out of Stock)';
+	}
 
 	document.getElementById("liquidOrderFlask").setAttribute("style", "background-image:url('"+imgUrl.toLowerCase()+"')");
 	document.getElementById("liquidOrderNectarName").innerHTML = nectarName;
