@@ -11,7 +11,10 @@ function labRequestPopup(nectarName) {
 	var imgUrl = './liquids/' + nectarName.replace(/[^a-z0-9]/gi,'') +'.png';
 	var op = document.getElementById("liquidOrderSize").getElementsByTagName("option");
 	
-	op.disabled = false;
+	op[1].disabled = false;
+	op[2].disabled = false;
+	op[3].disabled = false;
+	
 	op[1].text ='30ml';
 	op[2].text ='60ml';
 	op[3].text ='120ml';
