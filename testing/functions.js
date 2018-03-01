@@ -19,7 +19,7 @@ function labRequestPopup(nectarName) {
 		
 	
 				
-	if (nectarName == 'Rainbow Oil' {
+	if (nectarName == 'Rainbow Oil') {
 		op[2].disabled = true;
 		op[2].text = op[2].text+' (Out of Stock)';
 		op[3].disabled = true;
