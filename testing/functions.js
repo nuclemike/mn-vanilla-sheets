@@ -12,21 +12,19 @@ function labRequestPopup(nectarName) {
 	var op = document.getElementById("liquidOrderSize").getElementsByTagName("option");
 	
 	op.disabled = false;
-	
+	op[1].text ='30ml';
+	op[2].text ='60ml';
+	op[3].text ='120ml';
 
 		
-		for (var i = 1; i < op.length-1; i++) {
-			
-			if (nectarName == 'Rainbow Oil' && ( op[i].value == "60" || op[i].value == "120" )) {
-				op[i].disabled = true;
-				op[i].text = op[i].value+'ml (Out of Stock)';
-			}
-			else {
-				op[i].disabled = false;
-				op[i].text = op[i].value+'ml';
-			}
+	
 				
-		}
+	if (nectarName == 'Rainbow Oil' {
+		op[2].disabled = true;
+		op[2].text = op[2].text+' (Out of Stock)';
+		op[3].disabled = true;
+		op[3].text = op[3].text+' (Out of Stock)';
+	}
 		
 
 	
