@@ -17,7 +17,7 @@ function labRequestPopup(nectarName) {
 		
 		for (var i = 1; i < op.length-1; i++) {
 			
-			if (nectarName == 'Rainbow Oil' && ( op[i].value == "60" || op[i].value == "120" ) {
+			if (nectarName == 'Rainbow Oil' && ( op[i].value == "60" || op[i].value == "120" )) {
 				op[i].disabled = true;
 				op[i].text = op[i].value+'ml (Out of Stock)';
 			}
