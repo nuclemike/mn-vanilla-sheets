@@ -13,16 +13,22 @@ function labRequestPopup(nectarName) {
 	
 	op.disabled = false;
 	
-	if (nectarName == 'Rainbow Oil'){
-		// Get all options within <select id='foo'>...</select>
+
 		
 		for (var i = 0; i < op.length; i++) {
-			// lowercase comparison for case-insensitivity
-			if (op[i].value.toLowerCase() == "60ml" || op[i].value.toLowerCase() == "120ml" ) {
+			
+			if (nectarName == 'Rainbow Oil' || op[i].value == "60" || op[i].value == "120ml" ) {
 				op[i].disabled = true;
+				op[i].text = op[i].value+'ml (Out of Stock)';
 			}
+			else {
+				op[i].disabled = true;
+				op[i].text = op[i].value+'ml';
+			}
+				
 		}
-	}
+		
+
 	
 	document.getElementById("liquidOrderFlask").setAttribute("style", "background-image:url('"+imgUrl.toLowerCase()+"')");
 	document.getElementById("liquidOrderNectarName").innerHTML = nectarName;
