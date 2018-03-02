@@ -523,6 +523,13 @@ animation: blinker 1s linear infinite;
     border-radius: 20px;
     position: relative;
 }
+
+.nectar.new {
+    background-image: url(liquids/new.png);
+    background-repeat: no-repeat;
+    background-position: 88% 6%;
+}
+
 .nectar:hover,
 .nectar.active {
     background-color: rgba(170, 170, 170, 0.4);
@@ -530,12 +537,8 @@ animation: blinker 1s linear infinite;
 .nectarFlask {
     width: 75%;
 }
-.topseller {
-    width: 30%;
-    left: 56%;
-    position: absolute;
-    top: 8%;
-}
+
+
 .nectarName {
     color: #444;
     font-family: "Beleren";
