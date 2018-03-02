@@ -525,7 +525,7 @@ animation: blinker 1s linear infinite;
 }
 
 .nectar.new {
-    background-image: url(liquids/new.png);
+    background-image: url(/liquids/new.png);
     background-repeat: no-repeat;
     background-position: 88% 6%;
 }
