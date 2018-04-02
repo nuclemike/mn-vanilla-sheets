@@ -73,15 +73,16 @@ input:-moz-placeholder { /* Firefox 18- */
 }
 
 #shutdownNotice h1{
-	
+	color: tomato;
 }
 
 #shutdownNotice h2{
-	
+	font-size: 18px;
+	font-weight: normal;
 }
 
 #shutdownNotice p{
-	
+	color: #555;
 }
 
 #shutdownOkBtn{
@@ -92,7 +93,7 @@ input:-moz-placeholder { /* Firefox 18- */
     height: 36px;
     padding: 0 20px;
     border-radius: 3px;
-    font-size: 15px;
+    font-size: 17px;
     float: right;
     margin-left: 10px;
 }
