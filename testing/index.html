@@ -83,10 +83,12 @@
 		
 			</div>
 		</div>
-		<div id="shutdownNotice" style="display:none;">
-			<h1>Lab Shutdown</h1>
-			<p>Please note that labs will not operate from the 28th April to 2nd May 2018. Kindly place your orders before the dates mentioned so you won't run out of juice! Orders will still be taken in the dates mentioned but will not be processed until 2nd May 2018.</p>
-			<div id='shutdownOkBtn' onclick="$(this).parent().remove();">Got it!</div>
+		<div id="shutdownNoticeShadow" style="display:none;">
+			<div id="shutdownNotice">
+				<h1>Lab Shutdown</h1>
+				<p>Please note that labs will not operate from the 28th April to 2nd May 2018. Kindly place your orders before the dates mentioned so you won't run out of juice! Orders will still be taken in the dates mentioned but will not be processed until 2nd May 2018.</p>
+				<div id='shutdownOkBtn' onclick="$('#shutdownDoticeShadow').remove();">Got it!</div>
+			</div
 		</div>
 		
 
