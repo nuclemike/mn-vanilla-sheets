@@ -72,6 +72,18 @@ input:-moz-placeholder { /* Firefox 18- */
     width: 500px;
 }
 
+#shutdownNotice h1{
+	
+}
+
+#shutdownNotice h2{
+	
+}
+
+#shutdownNotice p{
+	
+}
+
 #shutdownOkBtn{
 	background: #f1cd63;
     border: 0;
