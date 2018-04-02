@@ -13,7 +13,7 @@
 		
 		<title>Mama's Nectar</title>
 
-		<link rel="stylesheet" href="stylesheets/styles.css?ver=12">
+		<link rel="stylesheet" href="stylesheets/styles.css?ver=16">
 		<link rel="stylesheet" href="stylesheets/global.css?ver=1">
 
 		<link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
@@ -24,16 +24,16 @@
 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
-		<script src="functions.js?ver=14"></script>
+		<script src="functions.js?ver=8"></script>
 		<script src="ajax.js?ver=18"></script>
-		<script src="index.js?ver=11"></script>
+		<script src="index.js?ver=10"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
    
 	</head>
 	<body class="fxDisplay fxDirCol">
 		
 		<img src="logo.jpg" style="display:none;"/>
-      		<div id="loginPopupShadow" onclick="event.target.id=='loginPopupShadow' && closeCredPopup('loginPopupShadow');" class="credPopupShadow fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
+      	<div id="loginPopupShadow" onclick="event.target.id=='loginPopupShadow' && closeCredPopup('loginPopupShadow');" class="credPopupShadow fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
 			
     			<div class="credPopupForm fxDisplay">
 				
@@ -65,12 +65,6 @@
 								<span>remember me</span>
 							</td>
 						</tr>					
-
-						<tr>
-							<td colspan="2">
-								<a id="forgotPasswordLink" onclick="forgotPasswordPopup()">forgot password?</a>		
-							</td>
-						</tr>	
 						
 						<tr>
 							<td colspan="2">
@@ -89,47 +83,11 @@
 		
 			</div>
 		</div>
-		
-		    <div id="forgotPasswordPopupShadow" onclick="event.target.id=='forgotPasswordPopupShadow' && closeCredPopup('forgotPasswordPopupShadow');" class="credPopupShadow fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
-			
-    			<div class="credPopupForm fxDisplay">
-				
-
-				<form class="credPopupData" onsubmit="forgotPassword();return false;">
-
-					<img class="credPopupMainIcon" src="stylesheets/access.png">
-					<span class="credPopupTitle" id="forgotPasswordPopupTitle">Forgot Password</span>
-
-
-					<table class="credPopupTable">
-						<tr>
-							<td>E-Mail</td>      
-							<td align="right">
-								<input placeholder="email" type="email"  autocorrect="off" autocapitalize="off" spellcheck="false" id="forgotPasswordPopupEmail">
-							</td>
-						</tr>	
-					
-						
-						<tr>
-							<td colspan="2">
-								<span id="forgotPasswordPopupError" class="credPopupError"></span>
-							</td>
-						</tr>						
-
-					</table>			
-
-
-					<input type="submit" class="CredPopupButton proceedCredPopupButton" value="Retreive Password" />
-					<input type="button" class="CredPopupButton" onclick="closeCredPopup('forgotPasswordPopupShadow')" value="Cancel" />
-
-
-				</form>		
-		
-			</div>
+		<div id="shutdownNotice" style="display:none;">
+			<h1>Lab Shutdown</h1>
+			<p>Please note that labs will not operate from the 28th April to 2nd May 2018. Kindly place your orders before the dates mentioned so you won't run out of juice! Orders will still be taken in the dates mentioned but will not be processed until 2nd May 2018.</p>
+			<div id='shutdownOkBtn' onclick="$(this).parent().remove();">Got it!</div>
 		</div>
-		
-		
-		
 		
 
 

@@ -398,10 +398,6 @@ animation: blinker 1s linear infinite;
     margin-left: 10px;
 }
 
-#forgotPasswordLink{
-	
-}
-
 
 /* ################################### HEADER ################################### */
 
@@ -527,6 +523,20 @@ animation: blinker 1s linear infinite;
     border-radius: 20px;
     position: relative;
 }
+
+.nectar.new:after {
+    content:'';
+    position:absolute;
+    height:70px;
+    width:70px;
+    top:5%;
+    right:10%;
+    z-index:99;
+    background-image: url(/liquids/new.png);
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
 .nectar:hover,
 .nectar.active {
     background-color: rgba(170, 170, 170, 0.4);
@@ -534,12 +544,8 @@ animation: blinker 1s linear infinite;
 .nectarFlask {
     width: 75%;
 }
-.topseller {
-    width: 30%;
-    left: 56%;
-    position: absolute;
-    top: 8%;
-}
+
+
 .nectarName {
     color: #444;
     font-family: "Beleren";
