@@ -19,7 +19,7 @@ function labRequestPopup(nectarName) {
 	op[2].text ='60ml';
 	op[3].text ='120ml';
 				
-	/*
+	/* 
 	if (nectarName == 'Tropic Terror') {
 		op[2].disabled = true; //60ml
 		op[2].text = op[2].text+' (Out of Stock)';
