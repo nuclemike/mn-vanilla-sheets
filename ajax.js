@@ -35,7 +35,8 @@ function sendRequest() {
 
     var request = jQuery.ajax({
       crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycby2yL0OxsZFDEzESDNHBTqGdZuZHwCzkbBjQ6_prTtZDt3iHACU/exec?callback=sendRequestCb",
+      url: "https://script.google.com/macros/s/AKfycbzOCqcFbtdt_Tb4rLgvTyrCwpXTqihkEf2cxW_l/exec?callback=sendRequestCb",
+	        
       method: "GET",
       dataType: "jsonp",
       data: requestObj
@@ -83,7 +84,7 @@ function login() {
 
     var request = jQuery.ajax({
       crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycbxy0-IFjWMY1RSJ-XP2fXiwna9704312qTCpK51Rl29Cu0wpDg/exec?callback=loginCb",
+      url: "https://script.google.com/macros/s/AKfycbwIIyuLKOjMfF0hoXG6SfwfXx6evNJW3jx93KavDg/exec?callback=loginCb",
       method: "GET",
       dataType: "jsonp",
       data : loginObj
@@ -176,7 +177,7 @@ function proceedChangePass(){
 
     var request = jQuery.ajax({
       crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycbxAm1XNsZtOY1oYXdKIsYtaoUDzbkrnkpXUKFJ5HD4v05WqnZ0/exec?callback=changePassCb",
+      url: "https://script.google.com/macros/s/AKfycbyFm6jHYdY0rqQKVoU3gf8WT7TzAmY8sMB6h_dRsQ/exec?callback=changePassCb",
       method: "GET",
       dataType: "jsonp",
       data : loginObj
@@ -208,7 +209,7 @@ function loadMyLab() {
 
 	var request = jQuery.ajax({
 		crossDomain: true,
-		url: "https://script.google.com/macros/s/AKfycbyRBEk58Arjd4MXOlqpBbGyltbpJyv0US6Y8d4WpHncw5GNdq0K/exec?callback=loadMyLabCb",
+		url: "https://script.google.com/macros/s/AKfycbwQMliSuDjfOFXzP4-O1IaPKCZuy1CjONa3M1PkBA/exec?callback=loadMyLabCb",
 		method: "GET",
 		dataType: "jsonp",
 		data : {email : sessionStorage.getItem("email")}
