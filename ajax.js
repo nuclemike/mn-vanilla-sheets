@@ -177,7 +177,8 @@ function proceedChangePass(){
 
     var request = jQuery.ajax({
       crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycbyFm6jHYdY0rqQKVoU3gf8WT7TzAmY8sMB6h_dRsQ/exec?callback=changePassCb",
+      url: "https://script.google.com/macros/s/AKfycbznCuQa2FgLDUmmV309rQMJZIpDCfu585NfB55tdYyrJ2GaVQOB/exec?callback=changePassCb",
+	  
       method: "GET",
       dataType: "jsonp",
       data : loginObj
