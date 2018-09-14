@@ -269,7 +269,8 @@ function loadAdmin() {
 		crossDomain: true,
 		url: "https://script.google.com/macros/s/AKfycbxPX_LTVNJ_hhSa-Bl7ZzN2qeXUVYSie3c4Xo4glk42gOGBSFo/exec?callback=loadAdminCb",
 		method: "GET",
-		dataType: "jsonp"
+		dataType: "jsonp",
+		data : {}
 	});
 
 }
