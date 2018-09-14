@@ -45,6 +45,8 @@ function loadContent(pageName) {
 		$( "#headerMyLab" ).addClass('selected').siblings().removeClass('selected')
 	else if (pageName == 'nectars')
 		$( "#headerNectar" ).addClass('selected').siblings().removeClass('selected')
+	else if (pageName == 'admin')
+		$( "#headerAdmin" ).addClass('selected').siblings().removeClass('selected')	
 	
 	$( "#pageContent" ).load( pageName+".html", function() {
 		//after load html (images excluded)
@@ -65,7 +67,10 @@ function populateUser(success) {
 	if(success)
 	{
 		document.getElementById('headerLoginText').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';   
-		$('#headerLogout, #headerMyLab').show();
+		if(sessionStorage.getItem("userid")=='MAMAS') 		
+			$('#headerLogout, #headerAdmin').show();
+		else
+			$('#headerLogout, #headerMyLab').show();
 		$('#headerLogin').hide();
 	}
 	else {

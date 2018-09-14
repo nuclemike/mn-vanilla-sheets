@@ -261,3 +261,59 @@ function loadMyLabCb(e) {
 	pageLoaded();
 }
 
+
+function loadAdmin() {
+	
+
+	var request = jQuery.ajax({
+		crossDomain: true,
+		url: "https://script.google.com/macros/s/AKfycbxPX_LTVNJ_hhSa-Bl7ZzN2qeXUVYSie3c4Xo4glk42gOGBSFo/exec?callback=loadAdminCb",
+		method: "GET",
+		dataType: "jsonp"}
+	});
+
+}
+
+function loadAdminCb(e) {
+
+
+	if (e.error) { alert(e.message) }
+	else {
+		var html = '';
+
+
+		e.requests.forEach( function (item){
+
+
+			var imgUrl = 'liquids/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
+			html += '<div class="myLabRequestWrapper fxFixed state'+item.state+'">';
+			html += '<div class="myLabRequestFlask" style="background-image:url('+imgUrl.toLowerCase()+')">';
+			html += '<span class="myLabRequestQty">' + item.quantity + 'x</span>';						
+			html += '<span class="myLabRequestNectar fxDisplay fxJustifyCenter fxAlignCenter">' + item.flavor + '</span>';
+			html += '</div>';
+			html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
+
+			html += '<span class="myLabRequestDate"><b>Ordered</b>' + item.datetime + '</span>';
+			html += '<span class="myLabRequestSize"><b>Size</b>' + item.size + 'ml</span>';
+			html += '<span class="myLabRequestNicotine"><b>Nicotine</b>' + item.nicotine + '</span>';
+
+			var vgText = '';
+			if (Math.round(item.vg) == 100) {vgText="MAX-VG"}
+			else {vgText = Math.round(item.vg)+"/"+ Math.round(100-item.vg)}
+
+			html += '<span class="myLabRequestVg"><b>VG/PG</b>' + vgText + '</span>';
+			html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
+			html += '</div>';	
+
+		});
+
+		if (e.requests.length > 0) {
+			html += '</div>';
+	     		$('#myAccountDetails.noLabRequests').remove();
+			document.getElementById('myLabRequestContainer').innerHTML = html;	
+		}
+	}
+
+	pageLoaded();
+}
+
