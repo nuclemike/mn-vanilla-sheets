@@ -24,9 +24,9 @@
 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
-		<script src="functions.js?ver=10"></script>
-		<script src="ajax.js?ver=21"></script>
-		<script src="index.js?ver=15"></script>
+		<script src="functions.js?ver=11"></script>
+		<script src="ajax.js?ver=22"></script>
+		<script src="index.js?ver=16"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
    
 	</head>
@@ -102,6 +102,7 @@
 			
 			<span id="headerLoginText"></span>
 			<div  id="headerMenu">
+				<a id="headerAdmin" style="display:none" onclick="authenticatedFunction(function(){ loadContent('admin') });"><img class="menuImg" src="stylesheets/mylab.png" />Admin</a>
 				<a id="headerMyLab" style="display:none" onclick="authenticatedFunction(function(){ loadContent('mylab') });"><img class="menuImg" src="stylesheets/mylab.png" />myLAB</a>
 				<a id="headerNectar" onclick="loadContent('nectars')"><img class="menuImg" src="stylesheets/nectars.png" />NECTAR</a>
 				<a id="headerLogout" style="display:none" onclick="logout()"><img class="menuImg" src="stylesheets/logout.png" />LOGOUT</a>								
