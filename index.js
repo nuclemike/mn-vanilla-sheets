@@ -46,7 +46,7 @@ function loadContent(pageName) {
 	else if (pageName == 'nectars')
 		$( "#headerNectar" ).addClass('selected').siblings().removeClass('selected')
 	
-	$( "#pageContent" ).load( pageName+".html?v=sep2013", function() {
+	$( "#pageContent" ).load( pageName+".html", function() {
 		//after load html (images excluded)
 		
 	});
