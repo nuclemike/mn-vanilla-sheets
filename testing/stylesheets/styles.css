@@ -444,6 +444,21 @@ animation: blinker 1s linear infinite;
     margin-left: 10px;
 }
 
+.CredPopupHowLogin{
+    clear: both;
+    float: right;
+    font-size: 17px;
+    color: #d3644a;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.CredPopupHowLogin .span{
+	float: right;
+    font-size: 12px;
+    color: #666;
+}
+
 
 /* ################################### HEADER ################################### */
 
@@ -559,6 +574,14 @@ animation: blinker 1s linear infinite;
 }
 /* ################################### NECTARS ################################### */
 
+.clickBottle{
+    color: #444;
+    font-family: "Beleren";
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
 .nectar {
     float: left;
     width: 250px;
