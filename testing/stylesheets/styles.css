@@ -574,14 +574,6 @@ animation: blinker 1s linear infinite;
 }
 /* ################################### NECTARS ################################### */
 
-.clickBottle{
-    color: #444;
-    font-family: "Beleren";
-    font-size: 20px;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 10px;
-}
 .nectar {
     float: left;
     width: 250px;
