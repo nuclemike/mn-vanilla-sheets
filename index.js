@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	loadContent('nectars');	
-	$('#shutdownNoticeShadow').show();
+	//$('#shutdownNoticeShadow').show();
 });
 
 window.onload = function(){
