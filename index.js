@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	loadContent('nectars');	
-	$('#shutdownNoticeShadow').show();
+	//$('#shutdownNoticeShadow').show();
 });
 
 window.onload = function(){
@@ -46,7 +46,7 @@ function loadContent(pageName) {
 	else if (pageName == 'nectars')
 		$( "#headerNectar" ).addClass('selected').siblings().removeClass('selected')
 	
-	$( "#pageContent" ).load( pageName+".html?v=1", function() {
+	$( "#pageContent" ).load( pageName+".html?v=2", function() {
 		//after load html (images excluded)
 		
 	});
