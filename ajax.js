@@ -213,7 +213,7 @@ function loadMyLab() {
 		url: "https://script.google.com/macros/s/AKfycbwQMliSuDjfOFXzP4-O1IaPKCZuy1CjONa3M1PkBA/exec?callback=loadMyLabCb",
 		method: "GET",
 		dataType: "jsonp",
-		data : {email : sessionStorage.getItem("userid")}
+		data : {userid : sessionStorage.getItem("userid")}
 	});
 
 }
