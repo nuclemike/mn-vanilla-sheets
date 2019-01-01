@@ -201,17 +201,13 @@ input:-moz-placeholder { /* Firefox 18- */
 #orderSentPanelRequestID {
     font-size: 30px;
 }
-#liquidOrderMainIcon {
-    position: absolute;
-}
 #liquidOrderTable {
     width: 350px;
     font-size: 15px;
     color: #444;
     margin-top: 16px;
-    border-top: 1px solid #eee;
-    padding-top: 18px;
     margin-bottom: 20px;
+    border-spacing: 0;
 }
 #liquidOrderTable td {
     padding: 5px 0;
@@ -230,9 +226,12 @@ input:-moz-placeholder { /* Firefox 18- */
     width: 150px;
     font-size: 15px;
 }
-#liquidOrderCustomerEmail {
-    margin-left: 55px;
+
+#liquidOrderTable .bottomBorderRow{
+	padding-bottom:15px;
+	border-bottom:1px solid #ddd;
 }
+
 input#liquidOrderCustomerVaper {
     width: 100%;
     font-weight: bold;
@@ -267,13 +266,7 @@ font-weight:bold;
     width: 100%;
     text-align: center;
 }
-#liquidOrderCustomerName {
-    display: block;
-    font-size: 21px;
-    font-weight: bold;
-    margin-left: 55px;
-    color: #444;
-}
+
 #totalCostValue {
     float: left;
     font-size: 30px;

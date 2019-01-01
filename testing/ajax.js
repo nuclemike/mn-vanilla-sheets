@@ -22,9 +22,9 @@ function sendRequest() {
 	$('#sendingPanel').fadeIn('medium');
 
 	var vaperText = $("#liquidOrderCustomerVaper").val();  
-      if (vaperText=="") { vaperText = $("#liquidOrderCustomerName").text(); }	 
+      if (vaperText=="") { vaperText = sessionStorage.getItem("name"); }	 
 
-	var requestObj = { email : $('#liquidOrderCustomerEmail').text(),
+	var requestObj = { email : sessionStorage.getItem("email"),
 			   pass : sessionStorage.getItem("pass"),
 			   qty : $('#liquidOrderQuantity').val(),
 			   flavor : $('#liquidOrderNectarName').text(),
@@ -47,7 +47,7 @@ function sendRequest() {
 function sendRequestCb(response) {
 	$('#sendingPanel').hide();
 	if (response.success) {
-		$('#orderSentPanelEmail').text($("#liquidOrderCustomerEmail").text());
+		$('#orderSentPanelEmail').text(sessionStorage.getItem("email"));
 		$('#orderSentPanelRequestID').text('#'+response.requestID);
 		$('#orderSentPanel').show();
 		$('#cancelOrder, #goToMyLab').show();

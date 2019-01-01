@@ -175,17 +175,23 @@
 					<span id="liquidOrderNectarName">...</span>
 				</div>
         		<div id="liquidOrderData">
-				<img id="liquidOrderMainIcon" src="stylesheets/accessok.png">
-  				<span id="liquidOrderCustomerName">Unauthorized User</span>
-				<span id="liquidOrderCustomerEmail">access is required.</span>
+
 						
 						
 							
 					<table id="liquidOrderTable">
-						
 					<tr>
-      						<td>Custom Text</td>      
-      						<td>
+      						<td class="bottomBorderRow">Range</td>      
+      						<td class="bottomBorderRow">
+							<select id="liquidOrderShotType" onchange="nicTypeChanged(this.value)">
+								<option selected value="F">Seduce (Freebase)</option>
+								<option value="S">Hydra (Salt)</option>							
+  							</select>
+						</td>
+	  				</tr>							
+					<tr>
+      						<td style="padding-top:15px;">Custom Text</td>      
+      						<td style="padding-top:15px;">
 							<input type="text" id="liquidOrderCustomerVaper" placeholder="Your own text!" maxlength="25">
 						</td>
 	  				</tr>		
@@ -238,10 +244,6 @@
 								<option value="14">14mg</option>
 								<option value="15">15mg</option>
 								<option value="16">16mg</option>								
-  							</select>
-							<select id="liquidOrderShotType">
-								<option selected value="F">Freebase</option>
-								<option value="S">Salt (NEW)</option>							
   							</select>
 					   	</td>
     					</tr>   		

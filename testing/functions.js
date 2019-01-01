@@ -22,9 +22,7 @@ function labRequestPopup(nectarName) {
 	
 	document.getElementById("liquidOrderFlask").setAttribute("style", "background-image:url('"+imgUrl.toLowerCase()+"')");
 	document.getElementById("liquidOrderNectarName").innerHTML = nectarName;
-	document.getElementById('liquidOrderCustomerName').innerHTML = sessionStorage.getItem("name");
-	document.getElementById('liquidOrderCustomerEmail').innerHTML = sessionStorage.getItem("email");   
-	
+	document.getElementById('liquidOrderShotType').value = 'F';
 	document.getElementById('liquidOrderCustomerVaper').value = '';
 	document.getElementById("liquidOrderCustomerVaper").setAttribute("placeholder", sessionStorage.getItem("name"));
 	document.getElementById('liquidOrderQuantity').value = 1;
@@ -32,6 +30,7 @@ function labRequestPopup(nectarName) {
 	document.getElementById('liquidOrderNicotine').value = '';
 	document.getElementById('liquidOrderVG').value = '';
 	
+	nicTypeChanged("F")
 	updateCost();
 	
 	$('#orderSentPanel, #sendingPanel, #goToMyLab').hide();
@@ -41,6 +40,33 @@ function labRequestPopup(nectarName) {
 
 }
 
+function nicTypeChanged(nicType) {
+	var sizeOptions	= document.getElementById("liquidOrderSize").getElementsByTagName("option");
+	var DoseOptions = document.getElementById("liquidOrderNicotine").getElementsByTagName("option");
+	
+
+
+	
+	if (nicType == "S") {
+		sizeOptions[0].hidden = true;
+		sizeOptions[1].selected = true;
+		sizeOptions[2].hidden = true;
+		sizeOptions[3].hidden = true;
+		
+		DoseOptions[1].hidden = true;
+		DoseOptions[0].selected = true;
+	} else {
+		sizeOptions[0].hidden = false;
+		sizeOptions[0].selected = true;
+		sizeOptions[2].hidden = false;
+		sizeOptions[3].hidden = false;
+		
+		DoseOptions[1].hidden = false;
+		DoseOptions[0].selected = true;
+	}
+	
+	updateCost();
+}
 function closeLabRequestPopup() {
 			$('#scrollContent').css('overflow','auto');
 		$("#liquidOrderSection").fadeTo(  "fast", 0, function() {
@@ -53,16 +79,23 @@ function closeLabRequestPopup() {
 
 
 function updateCost() {
-        var size = document.getElementById("liquidOrderSize").value;
+    var size = document.getElementById("liquidOrderSize").value;
 	var qty = document.getElementById("liquidOrderQuantity").value;
+	var nicType = document.getElementById("liquidOrderShotType").value;
+	
 	var price = 0.00;
 	var total = 0.00;
 	var youSave = '';
 	
-	if (size == 30) {price = 6; }
-	else if (size == 60) {price = 10.50; youSave="you save<br>€1.50!";}
-	else if (size == 120) {price = 19.50; youSave="you save<br>€4.50!"}
-	
+	if (nicType == 'F') {
+		if (size == 30) {price = 6; }
+		else if (size == 60) {price = 10.50; youSave="you save<br>€1.50!";}
+		else if (size == 120) {price = 19.50; youSave="you save<br>€4.50!"}
+	} else {
+		if (size == 30) {price = 7; }
+		else if (size == 60) {price = 12.50; youSave="you save<br>€1.50!";}
+		else if (size == 120) {price = 23.50; youSave="you save<br>€4.50!"}
+	}
 	total = price * qty;
 		
 	document.getElementById("totalCostValue").innerHTML  = "€"+total.toFixed(2);
