@@ -144,6 +144,7 @@ input:-moz-placeholder { /* Firefox 18- */
     border-radius: 8px;
     padding: 20px;
     position: relative;
+    overflow: hidden;
 }
 #liquidOrderNectarThumbnail {
     width: 160px;
@@ -163,21 +164,22 @@ input:-moz-placeholder { /* Firefox 18- */
 #sendingPanel,
 #orderSentPanel {
     position: absolute;
-    top: 86px;
+    top: 0;
     background-color: white;
     font-size: 15px;
     text-align: center;
     width: 100%;
     left: 0;
     padding: 30px;
-    height: 300px;
+    height: 380px;
     color: #555;
     text-align: center;
     color: #555;
 }
 #sendingPanel {
-    background: url(/stylesheets/sending.gif) center 30px no-repeat white;
-    padding-top: 163px;
+    background: url(/stylesheets/sending.gif) center 100px no-repeat white;
+    padding-top: 290px;
+    height: 100%;
 }
 #sendingPanel h4,
 #orderSentPanel h4 {
@@ -663,6 +665,11 @@ animation: blinker 1s linear infinite;
     clear: left;
     width: 42%;
 }
+
+#myAccountDetails span.changePass{
+	cursor:pointer;
+}
+
 #myLabRequestDumpDiv {
     margin: 0 2%;
 }
@@ -748,14 +755,14 @@ animation: blinker 1s linear infinite;
     height: 100%;
     position: absolute;
     background-repeat: no-repeat;
-    background-position: center 25%;
+    background-position: center 27%;
     background-size: 65%;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 .myLabRequestNectar {
-    color: #444;
+    color: #333;
     font-family: "Beleren";
-    font-size: 19px;
+    font-size: 22px;
     line-height: 18px;
     text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0, 0, 0, 0.5);
     text-align: center;
@@ -779,20 +786,26 @@ animation: blinker 1s linear infinite;
 .myLabRequestDate {
     font-size: 14px;
     color: #d0cab6;
-    margin-bottom:13px;
+    margin-bottom: 3px;
     float: right;
     width: 56%;
 }
-.myLabRequestSize,
-.myLabRequestNicotine,
-.myLabRequestVg,
-.myLabRequestReference {
+.myLabRequestSize, .myLabRequestNicotine, .myLabRequestNicType, .myLabRequestVg, .myLabRequestReference {
     color: #a17733;
     display: block;
     line-height:16px;
     float: right;
     width: 56%;
 }
+
+.myLabRequestNicType .nicTypeS {
+    color: yellowgreen;
+}
+
+.myLabRequestNicType .nicTypeF {
+    color: tomato;
+}
+
 .myLabRequestWrapper b {
     width: 75px;
     display: inline-block;
@@ -820,8 +833,8 @@ animation: blinker 1s linear infinite;
     position: absolute;
     font-weight: bold;
     top: 13%;
-    left: 17%;
-    color: #444;
+    right: 67%;
+    color: #333;
     font-size: 21px;
     text-align: right;
 }
@@ -963,6 +976,8 @@ animation: blinker 1s linear infinite;
     width: 100%;
     min-width: 230px;
     }
+	
+	
 
     .credPopupTable td:first-child{
         font-size:0

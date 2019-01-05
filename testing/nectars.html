@@ -185,7 +185,7 @@
       						<td class="bottomBorderRow">
 							<select id="liquidOrderShotType" onchange="nicTypeChanged(this.value)">
 								<option selected value="F">Seduce (Freebase)</option>
-								<option value="S">Hydra (Salt)</option>							
+								<option hidden value="S">Hydra (Salt) Coming Soon!</option>							
   							</select>
 						</td>
 	  				</tr>							
@@ -294,7 +294,7 @@
 				
 				<button id="sendOrder" onclick="sendRequest()" >Send Request!</button>				
 				<button id="cancelOrder" onclick="closeLabRequestPopup()" type="button">Close</button>
-				<button id="goToMyLab" onclick="loadContent('mylab')">Go to myLAB</button>
+				<button id="goToMyLab" onclick="closeLabRequestPopup(); loadContent('mylab')">Go to myLAB</button>
 
 			</div>
   

@@ -22,14 +22,15 @@ function sendRequest() {
 	$('#sendingPanel').fadeIn('medium');
 
 	var vaperText = $("#liquidOrderCustomerVaper").val();  
-      if (vaperText=="") { vaperText = $("#liquidOrderCustomerName").text(); }	 
+      if (vaperText=="") { vaperText = sessionStorage.getItem("name"); }	 
 
-	var requestObj = { email : $('#liquidOrderCustomerEmail').text(),
+	var requestObj = { email : sessionStorage.getItem("email"),
 			   pass : sessionStorage.getItem("pass"),
 			   qty : $('#liquidOrderQuantity').val(),
 			   flavor : $('#liquidOrderNectarName').text(),
 			   size : $('#liquidOrderSize').val(),
 			   nicotine : $('#liquidOrderNicotine').val(),
+			   nicType : $('#liquidOrderShotType').val(),
 			   vg : $('#liquidOrderVG').val(),
 			   vaper : vaperText }			   	
 
@@ -47,7 +48,7 @@ function sendRequest() {
 function sendRequestCb(response) {
 	$('#sendingPanel').hide();
 	if (response.success) {
-		$('#orderSentPanelEmail').text($("#liquidOrderCustomerEmail").text());
+		$('#orderSentPanelEmail').text(sessionStorage.getItem("email"));
 		$('#orderSentPanelRequestID').text('#'+response.requestID);
 		$('#orderSentPanel').show();
 		$('#cancelOrder, #goToMyLab').show();
@@ -238,6 +239,10 @@ function loadMyLabCb(e) {
 			html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
 
 			html += '<span class="myLabRequestDate"><b>Ordered</b>' + item.datetime + '</span>';
+			if (item.nicType=='F')
+				html += '<span class="myLabRequestNicType"><b>Range</b><span class="nicTypeF">Seduce</span></span>';
+			else
+				html += '<span class="myLabRequestNicType"><b>Range</b><span class="nicTypeS">Hydra</span></span>';
 			html += '<span class="myLabRequestSize"><b>Size</b>' + item.size + 'ml</span>';
 			html += '<span class="myLabRequestNicotine"><b>Nicotine</b>' + item.nicotine + '</span>';
 
