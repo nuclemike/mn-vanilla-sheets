@@ -4,11 +4,11 @@ function labRequestPopup(nectarName) {
 	var op = document.getElementById("liquidOrderSize").getElementsByTagName("option");
 	
 	op[1].disabled = false;
-	op[2].disabled = false;
+	op[2].disabled = true;
 	op[3].disabled = false;
 	
 	op[1].text ='30ml';
-	op[2].text ='60ml';
+	op[2].text ='60ml (Out of Stock)';
 	op[3].text ='120ml';
 				
 	/* 
@@ -48,21 +48,23 @@ function nicTypeChanged(nicType) {
 
 	
 	if (nicType == "S") {
-		sizeOptions[0].hidden = true;
-		sizeOptions[1].selected = true;
-		sizeOptions[2].hidden = true;
-		sizeOptions[3].hidden = true;
+		sizeOptions[0].hidden = true;  //select size
+		sizeOptions[1].hidden = false; //30ml
+		sizeOptions[2].hidden = true;  //60ml
+		sizeOptions[3].hidden = true;  //120ml
+		sizeOptions[1].selected = true;//30ml
 		
-		DoseOptions[1].hidden = true;
-		DoseOptions[0].selected = true;
+		DoseOptions[1].hidden = true;   //zero mg
+		DoseOptions[0].selected = true; //select mg
 	} else {
-		sizeOptions[0].hidden = false;
-		sizeOptions[0].selected = true;
-		sizeOptions[2].hidden = false;
-		sizeOptions[3].hidden = false;
+		sizeOptions[0].hidden = false; //select size
+		sizeOptions[1].hidden = false; //30ml
+		sizeOptions[2].hidden = false; //60ml
+		sizeOptions[3].hidden = false; //120ml
+		sizeOptions[0].selected = true;//select
 		
-		DoseOptions[1].hidden = false;
-		DoseOptions[0].selected = true;
+		DoseOptions[1].hidden = false; //zero mg
+		DoseOptions[0].selected = true;//select mg
 	}
 	
 	updateCost();
