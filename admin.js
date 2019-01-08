@@ -17,9 +17,9 @@ function fetchProductionCb(e) {
 	else {
 		var html = '';
 
-		html += '<th>';
-		html += '<td>qty</td><td>flavor</td><td>size</td><td>nicotine</td><td>nicType</td>';
-		html += '</th>';
+		html += '<tr>';
+		html += '<th>qty</th><th>flavor</th><th>size</th><th>nicotine</th><th>nicType</th>';
+		html += '</tr>';
 
 		e.requests.forEach( function (item){
 
