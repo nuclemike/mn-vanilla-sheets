@@ -1,69 +1,32 @@
-      		<div id="changePassPopupShadow" onclick="event.target.id=='changePassPopupShadow' && closeCredPopup('changePassPopupShadow');" class="credPopupShadow fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+	<head>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<meta name="theme-color" content="#101010" />
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		
+		<title>Mama's Nectar</title>
+		
+		<link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
+		
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		
+		<link rel="stylesheet" href="stylesheets/admin.css?ver=1">
+		<link rel="stylesheet" href="stylesheets/global.css?ver=1">		
+		<script src="admin.js?ver=1"></script>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+   
+	</head>
+		<body onload="fetchProduction();" class="fxDisplay fxDirCol">		
+			<table id="productionTable">
 			
-    			<div class="credPopupForm fxDisplay">
-				
-
-				<form class="credPopupData" onsubmit="proceedChangePass();return false;">
-
-					<img class="credPopupMainIcon" src="stylesheets/access.png">
-					<span id="changePassPopupTitle" class="credPopupTitle">Change Password</span>
-
-
-					<table class="credPopupTable">
-						<tr>
-							<td>Current Password</td>
-							<td align="right">
-								<input placeholder="current password" type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePassCurrent">
-							</td>
-						</tr>	
-						<tr>
-							<td>New Password</td>      
-							<td align="right">
-								<input placeholder="new password" type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePassNew">
-							</td>
-						</tr>	
-						<tr>
-							<td>Confirm Password</td>      
-							<td align="right">
-								<input placeholder="confirm password" type="password" autocorrect="off" autocapitalize="off" spellcheck="false" id="changePassConfirm">
-							</td>
-						</tr>						
-						
-						<tr>
-							<td colspan="2">
-								<span id="changePassPopupError" class="credPopupError"></span>
-							</td>
-						</tr>						
-
-					</table>			
-
-
-					<input type="submit" class="CredPopupButton proceedCredPopupButton" value="Proceed" />
-					<input type="button" class="CredPopupButton" onclick="closeCredPopup('changePassPopupShadow')" value="Cancel" />
-
-
-				</form>		
-		
-			</div>
-		</div>
-
-<div id="goldRibbon" class="fxFixed">My Laboratory</div>	
-
-
-	<div  id="myAccountDetails">
-		<h2 id="myAccountDetailsTitle">My Account Details</h2>
-		<label>User ID</label><span id="myUserID"></span>
-		<label>Name and Surname</label><span id="myAccountName"></span>
-		<label>Email Address</label><span id="myAccountEmail"></span>
-		<label>Mobile Number</label><span id="myAccountMobile"></span>
-		<label>Password</label><a onclick="changePassPopup(); return false;"><span>change password</span></a>
-	</div>
-
-<h2 class="myLabRequestTitle"><b>My Lab-Requests</b><br>latest first</h2>
-<div id="myLabRequestContainer" class="fxDisplay fxWrap fxJustifyCenter">
-	<div  id="myAccountDetails">
-		<h2 id="myAccountDetailsTitle"  class="noLabRequests">you have no lab-requests</h2>
-	</div>
-</div>
-		
-<script>loadAdmin();</script>
+			</table>
+		</body>
+	</html>
+	
