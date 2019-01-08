@@ -24,7 +24,7 @@ function fetchProductionCb(e) {
 		e.requests.forEach( function (item){
 
 			html += '<tr>';
-			html += '<td>'+item.qty+'</td><td>'+item.flavor'+</td><td>'+item.size+'</td><td>'+item.nicotine+'</td><td>'+item.nicType+'</td>';
+			html += '<td>'+item.qty+'</td><td>'+item.flavor+'</td><td>'+item.size+'</td><td>'+item.nicotine+'</td><td>'+item.nicType+'</td>';
 			html += '</tr>';			
 
 		});
