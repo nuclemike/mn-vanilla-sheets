@@ -2,30 +2,40 @@ html {
    font-family: 'Raleway', sans-serif;
 }
 
-#productionTable{
+.productionTable{
     text-align:center;
     border-spacing:0;    
+    border-collapse:collapse;
 }
 
-#productionTable th{
-    background-color:#ddd;
+#seduceProductionTable th{
+    background-color:gold;
 }
 
-#productionTable th,
-#productionTable td{
+#hydraProductionTable th{
+    background-color:yellowgreen;
+}
+
+
+.productionTable th,
+.productionTable td{
     padding:5px;    
-    border: 1px solid #ddd;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
 }
 
 
-#productionTable tr:nth-child(odd) {
+.productionTable tr:nth-child(odd) {
     background: #f5f5f5;
 }
 
-#productionTable tr *:first-child{
+.productionTable tr *:first-child{
     text-align:left;
+    width:50%;
 }
 
-#productionTable tr:last-child td{
+.productionTable tr:last-child td{
     background-color:#ddd;
+    font-size:1.2em;
+    font-weight:bold;
 }
