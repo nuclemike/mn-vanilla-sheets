@@ -5,7 +5,7 @@ function fetchProduction() {
 		url: "https://script.google.com/macros/s/AKfycbzt92wYbTAU42aojnQCMghvQ9Eo6k2zw7f2ulp3gw9mOytblWE/exec?callback=fetchProductionCb",
 		method: "GET",
 		dataType: "jsonp",
-		data : {userid : sessionStorage.getItem("userid")}
+		data : {userid : localStorage.getItem("userid")}
 	});
 
 }               
