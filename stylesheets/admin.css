@@ -1,0 +1,31 @@
+html {
+   font-family: 'Raleway', sans-serif;
+}
+
+#productionTable{
+    text-align:center;
+    border-spacing:0;    
+}
+
+#productionTable th{
+    background-color:#ddd;
+}
+
+#productionTable th,
+#productionTable td{
+    padding:5px;    
+    border: 1px solid #ddd;
+}
+
+
+#productionTable tr:nth-child(odd) {
+    background: #f5f5f5;
+}
+
+#productionTable tr *:first-child{
+    text-align:left;
+}
+
+#productionTable tr:last-child td{
+    background-color:#ddd;
+}
