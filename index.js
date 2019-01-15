@@ -1,11 +1,16 @@
 $(document).ready(function() {
-	loadContent('nectars');	
+	
+	if (sessionStorage.getItem("over18") == null)
+	{
+		$('#ageCheck').show();
+	}
 	
 	if (window.location.hash == '#mylab' || window.location.hash == '#nectars' || window.location.hash == '#seducehydra') {
 		loadContent(window.location.hash.substring(1));
 	} else {
 	loadContent('nectars');	
 }
+
 	//$('#shutdownNoticeShadow').show();
 });
 
@@ -132,7 +137,10 @@ function closeCredPopup(id) {
 	});
 }
 
-
+function ageCheckOk(element){
+	sessionStorage.setItem('over18', true);
+	element.parentElement.parentElement.remove();
+}
 
 function loadSession() {
       if (sessionStorage.getItem("name") != null) {

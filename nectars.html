@@ -7,6 +7,21 @@
 			}
 		    });
 </script>
+<style>
+.HydraBanner{
+	background-color: white;
+    max-width: 100%;
+    margin: -5% auto 5%;
+    box-shadow: 0 31px 50px -50px black;
+}
+
+.HydraBannerImg{
+	max-width: 100%;
+    margin: 0 auto;
+    display: block;
+	cursor:pointer;
+}
+</style>
 	
 		<div id="goldRibbon" class="fxFixed">Click on a Bottle!</div>
 <!--
@@ -14,6 +29,9 @@
 			<img src="./prexmas.png" style="max-width: 100%;">
 		</a>
 -->
+<div class="HydraBanner">
+		<img class="HydraBannerImg" onclick="loadContent('seducehydra')" src="./stylesheets/hydrabanner.jpg" />
+</div>
 		<div id="contentContainer" class="fxDisplay fxWrap fxJustifyCenter">
 		
 			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Tropic Terror') });">
