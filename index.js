@@ -1,5 +1,11 @@
 $(document).ready(function() {
 	loadContent('nectars');	
+	
+	if (window.location.hash == '#mylab' || window.location.hash == '#nectars' || window.location.hash == '#seducehydra') {
+		loadContent(window.location.hash.substring(1));
+	} else {
+	loadContent('nectars');	
+}
 	//$('#shutdownNoticeShadow').show();
 });
 
@@ -50,6 +56,8 @@ function loadContent(pageName) {
 		//after load html (images excluded)
 		
 	});
+	
+	location.hash = '#'+pageName;
 }
 
 

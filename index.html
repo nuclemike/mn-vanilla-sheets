@@ -32,7 +32,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
    
 	</head>
-	<body class="fxDisplay fxDirCol">
+	<body class="fxDisplay fxDirCol" <body onhashchange="loadContent(window.location.hash.substring(1));">>
 		
 		<img src="logo.jpg" style="display:none;"/>
       	<div id="loginPopupShadow" onclick="event.target.id=='loginPopupShadow' && closeCredPopup('loginPopupShadow');" class="credPopupShadow fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
@@ -105,8 +105,8 @@
 	<div id="header" class="fxFixed" >
 		<div id="headerContainer">
 		
-			<img id="mainLogo" src="stylesheets/mainLogo.png" />
-			<img id="mainLogoSmall" style="display:none;" src="stylesheets/mainLogoSmall.png" />
+			<img id="mainLogo" onclick="loadContent('nectars')" src="stylesheets/mainLogo.png" />
+			<img id="mainLogoSmall" onclick="loadContent('nectars')" style="display:none;" src="stylesheets/mainLogoSmall.png" />
 			
 			<span id="headerLoginText"></span>
 			<div  id="headerMenu">
