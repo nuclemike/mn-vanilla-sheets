@@ -4,11 +4,11 @@ function labRequestPopup(nectarName) {
 	var op = document.getElementById("liquidOrderSize").getElementsByTagName("option");
 	
 	op[1].disabled = false;
-	op[2].disabled = true;
+	op[2].disabled = false;
 	op[3].disabled = false;
 	
 	op[1].text ='30ml';
-	op[2].text ='60ml (Out of Stock)';
+	op[2].text ='60ml';
 	op[3].text ='120ml';
 				
 	/* 
