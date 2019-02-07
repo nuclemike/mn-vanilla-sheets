@@ -45,14 +45,13 @@ function nicTypeChanged(nicType) {
 	var DoseOptions = document.getElementById("liquidOrderNicotine").getElementsByTagName("option");
 	
 
-
 	
 	if (nicType == "S") {
-		sizeOptions[0].hidden = true;  //select size
+		sizeOptions[0].hidden = false;  //select size
 		sizeOptions[1].hidden = false; //30ml
-		sizeOptions[2].hidden = true;  //60ml
+		sizeOptions[2].hidden = false;  //60ml
 		sizeOptions[3].hidden = true;  //120ml
-		sizeOptions[1].selected = true;//30ml
+		sizeOptions[0].selected = true;//select
 		
 		DoseOptions[1].hidden = true;   //zero mg
 		DoseOptions[0].selected = true; //select mg
