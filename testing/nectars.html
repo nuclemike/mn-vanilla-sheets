@@ -7,6 +7,21 @@
 			}
 		    });
 </script>
+<style>
+.HydraBanner{
+	background-color: white;
+    max-width: 100%;
+    margin: -5% auto 5%;
+    box-shadow: 0 31px 50px -50px black;
+}
+
+.HydraBannerImg{
+	max-width: 100%;
+    margin: 0 auto;
+    display: block;
+	cursor:pointer;
+}
+</style>
 	
 		<div id="goldRibbon" class="fxFixed">Click on a Bottle!</div>
 <!--
@@ -14,8 +29,23 @@
 			<img src="./prexmas.png" style="max-width: 100%;">
 		</a>
 -->
+<div class="HydraBanner">
+		<img class="HydraBannerImg" onclick="loadContent('seducehydra')" src="./stylesheets/hydrabanner.jpg?ver=1" />
+</div>
 		<div id="contentContainer" class="fxDisplay fxWrap fxJustifyCenter">
+
+			<div class="nectar new" onclick="authenticatedFunction(function(){ labRequestPopup('Tart Quarry') });">
+				<img class="nectarFlask" src="./liquids/tartquarry.png">		
+				<span class="nectarName">Tart Quarry</span>
+				<span class="nectarInfo">a sour lemon delight, balanced with sweet biscuits and creams!</span>
+			</div>			
 		
+			<div class="nectar new" onclick="authenticatedFunction(function(){ labRequestPopup('Boozy Bill') });">
+				<img class="nectarFlask" src="./liquids/boozybill.png">		
+				<span class="nectarName">Boozy Bill</span>
+				<span class="nectarInfo">he feeds on blueberries and binges on sambuca!</span>
+			</div>	
+			
 			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Tropic Terror') });">
 				<img class="nectarFlask" src="./liquids/tropicterror.png">		
 				<span class="nectarName">Tropic Terror</span>
@@ -187,6 +217,7 @@
 								<option selected value="F">Seduce (Freebase)</option>
 								<option value="S">Hydra (Salt!)</option>							
   							</select>
+							<span class='info' onclick="closeLabRequestPopup(); loadContent('seducehydra')">what!?</span>
 						</td>
 	  				</tr>							
 					<tr>

@@ -1,5 +1,16 @@
 $(document).ready(function() {
+	
+	if (sessionStorage.getItem("over18") == null)
+	{
+		$('#ageCheck').show();
+	}
+	
+	if (window.location.hash == '#mylab' || window.location.hash == '#myaccount' || window.location.hash == '#nectars' || window.location.hash == '#seducehydra') {
+		loadContent(window.location.hash.substring(1));
+	} else {
 	loadContent('nectars');	
+}
+
 	//$('#shutdownNoticeShadow').show();
 });
 
@@ -35,9 +46,15 @@ function pageLoaded() {
 	$( "#pageContent" ).show()
 }
 
+function openMenu(visibility) {
+	$( "#headerMenu, #headerMenuCloser" ).toggleClass('opened', visibility);
+}
+
+
 var afterLoginFunction = null;
     
 function loadContent(pageName) {
+	openMenu(false);
 	$( "#pageLoader" ).show();
 	$( "#pageContent" ).hide();
 	
@@ -45,11 +62,15 @@ function loadContent(pageName) {
 		$( "#headerMyLab" ).addClass('selected').siblings().removeClass('selected')
 	else if (pageName == 'nectars')
 		$( "#headerNectar" ).addClass('selected').siblings().removeClass('selected')
+	else if (pageName == 'myaccount')
+		$( "#headerMyAccount" ).addClass('selected').siblings().removeClass('selected')	
 	
-	$( "#pageContent" ).load( pageName+".html?v=4", function() {
+	$( "#pageContent" ).load( pageName+".html?v=10", function() {
 		//after load html (images excluded)
 		
 	});
+	
+	location.hash = '#'+pageName;
 }
 
 
@@ -65,12 +86,12 @@ function populateUser(success) {
 	if(success)
 	{
 		document.getElementById('headerLoginText').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';   
-		$('#headerLogout, #headerMyLab').show();
+		$('#headerLogout, #headerMyLab, #headerMyAccount').show();
 		$('#headerLogin').hide();
 	}
 	else {
 		document.getElementById('headerLoginText').innerHTML = "Welcome to Mama's Nectar!";   
-		$('#headerLogout, #headerMyLab').hide();
+		$('#headerLogout, #headerMyLab, #headerMyAccount').hide();
 		$('#headerLogin').show();
 		var isInMyLab = document.getElementById("myLabRequestTitle");
 		if (isInMyLab) loadContent('nectars');
@@ -80,6 +101,7 @@ function populateUser(success) {
 
 
 function loginPopup() {
+	openMenu(false);
 	$('#scrollContent').css('overflow','hidden');
 	$('#loginPopupTitle').text('Authorization Required');
 	$('#loginPopupEmail').val('');
@@ -100,6 +122,7 @@ function changePassPopup() {
 
 
 function logout() {
+	openMenu(false);
 	localStorage.removeItem('userid');
 	localStorage.removeItem('name');
 	localStorage.removeItem('email');
@@ -110,7 +133,7 @@ function logout() {
 	sessionStorage.removeItem('email');
 	sessionStorage.removeItem('pass');
 	sessionStorage.removeItem('mobile');	
-	location.reload();
+	document.location.href=window.location.href.split('#')[0];
 }
 
 
@@ -124,7 +147,10 @@ function closeCredPopup(id) {
 	});
 }
 
-
+function ageCheckOk(element){
+	sessionStorage.setItem('over18', true);
+	element.parentElement.parentElement.remove();
+}
 
 function loadSession() {
       if (sessionStorage.getItem("name") != null) {

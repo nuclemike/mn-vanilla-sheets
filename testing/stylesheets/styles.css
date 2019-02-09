@@ -9,7 +9,7 @@ html {
     /* padding-top: 105px; */
 }
 body {
-    font-family: 'Quantico', sans-serif;
+    font-family: 'Raleway', sans-serif;
     margin: 0;
     height: 100%;
     overflow: hidden;
@@ -87,15 +87,20 @@ input:-moz-placeholder { /* Firefox 18- */
 
 #shutdownOkBtn{
 	background: #f1cd63;
-	border: 0;
-	color: #444;
-	font-family: quantico;
-	height: 36px;
-	padding: 0 20px;
-	border-radius: 3px;
-	font-size: 22px;
-	float: right;
+    border: 0;
+    color: #444;
+    font-family: 'Raleway', sans-serif;
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 3px;
+    font-size: 15px;
+    float: right;
+    font-weight: bold;
 	margin-top: 10px;
+	
+	
+	
+
 }
 
 /* ################################### HIT COUNTER ################################### */
@@ -211,6 +216,18 @@ input:-moz-placeholder { /* Firefox 18- */
     margin-bottom: 20px;
     border-spacing: 0;
 }
+
+#liquidOrderTable .info {
+    /* background: #eee; */
+    font-weight: bold;
+    color: #d87b00;
+    line-height: 35px;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
 #liquidOrderTable td {
     padding: 5px 0;
 }
@@ -292,13 +309,14 @@ font-weight:bold;
     background: #f1cd63;
     border: 0;
     color: #444;
-    font-family: quantico;
+    font-family: 'Raleway', sans-serif;
     height: 36px;
     padding: 0 20px;
     border-radius: 3px;
     font-size: 15px;
     float: right;
     margin-left: 10px;
+    font-weight: bold;
 }
 #goToMyLab {
     background-color: #ffb7b7;
@@ -422,15 +440,16 @@ animation: blinker 1s linear infinite;
     font-weight: bold;
 }
 .CredPopupButton {
-    background: #ddd;
-    border: 0;
+ background: #ddd;
     color: #666;
-    font-family: quantico;
+    border: 0;
+    font-family: 'Raleway', sans-serif;
     height: 36px;
     padding: 0 20px;
     border-radius: 3px;
     font-size: 15px;
     float: right;
+    font-weight: bold;
 }
 .proceedCredPopupButton {
     background: #f1cd63;
@@ -459,7 +478,7 @@ animation: blinker 1s linear infinite;
 /* ################################### HEADER ################################### */
 
 #header {
-    background: url(floralBG.png);
+    background: #111;
     /* position: absolute; */
     top: 0;
     width: 100%;
@@ -477,11 +496,15 @@ animation: blinker 1s linear infinite;
     height: 100%;
 }
 #headerLoginText {
-    color: #85745a;
+    color: #bca076;
     position: absolute;
     right: 10px;
     top: 4px;
-    /* font-family: 'Raleway', sans-serif; */
+}
+
+#headerMenuOpener,
+#headerMenuCloser{
+	display:none;
 }
 
 #headerMenu {
@@ -496,24 +519,18 @@ animation: blinker 1s linear infinite;
     color: #8a8072;
     padding: 0 10px 10px;
 }
-#headerMenu a:hover{
-    box-shadow:0 -80px 70px -70px rgba(255,255,255,0.5) inset;
-    color: #ffd074;
-}
 
+
+#headerMenu a:hover,
 #headerMenu a.selected{
-    color: #ffd074;
-    
-}
-
-#headerMenu a:hover .menuImg,
-#headerMenu a.selected .menuImg{
     opacity: 1;
+     color: #ffd074;
 }
 .menuImg {
     display: block;
     margin: 0 auto 6px;
     opacity: 0.8;
+    width: 24px;
 }
 #menuBurger {
     /* display: none; */
@@ -528,12 +545,12 @@ animation: blinker 1s linear infinite;
     background: -ms-radial-gradient(center, ellipse cover, rgba(255, 172, 48, 1) 0%, rgba(220, 167, 78, 1) 100%);
     background: radial-gradient(ellipse at center, rgba(255, 172, 48, 1) 0%, rgba(220, 167, 78, 1) 100%);
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffac30', endColorstr='#dca74e', GradientType=1);
-    font-family: "Beleren";
+    /* font-family: "Beleren"; */
     text-align: center;
     padding: 13px 0;
     margin-bottom: 5%;
     font-size: 35px;
-    color: #ffdfaf;
+    color: white;
 }
 /*CONTENT*/
 
@@ -555,6 +572,7 @@ animation: blinker 1s linear infinite;
     width: 230px;
     float: left;
     padding: 5px;
+	cursor:pointer;
 }
 #sideBar ul {
     list-style: none outside none;
@@ -579,6 +597,18 @@ animation: blinker 1s linear infinite;
     padding: 10px 0;
     border-radius: 20px;
     position: relative;
+}
+
+@keyframes jump {
+  0%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
+  40%  {transform: translate3d(0,-9%,0) scale3d(0.9,1.1,1);}
+  100% {transform: translate3d(0,-12%,0) scale3d(1,1,1);}
+}
+
+.nectar.new img{
+  transform-origin: 50% 50%;
+  animation: jump .17s linear alternate 6;
+
 }
 
 .nectar.new:after {
@@ -612,13 +642,11 @@ animation: blinker 1s linear infinite;
     text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 .nectarInfo {
-    color: rgba(0, 0, 0, 0.5);
+    color: black;
     line-height: 0.91em;
     /* margin-bottom: 20px; */
-    
     display: block;
     /* height:40px; */
-    
     padding: 0 20px;
 }
 /* ################################### MY LAB ################################### */
@@ -653,21 +681,40 @@ animation: blinker 1s linear infinite;
     max-width: 600px;
 }
 #myAccountDetails span,
-#myAccountDetails label {
+#myAccountDetails label,
+#myAccountDetails > a {
     float: left;
     line-height: 30px;
 }
 #myAccountDetails span {
     font-weight: bold;
-    color: #c38d36;
+    color: #444444;
 }
 #myAccountDetails label {
     clear: left;
     width: 42%;
+    color: #4d4d4d;
+    /* font-weight: bold; */
 }
 
-#myAccountDetails span.changePass{
-	cursor:pointer;
+#myAccountDetails a{
+    cursor: pointer;
+    color: #c38d36;
+    font-weight: bold;
+}
+
+#myAccountDetails #myAccountMarketing{
+	margin-top:20px;
+}
+
+
+#myAccountDetails #myAccountMarketing.true{
+	color: #08a81f;
+}
+
+
+#myAccountDetails #myAccountMarketing.false{
+	color: #ee3a0c;
 }
 
 #myLabRequestDumpDiv {
@@ -676,9 +723,7 @@ animation: blinker 1s linear infinite;
 
 .myLabRequestTitle{
     padding: 0;
-    margin: 8% 5% 3%;
     font-size: 23px;
-    font-family: 'Raleway', sans-serif;
     color: #616161;
     text-align: center;
     line-height: 1.5em;
@@ -842,10 +887,52 @@ animation: blinker 1s linear infinite;
 /* ################################### MEDIA QUERIES ################################### */
 
 @media only screen and (max-width: 850px) {
-    #headerMenu a {
-        padding: 0 7px 6px;
-        font-size: 13px;
+    #headerMenu{
+		display:none;
+		position: fixed;
+		top: 0;
+		right: 0;
+		background: #111;
+		padding: 40px 40px;
+		}
+		
+	#headerMenuCloser{
+		position: fixed;
+		background: rgba(150,150,150,0.7);
+		top: 0;
+		width: 100%;
+		left: 0;
+		height: 100%;
+	}	
+
+	#headerMenuCloser.opened,
+	#headerMenu.opened {
+		display:block;
+	}		
+	
+	#headerMenuOpener{
+		display:block;
+		width: 55px;
+		position: absolute;
+		right: 10px;
+		top: 30%;
+		padding: 10px;
+	}
+	
+	
+	#headerMenu a {
+        padding: 10px 0;
+        font-size: 16px;
+        clear: both;
+        line-height: 24px;
     }
+	
+	#headerMenu a img{
+     
+float: left;
+     
+margin: 0 10px 0 0;
+    }	
 }
 @media only screen and (max-width: 750px) {
 
@@ -963,6 +1050,7 @@ animation: blinker 1s linear infinite;
 	#mainLogoSmall{
 		display:block !important;
 		margin-left: 10px;
+		cursor:pointer;
 	}
 	#mainLogo{
 		display:none;

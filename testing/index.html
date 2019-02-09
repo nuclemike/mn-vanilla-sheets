@@ -15,7 +15,7 @@
 
 
 
-		<link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
+		
 		<link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
 		
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -23,16 +23,16 @@
 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		
-		<link rel="stylesheet" href="stylesheets/styles.css?ver=2">
-		<link rel="stylesheet" href="stylesheets/global.css?ver=1">
-		<script src="functions.js?ver=3"></script>
-		<script src="ajax.js?ver=3"></script>
-		<script src="index.js?ver=4"></script>
+		<link rel="stylesheet" href="stylesheets/styles.css?ver=5">
+		<link rel="stylesheet" href="stylesheets/global.css?ver=2">
+		<script src="functions.js?ver=8"></script>
+		<script src="ajax.js?ver=6"></script>
+		<script src="index.js?ver=12"></script>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
    
 	</head>
-	<body class="fxDisplay fxDirCol">
+	<body class="fxDisplay fxDirCol" onhashchange="loadContent(window.location.hash.substring(1));">
 		
 		<img src="logo.jpg" style="display:none;"/>
       	<div id="loginPopupShadow" onclick="event.target.id=='loginPopupShadow' && closeCredPopup('loginPopupShadow');" class="credPopupShadow fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
@@ -98,22 +98,73 @@
 				<button id='shutdownOkBtn' onclick="$('#shutdownNoticeShadow').remove();">Got it!</button>
 			</div>
 		</div>
-		
+			
+		<style>
+			#ageCheck{
+				position: fixed;
+				z-index: 9999;
+				width: 100%;
+				height: 100%;
+				font-family: 'Raleway', sans-serif;
+				background: rgb(158,158,158);
+				background: radial-gradient(circle, rgba(218,218,218,0.9) 0%, rgba(119,119,119,0.9) 100%);
+				color: #444;
+			}
+			
+			#ageCheckWindow{
+				background: rgba(255,255,255,0.7);
+				text-align: center;
+				padding: 1.1em;
+			}
 
+			#ageCheck span{
+				margin: 2em;
+				font-size: 1.5em;
+				display: block;	
+			}
 
+			#ageCheck button{
+				border: 0;
+				display: inline-block;
+				width: 50%;
+				line-height: 2em;
+				font-size: 2em;
+				background: tomato;
+				margin: 0;
+				padding: 0;
+				float: left;
+				font-family: 'Raleway', sans-serif;
+				color: white;
+				font-weight: bold;
+				cursor: pointer;				
+			}			
+		</style>
+	<div style="display:none;" id="ageCheck" class="fxDisplay fxJustifyCenter fxAlignCenter">
+		<div id="ageCheckWindow" >
+			<span>Are you at least 18 years old?</span>
+			<button onclick="ageCheckOk(this);" style="background:yellowgreen;">Yes</button>
+			<button onclick="window.location.href = 'http://www.google.com';">No</button>
+		</div>
+	</div>
   
 	<div id="header" class="fxFixed" >
 		<div id="headerContainer">
 		
-			<img id="mainLogo" src="stylesheets/mainLogo.png" />
-			<img id="mainLogoSmall" style="display:none;" src="stylesheets/mainLogoSmall.png" />
+			<img id="mainLogo" onclick="loadContent('nectars')" src="stylesheets/mainLogo.png" />
+			<img id="mainLogoSmall" onclick="loadContent('nectars')" style="display:none;" src="stylesheets/mainLogoSmall.png" />
 			
 			<span id="headerLoginText"></span>
+			
+			<img id="headerMenuOpener" onclick="openMenu(true)" src="stylesheets/menu_opener.svg" />
+			<div  id="headerMenuCloser" onclick="openMenu(false)"></div>
 			<div  id="headerMenu">
-				<a id="headerMyLab" style="display:none" onclick="authenticatedFunction(function(){ loadContent('mylab') });"><img class="menuImg" src="stylesheets/mylab.png" />myLAB</a>
-				<a id="headerNectar" onclick="loadContent('nectars')"><img class="menuImg" src="stylesheets/nectars.png" />NECTAR</a>
-				<a id="headerLogout" style="display:none" onclick="logout()"><img class="menuImg" src="stylesheets/logout.png" />LOGOUT</a>								
-				<a id="headerLogin" style="display:none" onclick="loginPopup()"><img class="menuImg" src="stylesheets/login.png" />LOGIN</a>								
+				<a id="headerMyLab" style="display:none" onclick="authenticatedFunction(function(){ loadContent('mylab') });"><img class="menuImg" src="stylesheets/menu_mylab.svg" />myLAB</a>
+				<a id="headerMyAccount" style="display:none" onclick="authenticatedFunction(function(){ loadContent('myaccount') });"><img class="menuImg" src="stylesheets/menu_myaccount.svg" />ACCOUNT</a>	
+				<a id="headerNectar" onclick="loadContent('nectars')"><img class="menuImg" src="stylesheets/menu_nectars.svg" />NECTAR</a>
+				
+				<a id="headerLogout" style="display:none" onclick="logout()"><img class="menuImg" src="stylesheets/menu_logout.svg" />LOGOUT</a>		
+									
+				<a id="headerLogin" style="display:none" onclick="loginPopup()"><img class="menuImg" src="stylesheets/menu_login.svg" />LOGIN</a>								
 			</div>
 		
 			
