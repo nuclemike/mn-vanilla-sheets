@@ -1,16 +1,3 @@
-@font-face {
-  font-family: 'Beleren';
-  src: url('Beleren.ttf')  format('truetype'); 
-}
-
-/*
-@font-face {
-  font-family: 'Sakkal Majalla';
-  src: url('SakkalMajalla.ttf')  format('truetype'),
-}
-*/
-
-
 .fxDisplay {
     display: -webkit-flex;
     display: -ms-flexbox;

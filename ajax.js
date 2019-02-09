@@ -202,13 +202,50 @@ function changePassCb(response) {
 
 }
 
+function changeMarketing(recieveMarketing){
+	var elem = document.getElementById("myAccountMarketing");
+	elem.classList = [];
+	elem.innerHTML = "Just a moment please, we are processing your request...";
+
+
+
+
+    var loginObj = { 	email: sessionStorage.getItem("email"),
+						marketing: recieveMarketing	}
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: "https://script.google.com/macros/s/AKfycbwuXaKmsoIF2Bs4YqOZNyZXCWDNWh7xkmHg5sS-0dd6LWMirVA/exec?callback=changeMarketingCb",
+	  
+      method: "GET",
+      dataType: "jsonp",
+      data : loginObj
+    });
+  }
+
+function changeMarketingCb(response) {	
+
+var elem = document.getElementById("myAccountMarketing");
+	if (response.success == true){
+		if (response.value == true){
+			elem.innerHTML = 'Great! You are currently subscribed to recieve emails regarding discounts, offers, gifts or new products! ' +
+			'<a id="changeMarketing" onclick="changeMarketing(false); return false;">Click here to Unsubscribe.</a>';
+		} else {
+			elem.innerHTML = 'Oh Crap! You are not subscribed to recieve emails regarding discounts, offers, gifts or new products.' +
+			'<a id="changeMarketing" onclick="changeMarketing(true); return false;"> Click here to Subscribe now!</a>';	
+		}
+		elem.classList = [response.value];
+	}
+	else 
+	{
+		elem.innerHTML = 'Error : '+ response.error;
+		
+	}
+
+
+}
+
 function loadMyLab() {
-	document.getElementById("myUserID").innerHTML = sessionStorage.getItem("userid");
-	document.getElementById("myAccountName").innerHTML = sessionStorage.getItem("name");
-	document.getElementById("myAccountEmail").innerHTML = sessionStorage.getItem("email");
-	document.getElementById("myAccountMobile").innerHTML = sessionStorage.getItem("mobile");
-
-
 	var request = jQuery.ajax({
 		crossDomain: true,
 		url: "https://script.google.com/macros/s/AKfycbwQMliSuDjfOFXzP4-O1IaPKCZuy1CjONa3M1PkBA/exec?callback=loadMyLabCb",
@@ -264,5 +301,34 @@ function loadMyLabCb(e) {
 	}
 
 	pageLoaded();
+}
+
+function loadMyAccount(){
+	var request = jQuery.ajax({
+		crossDomain: true,
+		url: "https://script.google.com/macros/s/AKfycbwcZPAD21O1NKh6OMSv90-7hI6qPec9T90d6nXOkq4__JpKm_Q/exec?callback=loadMyAccountCb",
+		method: "GET",
+		dataType: "jsonp",
+		data : {userid : sessionStorage.getItem("userid")}
+	});
+}
+
+function loadMyAccountCb(response){
+	if (response.success == true){
+		document.getElementById("myUserID").innerHTML = response.details.userId;
+		
+		var date = new Date(response.details.memberFrom);
+		document.getElementById("myMembership").innerHTML = date.getDate() + '/' + (date.getMonth() + 1) + '/' +  date.getFullYear();;
+		
+		document.getElementById("myAccountName").innerHTML = response.details.fullName;
+		document.getElementById("myAccountEmail").innerHTML = response.details.email;
+		document.getElementById("myAccountMobile").innerHTML = response.details.mobile;
+		
+		changeMarketingCb({success:true, value:response.details.marketing});
+		
+	} else {
+		alert(response.error)
+	}
+		pageLoaded();
 }
 
