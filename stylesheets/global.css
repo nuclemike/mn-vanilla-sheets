@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Beleren';
+  src: url('Beleren.ttf')  format('truetype'); 
+}
+
+
 .fxDisplay {
     display: -webkit-flex;
     display: -ms-flexbox;
