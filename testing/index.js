@@ -11,7 +11,7 @@ $(document).ready(function() {
 	loadContent('nectars');	
 }
 
-	//$('#shutdownNoticeShadow').show();
+	$('#shutdownNoticeShadow').show();
 });
 
 window.onload = function(){
@@ -65,7 +65,7 @@ function loadContent(pageName) {
 	else if (pageName == 'myaccount')
 		$( "#headerMyAccount" ).addClass('selected').siblings().removeClass('selected')	
 	
-	$( "#pageContent" ).load( pageName+".html?v=10", function() {
+	$( "#pageContent" ).load( pageName+".html?v=12", function() {
 		//after load html (images excluded)
 		
 	});

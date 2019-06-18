@@ -40,8 +40,9 @@ function fetchProductionCb(e) {
 					seduceArray.push({flavor : item.flavor, '30':0, '60':0, '120':0})
 					seduceArray[seduceArray.length-1][item.size] = item.quantity;
 				}
-				
-				seduceShots += item.quantity *  Math.ceil( (item.nicotine / 72 * item.size ) / ( 24 / 72 * 10 ) );
+				if (!item.premixed) {
+					seduceShots += item.quantity *  Math.ceil( (item.nicotine / 72 * item.size ) / ( 24 / 72 * 10 ) );
+				}
 				
 			} else if (item.nicType == 'S') {
 
@@ -58,9 +59,9 @@ function fetchProductionCb(e) {
 					hydraArray.push({flavor : item.flavor, '30':0, '60':0, '120':0})
 					hydraArray[hydraArray.length-1][item.size] = item.quantity;
 				}
-				
-				hydraShots += item.quantity *  Math.ceil( (item.nicotine / 200 * item.size ) / ( 24 / 200 * 10 ) );
-				
+				if (!item.premixed) {
+					hydraShots += item.quantity *  Math.ceil( (item.nicotine / 200 * item.size ) / ( 24 / 200 * 10 ) );
+				}
 			} 
 			
 		});
