@@ -65,7 +65,7 @@ function loadContent(pageName) {
 	else if (pageName == 'myaccount')
 		$( "#headerMyAccount" ).addClass('selected').siblings().removeClass('selected')	
 	
-	$( "#pageContent" ).load( pageName+".html?v=13", function() {
+	$( "#pageContent" ).load( pageName+".html?v=14", function() {
 		//after load html (images excluded)
 		
 	});
