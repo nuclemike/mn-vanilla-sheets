@@ -11,6 +11,7 @@
 
 
 
+
 .FreeDelivery {
     background: #d9a742;
     background: -moz-linear-gradient(-45deg, #e2c291 0%, #d9a742 100%);
@@ -23,13 +24,13 @@
     padding: 25px;
     text-align: center;
 }
-@media only screen and (max-width: 600px) {
-.FreeDelivery {   
-    margin: 0 auto 5%;
-    width: 100%;
-    padding: 100px;
-    text-align: center;
-}
+
+@media only screen and (max-width: 600px)
+{
+	.FreeDelivery {
+		font-size: 2.5vw;
+		padding: 5%;
+	}
 }
 
 </style>
@@ -41,8 +42,8 @@
 		</a>
 -->
 
-
-<div class="FreeDelivery">
+<div class="FreeDelivery" style="
+">
     <span style="
     font-family: Georgia,serif;
     font-size: 1.5em;
@@ -62,12 +63,11 @@
     border: 0;
     height: 1px;
     background: white;
-    width: 20em;
+    width: 24em;
     margin: 0.5em auto;
 "><span style="
     color: rgb(255, 255, 255);
-    font-size: 1.2em;
-    line-height: 24px;
+    font-size: 1.4em;
     text-align: center;
     font-weight: 600;
 ">if you spend 50Euros or more!</span>
@@ -75,6 +75,7 @@
     
     
 </div>
+
 		<div id="contentContainer" class="fxDisplay fxWrap fxJustifyCenter">
 
 			<div class="nectar new" onclick="authenticatedFunction(function(){ labRequestPopup('Devil\'s Cotton') });">
