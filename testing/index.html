@@ -25,9 +25,19 @@
 		
 		<link rel="stylesheet" href="stylesheets/styles.css?ver=8">
 		<link rel="stylesheet" href="stylesheets/global.css?ver=3">
+		<script>
+			function getPage(pagename){
+				switch(pagename) {
+					case "myaccount" : return pagename+".html?v=17";
+					case "mylab" : return pagename+".html?v=17";
+					case "nectars" : return pagename+".html?v=18";
+					case "seducehydra" : return pagename+".html?v=17";
+				}
+			}
+		</script>
 		<script src="functions.js?ver=9"></script>
 		<script src="ajax.js?ver=6"></script>
-		<script src="index.js?ver=21"></script>
+		<script src="index.js?ver=22"></script>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
    
