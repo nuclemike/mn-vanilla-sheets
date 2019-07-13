@@ -6,30 +6,56 @@
 			    pageLoaded();
 			}
 		    });
-			
-        function animatePropScroll() {
-            $(".nectarProps").addClass("animate");
-        }
-        window.onload = animatePropScroll;	
 
+function nectarPropChanged(element) {
+
+	var clickedProp = element.textContent.toLowerCase();
+	
+	if (clickedProp == "all"){
+
+		$(element).addClass("selected").siblings().removeClass("selected");
+		$(".nectar").fadeIn();
+	
+	} else {
+		$(".nectarProp.all").removeClass("selected");
+		$(element).toggleClass("selected");		
+		$(".nectar").stop().hide();
+		
+		var props = "";
+		
+		$( ".nectarProp.selected" ).each(function( index ) {
+			props += "[props~="+this.textContent.toLowerCase()+"]";
+		});
+		
+		if (props != ""){
+			$(".nectar"+props).fadeIn()
+		} else {
+			$(".nectarProp.all").addClass("selected");
+			$(".nectar").fadeIn();
+		}
+	}
+	
+
+}
 </script>
 
 <style>
 
 	.nectarProps {
-		border-bottom: 1px solid #aaa;
-		padding: 5px 0;
-		transform: translateX(-100%);
-		transition: transform 0.6s;
+		padding: 0;
+		margin-bottom:4px;
 		}
-
-	.nectarProps.animate {
-		transform: translateX(0);
-	}
 		
 	.nectarProp{
 		padding: 5px 10px;
+		margin: 4px 2px 0;
 		border-radius: 3px;
+		cursor: pointer;
+		user-select:none;
+	}
+	
+	.nectarProp:hover{
+		background: rgba(0,0,0,0.2);
 	}
 
 	.nectarProp.selected{
@@ -60,10 +86,7 @@
 		}
 		
 		.nectarProps {
-			overflow:scroll;
-			-webkit-justify-content: flex-start;
-			-ms-flex-pack: flex-start;
-			justify-content: flex-start;
+
 
 		}
 		
@@ -116,7 +139,7 @@
     
 </div>
 
-			<div class="nectarProps fxDisplay fxJustifyCenter">
+			<div class="nectarProps fxDisplay fxWrap fxJustifyCenter">
 				<div onclick="nectarPropChanged(this);" class="nectarProp selected all">All</div>
 				<div onclick="nectarPropChanged(this);" class="nectarProp">Pastry</div>
 				<div onclick="nectarPropChanged(this);" class="nectarProp">Fruity</div>
