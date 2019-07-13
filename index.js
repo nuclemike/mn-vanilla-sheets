@@ -58,17 +58,34 @@ function loadContent(pageName) {
 	$( "#pageLoader" ).show();
 	$( "#pageContent" ).hide();
 	
-	if (pageName == 'mylab')
-		$( "#headerMyLab" ).addClass('selected').siblings().removeClass('selected')
-	else if (pageName == 'nectars')
-		$( "#headerNectar" ).addClass('selected').siblings().removeClass('selected')
-	else if (pageName == 'myaccount')
-		$( "#headerMyAccount" ).addClass('selected').siblings().removeClass('selected')	
 	
-	$( "#pageContent" ).load( pageName+".html?v=16", function() {
-		//after load html (images excluded)
-		
-	});
+	switch(pageName) {
+		case "myaccount" : 
+			$( "#headerMyAccount" ).addClass('selected').siblings().removeClass('selected');	
+			$( "#pageContent" ).load( getPage(pageName), function() { 
+				//after load;
+			});
+			break;
+		case "mylab" : 
+			$( "#headerMyLab" ).addClass('selected').siblings().removeClass('selected');
+			$( "#pageContent" ).load( getPage(pageName), function() { 
+				//after load;
+			});
+			break;
+		case "nectars" : 
+		$( "#headerNectar" ).addClass('selected').siblings().removeClass('selected');
+			$( "#pageContent" ).load( getPage(pageName), function() { 
+				//after load;
+			});
+			break;
+		case "seducehydra" : 
+			$( "#pageContent" ).load( getPage(pageName), function() { 
+				//after load;
+			});
+			break;
+	}
+	
+	
 	
 	location.hash = '#'+pageName;
 }

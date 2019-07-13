@@ -1,3 +1,5 @@
+
+
 function labRequestPopup(nectarName) {
 	$('#scrollContent').css('overflow','hidden');
 	var imgUrl = './liquids/' + nectarName.replace(/[^a-z0-9]/gi,'') +'.png';

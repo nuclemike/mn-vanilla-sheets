@@ -6,33 +6,90 @@
 			    pageLoaded();
 			}
 		    });
+
+function nectarPropChanged(element) {
+
+	var clickedProp = element.textContent.toLowerCase();
+	
+	if (clickedProp == "all"){
+
+		$(element).addClass("selected").siblings().removeClass("selected");
+		$(".nectar").fadeIn();
+	
+	} else {
+		$(".nectarProp.all").removeClass("selected");
+		$(element).toggleClass("selected");		
+		$(".nectar").stop().hide();
+		
+		var props = "";
+		
+		$( ".nectarProp.selected" ).each(function( index ) {
+			props += "[props~="+this.textContent.toLowerCase()+"]";
+		});
+		
+		if (props != ""){
+			$(".nectar"+props).fadeIn()
+		} else {
+			$(".nectarProp.all").addClass("selected");
+			$(".nectar").fadeIn();
+		}
+	}
+	
+
+}
 </script>
+
 <style>
 
-
-
-
-.FreeDelivery {
-	user-select:none;
-    background: #d9a742;
-    background: -moz-linear-gradient(-45deg, #e2c291 0%, #d9a742 100%);
-    background: -webkit-linear-gradient(-45deg, #e2c291 0%,#d9a742 100%);
-    background: linear-gradient(135deg, #e2c291 0%,#d9a742 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2C291', endColorstr='#D9A742',GradientType=1 );
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#E2C291', endColorstr='#D9A742', GradientType=1);
-    margin: 0 auto 5%;
-    width: 100%;
-    padding: 25px;
-    text-align: center;
-}
-
-@media only screen and (max-width: 600px)
-{
-	.FreeDelivery {
-		font-size: 2.5vw;
-		padding: 5%;
+	.nectarProps {
+		padding: 0;
+		margin-bottom:4px;
+		}
+		
+	.nectarProp{
+		padding: 5px 10px;
+		margin: 4px 2px 0;
+		border-radius: 3px;
+		cursor: pointer;
+		user-select:none;
 	}
-}
+
+	.nectarProp.selected{
+		font-weight: bold;
+		background: #333;
+		color: #fff;
+	}
+
+	.FreeDelivery {
+		user-select:none;
+		background: #d9a742;
+		background: -moz-linear-gradient(-45deg, #e2c291 0%, #d9a742 100%);
+		background: -webkit-linear-gradient(-45deg, #e2c291 0%,#d9a742 100%);
+		background: linear-gradient(135deg, #e2c291 0%,#d9a742 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2C291', endColorstr='#D9A742',GradientType=1 );
+		filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#E2C291', endColorstr='#D9A742', GradientType=1);
+		margin: 0 auto 0%;
+		width: 100%;
+		padding: 25px;
+		text-align: center;
+	}
+
+	@media only screen and (max-width: 600px)
+	{
+		.FreeDelivery {
+			font-size: 2.5vw;
+			padding: 5%;
+		}
+		
+		.nectarProps {
+
+
+		}
+		
+
+		
+
+	}
 
 </style>
 	
@@ -74,168 +131,185 @@
 ">if you spend 50Euros or more!</span>
     <br>
     
+
     
 </div>
 
+			<div class="nectarProps fxDisplay fxWrap fxJustifyCenter">
+				<div onclick="nectarPropChanged(this);" class="nectarProp selected all">All</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Pastry</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Fruity</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Spicy</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Sweet</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Candy</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Beverage</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Creamy</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Minty</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Nutty</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Tobacco</div>
+			</div>
+			
 		<div id="contentContainer" class="fxDisplay fxWrap fxJustifyCenter">
 
-			<div class="nectar new" onclick="authenticatedFunction(function(){ labRequestPopup('Devil\'s Cotton') });">
+
+			
+			<div class="nectar new" props="fruity candy minty" onclick="authenticatedFunction(function(){ labRequestPopup('Devil\'s Cotton') });">
 				<img class="nectarFlask" src="./liquids/devilscotton.png">		
 				<span class="nectarName">Devil's Cotton</span>
 				<span class="nectarInfo">an exotic mix of spiced tangy fruit, in the form of cotton candy!</span>
 			</div>	
 		
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Tart Quarry') });">
+			<div class="nectar" props="pastry fruity spicy creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Tart Quarry') });">
 				<img class="nectarFlask" src="./liquids/tartquarry.png">		
 				<span class="nectarName">Tart Quarry</span>
 				<span class="nectarInfo">a sour lemon delight, balanced with sweet biscuits and creams!</span>
 			</div>			
 		
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Boozy Bill') });">
+			<div class="nectar" props="fruity sweet candy beverage minty" onclick="authenticatedFunction(function(){ labRequestPopup('Boozy Bill') });">
 				<img class="nectarFlask" src="./liquids/boozybill.png">		
 				<span class="nectarName">Boozy Bill</span>
 				<span class="nectarInfo">he feeds on blueberries and binges on sambuca!</span>
 			</div>	
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Tropic Terror') });">
+			<div class="nectar" props="fruity beverage creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Tropic Terror') });">
 				<img class="nectarFlask" src="./liquids/tropicterror.png">		
 				<span class="nectarName">Tropic Terror</span>
 				<span class="nectarInfo">the almighty mango smoothie, with a yoghurt fruit complexity!</span>
 			</div>	
 
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Protein Cells') });">					
+			<div class="nectar" props="sweet beverage creamy nutty" onclick="authenticatedFunction(function(){ labRequestPopup('Protein Cells') });">					
 				<img class="nectarFlask" src="./liquids/proteincells.png">		
 				<span class="nectarName">Protein Cells</span>
 				<span class="nectarInfo">a non-fatty complex addiction, for almond milkshake lovers!</span>
 			</div>		
 		
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('The First Sin') });">
+			<div class="nectar" props="pastry fruity spicy" onclick="authenticatedFunction(function(){ labRequestPopup('The First Sin') });">
 				<img class="nectarFlask" src="./liquids/thefirstsin.png">		
 				<span class="nectarName">The First Sin</span>
 				<span class="nectarInfo">mama didn't eat the apple, she put it in a pie and fried it!</span>
 			</div>			
 		
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Hue Cannon') });">
+			<div class="nectar" props="pastry fruity sweet creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Hue Cannon') });">
 				<img class="nectarFlask" src="./liquids/huecannon.png">		
 				<span class="nectarName">Hue Cannon</span>
 				<span class="nectarInfo">fruity cereal covered, italian cream-filled cannoli!</span>
 			</div>				
 
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Purple Maze') });">
+			<div class="nectar" props="pastry fruity sweet" onclick="authenticatedFunction(function(){ labRequestPopup('Purple Maze') });">
 				<img class="nectarFlask" src="./liquids/purplemaze.png">		
 				<span class="nectarName">Purple Maze</span>
 				<span class="nectarInfo">blueberry & raspberry filled sugar glazed doughnuts!</span>
 			</div>				
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Liquid Pepper') });">
+			<div class="nectar" props="candy minty" onclick="authenticatedFunction(function(){ labRequestPopup('Liquid Pepper') });">
 				<img class="nectarFlask" src="./liquids/liquidpepper.png">		
 				<span class="nectarName">Liquid Pepper</span>
 				<span class="nectarInfo">a simple smooth and creamy cooling peppermint!</span>
 			</div>	
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Bubble Trouble') });">
+			<div class="nectar" props="fruity sweet candy" onclick="authenticatedFunction(function(){ labRequestPopup('Bubble Trouble') });">
 				<img class="nectarFlask" src="./liquids/bubbletrouble.png">		
 				<span class="nectarName">Bubble Trouble</span>
 				<span class="nectarInfo">a classic fruity bubblegum, only without the chewing!</span>
 			</div>	
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Wild Frost') });">
+			<div class="nectar" props="fruity spicy candy minty" onclick="authenticatedFunction(function(){ labRequestPopup('Wild Frost') });">
 				<img class="nectarFlask" src="./liquids/wildfrost.png">		
 				<span class="nectarName">Wild Frost</span>
 				<span class="nectarInfo">A wide range of cool-sensation infused wild berries!</span>
 			</div>		
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Monkey Munch') });">
+			<div class="nectar" props="pastry fruity spicy sweet creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Monkey Munch') });">
 				<img class="nectarFlask" src="./liquids/monkeymunch.png">		
 				<span class="nectarName">Monkey Munch</span>
 				<span class="nectarInfo">ape's favorite... banana cinnamon cookie!</span>
 			</div>		
 
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Crimson Fuzz') });">
+			<div class="nectar" props="fruity sweet beverage creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Crimson Fuzz') });">
 				<img class="nectarFlask" src="./liquids/crimsonfuzz.png">		
 				<span class="nectarName">Crimson Fuzz</span>
 				<span class="nectarInfo">a creamy, strawberry enriched kiwi smoothie!</span>
 			</div>		
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Black Energy') });">
+			<div class="nectar" props="fruity candy beverage" onclick="authenticatedFunction(function(){ labRequestPopup('Black Energy') });">
 				<img class="nectarFlask" src="./liquids/blackenergy.png">			
 				<span class="nectarName">Black Energy</span>
 				<span class="nectarInfo">blackcurrant / pomegranate candy with a slight lemon hint!</span>
 			</div>		
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Pastry Pot') });">
+			<div class="nectar" props="pastry sweet creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Pastry Pot') });">
 				<img class="nectarFlask" src="./liquids/pastrypot.png">		
 				<span class="nectarName">Pastry Pot</span>
 				<span class="nectarInfo">mama's traditional vanilla cupcake!</span>
 			</div>	
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Classic Analog') });">
+			<div class="nectar" props="tobacco" onclick="authenticatedFunction(function(){ labRequestPopup('Classic Analog') });">
 				<img class="nectarFlask" src="./liquids/classicanalog.png">		
 				<span class="nectarName">Classic Analog</span>
 				<span class="nectarInfo">simply tobacco, in its liquid form!</span>
 			</div>	
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Passion Husky') });">
+			<div class="nectar" props="fruity spicy creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Passion Husky') });">
 				<img class="nectarFlask" src="./liquids/passionhusky.png">			
 				<span class="nectarName">Passion Husky</span>
 				<span class="nectarInfo">passion-fruit caramel with a creamy coconut background!</span>
 			</div>	
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Coral Milk') });">
+			<div class="nectar" props="fruity beverage sweet creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Coral Milk') });">
 				<img class="nectarFlask" src="./liquids/coralmilk.png">		
 				<span class="nectarName">Coral Milk</span>
 				<span class="nectarInfo">whipped cream covered peachy raspberry dessert!</span>
 			</div>	
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Angry Melons') });">
+			<div class="nectar" props="fruity sweet candy" onclick="authenticatedFunction(function(){ labRequestPopup('Angry Melons') });">
 				<img class="nectarFlask" src="./liquids/angrymelons.png">		
 				<span class="nectarName">Angry Melons</span>
 				<span class="nectarInfo">exotic papaya & melon mix with fused marshmallows!</span>
 			</div>				
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Nutty Scutt') });">
+			<div class="nectar" props="nutty tobacco" onclick="authenticatedFunction(function(){ labRequestPopup('Nutty Scutt') });">
 				<img class="nectarFlask" src="./liquids/nuttyscutt.png">		
 				<span class="nectarName">Nutty Scutt</span>
 				<span class="nectarInfo">a vanilla tobacco blend with pistachios and caramel!</span>
 			</div>	
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Rose Junket') });">
+			<div class="nectar" props="fruity sweet creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Rose Junket') });">
 				<img class="nectarFlask" src="./liquids/rosejunket.png">		
 				<span class="nectarName">Rose Junket</span>
 				<span class="nectarInfo">a creamy caramelly strawberry pudding!</span>
 			</div>	
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Arctic Ruby') });">
+			<div class="nectar" props="fruity candy minty" onclick="authenticatedFunction(function(){ labRequestPopup('Arctic Ruby') });">
 				<img class="nectarFlask" src="./liquids/arcticruby.png">		
 				<span class="nectarName">Arctic Ruby</span>
 				<span class="nectarInfo">a cool minty shot of juicy creamy raspberries!</span>
 			</div>	
 
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Rainbow Oil') });">
+			<div class="nectar" props="fruity candy" onclick="authenticatedFunction(function(){ labRequestPopup('Rainbow Oil') });">
 				<img class="nectarFlask" src="./liquids/rainbowoil.png">		
 				<span class="nectarName">Rainbow Oil</span>
 				<span class="nectarInfo">gummy bears, milky bottles, and all the fun in between!</span>
 			</div>	
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Persian Malt') });">
+			<div class="nectar" props="fruity beverage creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Persian Malt') });">
 				<img class="nectarFlask" src="./liquids/persianmalt.png">		
 				<span class="nectarName">Persian Malt</span>
 				<span class="nectarInfo">a greek yoghurt smoothie with Peaches and Oranges!</span>
 			</div>		
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Scarlet\'s Bar') });">
+			<div class="nectar" props="pastry fruity sweet creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Scarlet\'s Bar') });">
 				<img class="nectarFlask" src="./liquids/scarletsbar.png">		
 				<span class="nectarName">Scarlet's Bar</span>
 				<span class="nectarInfo">the known bar of joy! the strawberry cereal bar!</span>
 			</div>	
 			
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Nautical Spice') });">
+			<div class="nectar" props="fruity spicy" onclick="authenticatedFunction(function(){ labRequestPopup('Nautical Spice') });">
 				<img class="nectarFlask" src="./liquids/nauticalspice.png">		
 				<span class="nectarName">Nautical Spice</span>
 				<span class="nectarInfo">a creamy watermelon, kiwi, strawberry and lime fusion!</span>
 			</div>				
 
-			<div class="nectar" onclick="authenticatedFunction(function(){ labRequestPopup('Dragon\'s Kiss') });">
+			<div class="nectar" props="fruity creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Dragon\'s Kiss') });">
 				<img class="nectarFlask" src="./liquids/dragonskiss.png">												
 				<span class="nectarName">Dragon's Kiss</span>
 				<span class="nectarInfo">vanilla enriched, caramelized dragon-fruit!</span>
