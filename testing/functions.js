@@ -1,3 +1,33 @@
+function nectarPropChanged(element) {
+
+	var clickedProp = element.textContent.toLowerCase();
+	
+	if (clickedProp == "all"){
+
+		$(element).addClass("selected").siblings().removeClass("selected");
+		$(".nectar").fadeIn();
+	
+	} else {
+		$(".nectarProp.all").removeClass("selected");
+		$(element).toggleClass("selected");		
+		$(".nectar").stop().hide();
+		
+		var props = "";
+		
+		$( ".nectarProp.selected" ).each(function( index ) {
+			props += "[props~="+this.textContent.toLowerCase()+"]";
+			
+		});
+		
+		
+			$(".nectar"+props).fadeIn();
+			console.log(clickedProp);
+		
+	}
+	
+
+}
+
 function labRequestPopup(nectarName) {
 	$('#scrollContent').css('overflow','hidden');
 	var imgUrl = './liquids/' + nectarName.replace(/[^a-z0-9]/gi,'') +'.png';
