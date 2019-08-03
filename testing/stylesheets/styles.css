@@ -187,7 +187,7 @@ input:-moz-placeholder { /* Firefox 18- */
 		-ms-flex: 0 0 100%;
 		flex: 0 0 100%;
 		text-align: center;
-		margin:1em;
+		margin:2em 1em 1em;
 		font-size: 1.7em;
 		color: #444;
 	}
