@@ -14,6 +14,7 @@ $(document).ready(function() {
 		window.location.hash == '#batteries' ||		
 		window.location.hash == '#coilheads' ||	
 		window.location.hash == '#rebuilding' ||			
+		window.location.hash == '#glasstubes' ||
 		window.location.hash == '#starterkits') 
 		{
 			loadContent(window.location.hash.substring(1));

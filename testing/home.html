@@ -24,7 +24,29 @@
 		cursor: pointer;
 		transition: transform 0.3s, box-shadow 0.6s;
 		box-shadow: 0px 0px 0 0px #d9a742 inset, 0 0 10px rgba(0,0,0,0.07);
+		position:relative;
 	}
+	
+	.cat-child.underconstruction{
+		color: #bbb;
+	}	
+	
+	.cat-child.underconstruction img{
+		opacity:0.3;
+	}		
+	
+	.cat-child.underconstruction:after{
+		position: absolute;
+		content: 'Under Construction';
+		color: tomato;
+		opacity: 1;
+		font-size: 0.7em;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		margin-top: 10%;
+		font-weight: bold;
+	}		
 	
 	.cat-child:hover {
 		background: rgba(255,255,255,0.5);
@@ -78,11 +100,11 @@
 		<a class="cat-child" onclick="loadContent('nectars')"><img src="stylesheets/cats/cat1.svg" />Nectar</a>
 		<a class="cat-child" onclick="loadContent('starterkits')"><img src="stylesheets/cats/cat2.svg" />Starter Kits</a>
 		<a class="cat-child" onclick="loadContent('coilheads')"><img src="stylesheets/cats/cat3.svg" />Coil Heads</a>
-		<a style="opacity:0.3" class="cat-child" onclick="loadContent('')"><img src="stylesheets/cats/cat4.svg" />Glass Tubes</a>
+		<a class="cat-child" onclick="loadContent('glasstubes')"><img src="stylesheets/cats/cat4.svg" />Glass Tubes</a>
 		<a class="cat-child" onclick="loadContent('batteries')"><img src="stylesheets/cats/cat5.svg" />Batteries</a>
 		<a class="cat-child" onclick="loadContent('chargers')"><img src="stylesheets/cats/cat6.svg" />Chargers</a>
-		<a style="opacity:0.3" class="cat-child" onclick="loadContent('')"><img src="stylesheets/cats/cat7.svg" />Atomizers</a>
-		<a style="opacity:0.3" class="cat-child" onclick="loadContent('')"><img src="stylesheets/cats/cat8.svg" />Mods</a>
+		<a class="cat-child underconstruction"><img src="stylesheets/cats/cat7.svg" />Atomizers</a>
+		<a class="cat-child underconstruction"><img src="stylesheets/cats/cat8.svg" />Mods</a>
 		<a class="cat-child" onclick="loadContent('rebuilding')"><img src="stylesheets/cats/cat9.svg" />Rebuilding</a>
 	</div>
 						
