@@ -5,11 +5,21 @@ $(document).ready(function() {
 		$('#ageCheck').show();
 	}
 	
-	if (window.location.hash == '#mylab' || window.location.hash == '#myaccount' || window.location.hash == '#nectars' || window.location.hash == '#seducehydra') {
-		loadContent(window.location.hash.substring(1));
-	} else {
-	loadContent('nectars');	
-}
+	if (window.location.hash == '#mylab' || 
+		window.location.hash == '#myaccount' || 
+		window.location.hash == '#nectars' || 
+		window.location.hash == '#home' || 
+		window.location.hash == '#seducehydra' ||
+		window.location.hash == '#chargers' ||
+		window.location.hash == '#batteries' ||		
+		window.location.hash == '#coilheads' ||	
+		window.location.hash == '#rebuilding' ||			
+		window.location.hash == '#starterkits') 
+		{
+			loadContent(window.location.hash.substring(1));
+		} else {
+			loadContent('home');	
+		}
 
 	//$('#shutdownNoticeShadow').show();
 });
@@ -61,31 +71,20 @@ function loadContent(pageName) {
 	
 	switch(pageName) {
 		case "myaccount" : 
-			$( "#headerMyAccount" ).addClass('selected').siblings().removeClass('selected');	
-			$( "#pageContent" ).load( getPage(pageName), function() { 
-				//after load;
-			});
-			break;
+			$( "#headerMyAccount" ).addClass('selected').siblings().removeClass('selected'); break;
 		case "mylab" : 
-			$( "#headerMyLab" ).addClass('selected').siblings().removeClass('selected');
-			$( "#pageContent" ).load( getPage(pageName), function() { 
-				//after load;
-			});
-			break;
+			$( "#headerMyLab" ).addClass('selected').siblings().removeClass('selected'); break;
 		case "nectars" : 
-		$( "#headerNectar" ).addClass('selected').siblings().removeClass('selected');
-			$( "#pageContent" ).load( getPage(pageName), function() { 
-				//after load;
-			});
-			break;
-		case "seducehydra" : 
-			$( "#pageContent" ).load( getPage(pageName), function() { 
-				//after load;
-			});
-			break;
+			$( "#headerNectar" ).addClass('selected').siblings().removeClass('selected'); break;
+		default: 
+			$( "#headerMenu" ).children().removeClass('selected'); break;
+		
+			
 	}
 	
-	
+	$( "#pageContent" ).load( getPage(pageName), function() { 
+				//after load;
+	});
 	
 	location.hash = '#'+pageName;
 }

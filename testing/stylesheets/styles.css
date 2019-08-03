@@ -98,10 +98,64 @@ input:-moz-placeholder { /* Firefox 18- */
     font-weight: bold;
 	margin-top: 10px;
 	
-	
+}
+
+/* ################################### FREE DELIVERY ################################### */
+	.FreeDelivery {
+		user-select:none;
+		background: #d9a742;
+		background: -moz-linear-gradient(-45deg, #e2c291 0%, #d9a742 100%);
+		background: -webkit-linear-gradient(-45deg, #e2c291 0%,#d9a742 100%);
+		background: linear-gradient(135deg, #e2c291 0%,#d9a742 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2C291', endColorstr='#D9A742',GradientType=1 );
+		filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#E2C291', endColorstr='#D9A742', GradientType=1);
+		margin: 0 auto 0%;
+		width: 100%;
+		padding: 25px;
+		text-align: center;
+	}
 	
 
-}
+	.FreeDeliveryHeader{
+		font-family: Georgia,serif;
+		font-size: 1.5em;
+		line-height: 1.5em;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	.FreeDeliveryMainText{
+		font-family: Georgia,serif;
+		font-size: 3.1em;
+		line-height: 1em;
+		font-weight: bold;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	.FreeDeliveryLine{
+		border: 0;
+		height: 1px;
+		background: white;
+		width: 24em;
+		margin: 0.5em auto;
+	}
+
+	.FreeDeliverySubText{
+		color: rgb(255, 255, 255);
+		font-size: 1.4em;
+		text-align: center;
+		font-weight: 600;
+	}
+
+	@media only screen and (max-width: 600px)
+	{
+		.FreeDelivery {
+			font-size: 2.5vw;
+			padding: 5%;
+		}
+
+	}
 
 /* ################################### HIT COUNTER ################################### */
 
@@ -117,6 +171,79 @@ input:-moz-placeholder { /* Firefox 18- */
     display: block;
     margin: 0 auto;
 }
+
+
+
+
+/* ################################### 2 Column ProductList ################################### */
+
+
+.product-parent{
+	    margin-top: 0.5em;
+	}
+	
+	.product-item-hr{
+		-webkit-flex: 0 0 100%;
+		-ms-flex: 0 0 100%;
+		flex: 0 0 100%;
+		text-align: center;
+		margin:1em;
+		font-size: 1.7em;
+		color: #444;
+	}
+	
+   	.product-item-hr.longText{
+		font-size: 1.5em;	
+	}		
+	
+	
+	.product-item {
+		width: 46%;
+		TEXT-ALIGN: center;
+		max-width: 46%;
+		margin: 2% 2% 2% 0;
+		box-shadow: 0 0 20px rgba(0,0,0,0.2);
+		background: rgba(255,255,255,0.6);
+		padding-bottom:1em;
+		border-radius: 5px;
+		position:relative;
+	}
+
+	.product-item-image {
+		display: block;
+		margin: 0 auto 1em;
+		width: 100%;
+		border-bottom: 2px solid #e0b947;
+		border-radius: 5px;
+	}
+	
+	.product-item-title {
+		font-size: 2em;
+		display: block;
+		margin: 0 0.6em 0.4em;
+	}
+	
+	.product-item-brand {
+		font-weight: bold;
+		top: 0.4em;
+		position: absolute;
+		color: #c38d36;
+		left: 0.4em;
+		font-size: 1.5em;	}	
+
+	.product-item-info {
+		line-height: 1em;
+		display: block;
+		margin: 0 1em;
+	}
+	
+
+
+	
+	
+	
+	
+	
 /* ################################### LAB REQUEST POPUP ################################### */
 
 #liquidOrderSection {
@@ -537,20 +664,19 @@ animation: blinker 1s linear infinite;
     float: right;
 }
 #goldRibbon {
-    background: rgba(255, 172, 48, 1);
-    background: -moz-radial-gradient(center, ellipse cover, rgba(255, 172, 48, 1) 0%, rgba(220, 167, 78, 1) 100%);
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255, 172, 48, 1)), color-stop(100%, rgba(220, 167, 78, 1)));
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(255, 172, 48, 1) 0%, rgba(220, 167, 78, 1) 100%);
-    background: -o-radial-gradient(center, ellipse cover, rgba(255, 172, 48, 1) 0%, rgba(220, 167, 78, 1) 100%);
-    background: -ms-radial-gradient(center, ellipse cover, rgba(255, 172, 48, 1) 0%, rgba(220, 167, 78, 1) 100%);
-    background: radial-gradient(ellipse at center, rgba(255, 172, 48, 1) 0%, rgba(220, 167, 78, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffac30', endColorstr='#dca74e', GradientType=1);
+	background: #d9a742;
+	background: -moz-linear-gradient(-45deg, #e2c291 0%, #d9a742 100%);
+	background: -webkit-linear-gradient(-45deg, #e2c291 0%,#d9a742 100%);
+	background: linear-gradient(135deg, #e2c291 0%,#d9a742 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2C291', endColorstr='#D9A742',GradientType=1 );
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#E2C291', endColorstr='#D9A742', GradientType=1);
     /* font-family: "Beleren"; */
     text-align: center;
     padding: 13px 0;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
     font-size: 35px;
     color: white;
+	text-shadow: 0 0 10px #8d6627;
 }
 /*CONTENT*/
 
@@ -649,6 +775,10 @@ animation: blinker 1s linear infinite;
     /* height:40px; */
     padding: 0 20px;
 }
+
+
+
+	
 /* ################################### MY LAB ################################### */
 
 #myAccountDetailsTitle {
@@ -1005,6 +1135,32 @@ margin: 0 10px 0 0;
     #liquidOrderTable{
         width:100%
     }
+	
+	
+	.product-item-hr{
+		font-size: 4vw;
+	}
+	
+	.product-item-hr.longText{
+		font-size: 3vw;	
+	}	
+	
+	.product-item {
+		margin: 2% 1% 2% 1%;
+		width: 48%;
+		max-width: 48%;
+	}
+	
+	.product-item-title {
+		font-size:4vw;
+	}
+	
+	.product-item-brand {
+	}
+	
+	.product-item-info{
+		font-size:2.5vw;
+	}	
 }
 @media only screen and (max-width: 600px) {
     .nectar {
@@ -1044,6 +1200,33 @@ margin: 0 10px 0 0;
    padding-left: 0%;
    margin-bottom:0px;
    }
+   
+   
+   
+   	.product-item-hr{
+		font-size: 1.3em;	
+	}
+	
+   	.product-item-hr.longText{
+		font-size: 1em;	
+	}	
+   
+   	.product-item {
+		width: 100%;
+		max-width: 100%;
+	}
+	
+	.product-item-title {
+		font-size:2em;
+	}
+	
+	.product-item-brand {
+	}	
+	
+	.product-item-info{
+		font-size:1em;
+	}	
+		
 }
 
 @media only screen and (max-width: 400px) {

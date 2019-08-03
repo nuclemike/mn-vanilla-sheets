@@ -267,7 +267,7 @@ function loadMyLabCb(e) {
 		e.requests.forEach( function (item){
 
 
-			var imgUrl = 'liquids/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
+			var imgUrl = 'nectar/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
 			html += '<div class="myLabRequestWrapper fxFixed state'+item.state+'">';
 			html += '<div class="myLabRequestFlask" style="background-image:url('+imgUrl.toLowerCase()+')">';
 			html += '<span class="myLabRequestQty">' + item.quantity + 'x</span>';						
