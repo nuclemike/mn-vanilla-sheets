@@ -15,12 +15,16 @@ $(document).ready(function() {
 		window.location.hash == '#coilheads' ||	
 		window.location.hash == '#rebuilding' ||			
 		window.location.hash == '#glasstubes' ||
+		window.location.hash == '#atomizers' ||
+		window.location.hash == '#mods' ||				
 		window.location.hash == '#starterkits') 
 		{
 			loadContent(window.location.hash.substring(1));
 		} else {
 			loadContent('home');	
 		}
+		
+		
 
 	//$('#shutdownNoticeShadow').show();
 });

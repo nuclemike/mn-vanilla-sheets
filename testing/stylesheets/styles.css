@@ -229,7 +229,7 @@ input:-moz-placeholder { /* Firefox 18- */
 		position: absolute;
 		color: #c38d36;
 		left: 0.4em;
-		font-size: 1.5em;	}	
+		font-size: 1.4em;	}	
 
 	.product-item-info {
 		line-height: 1em;
@@ -1156,6 +1156,7 @@ margin: 0 10px 0 0;
 	}
 	
 	.product-item-brand {
+		font-size:1.1em;
 	}
 	
 	.product-item-info{
@@ -1221,12 +1222,12 @@ margin: 0 10px 0 0;
 	}
 	
 	.product-item-title {
-	
+	    font-size: 1.3em;
 	}
 	
 
 	.product-item-brand {
-		font-size: 1.2em;
+		font-size: 1em;
 	}
 	
 	.product-item-info{
@@ -1299,6 +1300,7 @@ margin: 0 10px 0 0;
 	}
 	
 	.product-item-brand {
+		font-size:1.3em;
 	}	
 	
 	.product-item-info{
