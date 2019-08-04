@@ -72,6 +72,7 @@ function loadContent(pageName) {
 	openMenu(false);
 	$( "#pageLoader" ).show();
 	$( "#pageContent" ).hide();
+	$( "#scrollContent" ).scrollTop(0);
 	
 	
 	switch(pageName) {
