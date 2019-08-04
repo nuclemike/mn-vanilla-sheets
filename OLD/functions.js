@@ -2,7 +2,7 @@
 
 function labRequestPopup(nectarName) {
 	$('#scrollContent').css('overflow','hidden');
-	var imgUrl = './nectar/' + nectarName.replace(/[^a-z0-9]/gi,'') +'.png';
+	var imgUrl = './liquids/' + nectarName.replace(/[^a-z0-9]/gi,'') +'.png';
 	var op = document.getElementById("liquidOrderSize").getElementsByTagName("option");
 	
 	op[1].disabled = false;
