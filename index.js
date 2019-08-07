@@ -92,6 +92,8 @@ function loadContent(pageName) {
 				//after load;
 	});
 	
+	gtag('config', 'UA-104168459-1', {'page_path': '/'+pageName});
+	
 	location.hash = '#'+pageName;
 }
 
