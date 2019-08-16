@@ -1,0 +1,1327 @@
+/* ################################### GLOBAL ###################################*/
+
+* {
+    box-sizing: border-box
+}
+html {
+    margin: 0;
+    height: 100%;
+    /* padding-top: 105px; */
+}
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.3s;
+    transition-delay: 0.5s;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3) inset;
+    background: url(floralBGWhite.png);
+}
+
+input, select, textarea {
+	background-color:white;	
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: transparent;
+  font-weight:normal;
+}
+input::-moz-placeholder { /* Firefox 19+ */
+  color: transparent;
+  font-weight:normal;
+}
+input:-ms-input-placeholder { /* IE 10+ */
+  color: transparent;
+  font-weight:normal;
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: transparent;
+  font-weight:normal;
+}
+
+#scrollContent{
+	-webkit-overflow-scrolling: touch;
+	overflow-y:auto;	
+}
+
+#pageLoader {
+    height: 100%;
+    background: url("/stylesheets/sending.gif") no-repeat center center;
+}
+
+/* ################################### Shutdown Notice ################################### */
+#shutdownNoticeShadow{
+	background: rgba(80, 80, 80, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 99999;
+}
+
+#shutdownNotice{
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 100%;
+    width: 500px;
+}
+
+#shutdownNotice h1{
+	color: tomato;
+}
+
+#shutdownNotice h2{
+	font-size: 18px;
+	font-weight: normal;
+}
+
+#shutdownNotice p{
+	color: #555;
+}
+
+#shutdownOkBtn{
+	background: #f1cd63;
+    border: 0;
+    color: #444;
+    font-family: 'Raleway', sans-serif;
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 3px;
+    font-size: 15px;
+    float: right;
+    font-weight: bold;
+	margin-top: 10px;
+	
+}
+
+/* ################################### FREE DELIVERY ################################### */
+	.FreeDelivery {
+		user-select:none;
+		background: #d9a742;
+		background: -moz-linear-gradient(-45deg, #e2c291 0%, #d9a742 100%);
+		background: -webkit-linear-gradient(-45deg, #e2c291 0%,#d9a742 100%);
+		background: linear-gradient(135deg, #e2c291 0%,#d9a742 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2C291', endColorstr='#D9A742',GradientType=1 );
+		filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#E2C291', endColorstr='#D9A742', GradientType=1);
+		margin: 0 auto 0%;
+		width: 100%;
+		padding: 25px;
+		text-align: center;
+	}
+	
+
+	.FreeDeliveryHeader{
+		font-family: Georgia,serif;
+		font-size: 1.5em;
+		line-height: 1.5em;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	.FreeDeliveryMainText{
+		font-family: Georgia,serif;
+		font-size: 3.1em;
+		line-height: 1em;
+		font-weight: bold;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	.FreeDeliveryLine{
+		border: 0;
+		height: 1px;
+		background: white;
+		width: 24em;
+		margin: 0.5em auto;
+	}
+
+	.FreeDeliverySubText{
+		color: rgb(255, 255, 255);
+		font-size: 1.4em;
+		text-align: center;
+		font-weight: 600;
+	}
+
+	@media only screen and (max-width: 600px)
+	{
+		.FreeDelivery {
+			font-size: 2.5vw;
+			padding: 5%;
+		}
+
+	}
+
+/* ################################### HIT COUNTER ################################### */
+
+#hitCounter {
+    background: #fff;
+    padding: 5px 0 4px;
+    border-top: 1px solid #e9e9e9;
+    margin: 0 auto;
+    width: 70px;
+    border-radius: 10px 10px 0 0;
+}
+#hitCounter img {
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+
+/* ################################### 2 Column ProductList ################################### */
+
+
+.product-parent{
+	    margin-top: 0.5em;
+	}
+	
+	.product-item-hr{
+		-webkit-flex: 0 0 100%;
+		-ms-flex: 0 0 100%;
+		flex: 0 0 100%;
+		text-align: center;
+		margin:5em 1em 1em;
+		font-size: 1.7em;
+		color: #444;
+	}
+	
+   	.product-item-hr.longText{
+		font-size: 1.5em;	
+	}		
+	
+	
+	.product-item {
+		width: 46%;
+		TEXT-ALIGN: center;
+		max-width: 46%;
+		margin: 2% 2% 2% 0;
+		box-shadow: 0 0 20px rgba(0,0,0,0.2);
+		background: rgba(255,255,255,0.6);
+		padding-bottom:1em;
+		border-radius: 5px;
+		position:relative;
+	}
+
+	.product-item-image {
+		display: block;
+		margin: 0 auto 1em;
+		width: 100%;
+		border-bottom: 2px solid #e0b947;
+		border-radius: 5px;
+	}
+	
+	.product-item-title {
+		font-size: 2em;
+		display: block;
+		margin: 0 0.6em 0.4em;
+	}
+	
+	.product-item-brand {
+		font-weight: bold;
+		top: 0.4em;
+		position: absolute;
+		color: #c38d36;
+		left: 0.4em;
+		font-size: 1.4em;	}	
+
+	.product-item-info {
+		line-height: 1em;
+		display: block;
+		margin: 0 1em;
+	}
+	
+	.product-item-buy {
+		margin-top: 15px;
+	}	
+	    
+	.product-item-price{
+	    font-weight: bold;
+		color: #c38d36;
+		font-size: 1.4em;
+		line-height: 1.5em;	
+	}		
+		
+	.product-item-order{
+		font-weight: bold;
+		color: #eee;
+		font-size: 1em;
+		padding: 0.5em 1em;
+		background: #444;
+		cursor:pointer;
+	}
+
+	
+	
+	
+	
+	
+/* ################################### LAB REQUEST POPUP ################################### */
+
+#liquidOrderSection {
+    background: rgba(80, 80, 80, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+#liquidOrderForm {
+    position: relative;
+    border-radius: 10px;
+    color: #999;
+    font-family: 'Raleway', sans-serif;
+}
+#liquidOrderFlask {
+    background-color: #eee;
+    margin: 20px 0;
+    padding: 30px 30px;
+    border-radius: 20px 0 0 20px;
+    box-shadow: -18px 0 10px -10px rgba(0, 0, 0, 0.1) inset;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+}
+#liquidOrderData {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+#liquidOrderNectarThumbnail {
+    width: 160px;
+}
+#yourVeryOwn {
+    display: block;
+    width: 160px;
+    color: #d87b00;
+    font-size: 19px;
+    MARGIN-BOTTOM: 249PX;
+    line-height: 18px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+#sendingPanel,
+#orderSentPanel {
+    position: absolute;
+    top: 0;
+    background-color: white;
+    font-size: 15px;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    padding: 30px;
+    height: 380px;
+    color: #555;
+    text-align: center;
+    color: #555;
+}
+#sendingPanel {
+    background: url(/stylesheets/sending.gif) center 100px no-repeat white;
+    padding-top: 290px;
+    height: 100%;
+}
+#sendingPanel h4,
+#orderSentPanel h4 {
+    font-size: 31px;
+    margin: 20px;
+    color: #888;
+}
+#orderSentPanel h4 {
+    color: #4ab74a;
+}
+
+#orderSentPanel i {
+    /* background:#eee; */
+    /* display: inline-block; */
+    
+    padding: 10px;
+    /* line-height: 23px; */
+    
+    border-radius: 20px;
+}
+#orderSentPanelRequestID {
+    font-size: 30px;
+}
+#liquidOrderTable {
+    width: 350px;
+    font-size: 15px;
+    color: #444;
+    margin-top: 16px;
+    margin-bottom: 20px;
+    border-spacing: 0;
+}
+
+#liquidOrderTable .info {
+    /* background: #eee; */
+    font-weight: bold;
+    color: #d87b00;
+    line-height: 35px;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+#liquidOrderTable td {
+    padding: 5px 0;
+}
+.requiredField {
+    border-color: tomato !important;
+}
+#liquidOrderTable input,
+#liquidOrderTable select {
+    font-family: 'Raleway', sans-serif;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    height: 35px;
+    padding: 0 7px;
+    color: #444;
+    width: 150px;
+    font-size: 15px;
+}
+
+#liquidOrderTable .bottomBorderRow{
+	padding-bottom:15px;
+	border-bottom:1px solid #ddd;
+}
+
+input#liquidOrderCustomerVaper {
+    width: 100%;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+#liquidOrderCustomerVaper::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #d87b00;
+  font-weight:bold;
+}
+#liquidOrderCustomerVaper::-moz-placeholder { /* Firefox 19+ */
+  color: #d87b00;
+font-weight:bold;  
+}
+#liquidOrderCustomerVaper:-ms-input-placeholder { /* IE 10+ */
+  color: #d87b00;
+font-weight:bold;  
+}
+#liquidOrderCustomerVaper:-moz-placeholder { /* Firefox 18- */
+  color: #d87b00;
+font-weight:bold;  
+}
+
+#liquidOrderNectarName {
+    color: #444;
+    font-family: "Beleren";
+    font-size: 25px;
+    line-height: 16px;
+    display: block;
+    text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    text-align: center;
+}
+
+#totalCostValue {
+    float: left;
+    font-size: 30px;
+    color: #4ab74a;
+    font-weight: bold;
+}
+
+#totalCostSave{
+        font-size: 15px;
+        color: #cc5336;
+        font-weight: bold;
+        margin-left: 15px;
+        line-height: 15px;
+        float: left;
+        margin-top: 4px;
+}
+
+#sendOrder,
+#goToMyLab,
+#cancelOrder {
+    background: #f1cd63;
+    border: 0;
+    color: #444;
+    font-family: 'Raleway', sans-serif;
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 3px;
+    font-size: 15px;
+    float: right;
+    margin-left: 10px;
+    font-weight: bold;
+}
+#goToMyLab {
+    background-color: #ffb7b7;
+}
+#cancelOrder {
+    background: #ddd;
+    color: #666;
+}
+/* ################################### LOGIN PUPOP ################################### */
+
+.credPopupShadow {
+    background: rgba(80, 80, 80, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.credPopupShadow.loading .credPopupTable,
+.credPopupShadow.loading input
+ {
+    opacity: 0.5 !important;
+    pointer-events: none !important;
+}
+
+.credPopupShadow.loading .credPopupTitle
+ {
+animation: blinker 1s linear infinite;
+}
+
+.credPopupForm {
+    /* background: white; */
+    /* height: 450px; */
+    /* width: 600px; */
+    
+    padding: 30px;
+    position: relative;
+    border-radius: 10px;
+    color: #999;
+    /* box-shadow: 215px 0 0 0 #eee inset; */
+    
+    font-family: 'Raleway', sans-serif;
+}
+.credPopupData {
+    background: white;
+    border-radius: 8px;
+    padding: 33px;
+    position: relative;
+}
+
+
+.credPopupTable {
+    width: 320px;
+    font-size: -2px;
+    color: #444;
+    margin-top: 16px;
+    border-top: 1px solid #eee;
+    padding-top: 18px;
+    margin-bottom: 12px;
+}
+.credPopupTable td {
+    padding: 5px 0;
+}
+.requiredField {
+    border-color: tomato !important;
+}
+.credPopupTable input {
+    font-family: 'Raleway', sans-serif;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    height: 35px;
+    padding: 0 7px;
+    color: #444;
+    width: 100px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.credPopupForm input[type=email],
+.credPopupForm input[type=password] {
+    width: 212px;
+}
+
+#changePassPopupShadow input[type=password]{
+    width: 150px;
+}
+#rememberMe + label {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    height: 20px;
+    width: 20px;
+    float: right;
+    margin-left: 10px;
+    box-shadow: 0 0 1px 3px white inset;
+}
+#rememberMe:checked + label {
+    background-color: #f1cd63;
+}
+
+.credPopupError {
+    color: white;
+    text-align: center;
+    line-height: 45px;
+    font-weight: bold;
+    font-size: 15px;
+    display: block;
+    background-color: tomato;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+.credPopupMainIcon {
+    position: absolute;
+    top: 26px;
+    left: 27px;
+}
+.credPopupTitle {
+    line-height: 41px;
+    font-size: 21px;
+    margin-left: 49px;
+    top: 30px;
+    color: #d3644a;
+    font-weight: bold;
+}
+.CredPopupButton {
+ background: #ddd;
+    color: #666;
+    border: 0;
+    font-family: 'Raleway', sans-serif;
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 3px;
+    font-size: 15px;
+    float: right;
+    font-weight: bold;
+}
+.proceedCredPopupButton {
+    background: #f1cd63;
+    color: #444;
+    padding: 0 30px;
+    margin-left: 10px;
+}
+
+.CredPopupHowLogin{
+    clear: both;
+    float: right;
+    font-size: 17px;
+    color: #d3644a;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.CredPopupHowLogin span{
+	    display: block;
+    font-size: 12px;
+    color: #666;
+}
+
+
+/* ################################### HEADER ################################### */
+
+#header {
+    background: #111;
+    /* position: absolute; */
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: 999;
+    max-width: 100%;
+    height: 105px;
+}
+#headerContainer {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1000px;
+    display: table;
+    height: 100%;
+}
+#headerLoginText {
+    color: #bca076;
+    position: absolute;
+    right: 10px;
+    top: 4px;
+}
+
+#headerMenuOpener,
+#headerMenuCloser{
+	display:none;
+}
+
+#headerMenu {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+#headerMenu a {
+    font-size: 15px;
+    float: left;
+    cursor: pointer;
+    color: #8a8072;
+    padding: 0 10px 10px;
+}
+
+
+#headerMenu a:hover,
+#headerMenu a.selected{
+    opacity: 1;
+     color: #ffd074;
+}
+.menuImg {
+    display: block;
+    margin: 0 auto 6px;
+    opacity: 0.8;
+    width: 24px;
+}
+#menuBurger {
+    /* display: none; */
+    float: right;
+}
+#goldRibbon {
+	background: #d9a742;
+	background: -moz-linear-gradient(-45deg, #e2c291 0%, #d9a742 100%);
+	background: -webkit-linear-gradient(-45deg, #e2c291 0%,#d9a742 100%);
+	background: linear-gradient(135deg, #e2c291 0%,#d9a742 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2C291', endColorstr='#D9A742',GradientType=1 );
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#E2C291', endColorstr='#D9A742', GradientType=1);
+    /* font-family: "Beleren"; */
+    text-align: center;
+    padding: 13px 0;
+    margin-bottom: 2%;
+    font-size: 35px;
+    color: white;
+	text-shadow: 0 0 10px #8d6627;
+}
+/*CONTENT*/
+
+#contentContainer {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+#sideBar {
+    display: none;
+    width: 300px;
+    color: white;
+    font-size: 18px;
+    overflow-y: auto;
+    text-shadow: 0 0 10px black;
+    text-align: right;
+}
+#mainLogo {
+    width: 230px;
+    float: left;
+    padding: 5px;
+	cursor:pointer;
+}
+#sideBar ul {
+    list-style: none outside none;
+    margin: 0px;
+    padding: 0;
+}
+#sideBar li {
+    margin: 31px 41px 32px 0;
+    color: #655a44;
+}
+#sideBar li:first-child {
+    color: #cecece;
+}
+/* ################################### NECTARS ################################### */
+
+.nectar {
+    float: left;
+    width: 250px;
+    TEXT-ALIGN: center;
+    margin-bottom: 5%;
+    max-width: 250px;
+    padding: 10px 0;
+    border-radius: 20px;
+    position: relative;
+}
+
+@keyframes jump {
+  0%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
+  40%  {transform: translate3d(0,-9%,0) scale3d(0.9,1.1,1);}
+  100% {transform: translate3d(0,-12%,0) scale3d(1,1,1);}
+}
+
+.nectar.new img{
+  transform-origin: 50% 50%;
+  animation: jump .17s linear alternate 6;
+
+}
+
+.nectar.new:after {
+    content:'';
+    position:absolute;
+    height:70px;
+    width:70px;
+    top:5%;
+    right:10%;
+    z-index:99;
+    background-image: url(new.png);
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.nectar:hover,
+.nectar.active {
+    background-color: rgba(170, 170, 170, 0.4);
+}
+.nectarFlask {
+    width: 75%;
+}
+
+
+.nectarName {
+    color: #444;
+    font-family: "Beleren";
+    font-size: 30px;
+    margin-bottom: 0.3em;
+    display: block;
+    text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.nectarInfo {
+    color: black;
+    line-height: 0.91em;
+    /* margin-bottom: 20px; */
+    display: block;
+    /* height:40px; */
+    padding: 0 20px;
+}
+
+
+
+	
+/* ################################### MY LAB ################################### */
+
+#myAccountDetailsTitle {
+    padding: 0;
+    margin: 0 0 7%;
+    font-size: 25px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: #c38d36;
+    display: block;
+    width: 100%;
+}
+
+#myAccountDetailsTitle.noLabRequests {
+    margin: 0;
+    color: #b7b7b7;
+    text-align:center;
+    }
+
+#myAccountDetails {
+    margin: 0 auto;
+    display: table;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Raleway', sans-serif;
+    padding: 50px;
+    margin-bottom: 5%;
+    width: 96%;
+    max-width: 600px;
+}
+#myAccountDetails span,
+#myAccountDetails label,
+#myAccountDetails > a {
+    float: left;
+    line-height: 30px;
+}
+#myAccountDetails span {
+    font-weight: bold;
+    color: #444444;
+}
+#myAccountDetails label {
+    clear: left;
+    width: 42%;
+    color: #4d4d4d;
+    /* font-weight: bold; */
+}
+
+#myAccountDetails a{
+    cursor: pointer;
+    color: #c38d36;
+    font-weight: bold;
+}
+
+#myAccountDetails #myAccountMarketing{
+	margin-top:20px;
+}
+
+
+#myAccountDetails #myAccountMarketing.true{
+	color: #08a81f;
+}
+
+
+#myAccountDetails #myAccountMarketing.false{
+	color: #ee3a0c;
+}
+
+#myLabRequestDumpDiv {
+    margin: 0 2%;
+}
+
+.myLabRequestTitle{
+    padding: 0;
+    font-size: 23px;
+    color: #616161;
+    text-align: center;
+    line-height: 1.5em;
+}
+
+.myLabRequestTitle b{
+    margin: 8% 5% 3%;
+    font-size: 30px;
+    color: #c38d36;
+}
+
+
+
+#myLabRequestContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2%;
+}
+
+.myLabRequestWrapper {
+    margin: 2%;
+    background: #FFF;
+    border-radius: 5px;
+    padding-left: 0%;
+    height: 188px;
+    position: relative;
+    width: 335PX;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    font-size: 15px;
+    overflow: hidden;
+}
+
+.myLabRequestWrapper:after {
+    
+    position:absolute;    
+    right:0;
+    bottom:0;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;    
+    line-height: 36px;    
+    width: 61%;
+    
+    content:'Processing';   
+    color: #de5d46;
+    animation: blinker 1s linear infinite;
+    background-color: #ffeee8;    
+}
+
+.myLabRequestWrapper.stateR:after,
+.myLabRequestWrapper.stateN:after {
+    content:'Ready for Pickup!';   
+    color: white;
+    animation: none;;
+    background-color: #87c30d;
+}
+
+.myLabRequestWrapper.stateB:after {
+    content:'Back-Order';   
+    color: white;
+    animation: none;;
+    background-color: #0db3c3;
+}
+
+.myLabRequestWrapper.stateU:after {
+    content:'Unpaid';   
+    color: white;
+    animation: none;;
+    background-color: #c3470d;
+}
+
+.myLabRequestFlask {
+    width: 39%;
+    height: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center 27%;
+    background-size: 65%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+.myLabRequestNectar {
+    color: #333;
+    font-family: "Beleren";
+    font-size: 22px;
+    line-height: 18px;
+    text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    bottom: 10%;
+    height: 47px;
+}
+
+.myLabRequestVaper {
+    margin-top: 16px;
+    display: block;
+    font-size: 17px;
+    color: #7a4d30;
+    font-weight: bold;
+    float: right;
+    width: 56%;
+}
+
+.myLabRequestDate {
+    font-size: 14px;
+    color: #d0cab6;
+    margin-bottom: 3px;
+    float: right;
+    width: 56%;
+}
+.myLabRequestSize, .myLabRequestNicotine, .myLabRequestNicType, .myLabRequestVg, .myLabRequestReference {
+    color: #a17733;
+    display: block;
+    line-height:16px;
+    float: right;
+    width: 56%;
+}
+
+.myLabRequestNicType .nicTypeS {
+    color: yellowgreen;
+}
+
+.myLabRequestNicType .nicTypeF {
+    color: tomato;
+}
+
+.myLabRequestWrapper b {
+    width: 75px;
+    display: inline-block;
+    font-weight: normal;
+}
+.myLabRequestReference b,
+.myLabRequestSize b,
+.myLabRequestNicotine b,
+.myLabRequestVg b {
+    color: #dbba86;
+}
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { color: transparent; }
+}
+
+.myLabRequestStatePending,
+
+
+.myLabRequestQty {
+    position: absolute;
+    font-weight: bold;
+    top: 13%;
+    right: 67%;
+    color: #333;
+    font-size: 21px;
+    text-align: right;
+}
+
+/* ################################### MEDIA QUERIES ################################### */
+
+@media only screen and (max-width: 850px) {
+    #headerMenu{
+		display:none;
+		position: fixed;
+		top: 0;
+		right: 0;
+		background: #111;
+		padding: 40px 40px;
+		}
+		
+	#headerMenuCloser{
+		position: fixed;
+		background: rgba(150,150,150,0.7);
+		top: 0;
+		width: 100%;
+		left: 0;
+		height: 100%;
+	}	
+
+	#headerMenuCloser.opened,
+	#headerMenu.opened {
+		display:block;
+	}		
+	
+	#headerMenuOpener{
+		display:block;
+		width: 55px;
+		position: absolute;
+		right: 10px;
+		top: 30%;
+		padding: 10px;
+	}
+	
+	
+	#headerMenu a {
+        padding: 10px 0;
+        font-size: 16px;
+        clear: both;
+        line-height: 24px;
+    }
+	
+	#headerMenu a img{
+     
+float: left;
+     
+margin: 0 10px 0 0;
+    }	
+}
+@media only screen and (max-width: 750px) {
+
+    html {
+        /* padding-top :90px; */
+    }
+
+    #header {
+        height:90px;
+    }
+
+
+    #mainLogo {
+        width: 200px;
+    }
+
+    #goldRibbon{
+        font-size:25px;
+        padding:11px;
+    }
+
+ 
+
+ 
+    #liquidOrderForm {
+        flex-direction: column;
+        width: 95%;
+        padding: 0;
+        max-width: 350px;
+    }
+    #liquidOrderFlask {
+        margin: 0 10px 0px 10px;
+        border-radius: 10px 10px 0 0;
+        box-shadow: 0 -18px 10px -10px rgba(0, 0, 0, 0.1) inset;
+        padding: 15px;
+        height: 100px;
+        background-size: 70px;
+        background-position-x: 12px;
+    }
+    #liquidOrderNectarThumbnail {
+        width: auto;
+        float: left;
+        height: 50px;
+        margin-top: 12px;
+        margin-left: 10px;
+    }
+    #yourVeryOwn {
+        position: absolute;
+        top: 32px;
+        width: auto;
+        lefT: 91px;
+        margin: 0;
+        text-align: left;
+        font-size: 16px;
+    }
+    #yourVeryOwn b {
+        /* font-size: 16px; */
+        
+        margin-right: 5px;
+    }
+    #yourVeryOwn br {
+        display: none
+    }
+    #liquidOrderNectarName {
+        float: left;
+        margin-left: 87px;
+        margin-top: 38px;
+        width: auto;
+    }
+    #liquidOrderTable{
+        width:100%
+    }
+	
+	
+	.product-item-hr{
+		font-size: 4vw;
+	}
+	
+	.product-item-hr.longText{
+		font-size: 3vw;	
+	}	
+	
+	.product-item {
+		margin: 2% 1% 2% 1%;
+		width: 48%;
+		max-width: 48%;
+	}
+	
+	.product-item-title {
+		font-size:4vw;
+	}
+	
+	.product-item-brand {
+		font-size:1.1em;
+	}
+	
+	.product-item-info{
+		font-size:2.5vw;
+	}	
+}
+@media only screen and (max-width: 600px) {
+    .nectar {
+        width: 50%;
+    }
+    .nectarFlask {
+        width: 85%;
+    }
+}
+@media only screen and (max-width: 500px) {
+    #goldRibbon {
+        font-size: 7vw;
+    }
+    .nectarName {
+        font-size: 6vw;
+    }
+    .nectarInfo {
+        padding: 0 2vw;
+        font-size: 4vw;
+    }
+    #myAccountDetails {
+        width: 96%;
+        padding: 50px;
+    }
+
+    #myAccountDetails span,
+    #myAccountDetails label {
+   width: 100%;
+   padding-left: 5%;
+   line-height:1.5em;
+   margin-bottom:20px;
+   font-s;ize: 18px;
+   }
+
+    #myAccountDetails label {
+   width: 100%;
+   padding-left: 0%;
+   margin-bottom:0px;
+   }
+   
+   
+   
+	
+   	.product-item-hr{
+		
+	}
+	
+   	.product-item-hr.longText{
+		
+	}	
+   
+   	.product-item {
+		margin: 0.3%;
+		border-radius: 0;
+		width: 49%;
+		max-width: 49%;
+		box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	}
+	
+	.product-item-title {
+	    font-size: 1.3em;
+	}
+	
+
+	.product-item-brand {
+		font-size: 1em;
+	}
+	
+	.product-item-info{
+		font-size: 0.8em;
+	}		
+}
+
+@media only screen and (max-width: 400px) {
+	#mainLogoSmall{
+		display:block !important;
+		margin-left: 10px;
+		cursor:pointer;
+	}
+	#mainLogo{
+		display:none;
+	}	
+
+	.credPopupTitle{
+    font-size: 17px;
+    }	
+
+	.credPopupTable{
+    width: 100%;
+    min-width: 230px;
+    }
+	
+	
+
+    .credPopupTable td:first-child{
+        font-size:0
+    }
+
+	input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	  color: #cecece;
+	}
+	input::-moz-placeholder { /* Firefox 19+ */
+	  color: #cecece;
+	}
+	input:-ms-input-placeholder { /* IE 10+ */
+	  color: #cecece;
+	}
+	input:-moz-placeholder { /* Firefox 18- */
+	  color: #cecece;
+	}    
+    
+	.credPopupForm input[type=email], 
+	.credPopupForm input[type=password] {
+    width: 100% !important;
+    }
+	
+	
+	
+	
+	
+   	.product-item-hr{
+		font-size: 1.3em;	
+	}
+	
+   	.product-item-hr.longText{
+		font-size: 1em;	
+	}	
+   
+   	.product-item {
+		width: 100%;
+		max-width: 100%;
+	}
+	
+	.product-item-title {
+		font-size:1.6em;
+	}
+	
+	.product-item-brand {
+		font-size:1.3em;
+	}	
+	
+	.product-item-info{
+		font-size:1em;
+	}	
+}

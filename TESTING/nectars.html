@@ -1,0 +1,410 @@
+<script>
+	var nrOfImages = $("#pageContent img").length;
+		    $("#pageContent img").load(function() {
+			if(--nrOfImages == 0)
+			{
+			    pageLoaded();
+			}
+		    });
+
+function nectarPropChanged(element) {
+
+	var clickedProp = element.textContent.toLowerCase();
+	
+	if (clickedProp == "all"){
+
+		$(element).addClass("selected").siblings().removeClass("selected");
+		$(".nectar").fadeIn();
+	
+	} else {
+		$(".nectarProp.all").removeClass("selected");
+		$(element).toggleClass("selected");		
+		$(".nectar").stop().hide();
+		
+		var props = "";
+		
+		$( ".nectarProp.selected" ).each(function( index ) {
+			props += "[props~="+this.textContent.toLowerCase()+"]";
+		});
+		
+		if (props != ""){
+			$(".nectar"+props).fadeIn()
+		} else {
+			$(".nectarProp.all").addClass("selected");
+			$(".nectar").fadeIn();
+		}
+	}
+	
+
+}
+</script>
+
+<style>
+
+	.nectarProps {
+		padding: 0;
+		margin-bottom:4px;
+		}
+		
+	.nectarProp{
+		padding: 5px 10px;
+		margin: 4px 2px 0;
+		border-radius: 3px;
+		cursor: pointer;
+		user-select:none;
+	}
+
+	.nectarProp.selected{
+		font-weight: bold;
+		background: #333;
+		color: #fff;
+	}
+
+
+
+</style>
+	
+		<!--<div id="goldRibbon" class="fxFixed">Click on a Bottle!</div>-->
+<!--
+		<a style="margin: 0px auto 15px;display: table;max-width: 100%;" href="http://m.me/mamasnectar" class="prexmasoffer">
+			<img src="./prexmas.png" style="max-width: 100%;">
+		</a>
+-->
+
+<div class="FreeDelivery" >
+    <span class="FreeDeliveryHeader">having a busy life?</span><br><span class="FreeDeliveryMainText">FREE DELIVERY</span>
+    <hr class="FreeDeliveryLine"><span class="FreeDeliverySubText">if you spend 50Euros or more!</span><br>
+</div>
+    
+
+    
+</div>
+
+			<div class="nectarProps fxDisplay fxWrap fxJustifyCenter">
+				<div onclick="nectarPropChanged(this);" class="nectarProp selected all">All</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Pastry</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Fruity</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Spicy</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Sweet</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Candy</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Beverage</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Creamy</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Minty</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Nutty</div>
+				<div onclick="nectarPropChanged(this);" class="nectarProp">Tobacco</div>
+			</div>
+			
+		<div id="contentContainer" class="fxDisplay fxWrap fxJustifyCenter">
+
+
+			
+			<div class="nectar new" props="fruity candy minty" onclick="authenticatedFunction(function(){ labRequestPopup('Devil\'s Cotton') });">
+				<img class="nectarFlask" src="./nectar/devilscotton.png">		
+				<span class="nectarName">Devil's Cotton</span>
+				<span class="nectarInfo">an exotic mix of spiced tangy fruit, in the form of cotton candy!</span>
+			</div>	
+		
+			<div class="nectar" props="pastry fruity spicy creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Tart Quarry') });">
+				<img class="nectarFlask" src="./nectar/tartquarry.png">		
+				<span class="nectarName">Tart Quarry</span>
+				<span class="nectarInfo">a sour lemon delight, balanced with sweet biscuits and creams!</span>
+			</div>			
+		
+			<div class="nectar" props="fruity sweet candy beverage minty" onclick="authenticatedFunction(function(){ labRequestPopup('Boozy Bill') });">
+				<img class="nectarFlask" src="./nectar/boozybill.png">		
+				<span class="nectarName">Boozy Bill</span>
+				<span class="nectarInfo">he feeds on blueberries and binges on sambuca!</span>
+			</div>	
+			
+			<div class="nectar" props="fruity beverage creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Tropic Terror') });">
+				<img class="nectarFlask" src="./nectar/tropicterror.png">		
+				<span class="nectarName">Tropic Terror</span>
+				<span class="nectarInfo">the almighty mango smoothie, with a yoghurt fruit complexity!</span>
+			</div>	
+
+			<div class="nectar" props="sweet beverage creamy nutty" onclick="authenticatedFunction(function(){ labRequestPopup('Protein Cells') });">					
+				<img class="nectarFlask" src="./nectar/proteincells.png">		
+				<span class="nectarName">Protein Cells</span>
+				<span class="nectarInfo">a non-fatty complex addiction, for almond milkshake lovers!</span>
+			</div>		
+		
+			<div class="nectar" props="pastry fruity spicy" onclick="authenticatedFunction(function(){ labRequestPopup('The First Sin') });">
+				<img class="nectarFlask" src="./nectar/thefirstsin.png">		
+				<span class="nectarName">The First Sin</span>
+				<span class="nectarInfo">mama didn't eat the apple, she put it in a pie and fried it!</span>
+			</div>			
+		
+			<div class="nectar" props="pastry fruity sweet creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Hue Cannon') });">
+				<img class="nectarFlask" src="./nectar/huecannon.png">		
+				<span class="nectarName">Hue Cannon</span>
+				<span class="nectarInfo">fruity cereal covered, italian cream-filled cannoli!</span>
+			</div>				
+
+			<div class="nectar" props="pastry fruity sweet" onclick="authenticatedFunction(function(){ labRequestPopup('Purple Maze') });">
+				<img class="nectarFlask" src="./nectar/purplemaze.png">		
+				<span class="nectarName">Purple Maze</span>
+				<span class="nectarInfo">blueberry & raspberry filled sugar glazed doughnuts!</span>
+			</div>				
+			
+			<div class="nectar" props="candy minty" onclick="authenticatedFunction(function(){ labRequestPopup('Liquid Pepper') });">
+				<img class="nectarFlask" src="./nectar/liquidpepper.png">		
+				<span class="nectarName">Liquid Pepper</span>
+				<span class="nectarInfo">a simple smooth and creamy cooling peppermint!</span>
+			</div>	
+			
+			<div class="nectar" props="fruity sweet candy" onclick="authenticatedFunction(function(){ labRequestPopup('Bubble Trouble') });">
+				<img class="nectarFlask" src="./nectar/bubbletrouble.png">		
+				<span class="nectarName">Bubble Trouble</span>
+				<span class="nectarInfo">a classic fruity bubblegum, only without the chewing!</span>
+			</div>	
+			
+			<div class="nectar" props="fruity spicy candy minty" onclick="authenticatedFunction(function(){ labRequestPopup('Wild Frost') });">
+				<img class="nectarFlask" src="./nectar/wildfrost.png">		
+				<span class="nectarName">Wild Frost</span>
+				<span class="nectarInfo">A wide range of cool-sensation infused wild berries!</span>
+			</div>		
+			
+			<div class="nectar" props="pastry fruity spicy sweet creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Monkey Munch') });">
+				<img class="nectarFlask" src="./nectar/monkeymunch.png">		
+				<span class="nectarName">Monkey Munch</span>
+				<span class="nectarInfo">ape's favorite... banana cinnamon cookie!</span>
+			</div>		
+
+			<div class="nectar" props="fruity sweet beverage creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Crimson Fuzz') });">
+				<img class="nectarFlask" src="./nectar/crimsonfuzz.png">		
+				<span class="nectarName">Crimson Fuzz</span>
+				<span class="nectarInfo">a creamy, strawberry enriched kiwi smoothie!</span>
+			</div>		
+			
+			<div class="nectar" props="fruity candy beverage" onclick="authenticatedFunction(function(){ labRequestPopup('Black Energy') });">
+				<img class="nectarFlask" src="./nectar/blackenergy.png">			
+				<span class="nectarName">Black Energy</span>
+				<span class="nectarInfo">blackcurrant / pomegranate candy with a slight lemon hint!</span>
+			</div>		
+			
+			<div class="nectar" props="pastry sweet creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Pastry Pot') });">
+				<img class="nectarFlask" src="./nectar/pastrypot.png">		
+				<span class="nectarName">Pastry Pot</span>
+				<span class="nectarInfo">mama's traditional vanilla cupcake!</span>
+			</div>	
+			
+			<div class="nectar" props="tobacco" onclick="authenticatedFunction(function(){ labRequestPopup('Classic Analog') });">
+				<img class="nectarFlask" src="./nectar/classicanalog.png">		
+				<span class="nectarName">Classic Analog</span>
+				<span class="nectarInfo">simply tobacco, in its liquid form!</span>
+			</div>	
+			
+			<div class="nectar" props="fruity spicy creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Passion Husky') });">
+				<img class="nectarFlask" src="./nectar/passionhusky.png">			
+				<span class="nectarName">Passion Husky</span>
+				<span class="nectarInfo">passion-fruit caramel with a creamy coconut background!</span>
+			</div>	
+			
+			<div class="nectar" props="fruity beverage sweet creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Coral Milk') });">
+				<img class="nectarFlask" src="./nectar/coralmilk.png">		
+				<span class="nectarName">Coral Milk</span>
+				<span class="nectarInfo">whipped cream covered peachy raspberry dessert!</span>
+			</div>	
+			
+			<div class="nectar" props="fruity sweet candy" onclick="authenticatedFunction(function(){ labRequestPopup('Angry Melons') });">
+				<img class="nectarFlask" src="./nectar/angrymelons.png">		
+				<span class="nectarName">Angry Melons</span>
+				<span class="nectarInfo">exotic papaya & melon mix with fused marshmallows!</span>
+			</div>				
+			
+			<div class="nectar" props="nutty tobacco" onclick="authenticatedFunction(function(){ labRequestPopup('Nutty Scutt') });">
+				<img class="nectarFlask" src="./nectar/nuttyscutt.png">		
+				<span class="nectarName">Nutty Scutt</span>
+				<span class="nectarInfo">a vanilla tobacco blend with pistachios and caramel!</span>
+			</div>	
+			
+			<div class="nectar" props="fruity sweet creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Rose Junket') });">
+				<img class="nectarFlask" src="./nectar/rosejunket.png">		
+				<span class="nectarName">Rose Junket</span>
+				<span class="nectarInfo">a creamy caramelly strawberry pudding!</span>
+			</div>	
+			
+			<div class="nectar" props="fruity candy minty" onclick="authenticatedFunction(function(){ labRequestPopup('Arctic Ruby') });">
+				<img class="nectarFlask" src="./nectar/arcticruby.png">		
+				<span class="nectarName">Arctic Ruby</span>
+				<span class="nectarInfo">a cool minty shot of juicy creamy raspberries!</span>
+			</div>	
+
+			<div class="nectar" props="fruity candy" onclick="authenticatedFunction(function(){ labRequestPopup('Rainbow Oil') });">
+				<img class="nectarFlask" src="./nectar/rainbowoil.png">		
+				<span class="nectarName">Rainbow Oil</span>
+				<span class="nectarInfo">gummy bears, milky bottles, and all the fun in between!</span>
+			</div>	
+			
+			<div class="nectar" props="fruity beverage creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Persian Malt') });">
+				<img class="nectarFlask" src="./nectar/persianmalt.png">		
+				<span class="nectarName">Persian Malt</span>
+				<span class="nectarInfo">a greek yoghurt smoothie with Peaches and Oranges!</span>
+			</div>		
+			
+			<div class="nectar" props="pastry fruity sweet creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Scarlet\'s Bar') });">
+				<img class="nectarFlask" src="./nectar/scarletsbar.png">		
+				<span class="nectarName">Scarlet's Bar</span>
+				<span class="nectarInfo">the known bar of joy! the strawberry cereal bar!</span>
+			</div>	
+			
+			<div class="nectar" props="fruity spicy" onclick="authenticatedFunction(function(){ labRequestPopup('Nautical Spice') });">
+				<img class="nectarFlask" src="./nectar/nauticalspice.png">		
+				<span class="nectarName">Nautical Spice</span>
+				<span class="nectarInfo">a creamy watermelon, kiwi, strawberry and lime fusion!</span>
+			</div>				
+
+			<div class="nectar" props="fruity creamy" onclick="authenticatedFunction(function(){ labRequestPopup('Dragon\'s Kiss') });">
+				<img class="nectarFlask" src="./nectar/dragonskiss.png">												
+				<span class="nectarName">Dragon's Kiss</span>
+				<span class="nectarInfo">vanilla enriched, caramelized dragon-fruit!</span>
+			</div>			
+
+	
+
+		
+		</div>
+
+      		<div id="liquidOrderSection" onclick="event.target.id=='liquidOrderSection' && closeLabRequestPopup();" class="fxDisplay fxAlignCenter fxJustifyCenter" style="z-index: -9999;opacity:0;">
+			
+    			<div id="liquidOrderForm" class="fxDisplay">
+				
+				<div id=liquidOrderFlask class="fxFixed">
+					
+					<span id="yourVeryOwn"><b>blend</b><br>your very own</span>
+					<span id="liquidOrderNectarName">...</span>
+				</div>
+        		<div id="liquidOrderData">
+
+						
+						
+							
+					<table id="liquidOrderTable">
+					<tr>
+      						<td class="bottomBorderRow">Range</td>      
+      						<td class="bottomBorderRow">
+							<select id="liquidOrderShotType" onchange="nicTypeChanged(this.value)">
+								<option selected value="F">Seduce (Freebase)</option>
+								<option value="S">Hydra (Salt!)</option>							
+  							</select>
+							<span class='info' onclick="closeLabRequestPopup(); loadContent('seducehydra')">what!?</span>
+						</td>
+	  				</tr>							
+					<tr>
+      						<td style="padding-top:15px;">Custom Text</td>      
+      						<td style="padding-top:15px;">
+							<input type="text" id="liquidOrderCustomerVaper" placeholder="Your own text!" maxlength="25">
+						</td>
+	  				</tr>		
+      					<tr> 
+          					<td>Size</td>
+          					<td>
+							<select id="liquidOrderSize" onchange="updateCost()">
+								<option disabled selected value> -- select -- </option>
+  								<option value="30">30ml</option>
+  								<option value="60">60ml</option>
+  								<option value="120">120ml</option>
+  							</select>
+					   	</td>
+    					</tr>    
+      					<tr> 
+          					<td>Quantity</td>
+          					<td>
+							<select id="liquidOrderQuantity" onchange="updateCost()">	
+								<option selected value="1">1 Bottle</option>
+								<option value="2">2 Bottles</option>
+								<option value="3">3 Bottles</option>
+								<option value="4">4 Bottles</option>
+								<option value="5">5 Bottles</option>	
+								<option value="6">6 Bottles</option>
+								<option value="7">7 Bottles</option>
+								<option value="8">8 Bottles</option>								
+  							</select>
+					   	</td>
+    					</tr> 										   				
+    					</tr> 										   
+      					<tr> 
+          					<td>Nicotine</td>
+          					<td>
+							<select id="liquidOrderNicotine">
+								<option disabled selected value> -- select -- </option>
+								<option value="0">Zero</option>
+								<option value="1">1mg</option>
+								<option value="2">2mg</option>
+								<option value="3">3mg</option>
+								<option value="4">4mg</option>
+								<option value="5">5mg</option>
+								<option value="6">6mg</option>
+								<option value="7">7mg</option>
+								<option value="8">8mg</option>
+								<option value="9">9mg</option>
+								<option value="10">10mg</option>
+								<option value="11">11mg</option>
+								<option value="12">12mg</option>
+								<option value="13">13mg</option>
+								<option value="14">14mg</option>
+								<option value="15">15mg</option>
+								<option value="16">16mg</option>								
+  							</select>
+					   	</td>
+    					</tr>   		
+								
+      					<tr> 
+          					<td>VG Ratio</td>
+          					<td>
+							<select id="liquidOrderVG">
+								<option disabled selected value> -- select -- </option>
+								<option value="20">20/80 (lowest)</option>
+								<option value="40">40/60</option>
+								<option value="50">50/50 (medium)</option>
+								<option value="60">60/40</option>
+								<option value="65">65/35</option>
+								<option value="70">70/30</option>
+								<option value="80">80/20</option>
+								<option value="100">MAX (highest)</option>								
+  							</select>
+					   	</td>
+    					</tr>   	
+      					<tr> 
+          					<td>Price</td>
+          					<td>
+							<span id="totalCostValue">€0.00</span>	
+							<span id="totalCostSave"></span>
+					   	</td>
+    					</tr>					
+  				</table>			
+			
+				
+			
+				
+						
+			
+				
+				<div id="sendingPanel" style="display:none;">
+					<h4>just a moment...</h4>					
+				</div>
+				
+				<div id="orderSentPanel" style="display:none;">
+					<h4>Thanks!</h4>
+					<span>Your lab request has been sent! An auto email will be sent to <b id="orderSentPanelEmail"></b> when your order is ready for pickup. </span>					
+					<br><br>
+					<i>reference<br><b id="orderSentPanelRequestID"></b></i>					
+					
+				</div>
+		
+				
+				<button id="sendOrder" onclick="sendRequest()" >Send Request!</button>				
+				<button id="cancelOrder" onclick="closeLabRequestPopup()" type="button">Close</button>
+				<button id="goToMyLab" onclick="closeLabRequestPopup(); loadContent('mylab')">Go to myLAB</button>
+
+			</div>
+  
+								      
+								           
+
+															     
+     	      </div>
+    </div>
+
+
+		
