@@ -25,7 +25,6 @@ $(document).ready(function() {
 		}
 		
 		
-
 	//$('#shutdownNoticeShadow').show();
 });
 
@@ -90,7 +89,10 @@ function loadContent(pageName) {
 	
 	$( "#pageContent" ).load( getPage(pageName), function() { 
 				//after load;
+		
 	});
+	
+	
 	
 	gtag('config', 'UA-104168459-1', {'page_path': '/'+pageName});
 	

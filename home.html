@@ -88,10 +88,29 @@
 		</a>
 -->
 
-<div class="FreeDelivery" >
-	<span class="FreeDeliveryHeader">having a busy life?</span><br><span class="FreeDeliveryMainText">FREE DELIVERY</span>
-	<hr class="FreeDeliveryLine"><span class="FreeDeliverySubText">if you spend 50Euros or more!</span><br>
+
+<script>
+$(".elementRotator > div:gt(0)").hide();
+clearInterval(myVar);
+var myVar = setInterval(rotate, 4000);
+function rotate() {
+ $('.elementRotator > div:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('.elementRotator');
+}
+</script>
+
+
+<div class="elementRotator">
+
+	<div style="background-image:url(stylesheets/wholesaleprices.png)"></div>
+	<div style="background-image:url(stylesheets/freedelivery.png)"></div>
+	
 </div>
+
 
 <div id="contentContainer">
 

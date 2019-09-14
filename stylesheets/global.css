@@ -30,6 +30,12 @@
     justify-content: center;
 }
 
+.fxJustifySpaceEven {
+    -webkit-justify-content: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+}
+
 .fxFixed {
     -webkit-flex: 0 0 auto;
     -ms-flex: 0 0 auto;
