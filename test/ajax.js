@@ -69,6 +69,7 @@ function sendRequestCb(response) {
 	if (response.success) {
 		
 		systemMessage("<b>Thanks a Bunch!</b><br> View more in <u onclick=preloadContent('mylab')>myLAB</u>", 'green');
+		sessionStorage.setItem('points', response.points);
 	}
 	else 
 	{
