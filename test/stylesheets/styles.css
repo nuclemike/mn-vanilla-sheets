@@ -51,11 +51,11 @@ body {
     font-family: 'Raleway', sans-serif;
     margin: 0;
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
     transition: box-shadow 0.3s;
     padding-top: 105px;
-    perspective: 1000px;
+    /* perspective: 1000px; */
     transition-delay: 0.5s;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3) inset;
     background: url(floralBGWhite.png);
@@ -101,8 +101,9 @@ input, select, textarea {
 }
 
 #scrollContent{
-	-webkit-overflow-scrolling: touch;
-	overflow-y:auto;	
+	perspective: 1000px;
+	/*-webkit-overflow-scrolling: touch;
+	 overflow-y:auto; */
 }
 
 #pageLoader {
@@ -327,6 +328,7 @@ input, select, textarea {
 	text-align:center;
 	margin-right: 3vw;
 	width: 30%;
+	font-size: 16px;
 }
 #liquidOrderFlask {
      animation: 1s ease 0s 1 slideInFromLeft;
@@ -346,7 +348,7 @@ input, select, textarea {
 #yourVeryOwn {
     display: block;
     color: #d7a000;
-    font-size: 19px;
+    font-size: 1.2em;
 }
 
 
@@ -498,10 +500,10 @@ input#liquidOrderCustomerVaper {
 #liquidOrderNectarName {
     color: #444;
     font-family: "Beleren";
-    font-size: 35px;
     line-height: 0.9em;
     display: block;
     text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0, 0, 0, 0.5);
+    font-size: 2.2em;
 }
 
 
@@ -600,6 +602,7 @@ input#liquidOrderCustomerVaper {
     font-size: 15px;
     float: right;
     margin-right: 20px;
+    margin-bottom: 20px;
     font-weight: bold;
     transition:background 0.5s;
 }
@@ -1012,20 +1015,6 @@ animation: blinker 1s linear infinite;
 }
 
 
-.myLabRequestTitle{
-    padding: 0;
-    font-size: 23px;
-    color: #616161;
-    text-align: center;
-    line-height: 1.5em;
-}
-
-.myLabRequestTitle b{
-    margin: 8% 5% 3%;
-    font-size: 30px;
-    color: #c38d36;
-}
-
 
 
 #myLabRequestContainer {
@@ -1033,34 +1022,56 @@ animation: blinker 1s linear infinite;
     margin: 0 auto;
 }
 
+.myLabRequestTitle{
+	font-weight:100;
+	text-align: center;
+}
+
+#myLabRequestContainer .noLabRequests{
+	padding: 30px 100px;
+}
+
 
 .myLabRequestGrid {
 	font-size: 14px;
 	color: #666;
+	position: relative;
 	box-shadow: 0 0 30px rgba(0,0,0,0.1);
+	background:white;
+	border-collapse: collapse;
 }
 
-.myLabRequestRow{
-	padding: 12px 5vw;
-	background: rgba(255,255,255,0.7);
-	border-bottom: 1px solid #eee;
+.myLabRequestGrid td{
+	vertical-align: baseline;
+	padding: 1em 0.5em;
+	height: 80px;
 }
+
+.myLabRequestGrid td:first-child{
+	vertical-align: top;
+	padding-left: 1.1em;
+}
+
+.myLabRequestGrid tr:nth-child(odd) td{
+	
+background: rgb(250,250,250);
+}
+
 
 
 
 
 .myLabRequestRow img{
-	height: 40px;
-	-webkit-align-self : center;
-	align-self: center;
+	height: 29px;
 }
 
-.myLabRequestMidCol{
-	margin:0 5vw 0 10px;
+td.myLabRequestMidCol{
+	padding-right: 1.3em;
 }
 
-.myLabRequestEndCol{
+td.myLabRequestEndCol{
 	text-align:right;
+	padding-right: 1.1em;
 }
 
 .myLabRequestRowFlavor,.myLabRequestRowPrice{
@@ -1070,13 +1081,32 @@ animation: blinker 1s linear infinite;
 	display: block;
 }
 
-.myLabRequestRowInfo,
-.myLabRequestGridState{
+.myLabRequestRowInfo{
 	font-size: 12px;
-	color: #000;
+	color: #5d5d5d;
+	padding-top: 0.2em;
 	display: block;
-
+	line-height: 1em;
 }
+
+
+.myLabRequestRowPoints{
+	
+font-weight: bold;
+	
+font-size: 13px;
+	
+white-space: nowrap;
+	}
+	
+.myLabRequestRowPoints.positive{
+	color:#16d016;
+	}
+
+.myLabRequestRowPoints.negative{
+	color:#e35e30;
+	}
+	
 .myLabRequestRowInfo span{
 	white-space: nowrap;
 }
@@ -1086,22 +1116,33 @@ animation: blinker 1s linear infinite;
 	content: ' • ';
 }
 
-.myLabRequestRowPrice{
-
+.myLabRequestRowPrice.free{
+	color:#16d016;
 }
+
 
 .myLabRequestTotalSummary{
-	font-size: 17px;
-	font-weight: bold;
-	float:right;
-	margin:20px 0;
+	font-size: 21px;
+	margin: 0 1em 2em;
 	text-align: right;
-	padding: 30px 5vw;
-	background: rgba(255, 255, 255, 0.7);
-	box-shadow: 0 0 30px rgba(0,0,0,0.1);
+	padding: 30px 3vw;
+	background: white;
+	box-shadow: 0 0 15px rgba(0,0,0,0.1);
+	line-height: 1.5em;
 }
-.myLabRequestTotalSummary b{
-	margin-left:5vw;
+
+
+.myLabRequestTotalSummaryPoints{
+	font-size:0.7em;
+	line-height: 1em;
+	display: block;
+	margin-top: 0.8em;
+}
+
+.myLabRequestTotalSummaryPoints b{
+	color: #16d016;
+	
+	font-weight: bold;
 }
 
 .myLabRequestTotalPrice b{
@@ -1112,21 +1153,34 @@ animation: blinker 1s linear infinite;
 .myLabRequestFlask {height: 50px;}
 
 .myLabRequestGridState{
-	color: #16a5d0;
-	font-weight: bold;
-
-	
+	margin-top: 1em;
+	bottom: 1.4em;
+	right: 0.9em;
+	font-size: 0.85em;
 }
 
-
-
-.myLabRequestGridState.stateR,
-.myLabRequestGridState.stateN{
-	color:#16d016;
+.myLabRequestGridState:after{
+	content:'';
+	height:1em;
+	width:1em;
+	display:inline-block;
+	border-radius:1em;
+	vertical-align: -0.2em;
+	/* box-shadow: 2px 2px 3px rgba(0,0,0,0.3) inset; */
+	margin-left: 0.3em;
 }
 
-.myLabRequestGridState.stateU{
-	color:#e35e30;
+.myLabRequestGridState.stateR:after,
+.myLabRequestGridState.stateN:after{
+	background-color:#16d016;
+}
+
+.myLabRequestGridState.stateU:after{
+	background-color:#e35e30;
+}
+
+.myLabRequestGridState.stateP:after{
+	background-color:#16a5d0;
 }
 
 
@@ -1173,13 +1227,54 @@ animation: blinker 1s linear infinite;
         clear: both;
         line-height: 24px;
     }
-	
+
 	#headerMenu a img{
-     
-float: left;
-     
-margin: 0 10px 0 0;
-    }	
+
+		float: left;
+		margin: 0 10px 0 0;
+	}	
+
+#nectarOrderContainer #contentContainer {
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+	#liquidOrderHeading{
+		width: 80%;
+		padding-left: 8em;
+		position:relative;
+		text-align:left;
+		margin: 2em 0;
+		/* flex: 0 0 auto; */
+	}
+
+	#yourVeryOwn{
+		
+font-size: 0.9em;
+	}
+
+	#liquidOrderNectarName{
+		margin-bottom:0.5em;
+	}
+
+	#liquidOrderFlask{
+		position:absolute;
+		top: 50%;
+		left: 0;
+		height: 8em;
+		transform: translateY(-50%);
+		margin: 0;
+	}
+
+#liquidOrderNectarTags{
+	margin:0;
+}
+
+	#liquidOrderData{
+		width: 80%;
+		/* flex: 1 1 auto; */
+	}
 }
 @media only screen and (max-width: 750px) {
 
@@ -1241,6 +1336,13 @@ margin: 0 10px 0 0;
     .nectarFlask {
         width: 85%;
     }
+
+
+		#liquidOrderHeading{
+		font-size: 14px;
+	}
+
+
 }
 @media only screen and (max-width: 500px) {
     #goldRibbon {
@@ -1332,6 +1434,17 @@ margin: 0 10px 0 0;
 	.product-item-info{
 		font-size:1em;
 	}	
+
+
+
+		#liquidOrderHeading{
+		font-size: 13px;
+		width: 92%;
+	}
+
+	#liquidOrderData{
+			width: 100%;
+	}
 }
 
 @media only screen and (max-width: 400px) {

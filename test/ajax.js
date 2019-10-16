@@ -23,8 +23,8 @@ function sendRequest() {
 	
  
 
-	var requestObj = { email : sessionStorage.getItem("email"),
-			   pass : sessionStorage.getItem("pass"),
+	var requestObj = { userid : sessionStorage.getItem("userid"),
+			   seid : sessionStorage.getItem("seid"),
 			   qty : $('#liquidOrderQuantity').val(),
 			   flavor : $('#liquidOrderNectarName').text(),
 			   size : $('.liquidOrderSizeOption.selected').attr('value'),
@@ -40,27 +40,19 @@ function sendRequest() {
 
 
 	
-	$.ajax({
-		url: "https://script.google.com/macros/s/AKfycbzjtKUgF2SzKQcy6HX_HN-nTH02act4ycyXbcSS/exec",
+	$.ajax({  
+		url: "https://script.google.com/macros/s/AKfycbxUe1Q_qURugb5z39rb_HzTxaL_9vWo2hXofb8GoEFMn1fsj2E/exec",
 		type: "POST",
 		data: requestObj,
 		success: function(response) {        
 			sendRequestCb(JSON.parse(response));
 		},
-		error: function() {        
-			alert('ERROR');
+		error: function(response) {        
+			systemMessage(JSON.parse(response), 'red');
 		}
 
 	})
 
-   var request = jQuery.ajax({
-      crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycbzOCqcFbtdt_Tb4rLgvTyrCwpXTqihkEf2cxW_l/exec?callback=sendRequestCb",
-	        
-      method: "GET",
-      dataType: "jsonp",
-      data: requestObj
-    });
 
   }
 
@@ -308,7 +300,7 @@ var elem = document.getElementById("myAccountMarketing");
 function loadMyLab() {
 	var request = jQuery.ajax({
 		crossDomain: true,
-		url: "https://script.google.com/macros/s/AKfycbwQMliSuDjfOFXzP4-O1IaPKCZuy1CjONa3M1PkBA/exec?callback=loadMyLabCb",
+		url: "https://script.google.com/macros/s/AKfycbyIQs8oagOE3MZfax8MyLx2i8uUdVHMBPr8JMETzw/exec?callback=loadMyLabCb",
 		method: "GET",
 		dataType: "jsonp",
 		data : {userid : sessionStorage.getItem("userid")}
@@ -325,23 +317,26 @@ function loadMyLabCb(e) {
 					
 		stateDefs = { 
 			''  : '',
-			'U' : 'Unpaid',
-			'R' : '',
-			'N' : 'Produced',
+			'U' : 'unpaid',
+			'R' : 'produced',
+			'N' : 'produced',
+			'P' : 'paid'
 						}
 		
-		var html = `<div class="myLabRequestRow fxDisplay">
-						<div class="fxStretch myLabRequestMidCol">
-							<span class="myLabRequestRowFlavor">Product</span>
-						</div>
-						<div class="fxFixed myLabRequestEndCol">
-							<span class="myLabRequestRowPrice"></span>
-						</div>
-					</div>`;
+		var headerHtml = '<h2 class="myLabRequestTitle">Pending requests</h2>';
+		
+		var html = '';
 		var totalPrice = 0.00;
+		var totalPointsToEarn = 0;
+		
 		e.requests.forEach( function (item){
 			
+			if (item.state != 'P') { 
 				totalPrice += item.price;
+			}
+			
+				totalPointsToEarn += Math.max(item.points, 0);// not counting negative points (free bottles)
+				
 				
 				var imgUrl = 'nectar/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
 				var nicText = '';
@@ -357,14 +352,16 @@ function loadMyLabCb(e) {
 				}
 						
 				
-				html += '<div class="myLabRequestRow fxDisplay">';
+				html += '<tr class="myLabRequestRow">';
 					
 
 
-					html += '<img class="fxFixed fxDisplay fxAlignCenter" src="'+imgUrl.toLowerCase()+'"/>';
+					html += '<td><img src="'+imgUrl.toLowerCase()+'"/></td>';
 
-					html += '<div class="fxStretch myLabRequestMidCol">';			
-						html += '<span class="myLabRequestRowFlavor">' + item.flavor + '</span>';						
+					html += '<td class="myLabRequestMidCol">';			
+						html += '<span class="myLabRequestRowFlavor">' + item.flavor + '</span>';		
+					
+						
 						html += '<span class="myLabRequestRowInfo">';
 							html += '<span>' +item.quantity + 'x ' + item.size + 'ml' + '</span>';
 							html += '<span>' + item.nicotine + 'mg'+nicText + '</span>';	
@@ -372,12 +369,31 @@ function loadMyLabCb(e) {
 							html += '<span>' + item.vaper + '</span>';
 							html += '<span>' + item.datetime + '</span>';
 						html += '</span>';
-					html += '</div>';
-					html += '<div class="fxFixed myLabRequestEndCol">';
-						html += '<span class="myLabRequestRowPrice">€' + item.price.toFixed(2) + '</span>';
-						html += '<span class="myLabRequestGridState state'+item.state+'">' + stateDefs[item.state] + '</span>';
-					html += '</div>';
-				html += '</div>';
+					html += '</td>';
+					
+					html += '<td class="myLabRequestEndCol">';
+					
+					if (item.price>0)
+					html += '<span class="myLabRequestRowPrice">€' + item.price.toFixed(2) + '</span>';
+						else
+					html += '<span class="myLabRequestRowPrice free">FREE!</span>';	
+						
+						
+						
+					
+						
+						
+						if (item.points != '')
+						{
+							if (item.points > 0)
+							html += '<span class="myLabRequestRowPoints positive">+' + item.points + ' points!</span>';
+						else
+							html += '<span class="myLabRequestRowPoints negative">' + item.points + ' points</span>';
+						 }
+						html += '<div class="myLabRequestGridState state'+item.state+'">' + stateDefs[item.state] + '</div>';
+					html += '</td>';
+					
+				html += '</tr>';
 				
 		});
 		
@@ -395,18 +411,22 @@ function loadMyLabCb(e) {
 
 		if (e.requests.length > 0) { 
 			
-		var	 footerHtml =  '<div class="myLabRequestTotalSummary">';
-			footerHtml += 	'<span class="">Total<b>€'+totalPrice.toFixed(2)+'</b></span>';	
-			footerHtml += '</div>';
+		var	 footerHtml =  "<div class='myLabRequestTotalSummary'>";
+			footerHtml += 	"<span class='myLabRequestTotalSummaryCost'>Your order total is <b>€"+totalPrice.toFixed(2)+"</b></span><br>";	
+			
+			if (totalPointsToEarn > 0)			
+				footerHtml += 	"<span class='myLabRequestTotalSummaryPoints'>You'll earn <b>"+totalPointsToEarn+" Points</b> once your requests are paid and processed!</span>";	
+			
+			footerHtml += "</div>";
 			
 
 
-			document.getElementById('myLabRequestContainer').innerHTML = '<div class="myLabRequestGrid fxDisplay fxDirCol">'+html+'</div>'+footerHtml;	
+			document.getElementById('myLabRequestContainer').innerHTML = headerHtml+'<table class="myLabRequestGrid ">'+html+'</table>'+footerHtml;	
 			
 		} 
 		else {
 			html = '<h2 class="noLabRequests">you have no lab-requests</h2>' 
-			document.getElementById('myLabRequestContainer').innerHTML = '<div class="myLabRequestGrid fxDisplay fxDirCol">'+html+'</div>'+footerHtml;	
+			document.getElementById('myLabRequestContainer').innerHTML = '<div class="myLabRequestGrid fxDisplay fxDirCol">'+html+'</div>';	
 		}
 		
 	
