@@ -130,6 +130,7 @@ function login() {
 		url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec",
 		type: "POST",
 		data: loginObj,
+headers: { 'content-type': 'application/x-www-form-urlencoded' },
 		success: function(response) {        
 			loginCb(JSON.parse(response));
 		},
