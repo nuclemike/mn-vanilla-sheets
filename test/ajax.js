@@ -134,8 +134,8 @@ headers: { 'content-type': 'application/x-www-form-urlencoded' },
 		success: function(response) {        
 			loginCb(JSON.parse(response));
 		},
-		error: function() {        
-			alert('ERROR');
+		error: function(response) {        
+			alert(JSON.parse(response));
 		}
 
 	})
