@@ -44,14 +44,10 @@ function sendRequest() {
 		url: "https://script.google.com/macros/s/AKfycbxUe1Q_qURugb5z39rb_HzTxaL_9vWo2hXofb8GoEFMn1fsj2E/exec",
 		type: "POST",
 		data: requestObj,
-		success: function(response) {        
-			sendRequestCb(JSON.parse(response));
-		},
-		error: function(response) {        
-			systemMessage(JSON.parse(response), 'red');
-		}
+		headers: { 'content-type': 'application/x-www-form-urlencoded' }
 
-	})
+
+	}).done(function (response) { ghostLoginCb(JSON.parse(response)); })
 
 
   }
@@ -111,35 +107,16 @@ function login() {
 			seid:   null 
 		}
 		
-
-
-
-		
-		
-
-    // var request = jQuery.ajax({
-      // crossDomain: true,
-      // url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec?callback=loginCb",
-      // method: "POST",
-      // dataType: "jsonp",
-      // data : loginObj
-    // });
 	
 	
 	$.ajax({
 		url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec",
 		type: "POST",
 		data: loginObj,
-headers: { 'content-type': 'application/x-www-form-urlencoded' },
-		success: function(response) {        
-			loginCb(JSON.parse(response));
-		},
-		error: function(response) {        
-			alert(JSON.parse(response));
-		}
+		headers: { 'content-type': 'application/x-www-form-urlencoded' }
 
-	})
 
+	}).done(function (response) { ghostLoginCb(JSON.parse(response)); })
 
   }
   

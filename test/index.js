@@ -242,13 +242,7 @@ function tryFetchSession() {
 		
 		
 
-    // var request = jQuery.ajax({
-      // crossDomain: true,
-      // url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec?callback=loginCb",
-      // method: "POST",
-      // dataType: "jsonp",
-      // data : loginObj
-    // });
+
 	
 	$("#pageLoader").html("logging you in")
 	
@@ -257,15 +251,10 @@ function tryFetchSession() {
 		url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec",
 		type: "POST",
 		data: loginObj,
-headers: { 'content-type': 'application/x-www-form-urlencoded' },
-		success: function(response) {        
-			ghostLoginCb(JSON.parse(response));
-		},
-		error: function() {        
-			alert('ERROR');
-		}
+		headers: { 'content-type': 'application/x-www-form-urlencoded' }
 
-	})
+
+	}).done(function (response) { ghostLoginCb(JSON.parse(response)); })
 	
 	
 	
