@@ -44,11 +44,10 @@ function sendRequest() {
 		url: "https://script.google.com/macros/s/AKfycbxUe1Q_qURugb5z39rb_HzTxaL_9vWo2hXofb8GoEFMn1fsj2E/exec",
 		type: "POST",
 		data: requestObj,
-		headers: { 'content-type': 'application/x-www-form-urlencoded' }
+		headers: { 'content-type': 'application/x-www-form-urlencoded','Access-Control-Allow-Headers': '*' }
 
 
-	}).done(function (response) { ghostLoginCb(JSON.parse(response)); })
-
+	}).done(function (response) { sendRequestCb(JSON.parse(response)); })
 
   }
 
@@ -113,10 +112,10 @@ function login() {
 		url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec",
 		type: "POST",
 		data: loginObj,
-		headers: { 'content-type': 'application/x-www-form-urlencoded' }
+		headers: { 'content-type': 'application/x-www-form-urlencoded','Access-Control-Allow-Headers': '*' }
 
 
-	}).done(function (response) { ghostLoginCb(JSON.parse(response)); })
+	}).done(function (response) { loginCb(JSON.parse(response)); })
 
   }
   
