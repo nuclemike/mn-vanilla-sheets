@@ -1,15 +1,5 @@
 <script>
-
-pageLoaded();
-
-/*
-	var nrOfImages = $("#pageContent img").length;
-		    $("#pageContent img").load(function() {
-			if(--nrOfImages == 0)
-			{
-			    pageLoaded();
-			}
-		    });*/
+	attachImageLoader('nectars');
 
 function nectarPropChanged(element) {
 
@@ -89,7 +79,7 @@ function rotate() {
 }
 </script>
 
-<div class="elementRotator">
+<div class="elementRotator fxFixed">
 
 	<div style="background-image:url(stylesheets/wholesaleprices.png)"></div>
 	<div style="background-image:url(stylesheets/freedelivery.png)"></div>

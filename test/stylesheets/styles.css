@@ -108,8 +108,22 @@ input, select, textarea {
 
 #pageLoader {
     height: 100%;
-    background: url("/stylesheets/sending.gif") no-repeat center center;
+    text-align: center;
+    font-size: 1.5em;
 }
+
+#pageLoader:before {
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 5px solid;
+    border-color: #efd27d transparent;
+    -webkit-animation: loading 1s infinite linear;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+
+
 
 /* ################################### Shutdown Notice ################################### */
 #shutdownNoticeShadow{
@@ -326,7 +340,7 @@ input, select, textarea {
 
 #liquidOrderHeading{
 	text-align:center;
-	margin-right: 3vw;
+	margin: 20px 3vw 20px;
 	width: 30%;
 	font-size: 16px;
 }
@@ -369,6 +383,8 @@ input, select, textarea {
     border-radius: 100%;
     margin: 0 auto;
 }
+
+
 
 .sending #sendingPanel {
 	opacity:1;
@@ -445,6 +461,8 @@ display:none;	}
     padding: 5px 10px;
 	transition: background-color 0.5s;	
 }
+
+
 
 #liquidOrderTable hr {
     border-top: 1px solid #ccc;
@@ -643,7 +661,7 @@ animation: blinker 1s linear infinite;
     /* height: 450px; */
     /* width: 600px; */
     
-    padding: 30px;
+    /* padding: 30px; */
     position: relative;
     border-radius: 10px;
     color: #999;
@@ -1085,7 +1103,7 @@ td.myLabRequestEndCol{
 	font-size: 12px;
 	color: #5d5d5d;
 	padding-top: 0.2em;
-	display: block;
+	display: inline-block;
 	line-height: 1em;
 }
 
@@ -1109,6 +1127,7 @@ white-space: nowrap;
 	
 .myLabRequestRowInfo span{
 	white-space: nowrap;
+	display: inline-block;
 }
 
 
@@ -1242,7 +1261,7 @@ white-space: nowrap;
 
 	#liquidOrderHeading{
 		width: 80%;
-		padding-left: 8em;
+		padding-left: 180px;
 		position:relative;
 		text-align:left;
 		margin: 2em 0;
@@ -1260,10 +1279,8 @@ font-size: 0.9em;
 
 	#liquidOrderFlask{
 		position:absolute;
-		top: 50%;
-		left: 0;
+		left: 35px;
 		height: 8em;
-		transform: translateY(-50%);
 		margin: 0;
 	}
 
@@ -1275,6 +1292,10 @@ font-size: 0.9em;
 		width: 80%;
 		/* flex: 1 1 auto; */
 	}
+
+	#liquidOrderTable td:first-child {
+    width:150px;
+}
 }
 @media only screen and (max-width: 750px) {
 
@@ -1339,8 +1360,20 @@ font-size: 0.9em;
 
 
 		#liquidOrderHeading{
-		font-size: 14px;
+		font-size: 15px;
+		padding-left:145px
 	}
+
+img#liquidOrderFlask {
+	left: 26px;
+	height: 7em;
+}	
+
+
+#liquidOrderTable td:first-child {
+width:115px}
+
+
 
 
 }
@@ -1435,16 +1468,32 @@ font-size: 0.9em;
 		font-size:1em;
 	}	
 
-
+#nectarOrderContainer{
+	background: #fffcf569;
+}
 
 		#liquidOrderHeading{
 		font-size: 13px;
 		width: 92%;
+		padding-left: 145px;
+		margin: 2em 2em 0;
 	}
+
+img#liquidOrderFlask {
+	left: 40px;
+	height: 7em;
+}	
 
 	#liquidOrderData{
 			width: 100%;
+			background: transparent;
+			box-shadow: none;
 	}
+
+#liquidOrderTable td:first-child {
+width:130px}
+
+
 }
 
 @media only screen and (max-width: 400px) {
@@ -1478,8 +1527,17 @@ font-size: 0.9em;
     width: 100% !important;
     }
 	
+	#liquidOrderHeading {
+		padding-left:98px
+	}
+
+	img#liquidOrderFlask {
+    left: 3px;
+	}
 	
-	
+	#liquidOrderTable td:first-child {
+    width: 80px;
+}
 	
 	
 }

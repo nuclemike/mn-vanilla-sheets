@@ -15,7 +15,7 @@ function labRequestPopup(element) {
 		return false;
 	 }
 
-	console.log(this);
+	
 
 	var nectarName = $(element).children(".nectarName").html();
 	var nectarInfo = $(element).children(".nectarInfo").html();
@@ -25,6 +25,7 @@ function labRequestPopup(element) {
 	
 	openMenu(false);
 	$( "#pageLoader" ).show();
+	$( "#pageLoader" ).html("loading <b>"+nectarName+"</b>");
 	$( "#pageContent" ).hide();
 	$( "#scrollContent" ).scrollTop(0);
 	
@@ -43,6 +44,7 @@ function labRequestPopup(element) {
 	$( "#pageContent" ).load( getPage('nectarorder'), function() { 
 	
 		pageLoaded();
+		
 
 		document.getElementById("liquidOrderFlask").setAttribute("src", imgUrl.toLowerCase());
 		document.getElementById("liquidOrderNectarName").innerHTML = nectarName;
@@ -166,7 +168,7 @@ function recalcNectar() {
 		
 	}
 	
-		$('#liquidOrderCostRow, #liquidOrderRedeemRow').toggle( (size && nicDose > -1) );
+		$('#liquidOrderCostRow, #liquidOrderRedeemRow').toggle( (size != undefined) && (nicDose > -1) );
 				
 
 }

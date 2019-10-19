@@ -62,8 +62,27 @@ if( isMobile.any() ) alert('Mobile');
 
 };
 
+	var imagesLoaded = 0;
+	
+function attachImageLoader(description){	
+imagesLoaded = 0;
+	var nrOfImages = $("#pageContent img").length;
+
+	$("#pageContent img").load(function() {
+		imagesLoaded++;
+		
+		if ((description != undefined) && (description != '')) {
+			var percent = Math.floor((imagesLoaded/nrOfImages)*100);		
+			$("#pageLoader").html("loading "+description+" <b>"+percent+"%</b>")
+		}
+		if ( imagesLoaded==nrOfImages )		
+			pageLoaded();		
+	});
+}
+
 function pageLoaded() {
-	$("#pageLoader").hide();
+	$( "#pageLoader" ).hide();
+	$( "#pageLoader" ).html("");
 	$( "#pageContent" ).show()
 }
 
@@ -231,6 +250,8 @@ function tryFetchSession() {
       // data : loginObj
     // });
 	
+	$("#pageLoader").html("logging you in")
+	
 	
 	$.ajax({
 		url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec",
@@ -278,7 +299,7 @@ headers: { 'content-type': 'application/x-www-form-urlencoded' },
 
 
 function ghostLoginCb(response) {	
-	console.log(response);
+	//console.log(response);
 	
 	if(response.success)
 	{

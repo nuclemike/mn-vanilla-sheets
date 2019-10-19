@@ -299,6 +299,10 @@ var elem = document.getElementById("myAccountMarketing");
 }
 
 function loadMyLab() {
+	
+		
+	$("#pageLoader").html("loading <b>myLAB</b>");
+	
 	var request = jQuery.ajax({
 		crossDomain: true,
 		url: "https://script.google.com/macros/s/AKfycbyIQs8oagOE3MZfax8MyLx2i8uUdVHMBPr8JMETzw/exec?callback=loadMyLabCb",
@@ -453,6 +457,8 @@ function loadMyAccount(){
 			dataType: "jsonp",
 			data : userRef
 		});
+		
+		$("#pageLoader").html("loading account")
 	}
 }
 
