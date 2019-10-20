@@ -346,7 +346,6 @@ input, select, textarea {
 }
 #liquidOrderFlask {
      animation: 1s ease 0s 1 slideInFromLeft;
-     max-width: max-content;
      margin: 20px auto 0;
 }
 #liquidOrderData {
@@ -539,11 +538,11 @@ input#liquidOrderCustomerVaper {
 }
 
 #redeemInfoText{
-	line-height: 0em;
 	display: block;
 	color: #666;
 	font-weight: bold;
 	font-size: 12px;
+	line-height: 1em;
 }
 
 #redeemInfoText b.points{
@@ -578,20 +577,21 @@ input#liquidOrderCustomerVaper {
 
 #liquidOrderUsePointsInfo{
 	display: block;
-    line-height: 21px;
-    font-size: 12px;
-    font-weight: bold;
+	line-height: 1em;
+	font-size: 12px;
+	font-weight: bold;
 	color: #555;
+	margin-top: 0.3em;
 }
 #liquidOrderUsePointsCaption{
 	color: #cc5336;
-    font-size: 18px;
-    font-weight: bold;
+	font-size: 18px;
+	font-weight: bold;
 }
 
 #liquidOrderUsePoints + label:before{
-    width: 20px;
-    height: 20px;
+    width: 1em;
+    height: 1em;
     display: inline-block;
     content: '';
     vertical-align: -0.3em;
