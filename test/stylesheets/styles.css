@@ -99,6 +99,9 @@ input, select, textarea {
 #systemMessage.red {
 	background: #cc5336;
 }
+#pageContent{
+	position:relative;
+}
 
 #scrollContent{
 	perspective: 1000px;
@@ -1043,7 +1046,7 @@ animation: blinker 1s linear infinite;
 }
 
 #myLabRequestContainer .noLabRequests{
-	padding: 30px 100px;
+	padding: 1vh 9vw;
 }
 
 
@@ -1391,7 +1394,7 @@ width:115px}
     }
     #myAccountDetails {
         width: 96%;
-        padding: 50px;
+        padding: 5vw;
     }
 
     #myAccountDetails span,

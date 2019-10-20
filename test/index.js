@@ -6,7 +6,7 @@ $(document).ready(function() {
 });
 
 function initApp() {
-	if (localStorage.getItem("over18") == null)
+	if (sessionStorage.getItem("over18") == null && sessionStorage.getItem("userid") == null)
 	{
 		$('#ageCheck').show();
 	}
@@ -200,7 +200,7 @@ function closeCredPopup(id) {
 }
 
 function ageCheckOk(element){
-	localStorage.setItem('over18', true);
+	sessionStorage.setItem('over18', true);
 	element.parentElement.parentElement.remove();
 }
 // var rememberMe = false;
