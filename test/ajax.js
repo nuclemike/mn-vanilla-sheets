@@ -41,16 +41,14 @@ function sendRequest() {
 
 	
 	$.ajax({  
-		url: "https://script.google.com/macros/s/AKfycbxUe1Q_qURugb5z39rb_HzTxaL_9vWo2hXofb8GoEFMn1fsj2E/exec/",
+		url: "https://script.google.com/macros/s/AKfycbxUe1Q_qURugb5z39rb_HzTxaL_9vWo2hXofb8GoEFMn1fsj2E/exec",
 		type: "POST",
 		data: requestObj,
 		success: function(response) {        
 			sendRequestCb(JSON.parse(response));
 		},
-		error: function(xhr, textStatus, error){
-			console.log(xhr);
-			console.log(textStatus);
-			console.log(error);
+		error: function(response) {        
+			systemMessage(JSON.parse(response), 'red');
 		}
 
 	})
@@ -117,21 +115,19 @@ function login() {
 
 
 		
-	
+		
 	
 	
 	$.ajax({
-		url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec/",
+		url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec",
 		type: "POST",
 		data: loginObj,
-		headers: { 'content-type': 'application/x-www-form-urlencoded' },
+headers: { 'content-type': 'application/x-www-form-urlencoded' },
 		success: function(response) {        
 			loginCb(JSON.parse(response));
 		},
-		error: function(xhr, textStatus, error){
-			console.log(xhr);
-			console.log(textStatus);
-			console.log(error);
+		error: function(response) {        
+			alert(JSON.parse(response));
 		}
 
 	})
