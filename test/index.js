@@ -245,20 +245,13 @@ function tryFetchSession() {
 	$("#pageLoader").html("logging you in")
 	
 	
+	
 	$.ajax({
-		url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec",
-		type: "POST",
-		data: loginObj,
-		headers: { 'content-type': 'application/x-www-form-urlencoded' },
-		success: function(response) {        
-			ghostLoginCb(JSON.parse(response));
-		},
-		error: function(xhr, textStatus, error){
-			console.log(xhr);
-			console.log(textStatus);
-			console.log(error);
-		}
-
+		crossDomain: true,
+		url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec?callback=ghostLoginCb",
+		type: "GET",
+		dataType: "jsonp",
+		data: loginObj
 	})
 	
 	
