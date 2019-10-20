@@ -489,9 +489,7 @@ display:none;	}
 }
 
 input#liquidOrderCustomerVaper {
-    width: 100%;
-    font-weight: bold;
-    font-size: 20px;
+    width: 100%;  
 }  
 
 .liquidOrderSizeOption,
