@@ -1,6 +1,12 @@
-$(document).ready(function() {
+$(document).ready(function() {	
+	tryFetchSession();
 	
-	if (sessionStorage.getItem("over18") == null)
+	
+
+});
+
+function initApp() {
+	if (sessionStorage.getItem("over18") == null && sessionStorage.getItem("userid") == null)
 	{
 		$('#ageCheck').show();
 	}
@@ -26,7 +32,7 @@ $(document).ready(function() {
 		
 		
 	//$('#shutdownNoticeShadow').show();
-});
+}
 
 window.onload = function(){
 	/*
@@ -51,12 +57,32 @@ window.onload = function(){
     }
 if( isMobile.any() ) alert('Mobile');
 };*/
-  var success = loadSession();
-  populateUser(success);
+
+
 };
 
+
+	var imagesLoaded = 0;
+	
+function attachImageLoader(description){	
+imagesLoaded = 0;
+	var nrOfImages = $("#pageContent img").length;
+
+	$("#pageContent img").load(function() {
+		imagesLoaded++;
+		
+		if ((description != undefined) && (description != '')) {
+			var percent = Math.floor((imagesLoaded/nrOfImages)*100);		
+			$("#pageLoader").html("loading "+description+" <b>"+percent+"%</b>")
+		}
+		if ( imagesLoaded==nrOfImages )		
+			pageLoaded();		
+	});
+}
+
 function pageLoaded() {
-	$("#pageLoader").hide();
+	$( "#pageLoader" ).hide();
+	$( "#pageLoader" ).html("");
 	$( "#pageContent" ).show()
 }
 
@@ -65,7 +91,15 @@ function openMenu(visibility) {
 }
 
 
-var afterLoginFunction = null;
+var afterLoginFunction = undefined;
+var onContentLoadedFunction = undefined;
+
+function preloadContent(pageName) {
+	if (window.location.hash == '#'+pageName) 
+		loadContent(pageName)	
+	else
+		window.location.hash = '#'+pageName;
+}
     
 function loadContent(pageName) {
 	openMenu(false);
@@ -88,48 +122,38 @@ function loadContent(pageName) {
 	}
 	
 	$( "#pageContent" ).load( getPage(pageName), function() { 
-				//after load;
-		
+		if (onContentLoadedFunction) onContentLoadedFunction();
+		onContentLoadedFunction = undefined;
 	});
 	
 	
 	
 	gtag('config', 'UA-104168459-1', {'page_path': '/'+pageName});
 	
-	location.hash = '#'+pageName;
+	//$(body).attr('onhashchange','loadContent(window.location.hash.substring(1));');
+
+	
+	//window.onhashchange = undefined;
+	//window.location.hash = '#'+pageName;
+	
 }
 
 
-function authenticatedFunction(func) {
-  if (loadSession()) func()
-	else{
-		loginPopup();
-		afterLoginFunction = func;
+function accessNeeded(func) {
+  if (sessionStorage.getItem("seid") != null) {
+	return false;
+  } else {
+		loginPopup(func);
+		return true;
 	}
 }
 
-function populateUser(success) {
-	if(success)
-	{
-		document.getElementById('headerLoginText').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';   
-		$('#headerLogout, #headerMyLab, #headerMyAccount').show();
-		$('#headerLogin').hide();
-	}
-	else {
-		document.getElementById('headerLoginText').innerHTML = "Welcome to Mama's Nectar!";   
-		$('#headerLogout, #headerMyLab, #headerMyAccount').hide();
-		$('#headerLogin').show();
-		var isInMyLab = document.getElementById("myLabRequestTitle");
-		if (isInMyLab) loadContent('nectars');
-	}
-
-}
-
-
-function loginPopup() {
+function loginPopup(queuedFunc) {
+	
+	afterLoginFunction = queuedFunc;
 	openMenu(false);
 	$('#scrollContent').css('overflow','hidden');
-	$('#loginPopupTitle').text('Authorization Required');
+	$('#loginPopupTitle').text('Account Login');
 	$('#loginPopupEmail').val('');
 	$('#loginPopupPassword').val('');
 	$('#loginPopupError').text('');
@@ -149,16 +173,19 @@ function changePassPopup() {
 
 function logout() {
 	openMenu(false);
-	localStorage.removeItem('userid');
-	localStorage.removeItem('name');
-	localStorage.removeItem('email');
-	localStorage.removeItem('pass');
-	localStorage.removeItem('mobile');	
-	sessionStorage.removeItem('userid');
-	sessionStorage.removeItem('name');
-	sessionStorage.removeItem('email');
-	sessionStorage.removeItem('pass');
-	sessionStorage.removeItem('mobile');	
+	
+	sessionStorage.removeItem('userid');    
+	sessionStorage.removeItem('name');    
+	sessionStorage.removeItem('email');    
+	sessionStorage.removeItem('points');    
+	sessionStorage.removeItem('seid'); 
+	
+	localStorage.removeItem('userid');    
+	localStorage.removeItem('name');    
+	localStorage.removeItem('email');    
+	localStorage.removeItem('points');    
+	localStorage.removeItem('seid'); 
+		
 	document.location.href=window.location.href.split('#')[0];
 }
 
@@ -167,7 +194,7 @@ function logout() {
 function closeCredPopup(id) {
 		$('#scrollContent').css('overflow','auto');
 	if ($('#'+id).hasClass('loading')) return false;
-	afterLoginFunction = null;
+	afterLoginFunction = undefined;
 	$('#'+id).fadeTo(  "fast", 0, function() {
 		$( this ).css("z-index","-9999");
 	});
@@ -177,24 +204,126 @@ function ageCheckOk(element){
 	sessionStorage.setItem('over18', true);
 	element.parentElement.parentElement.remove();
 }
+// var rememberMe = false;
 
-function loadSession() {
-      if (sessionStorage.getItem("name") != null) {
-            return true;
-                        
-      }
-      else {
-            if (localStorage.getItem("name") != null) {
-				sessionStorage.setItem('userid', localStorage.getItem("userid"));       
-                  sessionStorage.setItem('name', localStorage.getItem("name"));       
-                  sessionStorage.setItem('email', localStorage.getItem("email"));
-                  sessionStorage.setItem('pass', localStorage.getItem("pass"));
-                  sessionStorage.setItem('mobile', localStorage.getItem("mobile"));
-                  return true;
-            } 
-            else return false;
-      }
-            
-   
+function tryFetchSession() {
+	
+	
+	
+	//populate SessionStorage from LocalStorage
+	if (localStorage.getItem("userid") != null && localStorage.getItem("seid") != null)
+	{
+		sessionStorage.setItem('userid', localStorage.getItem("userid"));    
+		sessionStorage.setItem('seid', localStorage.getItem("seid"));   
+		loginObj = { 
+			userid:  sessionStorage.getItem("userid"),			
+			seid:   sessionStorage.getItem("seid") 
+		}		
+	}
+	
+	
+	if ( ( localStorage.getItem("email") != null && localStorage.getItem("pass") != null ) ||
+		 ( sessionStorage.getItem("userid") != null && sessionStorage.getItem("seid") != null ) ) {
+		  
+		  
 
+		var loginObj = { 
+			email:  localStorage.getItem("email"),
+			pass:   localStorage.getItem("pass"),
+			userid: sessionStorage.getItem("userid"),
+			seid:   sessionStorage.getItem("seid") 
+		}
+		
+
+
+
+
+
+		
+		
+
+	
+	$("#pageLoader").html("logging you in")
+	
+	
+	
+	$.ajax({
+		crossDomain: true,
+		url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec?callback=ghostLoginCb",
+		type: "GET",
+		dataType: "jsonp",
+		data: loginObj
+	})
+	
+	
+	
+
+		localStorage.removeItem('pass');
+		localStorage.removeItem('mobile');
+		localStorage.removeItem('email');
+		localStorage.removeItem('name');
+		
+		return true;	
+	
+	} else {	
+	
+		populateUser(false);
+		initApp();
+	
+		localStorage.removeItem('pass');
+		localStorage.removeItem('mobile');
+		localStorage.removeItem('email');
+		localStorage.removeItem('name');
+		
+		return false;
+	}
+
+	
+
+	
+
+}
+
+
+
+function ghostLoginCb(response) {	
+	//console.log(response);
+	
+	if(response.success)
+	{
+		sessionStorage.setItem('userid', response.userid);    
+		sessionStorage.setItem('seid', response.seid); 				
+		sessionStorage.setItem('name', response.name);    
+		sessionStorage.setItem('email', response.email);    
+		sessionStorage.setItem('points', response.points);    
+		  
+
+			//if was saved, save again
+		if (localStorage.getItem("userid") != null) {
+			localStorage.setItem('userid', response.userid); 
+			localStorage.setItem('seid', response.seid); 		
+		}
+	}
+	
+	populateUser(response.success);
+	
+	
+	initApp();
+
+}
+
+
+function populateUser(success) {
+	if (success) {
+		document.getElementById('headerLoginText').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';   
+		$('#headerLogout, #headerMyLab, #headerMyAccount').show();
+		$('#headerLogin').hide();
+	}
+	else {
+		document.getElementById('headerLoginText').innerHTML = "Welcome to Mama's Nectar!";   
+		$('#headerLogout, #headerMyLab, #headerMyAccount').hide();
+		$('#headerLogin').show();
+		// var isInMyLab = document.getElementById("myLabRequestTitle");
+		// if (isInMyLab) loadContent('nectars');
+	}
 }

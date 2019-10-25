@@ -1,11 +1,5 @@
 <script>
-	var nrOfImages = $("#pageContent img").length;
-		$("#pageContent img").load(function() {
-			if(--nrOfImages == 0)
-			{
-				pageLoaded();
-			}
-		});
+	attachImageLoader('home');
 </script>
 
 <style>
@@ -104,7 +98,7 @@ function rotate() {
 </script>
 
 
-<div class="elementRotator">
+<div class="elementRotator fxFixed">
 
 	<div style="background-image:url(stylesheets/wholesaleprices.png)"></div>
 	<div style="background-image:url(stylesheets/freedelivery.png)"></div>
@@ -117,15 +111,15 @@ function rotate() {
 		
 		
 	<div class="cat-parent fxDisplay fxWrap fxJustifyCenter">
-		<a class="cat-child" onclick="loadContent('nectars')"><img src="stylesheets/cats/nectar.svg" />Nectar</a>
-		<a class="cat-child" onclick="loadContent('starterkits')"><img src="stylesheets/cats/starterkits.svg" />Starter Kits</a>
-		<a class="cat-child" onclick="loadContent('coilheads')"><img src="stylesheets/cats/coilheads.svg" />Coil Heads</a>
-		<a class="cat-child" onclick="loadContent('glasstubes')"><img src="stylesheets/cats/glasstubes.svg" />Glass Tubes</a>
-		<a class="cat-child" onclick="loadContent('batteries')"><img src="stylesheets/cats/batteries.svg" />Batteries</a>
-		<a class="cat-child" onclick="loadContent('chargers')"><img src="stylesheets/cats/chargers.svg" />Chargers</a>
-		<a class="cat-child" onclick="loadContent('atomizers')"><img src="stylesheets/cats/atomizers.svg" />Atomizers</a>
-		<a class="cat-child" onclick="loadContent('mods')"><img src="stylesheets/cats/mods.svg" />Mods</a>
-		<a class="cat-child" onclick="loadContent('rebuilding')"><img src="stylesheets/cats/rebuilding.svg" />Rebuilding</a>
+		<a class="cat-child" onclick="preloadContent('nectars')"><img src="stylesheets/cats/nectar.svg" />Nectar</a>
+		<a class="cat-child" onclick="preloadContent('starterkits')"><img src="stylesheets/cats/starterkits.svg" />Starter Kits</a>
+		<a class="cat-child" onclick="preloadContent('coilheads')"><img src="stylesheets/cats/coilheads.svg" />Coil Heads</a>
+		<a class="cat-child" onclick="preloadContent('glasstubes')"><img src="stylesheets/cats/glasstubes.svg" />Glass Tubes</a>
+		<a class="cat-child" onclick="preloadContent('batteries')"><img src="stylesheets/cats/batteries.svg" />Batteries</a>
+		<a class="cat-child" onclick="preloadContent('chargers')"><img src="stylesheets/cats/chargers.svg" />Chargers</a>
+		<a class="cat-child" onclick="preloadContent('atomizers')"><img src="stylesheets/cats/atomizers.svg" />Atomizers</a>
+		<a class="cat-child" onclick="preloadContent('mods')"><img src="stylesheets/cats/mods.svg" />Mods</a>
+		<a class="cat-child" onclick="preloadContent('rebuilding')"><img src="stylesheets/cats/rebuilding.svg" />Rebuilding</a>
 	</div>
 						
     </div>

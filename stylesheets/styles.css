@@ -1,3 +1,42 @@
+/* ################################### ANIMATIONS ###################################*/
+
+-moz-keyframes loading {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes loading {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes loading {
+    0% {transform:rotate(0deg) scale(1);}
+    50% {transform:rotate(360deg) scale(0.5);}
+    100% {transform:rotate(720deg) scale(1);}
+}
+
+
+@keyframes rainfall {
+    0% { background-position-y: 0;
+     }
+    50%{
+    }     
+      100% { background-position-y:900px;	}
+}
+
+@keyframes rainside {
+    0% { background-position-x: 0px;
+    	background-size:225px; }
+    50%{
+    	background-size:450px;
+    }
+    100% { background-position-x: 450px;
+    background-size:225px; }
+}
+
+
+
+
+
 /* ################################### GLOBAL ###################################*/
 
 * {
@@ -12,13 +51,23 @@ body {
     font-family: 'Raleway', sans-serif;
     margin: 0;
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
     transition: box-shadow 0.3s;
+    padding-top: 105px;
+    /* perspective: 1000px; */
     transition-delay: 0.5s;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3) inset;
     background: url(floralBGWhite.png);
 }
+
+/* .redeemMode{ */
+	/* background: url(confetti.png); */
+	/* animation: rainfall infinite linear 5s, rainside infinite alternate ease-in-out 10s; */
+/* } */
+
+
+
 
 input, select, textarea {
 	background-color:white;	
@@ -26,32 +75,58 @@ input, select, textarea {
   -webkit-border-radius: 0;
 }
 
-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: transparent;
-  font-weight:normal;
+
+#systemMessage {
+	text-align:center;
+	background: #4ab74a;
+	font-size:14px;
+	margin:0;
+	color: rgba(255,255,255,0.6);
+	padding:10px 0;
+	
 }
-input::-moz-placeholder { /* Firefox 19+ */
-  color: transparent;
-  font-weight:normal;
+
+#systemMessage u{
+	font-weight:bold;
+	color: #fff;
+	cursor:pointer;
 }
-input:-ms-input-placeholder { /* IE 10+ */
-  color: transparent;
-  font-weight:normal;
+
+#systemMessage b{
+	font-size:17px;
 }
-input:-moz-placeholder { /* Firefox 18- */
-  color: transparent;
-  font-weight:normal;
+
+#systemMessage.red {
+	background: #cc5336;
+}
+#pageContent{
+	position:relative;
 }
 
 #scrollContent{
-	-webkit-overflow-scrolling: touch;
-	overflow-y:auto;	
+	perspective: 1000px;
+	/*-webkit-overflow-scrolling: touch;
+	 overflow-y:auto; */
 }
 
 #pageLoader {
     height: 100%;
-    background: url("/stylesheets/sending.gif") no-repeat center center;
+    text-align: center;
+    font-size: 1.5em;
 }
+
+#pageLoader:before {
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 5px solid;
+    border-color: #efd27d transparent;
+    -webkit-animation: loading 1s infinite linear;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+
+
 
 /* ################################### Shutdown Notice ################################### */
 #shutdownNoticeShadow{
@@ -146,20 +221,6 @@ input:-moz-placeholder { /* Firefox 18- */
 
 }	
 
-/* ################################### HIT COUNTER ################################### */
-
-#hitCounter {
-    background: #fff;
-    padding: 5px 0 4px;
-    border-top: 1px solid #e9e9e9;
-    margin: 0 auto;
-    width: 70px;
-    border-radius: 10px 10px 0 0;
-}
-#hitCounter img {
-    display: block;
-    margin: 0 auto;
-}
 
 
 
@@ -262,211 +323,316 @@ input:-moz-placeholder { /* Firefox 18- */
 	
 /* ################################### LAB REQUEST POPUP ################################### */
 
-#liquidOrderSection {
-    background: rgba(80, 80, 80, 0.9);
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(20%);
+	opacity:0;
+  }
+  50% {
+    transform: translateX(0);
+	opacity:0.5;
+  }
+  
+    100% {
+    transform: translateX(0);
+	opacity:1;
+  }
 }
-#liquidOrderForm {
-    position: relative;
-    border-radius: 10px;
-    color: #999;
-    font-family: 'Raleway', sans-serif;
+
+
+#liquidOrderHeading{
+	text-align:center;
+	margin: 20px 3vw 20px;
+	width: 30%;
+	font-size: 16px;
 }
 #liquidOrderFlask {
-    background-color: #eee;
-    margin: 20px 0;
-    padding: 30px 30px;
-    border-radius: 20px 0 0 20px;
-    box-shadow: -18px 0 10px -10px rgba(0, 0, 0, 0.1) inset;
-    position: relative;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 80%;
+     animation: 1s ease 0s 1 slideInFromLeft;
+     margin: 20px auto 0;
 }
 #liquidOrderData {
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
+    background: #fffcf569;
     position: relative;
-    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
 }
-#liquidOrderNectarThumbnail {
-    width: 160px;
-}
+
+/* .redeemMode #liquidOrderData { */
+	/* background: rgba(255, 252, 245, 0.8); */
+/* } */
+
 #yourVeryOwn {
     display: block;
-    width: 160px;
-    color: #d87b00;
-    font-size: 19px;
-    MARGIN-BOTTOM: 249PX;
-    line-height: 18px;
-    text-align: center;
-    margin-top: 10px;
+    color: #d7a000;
+    font-size: 1.2em;
 }
 
 
-#sendingPanel,
-#orderSentPanel {
-    position: absolute;
-    top: 0;
-    background-color: white;
-    font-size: 15px;
-    text-align: center;
-    width: 100%;
-    left: 0;
-    padding: 30px;
-    height: 380px;
-    color: #555;
-    text-align: center;
-    color: #555;
-}
 #sendingPanel {
-    background: url(/stylesheets/sending.gif) center 100px no-repeat white;
-    padding-top: 290px;
-    height: 100%;
+	position: absolute;
+	width: 100%;
+	opacity:0;
+	transition:opacity 1s ease 1.2s;
 }
-#sendingPanel h4,
-#orderSentPanel h4 {
+#sendingPanel:before {
+    content:'';
+    width:50px;
+    height:50px;
+    display: block;
+    border:5px solid;
+    border-color: #efd27d transparent;
+    -webkit-animation: loading 1s infinite linear;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+
+
+
+.sending #sendingPanel {
+	opacity:1;
+	
+	visibility: visible !important;
+}
+
+#sendingPanel h4 {
     font-size: 31px;
     margin: 20px;
     color: #888;
-}
-#orderSentPanel h4 {
-    color: #4ab74a;
+    text-align: center;
 }
 
-#orderSentPanel i {
-    /* background:#eee; */
-    /* display: inline-block; */
-    
-    padding: 10px;
-    /* line-height: 23px; */
-    
-    border-radius: 20px;
-}
-#orderSentPanelRequestID {
-    font-size: 30px;
-}
 #liquidOrderTable {
-    width: 350px;
     font-size: 15px;
     color: #444;
-    margin-top: 16px;
-    margin-bottom: 20px;
+    text-align:right;
+    padding: 20px;
     border-spacing: 0;
+    
 }
 
+@keyframes sendRequest {
+	0% {
+
+		    box-shadow: 0 0 0px 100em rgba(0,0,0,0.1);
+		opacity:1;
+    }
+	50% {
+		transform: rotateX(40deg ) translateY(20%) scale(0.9); 
+		    box-shadow: 0 0 0px 100em rgba(0,0,0,0.1);
+		opacity:1;
+    }
+    100% {
+		transform: rotateX(40deg ) translateY(-200%) scale(0.9); 
+		    box-shadow: 0 0 0px 100em rgba(0,0,0,0.0);
+		opacity:0;
+	}
+	    
+
+}
+
+
+.sending #liquidOrderTable{
+
+animation:forwards  2s  sendRequest ease ;
+ background: #fffcf569;
+
+	}
+	
+
+
+		 #liquidOrderData.sending button{
+display:none;	}
+
+
 #liquidOrderTable .info {
-    /* background: #eee; */
-    font-weight: bold;
-    color: #d87b00;
-    line-height: 35px;
-    border-radius: 3px;
-    display: inline-block;
-    padding: 0 10px;
+    background: #444;
+    color: white;
+    line-height: 20px;
+    border-radius: 100%;
+    text-align: center;
     cursor: pointer;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    float: left;
+    vertical-align: middle;
+    margin: 6px;
 }
 
 #liquidOrderTable td {
-    padding: 5px 0;
+    padding: 5px 10px;
+	transition: background-color 0.5s;	
 }
-.requiredField {
-    border-color: tomato !important;
+
+
+
+#liquidOrderTable hr {
+    border-top: 1px solid #ccc;
+    border-width: 1px 0px 0 0;
 }
-#liquidOrderTable input,
-#liquidOrderTable select {
+
+#liquidOrderTable input, #liquidOrderTable select {
     font-family: 'Raleway', sans-serif;
-    border: 1px solid #ddd;
-    border-radius: 3px;
+    background: rgba(116, 93, 45, 0.1);
+    border: 0;
     height: 35px;
     padding: 0 7px;
     color: #444;
-    width: 150px;
+    display: block;
+    width: 127px;
     font-size: 15px;
+    font-weight: bold;
 }
 
-#liquidOrderTable .bottomBorderRow{
-	padding-bottom:15px;
-	border-bottom:1px solid #ddd;
+
+#liquidOrderTable.error td{
+	background-color: tomato;	
+	transition:none;
 }
 
 input#liquidOrderCustomerVaper {
-    width: 100%;
+    width: 100%;  
+}  
+
+.liquidOrderSizeOption,
+.liquidOrderNicTypeOption {
+    background: rgba(116, 93, 45, 0.1);
+    padding: 8px 8px;
+    float: left;
+    margin-right: 5px;
     font-weight: bold;
-    font-size: 20px;
+    cursor: pointer;
+    color: #666;
 }
 
 
-#liquidOrderCustomerVaper::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #d87b00;
-  font-weight:bold;
+.liquidOrderSizeOption.selected,
+.liquidOrderNicTypeOption.selected{
+	color: #444;
+	background: #efd27d;
 }
-#liquidOrderCustomerVaper::-moz-placeholder { /* Firefox 19+ */
-  color: #d87b00;
-font-weight:bold;  
-}
-#liquidOrderCustomerVaper:-ms-input-placeholder { /* IE 10+ */
-  color: #d87b00;
-font-weight:bold;  
-}
-#liquidOrderCustomerVaper:-moz-placeholder { /* Firefox 18- */
-  color: #d87b00;
-font-weight:bold;  
-}
+
+
 
 #liquidOrderNectarName {
     color: #444;
     font-family: "Beleren";
-    font-size: 25px;
-    line-height: 16px;
+    line-height: 0.9em;
     display: block;
     text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0, 0, 0, 0.5);
-    width: 100%;
-    text-align: center;
+    font-size: 2.2em;
 }
 
-#totalCostValue {
-    float: left;
+
+#liquidOrderNectarTags{
+	font-weight:bold;
+	margin-bottom: 20px;
+	color: #be8e00;
+}
+
+#liquidOrderCostRow > td{
+	padding-bottom:2em;
+}
+
+#liquidOrderCostValue {
     font-size: 30px;
     color: #4ab74a;
     font-weight: bold;
 }
 
-#totalCostSave{
-        font-size: 15px;
+#redeemInfoText{
+	display: block;
+	color: #666;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 1em;
+}
+
+#redeemInfoText b.points{
+        font-size: 17px;
         color: #cc5336;
-        font-weight: bold;
-        margin-left: 15px;
-        line-height: 15px;
-        float: left;
-        margin-top: 4px;
+        /* font-weight: bold; */
+        /* line-height: 15px; */
+}
+
+#liquidOrderRedeemRow{
+    background: rgba(116, 93, 45, 0.1);
+  
+    
+}
+
+#liquidOrderRedeemRow.notEnough{
+    opacity: 0.5;
+}
+
+#liquidOrderRedeemRow.notEnough #liquidOrderUsePointsCaption{
+    pointer-events: none;
+}
+
+#liquidOrderRedeemRow > td {
+    padding-top:15px;
+    padding-bottom:15px;
+}
+
+#liquidOrderRedeem.show{
+    opacity: 1;
+}
+
+#liquidOrderUsePointsInfo{
+	display: block;
+	line-height: 1em;
+	font-size: 12px;
+	font-weight: bold;
+	color: #555;
+	margin-top: 0.3em;
+}
+#liquidOrderUsePointsCaption{
+	color: #cc5336;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#liquidOrderUsePoints + label:before{
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    content: '';
+    vertical-align: -0.3em;
+    border: 2px solid #666;
+    border-radius: 3px;
+    margin-right: 0.4em;
+}
+
+#liquidOrderUsePoints:checked + label:before{
+	background-color: #4ab74a;
+	box-shadow: 0 0 0px 4px inset white;
 }
 
 #sendOrder,
-#goToMyLab,
 #cancelOrder {
-    background: #f1cd63;
+    background: #4ab74a;
     border: 0;
-    color: #444;
+    color: white;
     font-family: 'Raleway', sans-serif;
     height: 36px;
     padding: 0 20px;
     border-radius: 3px;
     font-size: 15px;
     float: right;
-    margin-left: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
     font-weight: bold;
+    transition:background 0.5s;
 }
-#goToMyLab {
-    background-color: #ffb7b7;
-}
+
+
+/* .redeemMode #sendOrder:before { */
+	/* content: \1F92A; */
+/* } */
+
 #cancelOrder {
-    background: #ddd;
-    color: #666;
+    background: #444;
+    color: #fff;
 }
 /* ################################### LOGIN PUPOP ################################### */
 
@@ -495,7 +661,7 @@ animation: blinker 1s linear infinite;
     /* height: 450px; */
     /* width: 600px; */
     
-    padding: 30px;
+    /* padding: 30px; */
     position: relative;
     border-radius: 10px;
     color: #999;
@@ -505,7 +671,7 @@ animation: blinker 1s linear infinite;
 }
 .credPopupData {
     background: white;
-    border-radius: 8px;
+    border-radius: 3px;
     padding: 33px;
     position: relative;
 }
@@ -523,9 +689,7 @@ animation: blinker 1s linear infinite;
 .credPopupTable td {
     padding: 5px 0;
 }
-.requiredField {
-    border-color: tomato !important;
-}
+
 .credPopupTable input {
     font-family: 'Raleway', sans-serif;
     border: 1px solid #ddd;
@@ -573,13 +737,14 @@ animation: blinker 1s linear infinite;
     position: absolute;
     top: 26px;
     left: 27px;
+	width:42px;
 }
 .credPopupTitle {
-    line-height: 41px;
+    line-height: 31px;
     font-size: 21px;
     margin-left: 49px;
     top: 30px;
-    color: #d3644a;
+    color: #444;
     font-weight: bold;
 }
 .CredPopupButton {
@@ -629,6 +794,7 @@ animation: blinker 1s linear infinite;
     z-index: 999;
     max-width: 100%;
     height: 105px;
+    position: fixed;
 }
 #headerContainer {
     width: 100%;
@@ -701,6 +867,9 @@ animation: blinker 1s linear infinite;
     max-width: 1000px;
     margin: 0 auto;
 }
+
+
+
 #sideBar {
     display: none;
     width: 300px;
@@ -863,172 +1032,181 @@ animation: blinker 1s linear infinite;
 	color: #ee3a0c;
 }
 
-#myLabRequestDumpDiv {
-    margin: 0 2%;
-}
-
-.myLabRequestTitle{
-    padding: 0;
-    font-size: 23px;
-    color: #616161;
-    text-align: center;
-    line-height: 1.5em;
-}
-
-.myLabRequestTitle b{
-    margin: 8% 5% 3%;
-    font-size: 30px;
-    color: #c38d36;
-}
 
 
 
 #myLabRequestContainer {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 2%;
 }
 
-.myLabRequestWrapper {
-    margin: 2%;
-    background: #FFF;
-    border-radius: 5px;
-    padding-left: 0%;
-    height: 188px;
-    position: relative;
-    width: 335PX;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-    font-size: 15px;
-    overflow: hidden;
+.myLabRequestTitle{
+	font-weight:100;
+	text-align: center;
 }
 
-.myLabRequestWrapper:after {
-    
-    position:absolute;    
-    right:0;
-    bottom:0;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;    
-    line-height: 36px;    
-    width: 61%;
-    
-    content:'Processing';   
-    color: #de5d46;
-    animation: blinker 1s linear infinite;
-    background-color: #ffeee8;    
+#myLabRequestContainer .noLabRequests{
+	padding: 1vh 9vw;
 }
 
-.myLabRequestWrapper.stateR:after,
-.myLabRequestWrapper.stateN:after {
-    content:'Ready for Pickup!';   
-    color: white;
-    animation: none;;
-    background-color: #87c30d;
+
+.myLabRequestGrid {
+	font-size: 14px;
+	color: #666;
+	position: relative;
+	box-shadow: 0 0 30px rgba(0,0,0,0.1);
+	background:white;
+	border-collapse: collapse;
 }
 
-.myLabRequestWrapper.stateB:after {
-    content:'Back-Order';   
-    color: white;
-    animation: none;;
-    background-color: #0db3c3;
+.myLabRequestGrid td{
+	vertical-align: baseline;
+	padding: 1em 0.5em;
+	height: 80px;
 }
 
-.myLabRequestWrapper.stateU:after {
-    content:'Unpaid';   
-    color: white;
-    animation: none;;
-    background-color: #c3470d;
+.myLabRequestGrid td:first-child{
+	vertical-align: top;
+	padding-left: 1.1em;
 }
 
-.myLabRequestFlask {
-    width: 39%;
-    height: 100%;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-position: center 27%;
-    background-size: 65%;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-}
-.myLabRequestNectar {
-    color: #333;
-    font-family: "Beleren";
-    font-size: 22px;
-    line-height: 18px;
-    text-shadow: -1px -1px 1px white, 1px 1px 1px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    position: absolute;
-    left: 10%;
-    width: 80%;
-    bottom: 10%;
-    height: 47px;
+.myLabRequestGrid tr:nth-child(odd) td{
+	
+background: rgb(250,250,250);
 }
 
-.myLabRequestVaper {
-    margin-top: 16px;
-    display: block;
-    font-size: 17px;
-    color: #7a4d30;
-    font-weight: bold;
-    float: right;
-    width: 56%;
-}
-
-.myLabRequestDate {
-    font-size: 14px;
-    color: #d0cab6;
-    margin-bottom: 3px;
-    float: right;
-    width: 56%;
-}
-.myLabRequestSize, .myLabRequestNicotine, .myLabRequestNicType, .myLabRequestVg, .myLabRequestReference {
-    color: #a17733;
-    display: block;
-    line-height:16px;
-    float: right;
-    width: 56%;
-}
-
-.myLabRequestNicType .nicTypeS {
-    color: yellowgreen;
-}
-
-.myLabRequestNicType .nicTypeF {
-    color: tomato;
-}
-
-.myLabRequestWrapper b {
-    width: 75px;
-    display: inline-block;
-    font-weight: normal;
-}
-.myLabRequestReference b,
-.myLabRequestSize b,
-.myLabRequestNicotine b,
-.myLabRequestVg b {
-    color: #dbba86;
-}
-
-.blink_me {
-  animation: blinker 1s linear infinite;
-}
-
-@keyframes blinker {  
-  50% { color: transparent; }
-}
-
-.myLabRequestStatePending,
 
 
-.myLabRequestQty {
-    position: absolute;
-    font-weight: bold;
-    top: 13%;
-    right: 67%;
-    color: #333;
-    font-size: 21px;
-    text-align: right;
+
+
+.myLabRequestRow img{
+	height: 29px;
 }
+
+td.myLabRequestMidCol{
+	padding-right: 1.3em;
+}
+
+td.myLabRequestEndCol{
+	text-align:right;
+	padding-right: 1.1em;
+}
+
+.myLabRequestRowFlavor,.myLabRequestRowPrice{
+	color: #555;
+	font-weight: 700;
+	font-size: 17px;
+	display: block;
+}
+
+.myLabRequestRowInfo{
+	font-size: 12px;
+	color: #5d5d5d;
+	padding-top: 0.2em;
+	display: inline-block;
+	line-height: 1em;
+}
+
+
+.myLabRequestRowPoints{
+	
+font-weight: bold;
+	
+font-size: 13px;
+	
+white-space: nowrap;
+	}
+	
+.myLabRequestRowPoints.positive{
+	color:#16d016;
+	}
+
+.myLabRequestRowPoints.negative{
+	color:#e35e30;
+	}
+	
+.myLabRequestRowInfo span{
+	white-space: nowrap;
+	display: inline-block;
+}
+
+
+.myLabRequestRowInfo span:before{
+	content: '•';
+	font-size: 20px;
+	vertical-align: middle;
+	margin-left: 8px;
+}
+
+.myLabRequestRowPrice.free{
+	color:#16d016;
+}
+
+
+.myLabRequestTotalSummary{
+	font-size: 21px;
+	margin: 0 1em 2em;
+	text-align: right;
+	padding: 30px 3vw;
+	background: white;
+	box-shadow: 0 0 15px rgba(0,0,0,0.1);
+	line-height: 1.5em;
+}
+
+
+.myLabRequestTotalSummaryPoints{
+	font-size:0.7em;
+	line-height: 1em;
+	display: block;
+	margin-top: 0.8em;
+}
+
+.myLabRequestTotalSummaryPoints b{
+	color: #16d016;
+	
+	font-weight: bold;
+}
+
+.myLabRequestTotalPrice b{
+	color: #009b00;
+}
+
+
+.myLabRequestFlask {height: 50px;}
+
+.myLabRequestGridState{
+	margin-top: 1em;
+	bottom: 1.4em;
+	right: 0.9em;
+	font-size: 0.85em;
+	white-space: nowrap;
+}
+
+.myLabRequestGridState:after{
+	content:'';
+	height:1em;
+	width:1em;
+	display:inline-block;
+	border-radius:1em;
+	vertical-align: -0.2em;
+	/* white-space: nowrap; */
+	margin-left: 0.3em;
+}
+
+.myLabRequestGridState.stateR:after,
+.myLabRequestGridState.stateN:after{
+	background-color:#16d016;
+}
+
+.myLabRequestGridState.stateU:after{
+	background-color:#e35e30;
+}
+
+.myLabRequestGridState.stateP:after{
+	background-color:#16a5d0;
+}
+
+
 
 /* ################################### MEDIA QUERIES ################################### */
 
@@ -1072,18 +1250,71 @@ animation: blinker 1s linear infinite;
         clear: both;
         line-height: 24px;
     }
-	
+
 	#headerMenu a img{
-     
-float: left;
-     
-margin: 0 10px 0 0;
-    }	
+
+		float: left;
+		margin: 0 10px 0 0;
+	}	
+
+#nectarOrderContainer #contentContainer {
+	flex-direction: column;
+	-webkit-flex-direction: column;
+	align-items: center;
+	-webkit-align-items: center;
+	justify-content: flex-start;
+	-webkit-justify-content: flex-start;
+}
+
+	#liquidOrderHeading{
+		width: 80%;
+		padding-left: 180px;
+		position:relative;
+		text-align:left;
+		margin: 2em 0;
+		animation: 1s ease 0s 1 slideInFromLeft;
+	}
+
+	#yourVeryOwn{
+		
+font-size: 0.9em;
+	}
+
+	#liquidOrderNectarName{
+		margin-bottom:0.5em;
+	}
+
+	#liquidOrderFlask{
+		position:absolute;
+		left: 90px;
+		max-height: 100%;
+		margin: 0;
+		top: 50%;
+		animation: none;
+		transform: translateX(-50%) translateY(-50%);
+	}
+
+#liquidOrderNectarTags{
+	margin:0;
+}
+
+	#liquidOrderData{
+		width: 80%;
+		/* flex: 1 1 auto; */
+	}
+
+	#liquidOrderTable td:first-child {
+    width:150px;
+}
 }
 @media only screen and (max-width: 750px) {
 
     html {
         /* padding-top :90px; */
+    }
+
+    body{
+    	padding-top:90px;
     }
 
     #header {
@@ -1101,56 +1332,6 @@ margin: 0 10px 0 0;
     }
 
  
-
- 
-    #liquidOrderForm {
-        flex-direction: column;
-        width: 95%;
-        padding: 0;
-        max-width: 350px;
-    }
-    #liquidOrderFlask {
-        margin: 0 10px 0px 10px;
-        border-radius: 10px 10px 0 0;
-        box-shadow: 0 -18px 10px -10px rgba(0, 0, 0, 0.1) inset;
-        padding: 15px;
-        height: 100px;
-        background-size: 70px;
-        background-position-x: 12px;
-    }
-    #liquidOrderNectarThumbnail {
-        width: auto;
-        float: left;
-        height: 50px;
-        margin-top: 12px;
-        margin-left: 10px;
-    }
-    #yourVeryOwn {
-        position: absolute;
-        top: 32px;
-        width: auto;
-        lefT: 91px;
-        margin: 0;
-        text-align: left;
-        font-size: 16px;
-    }
-    #yourVeryOwn b {
-        /* font-size: 16px; */
-        
-        margin-right: 5px;
-    }
-    #yourVeryOwn br {
-        display: none
-    }
-    #liquidOrderNectarName {
-        float: left;
-        margin-left: 87px;
-        margin-top: 38px;
-        width: auto;
-    }
-    #liquidOrderTable{
-        width:100%
-    }
 	
 	
 	.product-item-hr{
@@ -1186,6 +1367,24 @@ margin: 0 10px 0 0;
     .nectarFlask {
         width: 85%;
     }
+
+
+		#liquidOrderHeading{
+		font-size: 15px;
+		padding-left:145px
+	}
+
+img#liquidOrderFlask {
+	left: 70px;
+}	
+
+
+#liquidOrderTable td:first-child {
+width:115px}
+
+
+
+
 }
 @media only screen and (max-width: 500px) {
     #goldRibbon {
@@ -1200,7 +1399,7 @@ margin: 0 10px 0 0;
     }
     #myAccountDetails {
         width: 96%;
-        padding: 50px;
+        padding: 5vw;
     }
 
     #myAccountDetails span,
@@ -1209,7 +1408,7 @@ margin: 0 10px 0 0;
    padding-left: 5%;
    line-height:1.5em;
    margin-bottom:20px;
-   font-s;ize: 18px;
+   font-size: 18px;
    }
 
     #myAccountDetails label {
@@ -1277,6 +1476,32 @@ margin: 0 10px 0 0;
 	.product-item-info{
 		font-size:1em;
 	}	
+
+#nectarOrderContainer{
+	background: #fffcf569;
+}
+
+		#liquidOrderHeading{
+		font-size: 13px;
+		width: 92%;
+		padding-left: 145px;
+		margin: 2em 2em 0;
+	}
+
+img#liquidOrderFlask {
+	left: 76px;
+}	
+
+	#liquidOrderData{
+			width: 100%;
+			background: transparent;
+			box-shadow: none;
+	}
+
+#liquidOrderTable td:first-child {
+width:130px}
+
+
 }
 
 @media only screen and (max-width: 400px) {
@@ -1304,26 +1529,24 @@ margin: 0 10px 0 0;
         font-size:0
     }
 
-	input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-	  color: #cecece;
-	}
-	input::-moz-placeholder { /* Firefox 19+ */
-	  color: #cecece;
-	}
-	input:-ms-input-placeholder { /* IE 10+ */
-	  color: #cecece;
-	}
-	input:-moz-placeholder { /* Firefox 18- */
-	  color: #cecece;
-	}    
     
 	.credPopupForm input[type=email], 
 	.credPopupForm input[type=password] {
     width: 100% !important;
     }
 	
+	#liquidOrderHeading {
+		padding-left:98px
+	}
+
+	img#liquidOrderFlask {
+    left: 42px;
+    max-width: 76px;
+ }
 	
-	
+	#liquidOrderTable td:first-child {
+    width: 80px;
+}
 	
 	
 }

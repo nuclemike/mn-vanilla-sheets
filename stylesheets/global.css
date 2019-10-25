@@ -30,10 +30,22 @@
     justify-content: center;
 }
 
+.fxJustifyEnd {
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: flex-end;
+    justify-content: flex-end;
+}
+
 .fxJustifySpaceEven {
     -webkit-justify-content: space-evenly;
     -ms-flex-pack: space-evenly;
     justify-content: space-evenly;
+}
+
+.fxJustifyBetween {
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: space-between;
+    justify-content: space-between;
 }
 
 .fxFixed {

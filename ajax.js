@@ -1,67 +1,97 @@
 
 function sendRequest() {       	
 
-      if ($("#liquidOrderSize").val()=="") {
-	$("#liquidOrderSize").addClass("requiredField")}
-	else { $("#liquidOrderSize").removeClass("requiredField")}        
+      if ( $('.liquidOrderSizeOption.selected').attr('value') == undefined || 
+	       $("#liquidOrderNicotine").val() < 0 || 
+		   $("#liquidOrderVG").val()=="" ) 
+		   {
+			    $('#liquidOrderTable').addClass('error');
+				
+				setTimeout(function () { 
+				
+					$('#liquidOrderTable').removeClass('error');
+				}, 50);
 
-
-      if ($("#liquidOrderNicotine").val()=="") {
-	$("#liquidOrderNicotine").addClass("requiredField")}
-	else { $("#liquidOrderNicotine").removeClass("requiredField")}
-
-      if ($("#liquidOrderVG").val()=="") {
-	$("#liquidOrderVG").addClass("requiredField")}
-	else { $("#liquidOrderVG").removeClass("requiredField")}
-
-     if ($( ".requiredField" ).length) {return false};
+			  return false
+		   }
 
 
     $('#sendOrder, #cancelOrder').hide();
+	$('#liquidOrderData').addClass('sending');
+	
+	
+	
+ 
 
-	$('#sendingPanel').fadeIn('medium');
-
-	var vaperText = $("#liquidOrderCustomerVaper").val();  
-      if (vaperText=="") { vaperText = sessionStorage.getItem("name"); }	 
-
-	var requestObj = { email : sessionStorage.getItem("email"),
-			   pass : sessionStorage.getItem("pass"),
+	var requestObj = { userid : sessionStorage.getItem("userid"),
+			   seid : sessionStorage.getItem("seid"),
 			   qty : $('#liquidOrderQuantity').val(),
 			   flavor : $('#liquidOrderNectarName').text(),
-			   size : $('#liquidOrderSize').val(),
+			   size : $('.liquidOrderSizeOption.selected').attr('value'),
 			   nicotine : $('#liquidOrderNicotine').val(),
-			   nicType : $('#liquidOrderShotType').val(),
+			   nicType : $('.liquidOrderNicTypeOption.selected').attr('value'),
 			   vg : $('#liquidOrderVG').val(),
-			   vaper : vaperText }			   	
+			   vaper : $('#liquidOrderCustomerVaper').val(),
+				usePoints : $('#liquidOrderUsePoints').is(':checked')			   }			   	
 
-    var request = jQuery.ajax({
-      crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycbzOCqcFbtdt_Tb4rLgvTyrCwpXTqihkEf2cxW_l/exec?callback=sendRequestCb",
-	        
-      method: "GET",
-      dataType: "jsonp",
-      data: requestObj
-    });
+
+
+
+
+
+	
+	// $.ajax({  
+		// url: "https://script.google.com/macros/s/AKfycbxUe1Q_qURugb5z39rb_HzTxaL_9vWo2hXofb8GoEFMn1fsj2E/exec",
+		// type: "POST",
+		// data: requestObj,
+		// success: function(response) {        
+			// sendRequestCb(JSON.parse(response));
+		// },
+		// error: function(response) {        
+			// systemMessage(JSON.parse(response), 'red');
+		// }
+
+	// })
+	
+	$.ajax({
+		crossDomain: true,
+		url: "https://script.google.com/macros/s/AKfycbxUe1Q_qURugb5z39rb_HzTxaL_9vWo2hXofb8GoEFMn1fsj2E/exec?callback=sendRequestCb",
+		type: "GET",
+		dataType: "jsonp",
+		data: requestObj
+	})
+
 
   }
 
 function sendRequestCb(response) {
-	$('#sendingPanel').hide();
+	
 	if (response.success) {
-		$('#orderSentPanelEmail').text(sessionStorage.getItem("email"));
-		$('#orderSentPanelRequestID').text('#'+response.requestID);
-		$('#orderSentPanel').show();
-		$('#cancelOrder, #goToMyLab').show();
+		
+		systemMessage("<b>Thanks a Bunch!</b><br> View more in <u onclick=preloadContent('mylab')>myLAB</u>", 'green');
+		sessionStorage.setItem('points', response.points);
 	}
-	else {
-
-		alert('error : ' + response.error);
-		$('#cancelOrder').show();
+	else 
+	{
+		systemMessage(response.error, 'red');
+		
 
 	}
+	loadContent('nectars'); 
+	
+	
+    // setTimeout(function(){ 
+		
+		// $( "#systemMessage" ).hide();
+	// }, 5000);
+         
+	
 } 
 
+
+	
 function login() {
+	
 	if ($("#loginPopupEmail").val()=="") {
 		$("#loginPopupEmail").addClass("requiredField")}
 	else { 
@@ -80,51 +110,83 @@ function login() {
 
 	  $('#loginPopupTitle').text('Authorizing...');
 
-    var loginObj = { email:$('#loginPopupEmail').val(),
-		    pass:$('#loginPopupPassword').val() }
+			
+			
+		var loginObj = { 
+			email:  $('#loginPopupEmail').val(),
+			pass:   $('#loginPopupPassword').val(),
+			userid: null,
+			seid:   null 
+		}
+		
 
-    var request = jQuery.ajax({
-      crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycbwIIyuLKOjMfF0hoXG6SfwfXx6evNJW3jx93KavDg/exec?callback=loginCb",
-      method: "GET",
-      dataType: "jsonp",
-      data : loginObj
-    });
 
+
+		
+		
+	
+	
+	// $.ajax({
+		// crossDomain: true,
+		// url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec",
+		// type: "POST",
+		// data: loginObj,
+		// headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+		// success: function(response) {        
+			// loginCb(JSON.parse(response));
+		// },
+		// error: function(response) {        
+			// alert(response);
+		// }
+
+	// })
+
+
+	$.ajax({
+		crossDomain: true,
+		url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec?callback=loginCb",
+		type: "GET",
+		dataType: "jsonp",
+		data: loginObj
+	})
 
   }
   
 function loginCb(response) {	
-	if (response.success == true){
-		sessionStorage.setItem('userid', response.userid);
-		sessionStorage.setItem('name', response.name);
-		sessionStorage.setItem('email', response.email);
-		sessionStorage.setItem('pass', response.pass);
-		sessionStorage.setItem('mobile', response.mobile);
 
+	
+	if(response.success)
+	{
+		sessionStorage.setItem('userid', response.userid);    
+		sessionStorage.setItem('name', response.name);    
+		sessionStorage.setItem('email', response.email);    
+		sessionStorage.setItem('points', response.points);    
+		sessionStorage.setItem('seid', response.seid);   
+
+		//if remember me, save session into localStorage
 		if (document.getElementById('rememberMe').checked) {
-			localStorage.setItem('userid', response.userid);
-			localStorage.setItem('name', response.name);
-			localStorage.setItem('email', response.email);
-			localStorage.setItem('pass', response.pass);
-			localStorage.setItem('mobile', response.mobile);
+			localStorage.setItem('userid', response.userid); 
+			localStorage.setItem('seid', response.seid); 		
 		}
+		
+		
 
-
-		populateUser(true);
-		if (afterLoginFunction != null) afterLoginFunction();
+		if (afterLoginFunction != undefined) afterLoginFunction();
 		$('#loginPopupShadow').removeClass('loading');
 		closeCredPopup('loginPopupShadow');  
+		
+		$('.credPopupData').remove();
 
 	}
 	else 
 	{
-		$('#loginPopupError').text(response.name);
-		afterLoginFunction = null;
+		$('#loginPopupError').text(response.error);
+		afterLoginFunction = undefined;
 		$('#loginPopupShadow').removeClass('loading');
-		$('#loginPopupWelcome').text('Authorization Required');
 		$("#loginPopupEmail").focus()
 	}
+	
+	populateUser(response.success);	
 
 }
 
@@ -194,7 +256,7 @@ function changePassCb(response) {
 	else 
 	{
 		$('#changePassPopupError').text(response.error);
-		afterLoginFunction = null;
+		afterLoginFunction = undefined;
 		$('#changePassPopupShadow').removeClass('loading');
 		$('#changePassPopupTitle').text('Change Password');		
 	}
@@ -246,9 +308,13 @@ var elem = document.getElementById("myAccountMarketing");
 }
 
 function loadMyLab() {
+	
+		
+	$("#pageLoader").html("loading <b>myLAB</b>");
+	
 	var request = jQuery.ajax({
 		crossDomain: true,
-		url: "https://script.google.com/macros/s/AKfycbwQMliSuDjfOFXzP4-O1IaPKCZuy1CjONa3M1PkBA/exec?callback=loadMyLabCb",
+		url: "https://script.google.com/macros/s/AKfycbyIQs8oagOE3MZfax8MyLx2i8uUdVHMBPr8JMETzw/exec?callback=loadMyLabCb",
 		method: "GET",
 		dataType: "jsonp",
 		data : {userid : sessionStorage.getItem("userid")}
@@ -261,56 +327,148 @@ function loadMyLabCb(e) {
 
 	if (e.error) { alert(e.message) }
 	else {
+		
+					
+		stateDefs = { 
+			''  : '',
+			'U' : 'unpaid',
+			'R' : 'produced',
+			'N' : 'produced',
+			'P' : 'paid'
+						}
+		
+		var headerHtml = '<h2 class="myLabRequestTitle">Pending requests</h2>';
+		
 		var html = '';
-
-
+		var totalPrice = 0.00;
+		var totalPointsToEarn = 0;
+		
 		e.requests.forEach( function (item){
+			
+			if (item.state != 'P') { 
+				totalPrice += item.price;
+			}
+			
+				totalPointsToEarn += Math.max(item.points, 0);// not counting negative points (free bottles)
+				
+				
+				var imgUrl = 'nectar/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
+				var nicText = '';
+				if (item.nicotine > 0){
+					nicText = item.nicType=='F' ? ' Freebase' : ' Salt'
+				}
+				var vgText = '';
+				if ( Math.round(item.vg) == 100 ) {
+					vgText="MAX-VG"
+				}
+				else {
+					vgText = Math.round(item.vg)+"/"+ Math.round(100-item.vg)
+				}
+						
+				
+				html += '<tr class="myLabRequestRow">';
+					
 
 
-			var imgUrl = 'nectar/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
-			html += '<div class="myLabRequestWrapper fxFixed state'+item.state+'">';
-			html += '<div class="myLabRequestFlask" style="background-image:url('+imgUrl.toLowerCase()+')">';
-			html += '<span class="myLabRequestQty">' + item.quantity + 'x</span>';						
-			html += '<span class="myLabRequestNectar fxDisplay fxJustifyCenter fxAlignCenter">' + item.flavor + '</span>';
-			html += '</div>';
-			html += '<span class="myLabRequestVaper">' + item.vaper + '</span>';
+					html += '<td><img src="'+imgUrl.toLowerCase()+'"/></td>';
 
-			html += '<span class="myLabRequestDate"><b>Ordered</b>' + item.datetime + '</span>';
-			if (item.nicType=='F')
-				html += '<span class="myLabRequestNicType"><b>Range</b><span class="nicTypeF">Seduce</span></span>';
-			else
-				html += '<span class="myLabRequestNicType"><b>Range</b><span class="nicTypeS">Hydra</span></span>';
-			html += '<span class="myLabRequestSize"><b>Size</b>' + item.size + 'ml</span>';
-			html += '<span class="myLabRequestNicotine"><b>Nicotine</b>' + item.nicotine + '</span>';
-
-			var vgText = '';
-			if (Math.round(item.vg) == 100) {vgText="MAX-VG"}
-			else {vgText = Math.round(item.vg)+"/"+ Math.round(100-item.vg)}
-
-			html += '<span class="myLabRequestVg"><b>VG/PG</b>' + vgText + '</span>';
-			html += '<span class="myLabRequestReference"><b>Ref</b>' + item.reference + '</span>';
-			html += '</div>';	
-
+					html += '<td class="myLabRequestMidCol">';			
+						html += '<span class="myLabRequestRowFlavor">' + item.flavor + '</span>';		
+					
+						
+						html += '<span class="myLabRequestRowInfo">';
+							html += '<span>' +item.quantity + 'x ' + item.size + 'ml' + '</span>';
+							html += '<span>' + item.nicotine + 'mg'+nicText + '</span>';	
+							html += '<span>' + vgText + '</span>';
+							html += '<span>' + item.vaper + '</span>';
+							html += '<span>' + item.datetime + '</span>';
+						html += '</span>';
+					html += '</td>';
+					
+					html += '<td class="myLabRequestEndCol">';
+					
+					if (item.price>0)
+					html += '<span class="myLabRequestRowPrice">€' + item.price.toFixed(2) + '</span>';
+						else
+					html += '<span class="myLabRequestRowPrice free">FREE!</span>';	
+						
+						
+						
+					
+						
+						
+						if (item.points != '')
+						{
+							if (item.points > 0)
+							html += '<span class="myLabRequestRowPoints positive">+' + item.points + ' points!</span>';
+						else
+							html += '<span class="myLabRequestRowPoints negative">' + item.points + ' points</span>';
+						 }
+						html += '<div class="myLabRequestGridState state'+item.state+'">' + stateDefs[item.state] + '</div>';
+					html += '</td>';
+					
+				html += '</tr>';
+				
 		});
+		
+		
 
-		if (e.requests.length > 0) {
-			html += '</div>';
-	     		$('#myAccountDetails.noLabRequests').remove();
-			document.getElementById('myLabRequestContainer').innerHTML = html;	
+						
+				
+					
+		
+
+		
+		
+
+				
+
+		if (e.requests.length > 0) { 
+			
+		var	 footerHtml =  "<div class='myLabRequestTotalSummary'>";
+			footerHtml += 	"<span class='myLabRequestTotalSummaryCost'>Your order total is <b>€"+totalPrice.toFixed(2)+"</b></span><br>";	
+			
+			if (totalPointsToEarn > 0)			
+				footerHtml += 	"<span class='myLabRequestTotalSummaryPoints'>You'll earn <b>"+totalPointsToEarn+" Points</b> once your requests are paid and processed!</span>";	
+			
+			footerHtml += "</div>";
+			
+
+
+			document.getElementById('myLabRequestContainer').innerHTML = headerHtml+'<table class="myLabRequestGrid ">'+html+'</table>'+footerHtml;	
+			
+		} 
+		else {
+			html = '<h2 class="noLabRequests">you have no lab-requests</h2>' 
+			document.getElementById('myLabRequestContainer').innerHTML = '<div class="myLabRequestGrid fxDisplay fxDirCol">'+html+'</div>';	
 		}
+		
+	
+		
+		
 	}
 
 	pageLoaded();
 }
 
 function loadMyAccount(){
-	var request = jQuery.ajax({
-		crossDomain: true,
-		url: "https://script.google.com/macros/s/AKfycbwcZPAD21O1NKh6OMSv90-7hI6qPec9T90d6nXOkq4__JpKm_Q/exec?callback=loadMyAccountCb",
-		method: "GET",
-		dataType: "jsonp",
-		data : {userid : sessionStorage.getItem("userid")}
-	});
+	
+	if (sessionStorage.getItem("userid") && sessionStorage.getItem("seid"))
+	{
+		var userRef = {
+			userid : sessionStorage.getItem("userid"),
+			seid : sessionStorage.getItem("seid")
+		}
+		var request = jQuery.ajax({
+			crossDomain: true,
+			url: "https://script.google.com/macros/s/AKfycbwXffCM5Bszinspmq4Gidvq9qyGs_egLaVhmI5ckfxSREbGlxwf/exec/exec?callback=loadMyAccountCb",
+			method: "GET",
+			dataType: "jsonp",
+			data : userRef
+		});
+		
+		$("#pageLoader").html("loading account")
+	}
 }
 
 function loadMyAccountCb(response){
@@ -319,12 +477,17 @@ function loadMyAccountCb(response){
 		
 		var date = new Date(response.details.memberFrom);
 		document.getElementById("myMembership").innerHTML = date.getDate() + '/' + (date.getMonth() + 1) + '/' +  date.getFullYear();;
-		
+		document.getElementById("myAccountPoints").innerHTML = response.details.points;
 		document.getElementById("myAccountName").innerHTML = response.details.fullName;
 		document.getElementById("myAccountEmail").innerHTML = response.details.email;
 		document.getElementById("myAccountMobile").innerHTML = response.details.mobile;
 		
 		changeMarketingCb({success:true, value:response.details.marketing});
+		
+		//update session
+		sessionStorage.setItem('name', response.details.fullName);    
+		sessionStorage.setItem('email', response.details.email);    
+		sessionStorage.setItem('points', response.details.points);  
 		
 	} else {
 		alert(response.error)
