@@ -292,9 +292,7 @@ function ghostLoginCb(response) {
 	if(response.success)
 	{
 		sessionStorage.setItem('userid', response.userid);    
-		sessionStorage.setItem('seid', response.seid); 
-		sessionStorage.setItem('rid', response.rid); 
-		
+		sessionStorage.setItem('seid', response.seid); 				
 		sessionStorage.setItem('name', response.name);    
 		sessionStorage.setItem('email', response.email);    
 		sessionStorage.setItem('points', response.points);    

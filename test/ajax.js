@@ -484,6 +484,11 @@ function loadMyAccountCb(response){
 		
 		changeMarketingCb({success:true, value:response.details.marketing});
 		
+		//update session
+		sessionStorage.setItem('name', response.details.fullName);    
+		sessionStorage.setItem('email', response.details.email);    
+		sessionStorage.setItem('points', response.details.points);  
+		
 	} else {
 		alert(response.error)
 	}
