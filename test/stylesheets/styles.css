@@ -61,10 +61,10 @@ body {
     background: url(floralBGWhite.png);
 }
 
-.redeemMode{
-	background: url(confetti.png);
-	animation: rainfall infinite linear 5s, rainside infinite alternate ease-in-out 10s;
-}
+/* .redeemMode{ */
+	/* background: url(confetti.png); */
+	/* animation: rainfall infinite linear 5s, rainside infinite alternate ease-in-out 10s; */
+/* } */
 
 
 
@@ -357,9 +357,9 @@ input, select, textarea {
     box-shadow: 0 0 30px rgba(0,0,0,0.1);
 }
 
-.redeemMode #liquidOrderData {
-	background: rgba(255, 252, 245, 0.8);
-}
+/* .redeemMode #liquidOrderData { */
+	/* background: rgba(255, 252, 245, 0.8); */
+/* } */
 
 #yourVeryOwn {
     display: block;
@@ -626,9 +626,9 @@ input#liquidOrderCustomerVaper {
 }
 
 
-.redeemMode #sendOrder:before {
-	content: \1F92A;
-}
+/* .redeemMode #sendOrder:before { */
+	/* content: \1F92A; */
+/* } */
 
 #cancelOrder {
     background: #444;
@@ -1132,7 +1132,10 @@ white-space: nowrap;
 
 
 .myLabRequestRowInfo span:before{
-	content: ' • ';
+	content: '•';
+	font-size: 20px;
+	vertical-align: middle;
+	margin-left: 8px;
 }
 
 .myLabRequestRowPrice.free{
@@ -1176,6 +1179,7 @@ white-space: nowrap;
 	bottom: 1.4em;
 	right: 0.9em;
 	font-size: 0.85em;
+	white-space: nowrap;
 }
 
 .myLabRequestGridState:after{
@@ -1185,7 +1189,7 @@ white-space: nowrap;
 	display:inline-block;
 	border-radius:1em;
 	vertical-align: -0.2em;
-	/* box-shadow: 2px 2px 3px rgba(0,0,0,0.3) inset; */
+	/* white-space: nowrap; */
 	margin-left: 0.3em;
 }
 
@@ -1268,7 +1272,7 @@ white-space: nowrap;
 		position:relative;
 		text-align:left;
 		margin: 2em 0;
-		/* flex: 0 0 auto; */
+		animation: 1s ease 0s 1 slideInFromLeft;
 	}
 
 	#yourVeryOwn{
@@ -1282,10 +1286,12 @@ font-size: 0.9em;
 
 	#liquidOrderFlask{
 		position:absolute;
-		left: 35px;
-		height: 8em;
+		left: 90px;
+		max-height: 100%;
 		margin: 0;
-		top: 0;
+		top: 50%;
+		animation: none;
+		transform: translateX(-50%) translateY(-50%);
 	}
 
 #liquidOrderNectarTags{
@@ -1369,8 +1375,7 @@ font-size: 0.9em;
 	}
 
 img#liquidOrderFlask {
-	left: 26px;
-	height: 7em;
+	left: 70px;
 }	
 
 
@@ -1484,8 +1489,7 @@ width:115px}
 	}
 
 img#liquidOrderFlask {
-	left: 40px;
-	height: 7em;
+	left: 76px;
 }	
 
 	#liquidOrderData{
@@ -1536,8 +1540,9 @@ width:130px}
 	}
 
 	img#liquidOrderFlask {
-    left: 3px;
-	}
+    left: 42px;
+    max-width: 76px;
+ }
 	
 	#liquidOrderTable td:first-child {
     width: 80px;
