@@ -36,6 +36,7 @@
 		<link rel="stylesheet" href="stylesheets/global.css?v=2.0">
 		<script>
 			function getPage(pagename){
+			if (pagename == '') pagename = 'home';
 				switch(pagename) {
 					case "myaccount" : return pagename+".html?v=2.0";
 					case "mylab" : return pagename+".html?v=2.0";
