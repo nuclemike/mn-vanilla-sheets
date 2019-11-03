@@ -176,6 +176,7 @@ function loginCb(response) {
 		closeCredPopup('loginPopupShadow');  
 		
 		$('.credPopupData').remove();
+		$('#pageContent').addClass('member');
 
 	}
 	else 

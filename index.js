@@ -1,9 +1,8 @@
 $(document).ready(function() {	
 	tryFetchSession();
-	
-	
-
 });
+
+
 
 function initApp() {
 	if (sessionStorage.getItem("over18") == null && sessionStorage.getItem("userid") == null)
@@ -31,7 +30,7 @@ function initApp() {
 		}
 		
 		
-	//$('#shutdownNoticeShadow').show();
+	$('#shutdownNoticeShadow').show();
 }
 
 window.onload = function(){
@@ -124,6 +123,8 @@ function loadContent(pageName) {
 	$( "#pageContent" ).load( getPage(pageName), function() { 
 		if (onContentLoadedFunction) onContentLoadedFunction();
 		onContentLoadedFunction = undefined;
+		
+		
 	});
 	
 	
@@ -303,6 +304,8 @@ function ghostLoginCb(response) {
 			localStorage.setItem('userid', response.userid); 
 			localStorage.setItem('seid', response.seid); 		
 		}
+		
+		$('#pageContent').addClass('member');
 	}
 	
 	populateUser(response.success);

@@ -156,6 +156,12 @@ input, select, textarea {
 	font-weight: normal;
 }
 
+#shutdownNotice h3{
+	font-size: 15px;
+	font-weight: normal;
+	color:#946f03;
+}
+
 #shutdownNotice p{
 	color: #555;
 }
@@ -289,6 +295,11 @@ input, select, textarea {
 	
 	.product-item-buy {
 		margin-top: 15px;
+		display: none !important;
+	}	
+	
+	.member .product-item-buy {
+		display: inherit !important;
 	}	
 	
 		
