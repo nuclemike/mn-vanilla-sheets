@@ -30,7 +30,7 @@ function initApp() {
 		}
 		
 		
-	$('#shutdownNoticeShadow').show();
+	//$('#shutdownNoticeShadow').show();
 }
 
 window.onload = function(){
