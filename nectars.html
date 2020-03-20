@@ -80,10 +80,9 @@ function rotate() {
 </script>
 
 <div class="elementRotator fxFixed">
-
-	<div style="background-image:url(stylesheets/wholesaleprices.png)"></div>
+	<div style="background-image:url(stylesheets/buyitnow.png)"></div>
+	<!--<div style="background-image:url(stylesheets/wholesaleprices.png)"></div>-->
 	<div style="background-image:url(stylesheets/freedelivery.png)"></div>
-	
 </div>
     
 <div id="nectarCollection" class="fxDisplay fxStretch fxDirCol">
@@ -103,171 +102,183 @@ function rotate() {
 				<div onclick="nectarPropChanged(this);" class="nectarProp">Nutty</div>
 				<div onclick="nectarPropChanged(this);" class="nectarProp">Tobacco</div>
 			</div>
+			<!--
+			<div class="nectar new" props="fruity beverage creamy" onclick="buyNectar(this);">
+				<img class="nectarFlask" src="./nectars/cocojumbo.png">		
+				<span class="nectarName">Coco Jumbo</span>
+				<span class="nectarInfo">a creamy re-invention of the traditional Pina Colada!</span>
+			</div>				
+			-->
+			<div class="nectar" props="" onclick="buyNectar(this);">
+				<img class="nectarFlask" src="./nectars/unflavored.png">		
+				<span class="nectarName">Unflavored</span>
+				<span class="nectarInfo">a flavorless mix, just in case your taste buds needs some rest!</span>
+			</div>				
 			
-			<div class="nectar new" props="fruity sweet minty" onclick="labRequestPopup(this);">
-				<img class="nectarFlask" src="./nectar/fusionaloe.png">		
+			<div class="nectar new" props="fruity sweet minty" onclick="buyNectar(this);">
+				<img class="nectarFlask" src="./nectars/fusionaloe.png">		
 				<span class="nectarName">Fusion Aloe</span>
 				<span class="nectarInfo">a full-bodied refreshing fusion of aloe vera, raspberries & exotic fruits!</span>
 			</div>				
 			
-			<div class="nectar" props="fruity candy minty" onclick="labRequestPopup(this);">
-				<img class="nectarFlask" src="./nectar/devilscotton.png">		
+			<div class="nectar" props="fruity candy minty" onclick="buyNectar(this);">
+				<img class="nectarFlask" src="./nectars/devilscotton.png">		
 				<span class="nectarName">Devil's Cotton</span>
 				<span class="nectarInfo">an exotic mix of spiced tangy fruit, in the form of cotton candy!</span>
 			</div>	
 		
-			<div class="nectar" props="pastry fruity spicy creamy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/tartquarry.png">		
+			<div class="nectar" props="pastry fruity spicy creamy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/tartquarry.png">		
 				<span class="nectarName">Tart Quarry</span>
 				<span class="nectarInfo">a sour lemon delight, balanced with sweet biscuits and creams!</span>
 			</div>			
 		
-			<div class="nectar" props="fruity sweet candy beverage minty" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/boozybill.png">		
+			<div class="nectar" props="fruity sweet candy beverage minty" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/boozybill.png">		
 				<span class="nectarName">Boozy Bill</span>
 				<span class="nectarInfo">he feeds on blueberries and binges on sambuca!</span>
 			</div>	
 			
-			<div class="nectar" props="fruity beverage creamy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/tropicterror.png">		
+			<div class="nectar" props="fruity beverage creamy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/tropicterror.png">		
 				<span class="nectarName">Tropic Terror</span>
 				<span class="nectarInfo">the almighty mango smoothie, with a yoghurt fruit complexity!</span>
 			</div>	
 
-			<div class="nectar" props="sweet beverage creamy nutty" onclick="labRequestPopup(this)">					
-				<img class="nectarFlask" src="./nectar/proteincells.png">		
+			<div class="nectar" props="sweet beverage creamy nutty" onclick="buyNectar(this)">					
+				<img class="nectarFlask" src="./nectars/proteincells.png">		
 				<span class="nectarName">Protein Cells</span>
 				<span class="nectarInfo">a non-fatty complex addiction, for almond milkshake lovers!</span>
 			</div>		
 		
-			<div class="nectar" props="pastry fruity spicy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/thefirstsin.png">		
+			<div class="nectar" props="pastry fruity spicy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/thefirstsin.png">		
 				<span class="nectarName">The First Sin</span>
 				<span class="nectarInfo">mama didn't eat the apple, she put it in a pie and fried it!</span>
 			</div>			
 		
-			<div class="nectar" props="pastry fruity sweet creamy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/huecannon.png">		
+			<div class="nectar" props="pastry fruity sweet creamy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/huecannon.png">		
 				<span class="nectarName">Hue Cannon</span>
 				<span class="nectarInfo">fruity cereal covered, italian cream-filled cannoli!</span>
 			</div>				
 
-			<div class="nectar" props="pastry fruity sweet" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/purplemaze.png">		
+			<div class="nectar" props="pastry fruity sweet" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/purplemaze.png">		
 				<span class="nectarName">Purple Maze</span>
 				<span class="nectarInfo">blueberry & raspberry filled sugar glazed doughnuts!</span>
 			</div>				
 			
-			<div class="nectar" props="candy minty" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/liquidpepper.png">		
+			<div class="nectar" props="candy minty" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/liquidpepper.png">		
 				<span class="nectarName">Liquid Pepper</span>
 				<span class="nectarInfo">a simple smooth and creamy cooling peppermint!</span>
 			</div>	
 			
-			<div class="nectar" props="fruity sweet candy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/bubbletrouble.png">		
+			<div class="nectar" props="fruity sweet candy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/bubbletrouble.png">		
 				<span class="nectarName">Bubble Trouble</span>
 				<span class="nectarInfo">a classic fruity bubblegum, only without the chewing!</span>
 			</div>	
 			
-			<div class="nectar" props="fruity spicy candy minty" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/wildfrost.png">		
+			<div class="nectar" props="fruity spicy candy minty" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/wildfrost.png">		
 				<span class="nectarName">Wild Frost</span>
-				<span class="nectarInfo">A wide range of cool-sensation infused wild berries!</span>
+				<span class="nectarInfo">a wide range of cool-sensation infused wild berries!</span>
 			</div>		
 			
-			<div class="nectar" props="pastry fruity spicy sweet creamy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/monkeymunch.png">		
+			<div class="nectar" props="pastry fruity spicy sweet creamy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/monkeymunch.png">		
 				<span class="nectarName">Monkey Munch</span>
 				<span class="nectarInfo">ape's favorite... banana cinnamon cookie!</span>
 			</div>		
 
-			<div class="nectar" props="fruity sweet beverage creamy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/crimsonfuzz.png">		
+			<div class="nectar" props="fruity sweet beverage creamy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/crimsonfuzz.png">		
 				<span class="nectarName">Crimson Fuzz</span>
 				<span class="nectarInfo">a creamy, strawberry enriched kiwi smoothie!</span>
 			</div>		
 			
-			<div class="nectar" props="fruity candy beverage" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/blackenergy.png">			
+			<div class="nectar" props="fruity candy beverage" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/blackenergy.png">			
 				<span class="nectarName">Black Energy</span>
 				<span class="nectarInfo">blackcurrant / pomegranate candy with a slight lemon hint!</span>
 			</div>		
 			
-			<div class="nectar" props="pastry sweet creamy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/pastrypot.png">		
+			<div class="nectar" props="pastry sweet creamy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/pastrypot.png">		
 				<span class="nectarName">Pastry Pot</span>
 				<span class="nectarInfo">mama's traditional vanilla cupcake!</span>
 			</div>	
 			
-			<div class="nectar" props="tobacco" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/classicanalog.png">		
+			<div class="nectar" props="tobacco" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/classicanalog.png">		
 				<span class="nectarName">Classic Analog</span>
 				<span class="nectarInfo">simply tobacco, in its liquid form!</span>
 			</div>	
 			
-			<div class="nectar" props="fruity spicy creamy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/passionhusky.png">			
+			<div class="nectar" props="fruity spicy creamy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/passionhusky.png">			
 				<span class="nectarName">Passion Husky</span>
 				<span class="nectarInfo">passion-fruit caramel with a creamy coconut background!</span>
 			</div>	
 			
-			<div class="nectar" props="fruity beverage sweet creamy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/coralmilk.png">		
+			<div class="nectar" props="fruity beverage sweet creamy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/coralmilk.png">		
 				<span class="nectarName">Coral Milk</span>
 				<span class="nectarInfo">whipped cream covered peachy raspberry dessert!</span>
 			</div>	
 			
-			<div class="nectar" props="fruity sweet candy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/angrymelons.png">		
+			<div class="nectar" props="fruity sweet candy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/angrymelons.png">		
 				<span class="nectarName">Angry Melons</span>
 				<span class="nectarInfo">exotic papaya & melon mix with fused marshmallows!</span>
 			</div>				
 			
-			<div class="nectar" props="nutty tobacco" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/nuttyscutt.png">		
+			<div class="nectar" props="nutty tobacco" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/nuttyscutt.png">		
 				<span class="nectarName">Nutty Scutt</span>
 				<span class="nectarInfo">a vanilla tobacco blend with pistachios and caramel!</span>
 			</div>	
 			
-			<div class="nectar" props="fruity sweet creamy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/rosejunket.png">		
+			<div class="nectar" props="fruity sweet creamy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/rosejunket.png">		
 				<span class="nectarName">Rose Junket</span>
 				<span class="nectarInfo">a creamy caramelly strawberry pudding!</span>
 			</div>	
 			
-			<div class="nectar" props="fruity candy minty" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/arcticruby.png">		
+			<div class="nectar" props="fruity candy minty" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/arcticruby.png">		
 				<span class="nectarName">Arctic Ruby</span>
 				<span class="nectarInfo">a cool minty shot of juicy creamy raspberries!</span>
 			</div>	
 
-			<div class="nectar" props="fruity candy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/rainbowoil.png">		
+			<div class="nectar" props="fruity candy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/rainbowoil.png">		
 				<span class="nectarName">Rainbow Oil</span>
 				<span class="nectarInfo">gummy bears, milky bottles, and all the fun in between!</span>
 			</div>	
 			
-			<div class="nectar" props="fruity beverage creamy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/persianmalt.png">		
+			<div class="nectar" props="fruity beverage creamy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/persianmalt.png">		
 				<span class="nectarName">Persian Malt</span>
 				<span class="nectarInfo">a greek yoghurt smoothie with Peaches and Oranges!</span>
 			</div>		
 			
-			<div class="nectar" props="pastry fruity sweet creamy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/scarletsbar.png">		
+			<div class="nectar" props="pastry fruity sweet creamy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/scarletsbar.png">		
 				<span class="nectarName">Scarlet's Bar</span>
 				<span class="nectarInfo">the known bar of joy! the strawberry cereal bar!</span>
 			</div>	
 			
-			<div class="nectar" props="fruity spicy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/nauticalspice.png">		
+			<div class="nectar" props="fruity spicy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/nauticalspice.png">		
 				<span class="nectarName">Nautical Spice</span>
 				<span class="nectarInfo">a creamy watermelon, kiwi, strawberry and lime fusion!</span>
 			</div>				
 
-			<div class="nectar" props="fruity creamy" onclick="labRequestPopup(this)">
-				<img class="nectarFlask" src="./nectar/dragonskiss.png">												
+			<div class="nectar" props="fruity creamy" onclick="buyNectar(this)">
+				<img class="nectarFlask" src="./nectars/dragonskiss.png">												
 				<span class="nectarName">Dragon's Kiss</span>
 				<span class="nectarInfo">vanilla enriched, caramelized dragon-fruit!</span>
 			</div>			

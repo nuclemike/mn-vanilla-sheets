@@ -1,26 +1,28 @@
-<div id="nectarOrderContainer" class="fxDisplay fxStretch">
+<div id="orderContainer" class="fxDisplay fxStretch">
 		<div id="contentContainer" class="fxDisplay fxStretch fxJustifyCenter">
 
-			<div class="fxDisplay fxFixed fxDirCol fxJustifyCenter" id="liquidOrderHeading">
+			<div class="fxDisplay fxFixed fxDirCol fxJustifyCenter" id="orderProductHead">
+			
+					
+				<span id="orderProductSubtitle">blend your very own </span>
+				<span id="orderProductTitle">...</span>		
 				
-				<span id="yourVeryOwn">blend your very own </span>
-				<span id="liquidOrderNectarName">...</span>		
 				
-				<img id=liquidOrderFlask src=""/>	
-				<span id="liquidOrderNectarTags">...</span>	
-				<span id="liquidOrderNectarInfo">...</span>	
+				<img id="orderProductImage" src=""/>	
+				<span id="orderProductTags">...</span>	
+				<span id="orderProductHeadInfo">...</span>	
 				
 				
 			</div>
 			
-			<div class="fxDisplay fxFixed fxDirCol fxJustifyCenter" id="liquidOrderData">
+			<div class="fxDisplay fxFixed fxDirCol fxJustifyCenter" id="orderProductSlip">
 				
-				<table id="liquidOrderTable">
+				<table id="orderProductSlipTable">	
 						
 				<tr>
 					<td style="padding-top:15px;">Custom Text</td>      
 					<td style="padding-top:15px;">
-						<input type="text" id="liquidOrderCustomerVaper" maxlength="25">
+						<input type="text" id="orderProductSlip_CUSTOMTEXT" style="width:100%" maxlength="25">
 					</td>
 				</tr>	
 
@@ -28,31 +30,18 @@
 				
 					<td>Size</td>
 					<td>
-							<span value="30"  class="liquidOrderSizeOption" onclick="selectOption(this);">30ml</span>
-							<span value="60"  class="liquidOrderSizeOption" onclick="selectOption(this);">60ml</span>
-							<span value="120" class="liquidOrderSizeOption" onclick="selectOption(this);">120ml</span>				
+						<span value="30"  class="orderProductSlip_SIZE" onclick="selectOption(this);">30ml</span>
+						<span value="60"  class="orderProductSlip_SIZE" onclick="selectOption(this);">60ml</span>
+						<span value="120" class="orderProductSlip_SIZE" onclick="selectOption(this);">120ml</span>				
 					</td>
-				</tr> 					
+				</tr> 		
+			
 
-				<tr> 
-					<td>Quantity</td>
-					<td>
-						<select id="liquidOrderQuantity" onchange="recalcNectar()">	
-							<option selected value="1">1 Bottle</option>
-							<option value="2">2 Bottles</option>
-							<option value="3">3 Bottles</option>
-							<option value="4">4 Bottles</option>
-							<option value="5">5 Bottles</option>	
-							<option value="6">6 Bottles</option>
-							<option value="7">7 Bottles</option>
-							<option value="8">8 Bottles</option>								
-						</select>
-					</td>
-				</tr> 										   				    															   
+													   				    															   
 				<tr> 
 					<td>Nicotine</td>
 					<td>
-						<select id="liquidOrderNicotine" onchange="recalcNectar()">
+						<select id="orderProductSlip_NICOTINE" onchange="recalcNectar()">
 							<option disabled selected value="-1"> -- select -- </option>
 							<option value="0">Zero</option>
 							<option value="1">1mg</option>
@@ -74,12 +63,12 @@
 					</td>
 				</tr>   
 
-				<tr id="liquidOrderShotTypeRow" style="display:none">
+				<tr id="orderProductSlipRow_NICTYPE" style="display:none">
 					<td>Nicotine Type</td>      
 					<td>
 
-						<span value="F"  class="liquidOrderNicTypeOption selected" onclick="selectOption(this);">Freebase</span>
-						<span value="S"  class="liquidOrderNicTypeOption" onclick="selectOption(this);">Salt</span>
+						<span value="F"  class="orderProductSlip_NICTYPE selected" onclick="selectOption(this);">Freebase</span>
+						<span value="S"  class="orderProductSlip_NICTYPE" onclick="selectOption(this);">Salt</span>
 						<span class='info' onclick="loadContent('seducehydra')">?</span>
 					</td>
 				</tr>						
@@ -87,7 +76,7 @@
 				<tr> 
 					<td>VG/PG Ratio</td>
 					<td>
-						<select id="liquidOrderVG">
+						<select id="orderProductSlip_VG">
 							<option disabled selected value> -- select -- </option>
 							<option value="20">20/80</option>
 							<option value="40">40/60</option>
@@ -100,35 +89,55 @@
 						</select>
 					</td>
 				</tr>  		
-
+<tr> 
+					<td>Quantity</td>
+					<td>
+						<select id="orderProductSlip_QTY" onchange="recalcNectar()">	
+							<option selected value="1">1 Bottle</option>
+							<option value="2">2 Bottles</option>
+							<option value="3">3 Bottles</option>
+							<option value="4">4 Bottles</option>
+							<option value="5">5 Bottles</option>	
+							<option value="6">6 Bottles</option>
+							<option value="7">7 Bottles</option>
+							<option value="8">8 Bottles</option>								
+						</select>
+					</td>
+				</tr> 	
 				<tr> 
 					<td colspan=2>
 						<hr>
 					</td>
 				</tr>					
-				<tr  id="liquidOrderCostRow" style="display:none;"> 
+				<tr  id="orderProductSlipPricing" style="display:none;"> 
 					<td colspan='2' style="text-align:right">
-					<span id="liquidOrderCostValue">---</span><br>
-					<span id="redeemInfoText" colspan='2'>">---</</span>
+					<span id="orderProductSlipPrice">---</span><br>
+					<span id="orderProductSlipEarn" colspan='2'>---</span>
 					</td>
 				</tr>		
 					
-				<tr id="liquidOrderRedeemRow" class="notEnough" style="display:none;" >	
-					<td colspan="2">			
-						<input id="liquidOrderUsePoints" onchange="recalcNectar()" style="display:none;" type="checkbox" name="liquidOrderUsePoints" ></input>	
-						<label id="liquidOrderUsePointsCaption" for="liquidOrderUsePoints">You have 0 points</label>	
-						<span id="liquidOrderUsePointsInfo">you need * more to get this order for free</span>	
+				<tr id="orderProductSlipRedeem" class="notEnough" style="display:none;" >	
+					<td colspan="2" style="text-align:right">	
+						<div id ="orderProductSlipRedeemBackground">					
+							<input id="orderProductSlipRedeemButton" onchange="recalcNectar()" style="display:none;" type="checkbox" name="orderProductSlipRedeemButton" ></input>	
+							<label id="orderProductSlipRedeemButtonCaption" for="orderProductSlipRedeemButton">Use points!</label>	
+							<span  id="orderProductSlipPointsBalance">you have 0 points in your account</span>	
+						</div>
 					</td>
-				</tr>					
+				</tr>		
+				
+				<tr>	
+					<td colspan="2" style="text-align:right">	
+						<button id="orderProductSlipExit" onclick="loadContent(window.location.hash.substring(1))" type="button">Back</button>
+						<button id="orderProductSlipPurchase" onclick="nectarRequest()" >Order!</button>		
+					</td>
+				</tr>		
+				
 			</table>	
 	
-			<div class="fxDisplay fxJustifyEnd">			
-					
-				<button id="cancelOrder" onclick="loadContent('nectars')" type="button">Back</button>
-				<button id="sendOrder" onclick="sendRequest()" >Make it!</button>			
-			</div>
 			
-			<div id="sendingPanel" style="visibility:hidden;">
+			
+			<div id="orderProductSlipSending" style="visibility:hidden;">
 				<h4>sending slip</h4>					
 			</div>
 		

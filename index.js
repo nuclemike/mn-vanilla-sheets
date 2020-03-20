@@ -1,5 +1,9 @@
 $(document).ready(function() {	
 	tryFetchSession();
+	
+	if (!("ontouchstart" in document.documentElement)) {
+    document.documentElement.className += " notouch";
+}
 });
 
 
@@ -22,6 +26,7 @@ function initApp() {
 		window.location.hash == '#glasstubes' ||
 		window.location.hash == '#atomizers' ||
 		window.location.hash == '#mods' ||				
+		window.location.hash == '#accessories' ||		
 		window.location.hash == '#starterkits') 
 		{
 			loadContent(window.location.hash.substring(1));
@@ -244,7 +249,7 @@ function tryFetchSession() {
 		
 
 	
-	$("#pageLoader").html("logging you in")
+	//$("#pageLoader").html("logging you in")
 	
 	
 	
@@ -256,7 +261,8 @@ function tryFetchSession() {
 		data: loginObj
 	})
 	
-	
+		populateUser(false);
+		initApp();
 	
 
 		localStorage.removeItem('pass');
@@ -307,23 +313,29 @@ function ghostLoginCb(response) {
 		
 		$('#pageContent').addClass('member');
 	}
+	else {
+			sessionStorage.removeItem("userid");
+			sessionStorage.removeItem("seid"); 
+	}
 	
 	populateUser(response.success);
 	
 	
-	initApp();
+	//initApp();
 
 }
 
 
 function populateUser(success) {
 	if (success) {
-		document.getElementById('headerLoginText').innerHTML = 'Welcome '+sessionStorage.getItem("name")+'!';   
+		document.getElementById('headerLoginText').innerHTML = 'Hello '+sessionStorage.getItem("name")+'!';   
+		$('#headerLoginText').fadeIn();
 		$('#headerLogout, #headerMyLab, #headerMyAccount').show();
 		$('#headerLogin').hide();
 	}
 	else {
-		document.getElementById('headerLoginText').innerHTML = "Welcome to Mama's Nectar!";   
+		document.getElementById('headerLoginText').innerHTML = "";// "Welcome to Mama's Nectar!"; 
+		$('#headerLoginText').hide();		
 		$('#headerLogout, #headerMyLab, #headerMyAccount').hide();
 		$('#headerLogin').show();
 		// var isInMyLab = document.getElementById("myLabRequestTitle");

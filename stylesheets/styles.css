@@ -254,27 +254,33 @@ input, select, textarea {
 	
 	
 	.product-item {
-		width: 46%;
+		width: 23%;
 		TEXT-ALIGN: center;
-		max-width: 46%;
-		margin: 2% 2% 2% 0;
+		margin: 0 5px 10px;
 		box-shadow: 0 0 20px rgba(0,0,0,0.2);
 		background: rgba(255,255,255,0.6);
 		padding-bottom:1em;
-		border-radius: 5px;
 		position:relative;
+		
 	}
+
+	.notouch .product-item:hover {
+		z-index:999999;
+		box-shadow: 0 0 40px rgba(0,0,0,0.2), 0 0 0 3px #e5a934;
+		background:#fff;
+	}
+
 
 	.product-item-image {
 		display: block;
 		margin: 0 auto 1em;
 		width: 100%;
-		border-bottom: 2px solid #e0b947;
-		border-radius: 5px;
+		border-bottom: 2px solid #eee;
+		/* border-radius: 5px; */
 	}
 	
 	.product-item-title {
-		font-size: 2em;
+		font-size: 20px;
 		display: block;
 		margin: 0 0.6em 0.4em;
 	}
@@ -285,12 +291,17 @@ input, select, textarea {
 		position: absolute;
 		color: #c38d36;
 		left: 0.4em;
-		font-size: 1.4em;	}	
+		font-size: 16px;
+		}	
 
 	.product-item-info {
 		line-height: 1em;
 		display: block;
 		margin: 0 1em;
+		white-space: pre;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		font-size: 13px;
 	}
 	
 	.product-item-buy {
@@ -299,23 +310,29 @@ input, select, textarea {
 	}	
 	
 	.member .product-item-buy {
-		display: inherit !important;
+		display: block !important;
 	}	
 	
+
+		.product-item-price,
+		.product-item-oldprice{
+		font-size: 17px;
+		line-height: 1.5em;
+		margin: 0 0.25em;
+		display: inline-block;
+	}
 		
 	    
 	.product-item-price{
-	    font-weight: bold;
+		
+		font-weight: bold;
 		color: #c38d36;
-		font-size: 1.4em;
-		line-height: 1.5em;	
 	}		
 	
-	.product-item-price .strikeout{
+	.product-item-oldprice{
 		font-weight: normal;
 		color: #bbb;
 		text-decoration: line-through;
-		margin-right: 0.5em;
 	}
 		
 	.product-item-order{
@@ -352,75 +369,95 @@ input, select, textarea {
 }
 
 
-#liquidOrderHeading{
+#orderProductHead{
 	text-align:center;
 	margin: 20px 3vw 20px;
 	width: 30%;
 	font-size: 16px;
 }
-#liquidOrderFlask {
+
+.hardware #orderProductHead{
+	
+width: 40%;
+}
+
+
+#orderProductImage {
      animation: 1s ease 0s 1 slideInFromLeft;
      margin: 20px auto 0;
+     max-width: 100%;
 }
-#liquidOrderData {
+
+
+.hardware #orderProductImage {
+    border: 3px solid #444;
+	border-radius:10px;
+}
+
+#orderProductSlip {
     background: #fffcf569;
     position: relative;
+    max-width: 40%;
+    min-width: 350px;
     box-shadow: 0 0 30px rgba(0,0,0,0.1);
 }
 
-/* .redeemMode #liquidOrderData { */
+/* .redeemMode #orderProductSlip { */
 	/* background: rgba(255, 252, 245, 0.8); */
 /* } */
 
-#yourVeryOwn {
+#orderProductSubtitle {
     display: block;
     color: #d7a000;
     font-size: 1.2em;
 }
 
 
-#sendingPanel {
+#orderProductSlipSending {
 	position: absolute;
 	width: 100%;
 	opacity:0;
-	transition:opacity 1s ease 1.2s;
+	padding: 150px 0;
+	transition:opacity 1s;
+	
 }
-#sendingPanel:before {
+#orderProductSlipSending:before {
     content:'';
-    width:50px;
-    height:50px;
-    display: block;
+    width: 300px;
+    height: 300px;
+    position: absolute;
     border:5px solid;
     border-color: #efd27d transparent;
     -webkit-animation: loading 1s infinite linear;
     border-radius: 100%;
-    margin: 0 auto;
+    left: 50%;
+    margin-left: -150px;
+    top: 0;
 }
 
 
 
-.sending #sendingPanel {
+.sending #orderProductSlipSending {
 	opacity:1;
 	
 	visibility: visible !important;
 }
 
-#sendingPanel h4 {
+#orderProductSlipSending h4 {
     font-size: 31px;
-    margin: 20px;
+    margin: 0;
+	line-height: 0;
     color: #888;
     text-align: center;
 }
 
-#liquidOrderTable {
+#orderProductSlipTable {
     font-size: 15px;
     color: #444;
-    text-align:right;
     padding: 20px;
     border-spacing: 0;
-    
 }
-
+/*
 @keyframes sendRequest {
 	0% {
 
@@ -439,23 +476,25 @@ input, select, textarea {
 	}
 	    
 
-}
+}*/
 
 
-.sending #liquidOrderTable{
+.sending #orderProductSlipTable{
 
-animation:forwards  2s  sendRequest ease ;
- background: #fffcf569;
+/* animation:forwards  2s  sendRequest ease ; */
+opacity:0.2;
+ /* background: #fffcf569; */
 
 	}
 	
 
 
-		 #liquidOrderData.sending button{
-display:none;	}
+ #orderProductSlip.sending button{
+	pointer-events:none;		
+}
 
 
-#liquidOrderTable .info {
+#orderProductSlipTable .info {
     background: #444;
     color: white;
     line-height: 20px;
@@ -470,19 +509,19 @@ display:none;	}
     margin: 6px;
 }
 
-#liquidOrderTable td {
-    padding: 5px 10px;
-	transition: background-color 0.5s;	
+#orderProductSlipTable td {
+    padding: 5px 0 10px 5px;
+    transition: background-color 0.5s;
 }
 
 
 
-#liquidOrderTable hr {
+#orderProductSlipTable hr {
     border-top: 1px solid #ccc;
     border-width: 1px 0px 0 0;
 }
 
-#liquidOrderTable input, #liquidOrderTable select {
+#orderProductSlipTable input, #orderProductSlipTable select {
     font-family: 'Raleway', sans-serif;
     background: rgba(116, 93, 45, 0.1);
     border: 0;
@@ -496,17 +535,13 @@ display:none;	}
 }
 
 
-#liquidOrderTable.error td{
+#orderProductSlipTable.error td{
 	background-color: tomato;	
 	transition:none;
 }
 
-input#liquidOrderCustomerVaper {
-    width: 100%;  
-}  
-
-.liquidOrderSizeOption,
-.liquidOrderNicTypeOption {
+.orderProductSlip_SIZE,
+.orderProductSlip_NICTYPE {
     background: rgba(116, 93, 45, 0.1);
     padding: 8px 8px;
     float: left;
@@ -517,15 +552,15 @@ input#liquidOrderCustomerVaper {
 }
 
 
-.liquidOrderSizeOption.selected,
-.liquidOrderNicTypeOption.selected{
+.orderProductSlip_SIZE.selected,
+.orderProductSlip_NICTYPE.selected{
 	color: #444;
 	background: #efd27d;
 }
 
 
 
-#liquidOrderNectarName {
+#orderProductTitle {
     color: #444;
     font-family: "Beleren";
     line-height: 0.9em;
@@ -535,75 +570,77 @@ input#liquidOrderCustomerVaper {
 }
 
 
-#liquidOrderNectarTags{
+#orderProductTags{
 	font-weight:bold;
 	margin-bottom: 20px;
 	color: #be8e00;
 }
 
-#liquidOrderCostRow > td{
+#orderProductSlipPricing > td{
 	padding-bottom:2em;
 }
 
-#liquidOrderCostValue {
+#orderProductSlipOldPrice {
+	    font-size: 20px;
+	    display: inline-block;
+	    color: #888;
+	    text-decoration: line-through;
+	    margin-right: 1em;
+	    vertical-align: 5px;
+}
+
+#orderProductSlipPrice {
     font-size: 30px;
     color: #4ab74a;
     font-weight: bold;
+    display: inline-block;
 }
 
-#redeemInfoText{
+#orderProductSlipEarn{
 	display: block;
 	color: #666;
 	font-weight: bold;
-	font-size: 12px;
+	font-size: 14px;
 	line-height: 1em;
 }
 
-#redeemInfoText b.points{
+#orderProductSlipEarn b{
         font-size: 17px;
         color: #cc5336;
         /* font-weight: bold; */
         /* line-height: 15px; */
 }
 
-#liquidOrderRedeemRow{
+
+
+
+
+
+#orderProductSlipRedeemBackground {
+    padding: 15px;
     background: rgba(116, 93, 45, 0.1);
-  
-    
-}
-
-#liquidOrderRedeemRow.notEnough{
-    opacity: 0.5;
-}
-
-#liquidOrderRedeemRow.notEnough #liquidOrderUsePointsCaption{
-    pointer-events: none;
-}
-
-#liquidOrderRedeemRow > td {
-    padding-top:15px;
-    padding-bottom:15px;
+    margin-bottom:1.5em
 }
 
 #liquidOrderRedeem.show{
     opacity: 1;
 }
 
-#liquidOrderUsePointsInfo{
+#orderProductSlipPointsBalance{
 	display: block;
 	line-height: 1em;
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: bold;
 	color: #555;
 	margin-top: 0.3em;
 }
-#liquidOrderUsePointsCaption{
+#orderProductSlipRedeemButtonCaption{
 	color: #cc5336;
 	font-size: 18px;
 	font-weight: bold;
 }
 
-#liquidOrderUsePoints + label:before{
+#orderProductSlipRedeemButton + label:after{
     width: 1em;
     height: 1em;
     display: inline-block;
@@ -611,16 +648,34 @@ input#liquidOrderCustomerVaper {
     vertical-align: -0.3em;
     border: 2px solid #666;
     border-radius: 3px;
-    margin-right: 0.4em;
+    margin-left: 0.4em;
+    background: #fff;
 }
 
-#liquidOrderUsePoints:checked + label:before{
+#orderProductSlipRedeemButton:checked + label:after{
 	background-color: #4ab74a;
 	box-shadow: 0 0 0px 4px inset white;
 }
 
-#sendOrder,
-#cancelOrder {
+
+
+#orderProductSlipRedeem.notEnough #orderProductSlipRedeemButton + label:after{
+	background-color: #efefef;
+	box-shadow: 0 0 0px 4px inset #efefef;
+	border-color:#b2aea9;
+}
+
+#orderProductSlipRedeem.notEnough #orderProductSlipRedeemButtonCaption{
+    pointer-events: none;
+    color:#b2aea9;
+}
+
+#orderProductSlipRedeem.notEnough #orderProductSlipPointsBalance{
+	color:#cc5336;
+}
+
+#orderProductSlipPurchase,
+#orderProductSlipExit {
     background: #4ab74a;
     border: 0;
     color: white;
@@ -629,19 +684,17 @@ input#liquidOrderCustomerVaper {
     padding: 0 20px;
     border-radius: 3px;
     font-size: 15px;
-    float: right;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    margin-left: 20px;
     font-weight: bold;
     transition:background 0.5s;
 }
 
 
-/* .redeemMode #sendOrder:before { */
+/* .redeemMode #orderProductSlipPurchase:before { */
 	/* content: \1F92A; */
 /* } */
 
-#cancelOrder {
+#orderProductSlipExit {
     background: #444;
     color: #fff;
 }
@@ -841,7 +894,7 @@ animation: blinker 1s linear infinite;
 }
 
 
-#headerMenu a:hover,
+.notouch #headerMenu a:hover,
 #headerMenu a.selected{
     opacity: 1;
      color: #ffd074;
@@ -946,7 +999,7 @@ animation: blinker 1s linear infinite;
     background-size: cover
 }
 
-.nectar:hover,
+.notouch .nectar:hover,
 .nectar.active {
     background-color: rgba(170, 170, 170, 0.4);
 }
@@ -1143,7 +1196,7 @@ white-space: nowrap;
 
 
 .myLabRequestRowInfo span:before{
-	content: '•';
+	content: '\2022';
 	font-size: 20px;
 	vertical-align: middle;
 	margin-left: 8px;
@@ -1268,7 +1321,7 @@ white-space: nowrap;
 		margin: 0 10px 0 0;
 	}	
 
-#nectarOrderContainer #contentContainer {
+#orderContainer #contentContainer {
 	flex-direction: column;
 	-webkit-flex-direction: column;
 	align-items: center;
@@ -1277,8 +1330,9 @@ white-space: nowrap;
 	-webkit-justify-content: flex-start;
 }
 
-	#liquidOrderHeading{
+	#orderContainer #orderProductHead{
 		width: 80%;
+		height:150px;
 		padding-left: 180px;
 		position:relative;
 		text-align:left;
@@ -1286,16 +1340,23 @@ white-space: nowrap;
 		animation: 1s ease 0s 1 slideInFromLeft;
 	}
 
-	#yourVeryOwn{
+	.hardware#orderContainer #orderProductHead{
+		height:auto;
+		padding-left: 0;
+		max-width: 500px;
+		margin: 2em 0 0;
+	}	
+
+	#orderProductSubtitle{
 		
-font-size: 0.9em;
+font-size: 1.1em;
 	}
 
-	#liquidOrderNectarName{
+	#orderProductTitle{
 		margin-bottom:0.5em;
 	}
 
-	#liquidOrderFlask{
+	#orderProductImage{
 		position:absolute;
 		left: 90px;
 		max-height: 100%;
@@ -1305,16 +1366,33 @@ font-size: 0.9em;
 		transform: translateX(-50%) translateY(-50%);
 	}
 
-#liquidOrderNectarTags{
+	.hardware #orderProductImage{
+		position:static;
+		left: unset;
+		max-height: unset;
+		margin: 0 auto;
+		top: unset;
+		animation: none;
+		transform: none;
+	}
+
+#orderProductTags{
 	margin:0;
 }
 
-	#liquidOrderData{
+	#orderProductSlip{
 		width: 80%;
 		/* flex: 1 1 auto; */
+		max-width: 100%;
+		min-width: 0;
+		margin-bottom: 2em;
 	}
 
-	#liquidOrderTable td:first-child {
+	.hardware 	#orderProductSlip{
+		max-width: 500px;
+	}
+
+	#orderProductSlipTable td:first-child {
     width:150px;
 }
 }
@@ -1354,21 +1432,20 @@ font-size: 0.9em;
 	}	
 	
 	.product-item {
-		margin: 2% 1% 2% 1%;
-		width: 48%;
-		max-width: 48%;
+		width: 31%;
+		margin: 0 2.5px 5px;
 	}
 	
 	.product-item-title {
-		font-size:4vw;
+		/* font-size: 20px; */
 	}
 	
 	.product-item-brand {
-		font-size:1.1em;
+		font-size: 14px;
 	}
 	
 	.product-item-info{
-		font-size:2.5vw;
+		font-size: 13px;
 	}	
 }
 @media only screen and (max-width: 600px) {
@@ -1380,17 +1457,18 @@ font-size: 0.9em;
     }
 
 
-		#liquidOrderHeading{
+		#orderContainer #orderProductHead{
 		font-size: 15px;
-		padding-left:145px
+		padding-left:145px;
+		height: 120px;
 	}
 
-img#liquidOrderFlask {
+img#orderProductImage {
 	left: 70px;
 }	
 
 
-#liquidOrderTable td:first-child {
+#orderProductSlipTable td:first-child {
 width:115px}
 
 
@@ -1429,6 +1507,65 @@ width:115px}
    }
    
    
+
+   
+	.product-item {
+		width: 48%;
+		margin: 0 2px 4px;
+	}
+	
+
+
+#orderContainer{
+	background: #fffcf569;
+}
+
+		#orderContainer #orderProductHead{
+		font-size: 13px;
+		width: 92%;
+		padding-left: 141px;
+		margin: 2em 2em 0;
+	}
+
+img#orderProductImage {
+	left: 62px;
+}	
+
+	#orderProductSlip{
+			width: 100%;
+			background: transparent;
+			box-shadow: none;
+			margin-bottom: 0;
+	}
+
+#orderProductSlipTable td:first-child {
+width:130px}
+
+
+}
+
+@media only screen and (max-width: 400px) {
+	#mainLogoSmall{
+		display:block !important;
+		margin-left: 10px;
+		cursor:pointer;
+	}
+	#mainLogo{
+		display:none;
+	}	
+
+	.credPopupTitle{
+    font-size: 17px;
+    }	
+
+	.credPopupTable{
+    width: 100%;
+    min-width: 230px;
+    }
+	
+
+
+
    
 	/*
    	.product-item-hr{
@@ -1487,52 +1624,6 @@ width:115px}
 	.product-item-info{
 		font-size:1em;
 	}	
-
-#nectarOrderContainer{
-	background: #fffcf569;
-}
-
-		#liquidOrderHeading{
-		font-size: 13px;
-		width: 92%;
-		padding-left: 145px;
-		margin: 2em 2em 0;
-	}
-
-img#liquidOrderFlask {
-	left: 76px;
-}	
-
-	#liquidOrderData{
-			width: 100%;
-			background: transparent;
-			box-shadow: none;
-	}
-
-#liquidOrderTable td:first-child {
-width:130px}
-
-
-}
-
-@media only screen and (max-width: 400px) {
-	#mainLogoSmall{
-		display:block !important;
-		margin-left: 10px;
-		cursor:pointer;
-	}
-	#mainLogo{
-		display:none;
-	}	
-
-	.credPopupTitle{
-    font-size: 17px;
-    }	
-
-	.credPopupTable{
-    width: 100%;
-    min-width: 230px;
-    }
 	
 	
 
@@ -1546,17 +1637,22 @@ width:130px}
     width: 100% !important;
     }
 	
-	#liquidOrderHeading {
-		padding-left:98px
+	#orderContainer #orderProductHead {
+		padding-left: 30%;
 	}
 
-	img#liquidOrderFlask {
-    left: 42px;
-    max-width: 76px;
+	img#orderProductImage {
+    left: 14%;
+    width: 28%;
+ }
+
+ .hardware 	img#orderProductImage {
+    
+    width: unset;
  }
 	
-	#liquidOrderTable td:first-child {
-    width: 80px;
+	#orderProductSlipTable td:first-child {
+    width: 30%;
 }
 	
 	

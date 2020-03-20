@@ -1,23 +1,23 @@
 
-function sendRequest() {       	
+function nectarRequest() {       	
 
-      if ( $('.liquidOrderSizeOption.selected').attr('value') == undefined || 
-	       $("#liquidOrderNicotine").val() < 0 || 
-		   $("#liquidOrderVG").val()=="" ) 
+      if ( $('.orderProductSlip_SIZE.selected').attr('value') == undefined || 
+	       $("#orderProductSlip_NICOTINE").val() < 0 || 
+		   $("#orderProductSlip_VG").val()=="" ) 
 		   {
-			    $('#liquidOrderTable').addClass('error');
+			    $('#orderProductSlipTable').addClass('error');
 				
 				setTimeout(function () { 
 				
-					$('#liquidOrderTable').removeClass('error');
+					$('#orderProductSlipTable').removeClass('error');
 				}, 50);
 
 			  return false
 		   }
 
 
-    $('#sendOrder, #cancelOrder').hide();
-	$('#liquidOrderData').addClass('sending');
+    $('#orderProductSlipPurchase, #orderProductSlipExit').hide();
+	$('#orderProductSlip').addClass('sending');
 	
 	
 	
@@ -25,14 +25,14 @@ function sendRequest() {
 
 	var requestObj = { userid : sessionStorage.getItem("userid"),
 			   seid : sessionStorage.getItem("seid"),
-			   qty : $('#liquidOrderQuantity').val(),
-			   flavor : $('#liquidOrderNectarName').text(),
-			   size : $('.liquidOrderSizeOption.selected').attr('value'),
-			   nicotine : $('#liquidOrderNicotine').val(),
-			   nicType : $('.liquidOrderNicTypeOption.selected').attr('value'),
-			   vg : $('#liquidOrderVG').val(),
-			   vaper : $('#liquidOrderCustomerVaper').val(),
-				usePoints : $('#liquidOrderUsePoints').is(':checked')			   }			   	
+			   qty : $('#orderProductSlip_QTY').val(),
+			   flavor : $('#orderProductTitle').text(),
+			   size : $('.orderProductSlip_SIZE.selected').attr('value'),
+			   nicotine : $('#orderProductSlip_NICOTINE').val(),
+			   nicType : $('.orderProductSlip_NICTYPE.selected').attr('value'),
+			   vg : $('#orderProductSlip_VG').val(),
+			   vaper : $('#orderProductSlip_CUSTOMTEXT').val(),
+				usePoints : $('#orderProductSlipRedeemButton').is(':checked')			   }			   	
 
 
 
@@ -45,7 +45,7 @@ function sendRequest() {
 		// type: "POST",
 		// data: requestObj,
 		// success: function(response) {        
-			// sendRequestCb(JSON.parse(response));
+			// orderRequestCb(JSON.parse(response));
 		// },
 		// error: function(response) {        
 			// systemMessage(JSON.parse(response), 'red');
@@ -55,7 +55,7 @@ function sendRequest() {
 	
 	$.ajax({
 		crossDomain: true,
-		url: "https://script.google.com/macros/s/AKfycbxUe1Q_qURugb5z39rb_HzTxaL_9vWo2hXofb8GoEFMn1fsj2E/exec?callback=sendRequestCb",
+		url: "https://script.google.com/macros/s/AKfycbxUe1Q_qURugb5z39rb_HzTxaL_9vWo2hXofb8GoEFMn1fsj2E/exec?callback=orderRequestCb",
 		type: "GET",
 		dataType: "jsonp",
 		data: requestObj
@@ -64,7 +64,48 @@ function sendRequest() {
 
   }
 
-function sendRequestCb(response) {
+
+
+function hardwareRequest() {       	
+
+	var selectedColor = '';
+	var colorSelection = $('#orderProductSlip_COLOR');
+	
+    if (colorSelection.length) {
+			selectedColor = colorSelection.val();
+	}
+
+    $('#orderProductSlipPurchase, #orderProductSlipExit').hide();
+	$('#orderProductSlip').addClass('sending');
+	
+	
+	
+ 
+
+	var requestObj = { userid : sessionStorage.getItem("userid"),
+	   seid : sessionStorage.getItem("seid"),
+	   type : window.location.hash.substring(1),
+	   product : $('#orderProductSubtitle').text() + " " + $('#orderProductTitle').text(),
+	   price : document.getElementById("orderProductSlipPrice").innerHTML.substring(1),
+	   color : selectedColor,
+	   qty : $('#orderProductSlip_QTY').val()
+   }			   	
+
+
+
+	
+	$.ajax({
+		crossDomain: true,
+		url: "https://script.google.com/macros/s/AKfycby3MyYMASGfo0HERY5DM4NN2ZxgKrLfN1LG0ZmABAajLSwDMx0/exec?callback=orderRequestCb",
+		type: "GET",
+		dataType: "jsonp",
+		data: requestObj
+	})
+
+
+  }
+
+function orderRequestCb(response) {
 	
 	if (response.success) {
 		
@@ -89,7 +130,6 @@ function sendRequestCb(response) {
 } 
 
 
-	
 function login() {
 	
 	if ($("#loginPopupEmail").val()=="") {
@@ -352,20 +392,10 @@ function loadMyLabCb(e) {
 			
 				totalPointsToEarn += Math.max(item.points, 0);// not counting negative points (free bottles)
 				
+				var imageExtension = item.type == 'nectars' ? '.png' : '.jpg';
+				var imgUrl = item.type + '/' + item.flavor.replace(/[^a-z0-9]/gi,'') + imageExtension;
 				
-				var imgUrl = 'nectar/' + item.flavor.replace(/[^a-z0-9]/gi,'') +'.png';
-				var nicText = '';
-				if (item.nicotine > 0){
-					nicText = item.nicType=='F' ? ' Freebase' : ' Salt'
-				}
-				var vgText = '';
-				if ( Math.round(item.vg) == 100 ) {
-					vgText="MAX-VG"
-				}
-				else {
-					vgText = Math.round(item.vg)+"/"+ Math.round(100-item.vg)
-				}
-						
+	
 				
 				html += '<tr class="myLabRequestRow">';
 					
@@ -377,13 +407,41 @@ function loadMyLabCb(e) {
 						html += '<span class="myLabRequestRowFlavor">' + item.flavor + '</span>';		
 					
 						
-						html += '<span class="myLabRequestRowInfo">';
-							html += '<span>' +item.quantity + 'x ' + item.size + 'ml' + '</span>';
-							html += '<span>' + item.nicotine + 'mg'+nicText + '</span>';	
-							html += '<span>' + vgText + '</span>';
-							html += '<span>' + item.vaper + '</span>';
-							html += '<span>' + item.datetime + '</span>';
-						html += '</span>';
+						if (item.type == 'nectars') {
+							
+													
+							var nicText = '';
+							if (item.nicotine > 0){
+								nicText = item.nicType=='F' ? ' Freebase' : ' Salt'
+							}
+							var vgText = '';
+							if ( Math.round(item.vg) == 100 ) {
+								vgText="MAX-VG"
+							}
+							else {
+								vgText = Math.round(item.vg)+"/"+ Math.round(100-item.vg)
+							}
+							
+							html += '<span class="myLabRequestRowInfo">';
+								html += '<span>' +item.quantity + 'x ' + item.size + 'ml' + '</span>';
+								html += '<span>' + item.nicotine + 'mg'+nicText + '</span>';	
+								html += '<span>' + vgText + '</span>';
+								html += '<span>' + item.vaper + '</span>';
+								html += '<span>' + item.datetime + '</span>';
+							html += '</span>';
+						
+						} else {
+								
+							html += '<span class="myLabRequestRowInfo">';
+								html += '<span>' +item.quantity + 'x ' + item.size + '</span>';
+								html += '<span>' + item.datetime + '</span>';
+							html += '</span>';
+						
+						}
+						
+						
+						
+						
 					html += '</td>';
 					
 					html += '<td class="myLabRequestEndCol">';

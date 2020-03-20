@@ -1,0 +1,84 @@
+<div id="orderContainer" class="fxDisplay fxStretch hardware">
+		<div id="contentContainer" class="fxDisplay fxStretch fxJustifyCenter">
+
+			<div class="fxDisplay fxFixed fxDirCol fxJustifyCenter" id="orderProductHead">
+				
+				<span id="orderProductSubtitle">...</span>
+				<span id="orderProductTitle">...</span>		
+				
+				<img id="orderProductImage" src=""/>	
+				
+				
+				
+			</div>
+			
+			<div class="fxDisplay fxFixed fxDirCol fxJustifyCenter" id="orderProductSlip">
+				
+				<table id="orderProductSlipTable">
+						
+				<tr>
+					<td colspan="2" id="orderProductSlipInfo">
+						
+					</td>
+				</tr>			
+							
+
+				<tr id="orderProductSlipRow_COLORS"> 
+				
+					<td>Color</td>
+					<td>
+						<select id="orderProductSlip_COLOR">					
+						</select>
+					</td>
+				</tr> 	
+<tr> 
+					<td>Quantity</td>
+					<td>
+						<select id="orderProductSlip_QTY" onchange="recalcHardware()">	
+							<option selected value="1">1 Unit</option>
+							<option value="2">2 Units</option>
+							<option value="3">3 Units</option>
+							<option value="4">4 Units</option>
+							<option value="5">5 Units</option>	
+							<option value="6">6 Units</option>
+							<option value="7">7 Units</option>
+							<option value="8">8 Units</option>	
+							<option value="9">9 Units</option>
+							<option value="10">10 Units</option>							
+						</select>
+					</td>
+				</tr> 	
+				<tr> 
+					<td colspan=2>
+						<hr>
+					</td>
+				</tr>					
+				<tr  id="orderProductSlipPricing"> 
+					<td colspan='2' style="text-align:right">
+						<span id="orderProductSlipOldPrice">---</span>
+						<span id="orderProductSlipPrice">---</span><br>
+						<span id="orderProductSlipEarn" colspan='2'>---</span>
+					</td>
+				</tr>	
+
+				<tr>	
+					<td colspan="2" style="text-align:right">	
+						<button id="orderProductSlipExit" onclick="loadContent(window.location.hash.substring(1))" type="button">Back</button>
+						<button id="orderProductSlipPurchase" onclick="hardwareRequest()" >Order!</button>		
+					</td>
+				</tr>					
+					
+						
+			</table>	
+	
+			
+			<div id="orderProductSlipSending" style="visibility:hidden;">
+				<h4>sending slip</h4>					
+			</div>
+		
+		</div>
+			
+
+  	
+	</div>
+</div>
