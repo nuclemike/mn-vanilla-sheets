@@ -1255,6 +1255,7 @@ white-space: nowrap;
 	vertical-align: -0.2em;
 	/* white-space: nowrap; */
 	margin-left: 0.3em;
+	background-color:#d0b016;
 }
 
 .myLabRequestGridState.stateR:after,

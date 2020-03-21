@@ -118,7 +118,7 @@ function orderRequestCb(response) {
 		
 
 	}
-	loadContent('nectars'); 
+	loadContent(window.location.hash.substring(1)); 
 	
 	
     // setTimeout(function(){ 
@@ -371,12 +371,12 @@ function loadMyLabCb(e) {
 		
 					
 		stateDefs = { 
-			''  : '',
+			''  : 'in-production',
 			'U' : 'unpaid',
-			'R' : 'produced',
-			'N' : 'produced',
+			'R' : 'ready',
+			'N' : 'ready',
 			'P' : 'paid'
-						}
+		}
 		
 		var headerHtml = '<h2 class="myLabRequestTitle">Pending requests</h2>';
 		
@@ -463,7 +463,13 @@ function loadMyLabCb(e) {
 						else
 							html += '<span class="myLabRequestRowPoints negative">' + item.points + ' points</span>';
 						 }
-						html += '<div class="myLabRequestGridState state'+item.state+'">' + stateDefs[item.state] + '</div>';
+						
+						if (item.type == 'nectars')
+						{						
+							html += '<div class="myLabRequestGridState state'+item.state+'">' + stateDefs[item.state] + '</div>';
+						} else {
+							html += '<div class="myLabRequestGridState state'+item.state+'">' + stateDefs[item.state] + '</div>';
+						}
 					html += '</td>';
 					
 				html += '</tr>';
