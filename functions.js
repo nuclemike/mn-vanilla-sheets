@@ -66,8 +66,12 @@ function buyHardware(element) {
 
 	productSubtitle = $(element).children(".product-item-brand").html();
 	productTitle = $(element).children(".product-item-title").html();
+	var outOfStock = $(element).hasClass('oos');
 	productPrice = $(element).find(".product-item-price").html().substring(1);
 	productSlipInfo = $(element).find(".product-item-info").html();
+	
+	
+	
 	
 	var productOldPriceElement = $(element).find(".product-item-oldprice");
 	if (productOldPriceElement.length) { 
@@ -109,6 +113,8 @@ function buyHardware(element) {
 		document.getElementById("orderProductTitle").innerHTML = productTitle;
 		document.getElementById("orderProductSubtitle").innerHTML = productSubtitle;	
 		document.getElementById("orderProductSlipPricing").setAttribute("price", productPrice);
+		$("#orderProductSlipPurchase").html(outOfStock?'Back Order':'Order!').toggleClass('tomato',outOfStock);
+		
 		document.getElementById("orderProductSlipPrice").innerHTML = "€"+productPrice;	
 		document.getElementById("orderProductSlipInfo").innerHTML = (productSlipInfo != null ? "<b>Quick Specs</b><p>"+productSlipInfo+"</p>" : "");
 			

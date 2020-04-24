@@ -28,80 +28,120 @@ function nectarPropChanged(element) {
 			$(".nectar").fadeIn();
 		}
 	}
-	
+	 $('html, body').animate({
+                    scrollTop: $("#nectarCollection").offset().top - $("#header").height()
+                }, 500);
 
 }
 </script>
 
 <style>
 
-	.nectarProps {
-		padding: 0;
-		margin-bottom:4px;
-		}
+.nectarPropsWrapper{
+	margin-bottom: 2em;
+    background: rgba(255,255,255,0.6);
+    box-shadow: 1px 1px 20px rgba(0,0,0,0.15);
+}
+
+.nectarProps{
+    padding: 2em;   
+	max-width:1000px;
+	margin: 0 auto;
+}
+	
+.nectarProp	{
+	padding: 5px 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    user-select: none;
+    display:inline-block;	
+    width: 16.3%;
+}
+
+
+.nectarProp.all	{
+	font-weight:bold;
+}
+
+
+
+
+@media only screen and (max-width: 850px) {
+.nectarProp	{
 		
-	.nectarProp{
-		padding: 5px 10px;
-		margin: 4px 2px 0;
-		border-radius: 3px;
-		cursor: pointer;
-		user-select:none;
-	}
+    width: 19.5%;
+}
+}
+	@media only screen and (max-width: 750px) {
+.nectarProp	{
+		
+    width: 25%;
+}
+}
 
-	.nectarProp.selected{
-		font-weight: bold;
-		background: #333;
-		color: #fff;
-	}
+	@media only screen and (max-width: 600px) {
+.nectarProp	{
+		
+    width: 33.3%;
+}
+}
 
+	@media only screen and (max-width: 500px) {
+.nectarProp	{
+		
+    width: 50%;
+}
+}
 
+.nectarProp:before {
+    content: '';
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    border-radius: 2px;
+    border: 2px solid #333;
+    margin-right: 0.5em;
+    vertical-align: -0.2em;
+}
+
+.nectarProp.selected:before {
+    background-color: #daa742;
+    box-shadow: 0 0 0 2px white inset;
+}
 
 </style>
 	
-		<!--<div id="goldRibbon" class="fxFixed">Click on a Bottle!</div>-->
+		<div id="goldRibbon" class="fxFixed">Nectar Collection</div>
 <!--
 		<a style="margin: 0px auto 15px;display: table;max-width: 100%;" href="http://m.me/mamasnectar" class="prexmasoffer">
 			<img src="./prexmas.png" style="max-width: 100%;">
-		</a>
--->
+		</a>-->
 
-<script>
-$(".elementRotator > div:gt(0)").hide();
-clearInterval(myVar);
-var myVar = setInterval(rotate, 4000);
-function rotate() {
- $('.elementRotator > div:first')
-    .fadeOut(1000)
-    .next()
-    .fadeIn(1000)
-    .end()
-    .appendTo('.elementRotator');
-}
-</script>
 
-<div class="elementRotator fxFixed">
-	<div style="background-image:url(stylesheets/buyitnow.png)"></div>
-	<!--<div style="background-image:url(stylesheets/wholesaleprices.png)"></div>-->
-	<div style="background-image:url(stylesheets/freedelivery.png)"></div>
+
+
+
+<div  class="nectarPropsWrapper">
+	<div class="nectarProps fxDisplay fxWrap">
+		<div onclick="nectarPropChanged(this);" class="nectarProp selected all">All</div>
+		<div onclick="nectarPropChanged(this);" class="nectarProp">Pastry</div>
+		<div onclick="nectarPropChanged(this);" class="nectarProp">Fruity</div>
+		<div onclick="nectarPropChanged(this);" class="nectarProp">Spicy</div>
+		<div onclick="nectarPropChanged(this);" class="nectarProp">Sweet</div>
+		<div onclick="nectarPropChanged(this);" class="nectarProp">Candy</div>
+		<div onclick="nectarPropChanged(this);" class="nectarProp">Beverage</div>
+		<div onclick="nectarPropChanged(this);" class="nectarProp">Creamy</div>
+		<div onclick="nectarPropChanged(this);" class="nectarProp">Minty</div>
+		<div onclick="nectarPropChanged(this);" class="nectarProp">Nutty</div>
+		<div onclick="nectarPropChanged(this);" class="nectarProp">Tobacco</div>
+	</div>
 </div>
-    
+			
 <div id="nectarCollection" class="fxDisplay fxStretch fxDirCol">
 			
 		<div id="contentContainer" class="fxDisplay fxWrap fxJustifyCenter">
 
-			<div class="nectarProps fxDisplay fxWrap fxJustifyCenter">
-				<div onclick="nectarPropChanged(this);" class="nectarProp selected all">All</div>
-				<div onclick="nectarPropChanged(this);" class="nectarProp">Pastry</div>
-				<div onclick="nectarPropChanged(this);" class="nectarProp">Fruity</div>
-				<div onclick="nectarPropChanged(this);" class="nectarProp">Spicy</div>
-				<div onclick="nectarPropChanged(this);" class="nectarProp">Sweet</div>
-				<div onclick="nectarPropChanged(this);" class="nectarProp">Candy</div>
-				<div onclick="nectarPropChanged(this);" class="nectarProp">Beverage</div>
-				<div onclick="nectarPropChanged(this);" class="nectarProp">Creamy</div>
-				<div onclick="nectarPropChanged(this);" class="nectarProp">Minty</div>
-				<div onclick="nectarPropChanged(this);" class="nectarProp">Nutty</div>
-				<div onclick="nectarPropChanged(this);" class="nectarProp">Tobacco</div>
-			</div>
+			
 			<!--
 			<div class="nectar new" props="fruity beverage creamy" onclick="buyNectar(this);">
 				<img class="nectarFlask" src="./nectars/cocojumbo.png">		

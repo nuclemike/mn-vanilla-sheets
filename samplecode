@@ -1,0 +1,49 @@
+//arrows for the slideshow
+<script>
+$(".elementRotator > *").mouseover(function(){
+    clearInterval(myVar);
+	$(".elementRotator > span").show();
+	$('.ghostButton').attr('onclick','preloadContent("'+$('.current').attr('page')+'")');
+	console.log('stop');
+}).mouseleave(function(){
+	clearInterval(myVar);
+   myVar = setInterval(slideShow, 5000);
+   	$(".elementRotator > span").hide();
+	$('.ghostButton').attr('onclick','');
+   console.log('start');
+});
+
+
+
+
+
+	.elementRotator > span {
+		position: absolute;
+		color: white;
+		z-index: 9999;
+		font-size: 4vw;
+		top: 0;
+		height: 100%;
+		background: rgba(0,0,0,0.3);
+		font-family: monospace;
+		padding: 30px;
+		display:none;
+		cursor: pointer;
+	}
+
+
+    .elementRotator > span.ghostButton {
+		z-index: 9990;
+		height: 100%;
+		background: none;
+		
+		width: 100%;
+	}
+
+    .elementRotator > span.right {
+		right: 0;
+	}
+
+    .elementRotator > span.left {
+		left:0;
+	}

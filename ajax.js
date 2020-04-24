@@ -378,7 +378,7 @@ function loadMyLabCb(e) {
 			'P' : 'paid'
 		}
 		
-		var headerHtml = '<h2 class="myLabRequestTitle">Pending requests</h2>';
+		var headerHtml = '';//'<h2 class="myLabRequestTitle">Pending requests</h2>';
 		
 		var html = '';
 		var totalPrice = 0.00;

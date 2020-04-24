@@ -96,26 +96,77 @@
 -->
 
 
-<script>
-$(".elementRotator > div:gt(0)").hide();
-clearInterval(myVar);
-var myVar = setInterval(rotate, 4000);
-function rotate() {
- $('.elementRotator > div:first')
-    .fadeOut(1000)
-    .next()
-    .fadeIn(1000)
-    .end()
-    .appendTo('.elementRotator');
-}
-</script>
+
 
 
 <div class="elementRotator fxFixed">
-	<div style="background-image:url(stylesheets/buyitnow.png)"></div>
-	<!--<div style="background-image:url(stylesheets/wholesaleprices.png)"></div>-->
-	<div style="background-image:url(stylesheets/freedelivery.png)"></div>
+<div style="background-image:url(stylesheets/slideshows/freedelivery.jpg)"class="current" ></div>
+<div style="background-image:url(stylesheets/slideshows/geekvapeaegissolo.jpg)" onclick="preloadContent('starterkits')"  ></div>
+<div style="background-image:url(stylesheets/slideshows/voopoocaliber.jpg)" onclick="preloadContent('starterkits')" ></div>
+<div style="background-image:url(stylesheets/slideshows/geekvapeaegislegend.jpg)" onclick="preloadContent('starterkits')" ></div>
+<div style="background-image:url(stylesheets/slideshows/newnectars.jpg)" onclick="preloadContent('nectars')" ></div>
+<div style="background-image:url(stylesheets/slideshows/howsyourfurnace.jpg)" onclick="preloadContent('rebuilding')" ></div>
+<nav></nav>
 </div>
+
+
+
+<script>
+clearInterval(myVar);
+var myVar = setInterval(slideShow, 5000);
+var elementRotator = $('.elementRotator');
+var elementRotatorNav = $('.elementRotator nav');
+
+
+
+
+
+
+
+function slideShow(nav) {
+console.log($(nav).index());
+
+var $next;
+   var $cur = elementRotator.children('.current').attr('class','old');
+      $cur.siblings('div').removeClass('old');
+	  
+	  
+   if (nav) {
+      clearInterval(myVar);
+	  //$(this).toggleClass('current',true).siblings().removeClass('current');
+	  //var $cur = elementRotator.children().removeClass().eq($(nav).index()).addClass('current');
+	  $next = elementRotator.children().eq($(nav).index());
+   } else
+   {
+	  $next = $cur.next('div').length?$cur.next('div'):$('.elementRotator').children('div').first();
+   }
+   $next.removeClass().addClass('current');
+   
+
+
+   
+   
+   
+  
+   
+   
+   
+   
+   $('.elementRotator nav span').eq($next.index()).addClass('current').siblings().removeClass('current');
+		
+
+}
+
+
+
+
+
+$('.elementRotator > div').each(function (index) {
+elementRotatorNav.append( '<span class="'+(index==0?'current':'')+'" onclick="slideShow(this);">•</span>' );
+ });
+ 
+
+</script>
 
 
 <div id="contentContainer">

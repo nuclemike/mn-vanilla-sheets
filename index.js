@@ -103,6 +103,7 @@ function preloadContent(pageName) {
 		loadContent(pageName)	
 	else
 		window.location.hash = '#'+pageName;
+	
 }
     
 function loadContent(pageName) {
