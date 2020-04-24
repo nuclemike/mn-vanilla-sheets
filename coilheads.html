@@ -4,14 +4,17 @@
 function productFilterChanged(tag) {
 var value = $(tag).val();
 	
-	if (value == "Show All"){
+	if (value == "all"){
 
 		$(".product-item").fadeIn();
+		$('.productFilterCaption').text('Select your tank');
 	
 	} else {
 		
 		$(".product-item").stop().hide();
 		$(".product-item[filtertags~="+value+"]").fadeIn()
+		
+		$('.productFilterCaption').text('Coil-heads compatible with');
 		
 	}
 	
@@ -28,20 +31,21 @@ var value = $(tag).val();
 }
 
 .productFilter{
-	 padding: 2em;   
-	max-width:1000px;
-	margin: 0 auto;
-	font-size: 1.2em;
+    padding: 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-size: 1.2em;
 }
 
 
 .productFilterCaption{
-	font-size: 1em;
-	margin-right:1em;
+    font-size: 1em;
+    margin: 0 1em;
+    line-height: 2em;
 }
 
 #productFilterValue {
-    font-family: 'Raleway', sans-serif;
+	font-family: 'Raleway', sans-serif;
     background: rgba(116, 93, 45, 0.1);
     border: 0;
     height: 42px;
@@ -49,8 +53,9 @@ var value = $(tag).val();
     color: #444;
     display: inline-block;
     font-size: 1em;
-    font-weight: bold;
+    font-weight: bold;   
 }
+
 
 
 	@media only screen and (max-width: 600px) {
@@ -58,16 +63,26 @@ var value = $(tag).val();
 			font-size: 15px;
 		}
 	}
+	
+	@media only screen and (max-width: 400px) {
+		.productFilter{
+			font-size: 15px;
+		}
+		
+				
+
+
+	}
 		
 
 </style>
 
 <div id="goldRibbon" class="fxFixed">Coil Heads</div>
 <div class="productFilterWrapper fxFixed fxDisplay fxAlignCenter">
-<div class="productFilter">
-<span class="productFilterCaption">Choose your tank </span>
+<div class="productFilter fxWrap fxJustifyCenter fxDisplay fxAlignCenter">
+<span class="productFilterCaption">Select your tank</span>
 <select onchange="productFilterChanged(this);" id="productFilterValue">
-  <option value="all">Show All</option>
+  <option value="all"> -- All --</option>
   <option value="skrr">Vaporesso SKRR</option>
   <option value="nrg">Vaporesso NRG</option>
   <option value="nrg">Geekvape Shield</option>
