@@ -47,3 +47,23 @@ $(".elementRotator > *").mouseover(function(){
     .elementRotator > span.left {
 		left:0;
 	}
+
+
+
+
+
+
+
+
+	<!--
+		<a class="product-item" onclick="buyHardware(this);">
+			<img class="product-item-image" src="atomizers/smoktfv8cloudbeast.jpg" />
+			<label class="product-item-brand">SMOK</label>			
+			<label class="product-item-title">TFV8 Cloudbleast</label>
+			<span class="product-item-info">Sub-Ohm • Top Slide Fill • Stainless/Derlin • 24.5mm • Adjustable High Airflow</span>
+			<div class="product-item-buy">
+                <div class="product-item-oldprice">€45.00</div>
+				<div class="product-item-price">€30.00</div>
+			</div>	
+		</a>
+		-->
