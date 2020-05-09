@@ -20,7 +20,7 @@ function buyNectar(element) {
 	productTitle = $(element).children(".nectarName").html();
 	productHeadInfo = $(element).children(".nectarInfo").html();
 	productTags = $(element).attr('props').replace(/ /g, ' • ');
-	imgUrl = $(element).children('img.nectarFlask').attr('src');
+	imgUrl = $(element).find('img.nectarFlask').attr('src');
 	
 	
 	openMenu(false);
@@ -86,7 +86,7 @@ function buyHardware(element) {
 	
 	
 	
-	imgUrl = $(element).children('img.product-item-image').attr('src');
+	imgUrl = $(element).find('img.product-item-image').attr('src');
 
 
 

@@ -1,4 +1,4 @@
-//arrows for the slideshow
+=========================  slideshow =========================  
 <script>
 $(".elementRotator > *").mouseover(function(){
     clearInterval(myVar);
@@ -12,7 +12,6 @@ $(".elementRotator > *").mouseover(function(){
 	$('.ghostButton').attr('onclick','');
    console.log('start');
 });
-
 
 
 
@@ -53,7 +52,7 @@ $(".elementRotator > *").mouseover(function(){
 
 
 
-
+=========================  stock =========================  
 
 	<!--
 		<a class="product-item" onclick="buyHardware(this);">
@@ -67,3 +66,29 @@ $(".elementRotator > *").mouseover(function(){
 			</div>	
 		</a>
 		-->
+		
+		
+		
+		
+		
+
+=========================  image loader =========================  
+attachImageLoader('nectars');
+
+
+function attachImageLoader(description){	/*
+imagesLoaded = 0;
+	var nrOfImages = $("#pageContent img").length;
+
+	$("#pageContent img").load(function() {
+		imagesLoaded++;
+		
+		if ((description != undefined) && (description != '')) {
+			var percent = Math.floor((imagesLoaded/nrOfImages)*100);		
+			$("#pageLoader").html("loading "+description+" <b>"+percent+"%</b>")
+		}
+		if ( imagesLoaded==nrOfImages )
+			pageLoaded();				
+	});*/
+	pageLoaded();
+}

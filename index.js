@@ -68,21 +68,6 @@ if( isMobile.any() ) alert('Mobile');
 
 	var imagesLoaded = 0;
 	
-function attachImageLoader(description){	
-imagesLoaded = 0;
-	var nrOfImages = $("#pageContent img").length;
-
-	$("#pageContent img").load(function() {
-		imagesLoaded++;
-		
-		if ((description != undefined) && (description != '')) {
-			var percent = Math.floor((imagesLoaded/nrOfImages)*100);		
-			$("#pageLoader").html("loading "+description+" <b>"+percent+"%</b>")
-		}
-		if ( imagesLoaded==nrOfImages )		
-			pageLoaded();		
-	});
-}
 
 function pageLoaded() {
 	$( "#pageLoader" ).hide();
@@ -96,7 +81,6 @@ function openMenu(visibility) {
 
 
 var afterLoginFunction = undefined;
-var onContentLoadedFunction = undefined;
 
 function preloadContent(pageName) {
 	if (window.location.hash == '#'+pageName) 
@@ -127,10 +111,7 @@ function loadContent(pageName) {
 	}
 	
 	$( "#pageContent" ).load( getPage(pageName), function() { 
-		if (onContentLoadedFunction) onContentLoadedFunction();
-		onContentLoadedFunction = undefined;
-		
-		
+		pageLoaded();
 	});
 	
 	
