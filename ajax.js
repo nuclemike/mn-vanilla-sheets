@@ -67,13 +67,15 @@ function nectarRequest() {
 
 
 function hardwareRequest() {       	
-
-	var selectedColor = '';
 	var colorSelection = $('#orderProductSlip_COLOR');
+	var selectedColor = (colorSelection.length)?colorSelection.val():'';
 	
-    if (colorSelection.length) {
-			selectedColor = colorSelection.val();
-	}
+	var sizeSelection = $('#orderProductSlip_SIZE');
+	var selectedSize = (sizeSelection.length)?sizeSelection.val():'';
+	
+	
+	
+	
 
     $('#orderProductSlipPurchase, #orderProductSlipExit').hide();
 	$('#orderProductSlip').addClass('sending');
@@ -87,7 +89,8 @@ function hardwareRequest() {
 	   type : window.location.hash.substring(1),
 	   product : $('#orderProductSubtitle').text() + " " + $('#orderProductTitle').text(),
 	   price : document.getElementById("orderProductSlipPrice").innerHTML.substring(1),
-	   color : selectedColor,
+	   color : selectedColor+selectedSize,
+	   vaper : sessionStorage.getItem("name"),
 	   qty : $('#orderProductSlip_QTY').val()
    }			   	
 

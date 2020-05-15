@@ -27,7 +27,8 @@ function initApp() {
 		window.location.hash == '#atomizers' ||
 		window.location.hash == '#mods' ||				
 		window.location.hash == '#accessories' ||		
-		window.location.hash == '#starterkits') 
+		window.location.hash == '#starterkits' ||
+		window.location.hash == '#protection' ) 
 		{
 			loadContent(window.location.hash.substring(1));
 		} else {

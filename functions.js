@@ -61,7 +61,7 @@ function buyHardware(element) {
 		return false;
 	}
 	 
-	var productSubtitle, productTitle, productPrice, productOldPrice, productSlipInfo, imgUrl, productColors = [];
+	var productSubtitle, productTitle, productPrice, productOldPrice, productSlipInfo, imgUrl, productColors = [],  productSizes = [];
 	
 
 	productSubtitle = $(element).children(".product-item-brand").html();
@@ -83,6 +83,12 @@ function buyHardware(element) {
 	if (element.hasAttribute('colors')) { 
 		productColors = element.getAttribute('colors').split(',');
 	}
+	
+	
+	if (element.hasAttribute('sizes')) { 
+		productSizes = element.getAttribute('sizes').split(',');
+	}	
+	
 	
 	
 	
@@ -127,6 +133,9 @@ function buyHardware(element) {
 					$('#orderProductSlipOldPrice, #orderProductSlipEarn').remove();
 			}
 			
+			
+			
+			
 			if (productColors.length > 0) {
 				
 				
@@ -143,6 +152,25 @@ function buyHardware(element) {
 			} else { 
 				$('#orderProductSlipRow_COLORS').remove();
 			}
+			
+			if (productSizes.length > 0) {
+				
+				
+				var sizeSelectionElement = document.getElementById("orderProductSlip_SIZE");
+				
+				
+				productSizes.forEach(function(size) {
+									
+					var option = document.createElement("option");
+					option.text = size;
+					sizeSelectionElement.add(option);
+				
+				});
+			} else { 
+				$('#orderProductSlipRow_SIZE').remove();
+			}
+			
+			
 
 
 		
