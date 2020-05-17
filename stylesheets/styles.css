@@ -254,8 +254,8 @@ input, select, textarea {
 		-ms-flex: 0 0 100%;
 		flex: 0 0 100%;
 		text-align: center;
-		margin: 3em 1em 1em;
-		font-size: 1.7em;
+		margin: 2em 1em 1em;
+		font-size: 28px;
 		color: #444;
 	}
 	
@@ -1500,7 +1500,7 @@ font-size: 1.1em;
 	
 	
 	.product-item-hr{
-		font-size: 4vw;
+		font-size: 21px;
 	}
 	
 	.product-item {
@@ -1556,7 +1556,7 @@ width:115px}
 }
 @media only screen and (max-width: 500px) {
     #goldRibbon {
-        font-size: 7vw;
+        font-size: 25px;
     }
     .nectarName {
         font-size: 6vw;
@@ -1675,7 +1675,7 @@ width:130px}
 	
 	*/
 	
-	
+	/*
    	.product-item-hr{
 		font-size: 1.3em;	
 	}
@@ -1698,7 +1698,7 @@ width:130px}
 		font-size:1em;
 	}	
 	
-	
+	*/
 
     .credPopupTable td:first-child{
         font-size:0
