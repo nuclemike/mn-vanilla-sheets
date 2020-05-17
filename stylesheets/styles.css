@@ -271,20 +271,23 @@ input, select, textarea {
 		position:relative;
 		
 	}
+
+	.product-item figure:before {
+    content:'instock';
+    color:#84c500;
+    position:absolute;
+    bottom: 2%;
+    right: 3%;
+    z-index: 1;
+    font-size: 12px;
+    font-weight: bold;
+ }		
 	
 
 	.product-item.oos figure:before {
     content:'backorder';
     color:tomato;
-    position:absolute;
-    top: 104.5%;
-    line-height:0;
-    text-align: center;
-    display:block;
-    width: 100%;
-    z-index: 1;
-    font-size: 12px;
-    font-weight: bold;
+    
  }	
 
 .product-item.new:after {
