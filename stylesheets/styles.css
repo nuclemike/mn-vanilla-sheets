@@ -272,23 +272,21 @@ input, select, textarea {
 		
 	}
 
-	.product-item figure:before {
-    content:'instock';
-    color:#84c500;
-    position:absolute;
-    bottom: 2%;
-    right: 3%;
-    z-index: 1;
-    font-size: 12px;
-    font-weight: bold;
- }		
-	
-
 	.product-item.oos figure:before {
     content:'backorder';
     color:tomato;
-    
- }	
+    position:absolute;
+    bottom: 0%;
+    right: 0%;
+    z-index: 1;
+    font-size: 12px;
+    font-weight: bold;
+    background: rgba(255,255,255,0.8);
+    padding: 0.4em 0.7em;
+    border-radius: 0.3em 0 0 0;
+ }		
+	
+
 
 .product-item.new:after {
     content:'';
@@ -325,22 +323,25 @@ input, select, textarea {
 		border-bottom: 2px solid #eee;
 		position:absolute;
 		top:0;
-
+		background: black;
 	}
 	
 	.product-item-title {
-		font-size: 20px;
+		font-size: 19px;
 		display: block;
 		margin: 0 0.6em 0.4em;
 	}
 	
 	.product-item-brand {
 		font-weight: bold;
-		top: 0.4em;
+		top: 0;
 		position: absolute;
 		color: #c38d36;
-		left: 0.4em;
-		font-size: 16px;
+		left: 0;
+		font-size: 15px;
+		background: rgba(255,255,255,0.8);
+		padding: 0.4em 0.5em;
+		border-radius: 0 0 0.3em 0;
 		}	
 
 	.product-item-info {
@@ -1512,7 +1513,7 @@ font-size: 1.1em;
 	}
 	
 	.product-item-brand {
-		font-size: 14px;
+		font-size: 13px;
 	}
 	
 	.product-item-info{
@@ -1527,6 +1528,11 @@ font-size: 1.1em;
         /* width: 85%; */
     }
 
+
+	.product-item {
+		width: 48%;
+		margin: 0 2px 4px;
+	}
 
 		#orderContainer #orderProductHead{
 		font-size: 15px;
@@ -1582,10 +1588,7 @@ width:115px}
    
 
    
-	.product-item {
-		width: 48%;
-		margin: 0 2px 4px;
-	}
+
 	
 
 
