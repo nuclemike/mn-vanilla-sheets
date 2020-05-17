@@ -119,7 +119,7 @@ function buyHardware(element) {
 		document.getElementById("orderProductTitle").innerHTML = productTitle;
 		document.getElementById("orderProductSubtitle").innerHTML = productSubtitle;	
 		document.getElementById("orderProductSlipPricing").setAttribute("price", productPrice);
-		$("#orderProductSlipPurchase").html(outOfStock?'Back Order':'Order!').toggleClass('tomato',outOfStock);
+		$("#orderProductSlipPurchase").html(outOfStock?'Place Backorder':'Place Order').toggleClass('tomato',outOfStock);
 		
 		document.getElementById("orderProductSlipPrice").innerHTML = "€"+productPrice;	
 		document.getElementById("orderProductSlipInfo").innerHTML = (productSlipInfo != null ? "<b>Quick Specs</b><p>"+productSlipInfo+"</p>" : "");
