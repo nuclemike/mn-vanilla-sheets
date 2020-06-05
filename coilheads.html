@@ -81,30 +81,34 @@ var value = $(tag).val();
 <span class="productFilterCaption">Select your tank</span>
 <select onchange="productFilterChanged(this);" id="productFilterValue">
   <option value="all"> -- All --</option>
-  <option value="skrr">Vaporesso SKRR</option>
-  <option value="nrg">Vaporesso NRG</option>
+
+  <option value="spryte">Aspire Aspire K1 BVC</option>
+  <option value="breeze">Aspire Breeze / Breeze 2</option>
+  <option value="spryte">Aspire Spryte</option>
+  <option value="melo">E-Leaf iJust S,2</option>
+  <option value="melo">E-Leaf Melo 1-3</option>
+  <option value="nrg">E-Leaf Ello</option>
   <option value="nrg">Geekvape Shield</option>
-  <option value="nrg">Geekvape Aero</option>
-  <option value="nrg">Geekvape AeroMesh</option>
+  <option value="nrg">Geekvape Aero/AeroMesh</option>
   <option value="nrg">Geekvape Cerberus</option>
   <option value="nrg">Geekvape Illusion Mini</option>
-  <option value="nrg">SMOK TFV8 BigBaby</option>
-  <option value="nrg">SMOK TFV8 Baby</option>
-  <option value="nrg">SMOK TFV12 Baby Prince</option>
-  <option value="nrg">Starss Blazer Mesh</option>
-  <option value="nrg">VaporStorm Hawk</option>
-  <option value="tfv8">SMOK TFV8 CloudBeast</option>
-  <option value="uforce">VooPoo UForce 1-3</option>
-  <option value="melo">Eleaf iJust S,2</option>
-  <option value="melo">Eleaf Melo 1-3</option>
-  <option value="spryte">Aspire Spryte</option>
-  <option value="spryte">Aspire Aspire K1 BVC</option>
+  <option value="zeus">Geekvape Zeus</option>
   <option value="spryte">iJoy Mercury Resin</option>
-  <option value="breeze">Aspire Breeze / Breeze 2</option>
+  <option value="zenith">Innokin Zlide / Zenith</option>
   <option value="aio">Joyetech EGO AIO</option>
   <option value="aio">Joyetech Cubis</option>
   <option value="aio">Joyetech Cuboid Mini</option>
-  
+  <option value="nrg">SMOK TFV8 BigBaby</option>
+  <option value="nrg">SMOK TFV8 Baby</option>
+  <option value="nrg">SMOK TFV12 Baby Prince</option>
+  <option value="tfv8">SMOK TFV8 CloudBeast</option>
+  <option value="nrg">Starss Blazer Mesh</option>
+  <option value="skrr">Vaporesso SKRR</option>
+  <option value="nrg">Vaporesso NRG</option>
+  <option value="nrg">Vapor Storm Hawk</option>
+  <option value="uforce">VooPoo UForce 1-3</option>
+
+
 </select>
 </div>
 </div>
@@ -114,6 +118,89 @@ var value = $(tag).val();
 
 <div id="contentContainer">
 	<div class="product-parent fxDisplay fxWrap fxJustifyCenter">
+
+
+	
+		<a class="product-item" filtertags="zeus" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/geekvapezeusmeshz1.jpg" /></figure>
+			<label class="product-item-brand">Geekvape</label>
+			<label class="product-item-title">Zeus Mesh Z1</label>
+			<span class="product-item-info">0.4 Ohm • 60-70W</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€3.30</div>
+			</div>
+		</a>	
+
+		
+		<a class="product-item" filtertags="nrg skrr" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/geekvapesupermeshx1.jpg" /></figure>
+			<label class="product-item-brand">Geekvape</label>
+			<label class="product-item-title">SuperMesh X1</label>
+			<span class="product-item-info">0.2 Ohm • 30-90W • Best 60-80W</span>
+			<div class="product-item-buy">
+                <div class="product-item-oldprice">€5.20</div><div class="product-item-price">€3.30</div>
+			</div>
+		</a>	
+		<a class="product-item" filtertags="nrg skrr" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/geekvapesupermeshx2.jpg" /></figure>
+			<label class="product-item-brand">Geekvape</label>
+			<label class="product-item-title">SuperMesh X2</label>
+			<span class="product-item-info">0.3 Ohm • 30-45W • Best 30-40W</span>
+			<div class="product-item-buy">
+                <div class="product-item-oldprice">€5.20</div><div class="product-item-price">€3.30</div>
+			</div>
+		</a>	
+
+		<a class="product-item" filtertags="skrr nrg" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/eleafhw2dualcylinder.jpg" /></figure>
+			<label class="product-item-brand">E-leaf</label>
+			<label class="product-item-title">HW2 Dual Cylinder</label>
+			<span class="product-item-info">0.3 Ohm • 30-70W • Best 45-60W</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€2.90</div>
+			</div>
+		</a>	
+	
+		<a class="product-item" filtertags="skrr nrg" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/eleafhw3triplecylinder.jpg" /></figure>
+			<label class="product-item-brand">E-leaf</label>
+			<label class="product-item-title">HW3 Triple Cylinder</label>
+			<span class="product-item-info">0.2 Ohm • 50-130W • Best 70-90W</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€2.90</div>
+			</div>
+		</a>	
+		
+		<a class="product-item" filtertags="skrr nrg" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/eleafhw4quadcylinder.jpg" /></figure>
+			<label class="product-item-brand">E-leaf</label>
+			<label class="product-item-title">HW4 Quad Cylinder</label>
+			<span class="product-item-info">0.3 Ohm • 40-110W</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€2.90</div>
+			</div>
+		</a>
+	
+		<a class="product-item" filtertags="zenith" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/innokinzenith05.jpg" /></figure>
+			<label class="product-item-brand">Innokin</label>
+			<label class="product-item-title">Zenith 0.5</label>
+			<span class="product-item-info">0.5 Ohm • Mesh Coil • 14-19W </span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€3.30</div>
+			</div>
+		</a>
+	
+	<a class="product-item" filtertags="skrr nrg" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/vaporessocascadegtmesh.jpg" /></figure>
+			<label class="product-item-brand">Vaporesso</label>
+			<label class="product-item-title">Cascade GT Mesh</label>
+			<span class="product-item-info">0.18 Ohm • Single Mesh Coil • 50-85W</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€2.90</div>
+			</div>
+		</a>
+		
 
 		<a class="product-item" filtertags="skrr" onclick="buyHardware(this);">
 			<figure><img class="product-item-image" src="coilheads/vaporessoqfstrip.jpg" /></figure>
@@ -159,7 +246,7 @@ var value = $(tag).val();
 			<label class="product-item-title">TFV8 Q4</label>
 			<span class="product-item-info">0.15 Ohm • Quadruple Coils • 50-180W • Best 90-150W</span>
 			<div class="product-item-buy">
-                <div class="product-item-oldprice">€5.50</div><div class="product-item-price">€3.60</div>
+                <div class="product-item-oldprice">€4.50</div><div class="product-item-price">€3.60</div>
 			</div>
 		</a>
 		<a class="product-item" filtertags="tfv8" onclick="buyHardware(this);">
@@ -168,7 +255,7 @@ var value = $(tag).val();
 			<label class="product-item-title">TFV8 T6</label>
 			<span class="product-item-info">0.2 Ohm • Sextuple Coils • 50-240W • Best 110-150W</span>
 			<div class="product-item-buy">
-                <div class="product-item-oldprice">€5.90</div><div class="product-item-price">€4.40</div>
+                <div class="product-item-oldprice">€5.50</div><div class="product-item-price">€4.40</div>
 			</div>
 		</a>
 		<a class="product-item" filtertags="tfv8" onclick="buyHardware(this);">
@@ -177,7 +264,7 @@ var value = $(tag).val();
 			<label class="product-item-title">TFV8 T8</label>
 			<span class="product-item-info">0.15 Ohm • Octuple Coils • 50-260W • Best 80-120W</span>
 			<div class="product-item-buy">
-                <div class="product-item-oldprice">€6.20</div><div class="product-item-price">€4.80</div>
+                <div class="product-item-oldprice">€5.50</div><div class="product-item-price">€4.80</div>
 			</div>
 		</a>		
 		
@@ -220,24 +307,6 @@ var value = $(tag).val();
 			</div>
 		</a>	
 		
-		<a class="product-item" filtertags="nrg skrr" onclick="buyHardware(this);">
-			<figure><img class="product-item-image" src="coilheads/geekvapesupermeshx1.jpg" /></figure>
-			<label class="product-item-brand">Geekvape</label>
-			<label class="product-item-title">SuperMesh X1</label>
-			<span class="product-item-info">0.2 Ohm • 30-90W • Best 60-80W</span>
-			<div class="product-item-buy">
-                <div class="product-item-oldprice">€5.20</div><div class="product-item-price">€3.30</div>
-			</div>
-		</a>	
-		<a class="product-item" filtertags="nrg skrr" onclick="buyHardware(this);">
-			<figure><img class="product-item-image" src="coilheads/geekvapesupermeshx2.jpg" /></figure>
-			<label class="product-item-brand">Geekvape</label>
-			<label class="product-item-title">SuperMesh X2</label>
-			<span class="product-item-info">0.3 Ohm • Best 30-40W</span>
-			<div class="product-item-buy">
-                <div class="product-item-oldprice">€5.20</div><div class="product-item-price">€3.30</div>
-			</div>
-		</a>			
 		
 
 
@@ -309,7 +378,7 @@ var value = $(tag).val();
 			</div>
 		</a>		
 		
-		<a class="product-item oos" filtertags="aio" onclick="buyHardware(this);">
+		<a class="product-item" filtertags="aio" onclick="buyHardware(this);">
 			<figure><img class="product-item-image" src="coilheads/joyetechbfss31606.jpg" /></figure>
 			<label class="product-item-brand">Joyetech</label>
 			<label class="product-item-title">BF SS316 0.6</label>
@@ -319,7 +388,7 @@ var value = $(tag).val();
 			</div>
 		</a>		
 
-		<a class="product-item oos" filtertags="nrg skrr" onclick="buyHardware(this);">
+		<a class="product-item" filtertags="nrg skrr" onclick="buyHardware(this);">
 			<figure><img class="product-item-image" src="coilheads/vaporessonrggt2.jpg" /></figure>
 			<label class="product-item-brand">Vaporesso</label>
 			<label class="product-item-title">NRG GT2</label>
@@ -328,7 +397,7 @@ var value = $(tag).val();
                 <div class="product-item-oldprice">€5.00</div><div class="product-item-price">€2.70</div>
 			</div>	
 		</a>		
-		<a class="product-item oos" filtertags="nrg skrr" onclick="buyHardware(this);">
+		<a class="product-item" filtertags="nrg skrr" onclick="buyHardware(this);">
 			<figure><img class="product-item-image" src="coilheads/vaporessonrggt6.jpg" /></figure>
 			<label class="product-item-brand">Vaporesso</label>
 			<label class="product-item-title">NRG GT6</label>
@@ -337,7 +406,7 @@ var value = $(tag).val();
                 <div class="product-item-oldprice">€5.50</div><div class="product-item-price">€3.50</div>
 			</div>	
 		</a>			
-		<a class="product-item oos" filtertags="nrg skrr" onclick="buyHardware(this);">
+		<a class="product-item" filtertags="nrg skrr" onclick="buyHardware(this);">
 			<figure><img class="product-item-image" src="coilheads/vaporessonrggtcell05.jpg" /></figure>
 			<label class="product-item-brand">Vaporesso</label>
 			<label class="product-item-title">NRG GTCELL 0.5</label>
@@ -346,16 +415,28 @@ var value = $(tag).val();
                 <div class="product-item-oldprice">€5.00</div><div class="product-item-price">€3.00</div>
 			</div>	
 		</a>	
-		<a class="product-item oos" filtertags="nrg skrr" onclick="buyHardware(this);">
-			<figure><img class="product-item-image" src="coilheads/smoktfv8babyq2.jpg" /></figure>
+		
+		<a class="product-item" filtertags="skrr nrg" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/vaporstormhawk02.jpg" /></figure>
+			<label class="product-item-brand">Vapor Storm</label>
+			<label class="product-item-title">Hawk 0.2</label>
+			<span class="product-item-info">Mesh 0.2 Ohm • 20-80W • Best 40-60W</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€2.50</div>
+			</div>
+		</a>		
+		
+		
+		<a class="product-item" filtertags="nrg skrr" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/smoktfv8babyq204.jpg" /></figure>
 			<label class="product-item-brand">SMOK</label>
-			<label class="product-item-title">TFV8 Baby Q2</label>
+			<label class="product-item-title">TFV8 Baby Q2 0.4</label>
 			<span class="product-item-info">0.4 Ohm • Dual Coil • 40-80W • Best 55-65W</span>
 			<div class="product-item-buy">
                 <div class="product-item-oldprice">€4.50</div><div class="product-item-price">€2.40</div>
 			</div>
 		</a>
-		<a class="product-item oos" filtertags="nrg skrr" onclick="buyHardware(this);">
+		<a class="product-item" filtertags="nrg skrr" onclick="buyHardware(this);">
 			<figure><img class="product-item-image" src="coilheads/smoktfv8babyt6.jpg" /></figure>
 			<label class="product-item-brand">SMOK</label>
 			<label class="product-item-title">TFV8 Baby T6</label>

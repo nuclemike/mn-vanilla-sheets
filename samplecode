@@ -54,7 +54,7 @@ $(".elementRotator > *").mouseover(function(){
 
 =========================  stock =========================  
 
-	<!--
+
 		<a class="product-item" onclick="buyHardware(this);">
 			<img class="product-item-image" src="atomizers/smoktfv8cloudbeast.jpg" />
 			<label class="product-item-brand">SMOK</label>			
@@ -65,8 +65,68 @@ $(".elementRotator > *").mouseover(function(){
 				<div class="product-item-price">€30.00</div>
 			</div>	
 		</a>
-		-->
+
+	<a class="product-item" colors="Black" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="mods/dovpotopsidedual.jpg" /></figure>
+			<label class="product-item-brand">Dovpo</label>			
+			<label class="product-item-title">TopSide Dual</label>
+			<span class="product-item-info">10ml Top Fill Squonk • 2A FastCharge • Zinc & Aluminum Alloys & Stainless Steel • 0.96" OLED Display • 200W • TempControl • 2x 18650 Required</span>
+			<div class="product-item-buy">
+                <div class="product-item-oldprice">€95.00</div><div class="product-item-price">€84.00</div>
+			</div>
+		</a>
+
+		<a class="product-item" filtertags="uforce" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/voopoouforceu6.jpg" /></figure>
+			<label class="product-item-brand">Voopoo</label>
+			<label class="product-item-title">UForce U6</label>
+			<span class="product-item-info">0.15 Ohm • Sextuple Coil • 65-110W • Best 80-90W</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€</div>
+			</div>
+		</a>
+	
+		<a class="product-item" filtertags="uforce" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/voopoouforceu4.jpg" /></figure>
+			<label class="product-item-brand">Voopoo</label>
+			<label class="product-item-title">UForce U4</label>
+			<span class="product-item-info">0.23 Ohm • Quadruple Coil • 50-120W • Best 60-80W</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€</div>
+			</div>
+		</a>
+	
+		<a class="product-item" filtertags="uforce" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/voopoouforceu2.jpg" /></figure>
+			<label class="product-item-brand">Voopoo</label>
+			<label class="product-item-title">UForce U2</label>
+			<span class="product-item-info">0.4 Ohm • Dual Coil • 40-80W • Best 55-65W</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€</div>
+			</div>
+		</a>
 		
+		<a class="product-item" filtertags="nrg skrr" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/smoktfv8babyq206.jpg" /></figure>
+			<label class="product-item-brand">SMOK</label>
+			<label class="product-item-title">TFV8 Baby Q2 0.6</label>
+			<span class="product-item-info">0.6 Ohm • Dual Coil • 20-50W • Best 30-40W</span>
+			<div class="product-item-buy">
+              <div class="product-item-price">€</div>
+			</div>
+		</a>
+		
+		<a class="product-item" colors="Batman,Superman" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="glasstubes/mamasnectarsuperherovaperings.jpg" /></figure>
+			<label class="product-item-brand">Mama's Nectar</label>
+			<label class="product-item-title">SuperHero Vape Rings</label>
+			<span class="product-item-info">Protects your glass tank • Silicone • for 16-22mm diameter tanks • Height 10mm</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€</div>
+			</div>
+		</a>
+		
+				
 		
 		
 		
