@@ -225,11 +225,11 @@ function recalcNectar() {
 	var nicType = $('.orderProductSlip_NICTYPE.selected').attr('value');
 	
 	
-	//hide 120mls when selecting salt
-	$(".orderProductSlip_SIZE[value=120]").toggle(nicType == "F");
+	//hide 120 and 200mls when selecting salt
+	$(".orderProductSlip_SIZE[value=120], .orderProductSlip_SIZE[value=200]").toggle(nicType == "F");
 	
 	//default to 60ml if hydra was selected at 120ml
-	if (size == 120 && nicType == "S") {
+	if (size > 60 && nicType == "S") {
 		$(".orderProductSlip_SIZE[value=60]").addClass('selected').siblings().removeClass('selected');	
 		size = 60;
 	}
@@ -248,10 +248,11 @@ function recalcNectar() {
 			if      (size == 30)  {price = 6;     }
 			else if (size == 60)  {price = 10.50; }
 			else if (size == 120) {price = 19.50; }
+			else if (size == 200) {price = 30.00; }
 		} else {
 			if      (size == 30)  {price = 7;     }
 			else if (size == 60)  {price = 12.50; }
-			else if (size == 120) {price = 23.50; }
+			//else if (size == 120) {price = 23.50; }
 		}
 		
 		//if unflavored, reduce price by 10%
