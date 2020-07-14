@@ -26,7 +26,8 @@ function initApp() {
 		window.location.hash == '#glasstubes' ||
 		window.location.hash == '#atomizers' ||
 		window.location.hash == '#mods' ||				
-		window.location.hash == '#accessories' ||		
+		window.location.hash == '#accessories' ||	
+		window.location.hash == '#protection' ||			
 		window.location.hash == '#starterkits' ) 
 		{
 			loadContent(window.location.hash.substring(1));
