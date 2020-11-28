@@ -117,7 +117,7 @@ function loadContent(pageName) {
 	
 	
 	
-	gtag('config', 'UA-104168459-1', {'page_path': '/'+pageName});
+	//gtag('config', 'UA-104168459-1', {'page_path': '/'+pageName});
 	
 	//$(body).attr('onhashchange','loadContent(window.location.hash.substring(1));');
 
