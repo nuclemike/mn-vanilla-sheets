@@ -1,63 +1,63 @@
 <script>
-	const category = "rebuilding";
-  
-	$.getJSON(category + ".json", function (json) {
-	  for (var index in json) {
-		const item = json[index];
-  
-		$(".product-parent").append(
-		  '<span class="product-item-hr">' + item.subCat + "</span>"
-		);
-  
-		for (var productIndex in item.items) {
-		  const product = item.items[productIndex];
-		  $(".product-parent").append(
-			'<a class="product-item ' +
-			  (product.new ? "new" : "") +
-			  '" onclick="buyHardware(this);"' +
-			  (product.spec 
-			  ? ' colors="' + product.spec + '"'
-			  : '') +
-			  '>' +
-			  '<figure><img class="product-item-image"' +
-			  'src="' +
-			  category +
-			  "/" +
-			  (product.brand + product.title).replace(/[^a-z0-9]/gi, "") +
-			  "_" +
-			  product.spec.replace(/[^a-z0-9]/gi, "") +
-			  '.jpg" />' +
-			  "</figure>" +
-			  '<label class="product-item-brand">' +
-			  product.brand +
-			  "</label>" +
-			  '<label class="product-item-title">' +
-			  product.title +
-			  "</label>" +
-			  '<span class="product-item-info"' +
-			  ">" +
-			  product.info +
-			  "</span>" +
-			  '<div class="product-item-buy">' +
-			  (product.oldPrice
-				? '<div class="product-item-oldprice">' +
-				  "€" +
-				  product.oldPrice.toFixed(2) +
-				  "</div>"
-				: "") +
-			  '<div class="product-item-price">€' +
-			  product.price.toFixed(2) +
-			  "</div>" +
-			  "</div>" +
-			  "</a>"
-		  );
-		}
-	  }
-	});
-  </script>
-  
-  <div id="goldRibbon" class="fxFixed">Rebuilding</div>
-  
-  <div id="contentContainer">
-	<div class="product-parent fxDisplay fxWrap fxJustifyCenter"></div>
-  </div>
+  const category = "rebuilding";
+
+  $.getJSON(category + ".json", function (json) {
+    for (var index in json) {
+      const item = json[index];
+
+      $(".product-parent").append(
+        '<span class="product-item-hr">' + item.subCat + "</span>"
+      );
+
+      for (var productIndex in item.items) {
+        const product = item.items[productIndex];
+        $(".product-parent").append(
+          '<a class="product-item ' +
+            (product.new ? "new" : "") +
+            '" onclick="buyHardware(this);"' +
+            (product.spec ? ' colors="' + product.spec + '"' : "") +
+            ">" +
+            '<figure><img class="product-item-image"' +
+            'src="' +
+            category +
+            "/" +
+            (product.brand + product.title)
+              .replace(/[^a-z0-9]/gi, "")
+              .toLowerCase() +
+            "_" +
+            product.spec.replace(/[^a-z0-9]/gi, "").toLowerCase() +
+            '.jpg" />' +
+            "</figure>" +
+            '<label class="product-item-brand">' +
+            product.brand +
+            "</label>" +
+            '<label class="product-item-title">' +
+            product.title +
+            "</label>" +
+            '<span class="product-item-info"' +
+            ">" +
+            product.info +
+            "</span>" +
+            '<div class="product-item-buy">' +
+            (product.oldPrice
+              ? '<div class="product-item-oldprice">' +
+                "€" +
+                product.oldPrice.toFixed(2) +
+                "</div>"
+              : "") +
+            '<div class="product-item-price">€' +
+            product.price.toFixed(2) +
+            "</div>" +
+            "</div>" +
+            "</a>"
+        );
+      }
+    }
+  });
+</script>
+
+<div id="goldRibbon" class="fxFixed">Rebuilding</div>
+
+<div id="contentContainer">
+  <div class="product-parent fxDisplay fxWrap fxJustifyCenter"></div>
+</div>

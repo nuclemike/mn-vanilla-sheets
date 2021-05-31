@@ -15,17 +15,17 @@
           '<a class="product-item ' +
             (product.new ? "new" : "") +
             '" onclick="buyHardware(this);"' +
-            (product.spec 
-            ? ' colors="' + product.spec + '"'
-            : '') +
-            '>' +
+            (product.spec ? ' colors="' + product.spec + '"' : "") +
+            ">" +
             '<figure><img class="product-item-image"' +
             'src="' +
             category +
             "/" +
-            (product.brand + product.title).replace(/[^a-z0-9]/gi, "") +
+            (product.brand + product.title)
+              .replace(/[^a-z0-9]/gi, "")
+              .toLowerCase() +
             "_" +
-            product.spec.replace(/[^a-z0-9]/gi, "") +
+            product.spec.replace(/[^a-z0-9]/gi, "").toLowerCase() +
             '.jpg" />' +
             "</figure>" +
             '<label class="product-item-brand">' +

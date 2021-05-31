@@ -22,7 +22,9 @@
             'src="' +
             category +
             "/" +
-            (product.brand + product.title).replace(/[^a-z0-9]/gi, "") +
+            (product.brand + product.title)
+              .replace(/[^a-z0-9]/gi, "")
+              .toLowerCase() +
             '.jpg" />' +
             "</figure>" +
             '<label class="product-item-brand">' +

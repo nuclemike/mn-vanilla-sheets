@@ -329,7 +329,7 @@ function loadMyLabCb(e) {
       var imgUrl =
         item.type +
         "/" +
-        item.flavor.replace(/[^a-z0-9]/gi, "") +
+        item.flavor.replace(/[^a-z0-9]/gi, "").toLowerCase() +
         imageExtension;
 
       html += '<tr class="myLabRequestRow">';
