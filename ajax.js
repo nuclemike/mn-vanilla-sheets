@@ -143,7 +143,7 @@ function register(submit) {
       surname: $("#registerPopupSurname").val(),
       email: $("#registerPopupEmail").val(),
       mobile: $("#registerPopupMobile").val(),
-      friendId: $("#registerPopupRecommended").val(),
+      friendId: $("#registerPopupFriend").val(),
     };
 
     $.ajax({
