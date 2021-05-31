@@ -44,8 +44,7 @@ function nectarRequest() {
 
   $.ajax({
     crossDomain: true,
-    url:
-      "https://script.google.com/macros/s/AKfycbxUe1Q_qURugb5z39rb_HzTxaL_9vWo2hXofb8GoEFMn1fsj2E/exec?callback=orderRequestCb",
+    url: "https://script.google.com/macros/s/AKfycbxUe1Q_qURugb5z39rb_HzTxaL_9vWo2hXofb8GoEFMn1fsj2E/exec?callback=orderRequestCb",
     type: "GET",
     dataType: "jsonp",
     data: requestObj,
@@ -78,8 +77,7 @@ function hardwareRequest() {
 
   $.ajax({
     crossDomain: true,
-    url:
-      "https://script.google.com/macros/s/AKfycby3MyYMASGfo0HERY5DM4NN2ZxgKrLfN1LG0ZmABAajLSwDMx0/exec?callback=orderRequestCb",
+    url: "https://script.google.com/macros/s/AKfycby3MyYMASGfo0HERY5DM4NN2ZxgKrLfN1LG0ZmABAajLSwDMx0/exec?callback=orderRequestCb",
     type: "GET",
     dataType: "jsonp",
     data: requestObj,
@@ -104,54 +102,65 @@ function orderRequestCb(response) {
   // }, 5000);
 }
 
-function login() {
-  if ($("#loginPopupEmail").val() == "") {
-    $("#loginPopupEmail").addClass("requiredField");
+function login(submit) {
+  if (submit) {
+    $("#loginPopupShadow").addClass("loading");
+
+    $("#loginPopupTitle").text("Authorizing...");
+
+    var loginObj = {
+      email: $("#loginPopupEmail").val(),
+      pass: $("#loginPopupPassword").val(),
+      userid: null,
+      seid: null,
+    };
+
+    $.ajax({
+      url: "https://script.google.com/macros/s/AKfycbzVgUmPLBBeNXNcxbZ-Jhfqht8rY_n19KSx8T04618AbCKDio4N3AUZqbO56n3RHN0w/exec",
+      type: "GET",
+      data: loginObj,
+      success: function (response) {
+        loginCb(JSON.parse(response));
+      },
+      error: function (response) {
+        loginCb(JSON.parse(response));
+      },
+    });
   } else {
-    $("#loginPopupEmail").removeClass("requiredField");
+    $(".credPopupData.register").hide();
+    $(".credPopupData.login").show();
   }
+}
 
-  if ($("#loginPopupPassword").val() == "") {
-    $("#loginPopupPassword").addClass("requiredField");
+function register(submit) {
+  if (submit) {
+    $("#loginPopupShadow").addClass("loading");
+
+    $("#registerPopupTitle").text("Sending Request...");
+
+    var registerObj = {
+      name: $("#registerPopupName").val(),
+      surname: $("#registerPopupSurname").val(),
+      email: $("#registerPopupEmail").val(),
+      mobile: $("#registerPopupMobile").val(),
+      friendId: $("#registerPopupRecommended").val(),
+    };
+
+    $.ajax({
+      url: "https://script.google.com/macros/s/AKfycbxWNDURdp6d1ttSV8bkrKh5WxSP5OG-0EGt8__VN6sxqguLtKiEFMmL92JyD346Ak_X/exec",
+      type: "GET",
+      data: registerObj,
+      success: function (response) {
+        registerCb(response);
+      },
+      error: function (response) {
+        registerCb(response);
+      },
+    });
   } else {
-    $("#loginPopupPassword").removeClass("requiredField");
+    $(".credPopupData.register").show();
+    $(".credPopupData.login").hide();
   }
-
-  if ($("#loginPopupShadow .requiredField").length) {
-    return false;
-  }
-
-  $("#loginPopupShadow").addClass("loading");
-
-  $("#loginPopupTitle").text("Authorizing...");
-
-  var loginObj = {
-    email: $("#loginPopupEmail").val(),
-    pass: $("#loginPopupPassword").val(),
-    userid: null,
-    seid: null,
-  };
-
-  $.ajax({
-    url:
-      "https://script.google.com/macros/s/AKfycbzVgUmPLBBeNXNcxbZ-Jhfqht8rY_n19KSx8T04618AbCKDio4N3AUZqbO56n3RHN0w/exec",
-    type: "GET",
-    data: loginObj,
-    success: function (response) {
-      loginCb(JSON.parse(response));
-    },
-    error: function (response) {
-      loginCb(JSON.parse(response));
-    },
-  });
-
-  // $.ajax({
-  // 	crossDomain: true,
-  // 	url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec?callback=loginCb",
-  // 	type: "GET",
-  // 	dataType: "jsonp",
-  // 	data: loginObj
-  // })
 }
 
 function loginCb(response) {
@@ -172,8 +181,8 @@ function loginCb(response) {
     $("#loginPopupShadow").removeClass("loading");
     closeCredPopup("loginPopupShadow");
 
-    $(".credPopupData").remove();
-    $("#pageContent").addClass("member");
+    $(".credPopupData.login").remove();
+    //$("#pageContent").addClass("member");
   } else {
     $("#loginPopupError").text(response.error);
     afterLoginFunction = undefined;
@@ -184,43 +193,29 @@ function loginCb(response) {
   populateUser(response.success);
 }
 
-function proceedChangePass() {
-  if ($("#changePassCurrent").val() == "") {
-    $("#changePassCurrent").addClass("requiredField");
-  } else {
-    $("#changePassCurrent").removeClass("requiredField");
-  }
+function registerCb(response) {
+  $("#loginPopupShadow").removeClass("loading");
+  $("#registerPopupTitle").text("Account Login");
 
-  if ($("#changePassNew").val().length < 8) {
-    $("#changePassNew").addClass("requiredField");
-    $("#changePassPopupError").text(
-      "Password should be at least 8 characters."
+  closeCredPopup("loginPopupShadow");
+
+  if (response.success) {
+    const content = {
+      title: "Registration Received!",
+      subtitle: "Your new account is awaiting verification...",
+      info: "We'll send your login details as soon as we approve your submitted details.",
+      footer: "See you soon!<br /><b>The Mama's Nectar Team.</b>",
+    };
+    infoPopup(content, "#4ab74a");
+  } else {
+    systemMessage(
+      "<b>Submission Failed.</b><br>There was an error, please try again later.",
+      "red"
     );
-  } else {
-    $("#changePassNew").removeClass("requiredField");
-    $("#changePassPopupError").text("");
   }
+}
 
-  if ($("#changePassConfirm").val().length < 8) {
-    $("#changePassConfirm").addClass("requiredField");
-  } else {
-    $("#changePassConfirm").removeClass("requiredField");
-  }
-
-  if ($("#changePassNew").val() != $("#changePassConfirm").val()) {
-    $("#changePassNew").addClass("requiredField");
-    $("#changePassConfirm").addClass("requiredField");
-    $("#changePassPopupError").text("Passwords do not match!");
-  } else {
-    $("#changePassConfirm").removeClass("requiredField");
-    $("#changePassConfirm").removeClass("requiredField");
-    $("#changePassPopupError").text("");
-  }
-
-  if ($("#changePassPopupShadow .requiredField").length) {
-    return false;
-  }
-
+function proceedChangePass() {
   $("#changePassPopupShadow").addClass("loading");
 
   $("#changePassPopupTitle").text("Please wait...");
@@ -233,8 +228,7 @@ function proceedChangePass() {
 
   var request = jQuery.ajax({
     crossDomain: true,
-    url:
-      "https://script.google.com/macros/s/AKfycbznCuQa2FgLDUmmV309rQMJZIpDCfu585NfB55tdYyrJ2GaVQOB/exec?callback=changePassCb",
+    url: "https://script.google.com/macros/s/AKfycbznCuQa2FgLDUmmV309rQMJZIpDCfu585NfB55tdYyrJ2GaVQOB/exec?callback=changePassCb",
 
     method: "GET",
     dataType: "jsonp",
@@ -268,8 +262,7 @@ function changeMarketing(recieveMarketing) {
 
   var request = jQuery.ajax({
     crossDomain: true,
-    url:
-      "https://script.google.com/macros/s/AKfycbwuXaKmsoIF2Bs4YqOZNyZXCWDNWh7xkmHg5sS-0dd6LWMirVA/exec?callback=changeMarketingCb",
+    url: "https://script.google.com/macros/s/AKfycbwuXaKmsoIF2Bs4YqOZNyZXCWDNWh7xkmHg5sS-0dd6LWMirVA/exec?callback=changeMarketingCb",
 
     method: "GET",
     dataType: "jsonp",
@@ -300,8 +293,7 @@ function loadMyLab() {
 
   var request = jQuery.ajax({
     crossDomain: true,
-    url:
-      "https://script.google.com/macros/s/AKfycbyIQs8oagOE3MZfax8MyLx2i8uUdVHMBPr8JMETzw/exec?callback=loadMyLabCb",
+    url: "https://script.google.com/macros/s/AKfycbyIQs8oagOE3MZfax8MyLx2i8uUdVHMBPr8JMETzw/exec?callback=loadMyLabCb",
     method: "GET",
     dataType: "jsonp",
     data: { userid: sessionStorage.getItem("userid") },
@@ -456,8 +448,7 @@ function loadMyAccount() {
     };
     var request = jQuery.ajax({
       crossDomain: true,
-      url:
-        "https://script.google.com/macros/s/AKfycbwXffCM5Bszinspmq4Gidvq9qyGs_egLaVhmI5ckfxSREbGlxwf/exec/exec?callback=loadMyAccountCb",
+      url: "https://script.google.com/macros/s/AKfycbwXffCM5Bszinspmq4Gidvq9qyGs_egLaVhmI5ckfxSREbGlxwf/exec/exec?callback=loadMyAccountCb",
       method: "GET",
       dataType: "jsonp",
       data: userRef,

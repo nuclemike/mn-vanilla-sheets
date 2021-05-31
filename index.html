@@ -46,52 +46,50 @@
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
     ></script>
 
-    <link rel="stylesheet" href="stylesheets/styles.css?v=2.97" />
-    <link rel="stylesheet" href="stylesheets/global.css?v=2.7" />
+    <link rel="stylesheet" href="stylesheets/styles.css?v=3" />
+    <link rel="stylesheet" href="stylesheets/global.css?v=3" />
     <script>
       function getPage(pagename) {
         if (pagename == "") pagename = "home";
         switch (pagename) {
           case "myaccount":
-            return pagename + ".html?v=2.7";
+            return pagename + ".html?v=3";
           case "mylab":
-            return pagename + ".html?v=2.7";
+            return pagename + ".html?v=3";
           case "nectars":
-            return pagename + ".html?v=2.93";
+            return pagename + ".html?v=3";
           case "nectarorder":
-            return pagename + ".html?v=2.93";
+            return pagename + ".html?v=3";
           case "hardwareorder":
-            return pagename + ".html?v=2.92";
+            return pagename + ".html?v=3";
           case "seducehydra":
-            return pagename + ".html?v=2.91";
+            return pagename + ".html?v=3";
           case "home":
-            return pagename + ".html?v=2.99";
+            return pagename + ".html?v=3";
           case "starterkits":
-            return pagename + ".html?v=2.97";
+            return pagename + ".html?v=3";
           case "chargers":
-            return pagename + ".html?v=2.9";
+            return pagename + ".html?v=3";
           case "coilheads":
-            return pagename + ".html?v=2.97";
+            return pagename + ".html?v=3";
           case "rebuilding":
-            return pagename + ".html?v=2.9";
+            return pagename + ".html?v=3";
           case "glasstubes":
-            return pagename + ".html?v=2.95";
+            return pagename + ".html?v=3";
           case "atomizers":
-            return pagename + ".html?v=2.95";
+            return pagename + ".html?v=3";
           case "mods":
-            return pagename + ".html?v=2.96";
+            return pagename + ".html?v=3";
           case "batteries":
-            return pagename + ".html?v=2.9";
+            return pagename + ".html?v=3";
           case "accessories":
-            return pagename + ".html?v=2.94";
-          case "protection":
-            return pagename + ".html?v=2.94";
+            return pagename + ".html?v=3";
         }
       }
     </script>
-    <script src="functions.js?v=2.93"></script>
-    <script src="ajax.js?v=2.92"></script>
-    <script src="index.js?v=2.94"></script>
+    <script src="functions.js?v=3"></script>
+    <script src="ajax.js?v=3"></script>
+    <script src="index.js?v=3"></script>
 
     <meta
       name="viewport"
@@ -111,9 +109,9 @@
     >
       <div class="credPopupForm fxDisplay">
         <form
-          class="credPopupData"
-          action="login"
-          onsubmit="login();return false;"
+          class="credPopupData login"
+          id="loginForm"
+          onsubmit="login(true);return false;"
         >
           <img class="credPopupMainIcon" src="/stylesheets/access.png" />
           <span class="credPopupTitle" id="loginPopupTitle">Account Login</span>
@@ -128,8 +126,10 @@
                   type="email"
                   autocorrect="off"
                   autocapitalize="off"
+                  autocomplete="email"
                   spellcheck="false"
                   id="loginPopupEmail"
+                  required
                 />
               </td>
             </tr>
@@ -144,6 +144,9 @@
                   autocapitalize="off"
                   spellcheck="false"
                   id="loginPopupPassword"
+                  title="Must contain at least 8 characters"
+                  autocomplete="current-password"
+                  required
                 />
               </td>
             </tr>
@@ -181,13 +184,137 @@
           />
 
           <span class="CredPopupHowLogin">
-            how can I login?
-            <span>
-              click
-              <a target="_blank" href="http://m.me/mamasnectar">here</a> to
-              contact us via facebook or
-              <a href="mailto:mamasnectaronline@gmail.com">here</a> to email us.
-            </span>
+            Don't have an account?
+            <span onClick="register(false);"> Register Now! </span>
+          </span>
+        </form>
+
+        <form
+          style="display: none"
+          class="credPopupData register"
+          id="registerForm"
+          onsubmit="register(true);return false;"
+        >
+          <img class="credPopupMainIcon" src="/stylesheets/register.png" />
+          <span class="credPopupTitle" id="registerPopupTitle"
+            >Plug with us!</span
+          >
+
+          <table class="credPopupTable">
+            <tr>
+              <td>Name</td>
+              <td align="right">
+                <input
+                  placeholder="name"
+                  name="name"
+                  type="text"
+                  autocorrect="off"
+                  autocapitalize="on"
+                  spellcheck="false"
+                  id="registerPopupName"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Surname</td>
+              <td align="right">
+                <input
+                  placeholder="surname"
+                  name="surname"
+                  type="text"
+                  autocorrect="off"
+                  autocapitalize="on"
+                  spellcheck="false"
+                  id="registerPopupSurname"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>E-Mail</td>
+              <td align="right">
+                <input
+                  placeholder="email"
+                  name="username"
+                  type="email"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  id="registerPopupEmail"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Mobile No</td>
+              <td align="right">
+                <input
+                  placeholder="mobile"
+                  name="mobile"
+                  type="text"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  id="registerPopupMobile"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="right">
+                <input
+                  type="checkbox"
+                  name="registerPopupRecommended"
+                  style="display: none"
+                  id="registerPopupRecommended"
+                  onChange="recommendedByAFriend(this.checked);"
+                />
+                <label
+                  id="loginRecommendedCheckBox"
+                  for="registerPopupRecommended"
+                ></label>
+                <span style="font-size: 14px"
+                  >Were you recommended by a friend?</span
+                >
+              </td>
+            </tr>
+            <tr id="registerPopupFriendSection" style="display: none">
+              <td>Friend</td>
+              <td align="right">
+                <input
+                  placeholder="name & surname"
+                  name="friend"
+                  type="text"
+                  autocorrect="off"
+                  autocapitalize="on"
+                  spellcheck="false"
+                  id="registerPopupFriend"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <span id="registerPopupError" class="registerPopupError"></span>
+              </td>
+            </tr>
+          </table>
+
+          <input
+            type="submit"
+            class="CredPopupButton proceedCredPopupButton"
+            value="Proceed"
+          />
+          <input
+            type="button"
+            class="CredPopupButton"
+            onclick="closeCredPopup('loginPopupShadow')"
+            value="Cancel"
+          />
+
+          <span class="CredPopupHowLogin">
+            Already have an account?
+            <span onClick="login(false)"> Login here! </span>
           </span>
         </form>
       </div>
@@ -225,7 +352,7 @@
         z-index: 9999;
         width: 100%;
         top: 0;
-        leeft: 0;
+        left: 0;
         height: 100%;
         font-family: "Raleway", sans-serif;
         background: rgb(158, 158, 158);
@@ -251,7 +378,6 @@
 
       #ageCheck button {
         border: 0;
-        display: inline-block;
         width: 50%;
         line-height: 2em;
         font-size: 2em;

@@ -1,192 +1,200 @@
-
 <style>
-	.cat-parent{
-	    margin-top: 0.5em;
-		user-select: none;
-	}
-	
-	.cat-child {
-		width: 200px;
-		TEXT-ALIGN: center;
-		max-width: 250px;
-		padding: 2em 0;
-		border-radius: 3px;
-		background: rgba(255,255,255,0.6);
-		margin: 0.6em;
-		cursor: pointer;
-		transition: transform 0.3s, box-shadow 0.6s;
-		box-shadow: 0px 0px 0 0px #d9a742 inset, 0 0 10px rgba(0,0,0,0.07);
-		position:relative;
-	}
-	
-	.cat-child.underconstruction{
-		color: #bbb;
-	}	
-	
-	.cat-child.underconstruction img{
-		opacity:0.3;
-	}		
-	
-	.cat-child.underconstruction:after{
-		position: absolute;
-		content: 'Under Construction';
-		color: tomato;
-		opacity: 1;
-		font-size: 0.7em;
-		left: 0;
-		width: 100%;
-		text-align: center;
-		margin-top: 10%;
-		font-weight: bold;
-	}		
-		
-	.cat-child.new:after {
-		position: absolute;
-		content: 'New!';
-		color: yellowgreen;/*#ddb366;*/
-		opacity: 1;
-		font-size: 1.1em;
-		text-align: center;
-		font-weight: bold;
-		margin-top: 16px;
-		width: 100%;
-		left: 0;
-	}	
-	
-	.cat-child:hover {
-		background: rgba(255,255,255,0.5);
-		transform: scale(1.1);
-		box-shadow: 0px -8px 0 0px #d9a742 inset, 0 0 10px rgba(0,0,0,0.07);
-		color: #c38d36;
-		font-weight: bold;
-	}
-	
-	.cat-child img{
-	    display: block;
-		opacity:0.8;
-		margin: 0 auto 1em;
-		width: 20%;
-	}
-	
-	
-	
-	@media only screen and (max-width: 500px) {
-		
-		.cat-parent{
-			margin-top: 0;
-		}
-		
-		.cat-child, .cat-child:hover  {
-			width: 50%;
-			margin: 0;
-			max-width: none;
-			box-shadow: 0 0 2px -1px inset;
-			border-radius: 0;
-			transition: none;
-		}
-	}
+  .cat-parent {
+    margin-top: 0.5em;
+    user-select: none;
+  }
+
+  .cat-child {
+    width: 200px;
+    text-align: center;
+    max-width: 250px;
+    padding: 2em 0;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.6);
+    margin: 0.6em;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.6s;
+    box-shadow: 0px 0px 0 0px #d9a742 inset, 0 0 10px rgba(0, 0, 0, 0.07);
+    position: relative;
+  }
+
+  .cat-child.underconstruction {
+    color: #bbb;
+  }
+
+  .cat-child.underconstruction img {
+    opacity: 0.3;
+  }
+
+  .cat-child.underconstruction:after {
+    position: absolute;
+    content: "Under Construction";
+    color: tomato;
+    opacity: 1;
+    font-size: 0.7em;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 10%;
+    font-weight: bold;
+  }
+
+  .cat-child.new:after {
+    position: absolute;
+    content: "New!";
+    color: yellowgreen; /*#ddb366;*/
+    opacity: 1;
+    font-size: 1.1em;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 16px;
+    width: 100%;
+    left: 0;
+  }
+
+  .cat-child:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+    box-shadow: 0px -8px 0 0px #d9a742 inset, 0 0 10px rgba(0, 0, 0, 0.07);
+    color: #c38d36;
+    font-weight: bold;
+  }
+
+  .cat-child img {
+    display: block;
+    opacity: 0.8;
+    margin: 0 auto 1em;
+    width: 20%;
+  }
+
+  @media only screen and (max-width: 500px) {
+    .cat-parent {
+      margin-top: 0;
+    }
+
+    .cat-child,
+    .cat-child:hover {
+      width: 50%;
+      margin: 0;
+      max-width: none;
+      box-shadow: 0 0 2px -1px inset;
+      border-radius: 0;
+      transition: none;
+    }
+  }
 </style>
-	
+
 <!--
 		<a style="margin: 0px auto 15px;display: table;max-width: 100%;" href="http://m.me/mamasnectar" class="prexmasoffer">
 			<img src="./prexmas.png" style="max-width: 100%;">
 		</a>
 -->
 
-
-
-
-
 <div class="elementRotator fxFixed">
-<div class="current" style="background-image:url(stylesheets/slideshows/nectarmonster.jpg)" onclick="preloadContent('nectars')" ></div>
-<div style="background-image:url(stylesheets/slideshows/freedelivery.jpg?v=2)"></div>
-<div style="background-image:url(stylesheets/slideshows/geekvapeaegissolo.jpg)" onclick="preloadContent('starterkits')"  ></div>
-<div style="background-image:url(stylesheets/slideshows/voopoocaliber.jpg)" onclick="preloadContent('starterkits')" ></div>
-<div style="background-image:url(stylesheets/slideshows/geekvapeaegislegend.jpg)" onclick="preloadContent('starterkits')" ></div>
-<div style="background-image:url(stylesheets/slideshows/newnectars.jpg)" onclick="preloadContent('nectars')" ></div>
-<div style="background-image:url(stylesheets/slideshows/howsyourfurnace.jpg)" onclick="preloadContent('rebuilding')" ></div>
-<nav></nav>
+  <div
+    class="current"
+    style="background-image: url(stylesheets/slideshows/dragmax.jpg)"
+    onclick="preloadContent('starterkits')"
+  ></div>
+  <div
+    style="background-image: url(stylesheets/slideshows/rpm80.jpg)"
+    onclick="preloadContent('starterkits')"
+  ></div>
+  <div
+    style="background-image: url(stylesheets/slideshows/boost.jpg)"
+    onclick="preloadContent('starterkits')"
+  ></div>
+  <div
+    style="background-image: url(stylesheets/slideshows/freedelivery.jpg?v=2)"
+  ></div>
+  <div
+    style="background-image: url(stylesheets/slideshows/um4.jpg)"
+    onclick="preloadContent('chargers')"
+  ></div>
+  <div
+    style="background-image: url(stylesheets/slideshows/nectarmonster.jpg)"
+    onclick="preloadContent('nectars')"
+  ></div>
+
+  <div
+    style="background-image: url(stylesheets/slideshows/newnectars.jpg)"
+    onclick="preloadContent('nectars')"
+  ></div>
+
+  <nav></nav>
 </div>
 
-
-
 <script>
-clearInterval(myVar);
-var myVar = setInterval(slideShow, 5000);
-var elementRotator = $('.elementRotator');
-var elementRotatorNav = $('.elementRotator nav');
+  clearInterval(myVar);
+  var myVar = setInterval(slideShow, 5000);
+  var elementRotator = $(".elementRotator");
+  var elementRotatorNav = $(".elementRotator nav");
 
+  function slideShow(nav) {
+    var $next;
+    var $cur = elementRotator.children(".current").attr("class", "old");
+    $cur.siblings("div").removeClass("old");
 
-
-
-
-
-
-function slideShow(nav) {
-console.log($(nav).index());
-
-var $next;
-   var $cur = elementRotator.children('.current').attr('class','old');
-      $cur.siblings('div').removeClass('old');
-	  
-	  
-   if (nav) {
+    if (nav) {
       clearInterval(myVar);
-	  //$(this).toggleClass('current',true).siblings().removeClass('current');
-	  //var $cur = elementRotator.children().removeClass().eq($(nav).index()).addClass('current');
-	  $next = elementRotator.children().eq($(nav).index());
-   } else
-   {
-	  $next = $cur.next('div').length?$cur.next('div'):$('.elementRotator').children('div').first();
-   }
-   $next.removeClass().addClass('current');
-   
+      //$(this).toggleClass('current',true).siblings().removeClass('current');
+      //var $cur = elementRotator.children().removeClass().eq($(nav).index()).addClass('current');
+      $next = elementRotator.children().eq($(nav).index());
+    } else {
+      $next = $cur.next("div").length
+        ? $cur.next("div")
+        : $(".elementRotator").children("div").first();
+    }
+    $next.removeClass().addClass("current");
 
+    $(".elementRotator nav span")
+      .eq($next.index())
+      .addClass("current")
+      .siblings()
+      .removeClass("current");
+  }
 
-   
-   
-   
-  
-   
-   
-   
-   
-   $('.elementRotator nav span').eq($next.index()).addClass('current').siblings().removeClass('current');
-		
-
-}
-
-
-
-
-
-$('.elementRotator > div').each(function (index) {
-elementRotatorNav.append( '<span class="'+(index==0?'current':'')+'" onclick="slideShow(this);">•</span>' );
- });
- 
-
+  $(".elementRotator > div").each(function (index) {
+    elementRotatorNav.append(
+      '<span class="' +
+        (index == 0 ? "current" : "") +
+        '" onclick="slideShow(this);">•</span>'
+    );
+  });
 </script>
 
-
 <div id="contentContainer">
+  <div class="cat-parent fxDisplay fxWrap fxJustifyCenter">
+    <a class="cat-child" onclick="preloadContent('nectars')"
+      ><img src="stylesheets/cats/nectar.svg" />Nectar</a
+    >
 
-		
-	<div class="cat-parent fxDisplay fxWrap fxJustifyCenter">
-		<a class="cat-child new" onclick="preloadContent('nectars')"><img src="stylesheets/cats/nectar.svg" />Nectar</a>		
-		<a class="cat-child" onclick="preloadContent('protection')"><img src="stylesheets/cats/protection.svg" />Sanitizer</a>			
-		<a class="cat-child new" onclick="preloadContent('starterkits')"><img src="stylesheets/cats/starterkits.svg" />Starter Kits</a>
-		<a class="cat-child" onclick="preloadContent('coilheads')"><img src="stylesheets/cats/coilheads.svg" />Coil Heads</a>
-		<a class="cat-child" onclick="preloadContent('glasstubes')"><img src="stylesheets/cats/glasstubes.svg" />Glass Tubes</a>
-		<a class="cat-child" onclick="preloadContent('batteries')"><img src="stylesheets/cats/batteries.svg" />Batteries</a>
-		<a class="cat-child" onclick="preloadContent('chargers')"><img src="stylesheets/cats/chargers.svg" />Chargers</a>
-		<a class="cat-child new" onclick="preloadContent('atomizers')"><img src="stylesheets/cats/atomizers.svg" />Atomizers</a>
-		<a class="cat-child new" onclick="preloadContent('mods')"><img src="stylesheets/cats/mods.svg" />Mods</a>
-		<a class="cat-child" onclick="preloadContent('rebuilding')"><img src="stylesheets/cats/rebuilding.svg" />Rebuilding</a>
-		<a class="cat-child" onclick="preloadContent('accessories')"><img src="stylesheets/cats/accessories.svg" />Accessories</a>	
-
-	</div>
-						
-    </div>
-
-
-		
+    <a class="cat-child new" onclick="preloadContent('starterkits')"
+      ><img src="stylesheets/cats/starterkits.svg" />Starter Kits</a
+    >
+    <a class="cat-child new" onclick="preloadContent('coilheads')"
+      ><img src="stylesheets/cats/coilheads.svg" />Coil Heads</a
+    >
+    <a class="cat-child new" onclick="preloadContent('glasstubes')"
+      ><img src="stylesheets/cats/glasstubes.svg" />Glass Tubes</a
+    >
+    <a class="cat-child new" onclick="preloadContent('batteries')"
+      ><img src="stylesheets/cats/batteries.svg" />Batteries</a
+    >
+    <a class="cat-child new" onclick="preloadContent('chargers')"
+      ><img src="stylesheets/cats/chargers.svg" />Chargers</a
+    >
+    <a class="cat-child new" onclick="preloadContent('atomizers')"
+      ><img src="stylesheets/cats/atomizers.svg" />Atomizers</a
+    >
+    <a class="cat-child new" onclick="preloadContent('mods')"
+      ><img src="stylesheets/cats/mods.svg" />Mods</a
+    >
+    <a class="cat-child new" onclick="preloadContent('rebuilding')"
+      ><img src="stylesheets/cats/rebuilding.svg" />Rebuilding</a
+    >
+    <a class="cat-child" onclick="preloadContent('accessories')"
+      ><img src="stylesheets/cats/accessories.svg" />Accessories</a
+    >
+  </div>
+</div>

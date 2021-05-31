@@ -1,51 +1,63 @@
-<div id="goldRibbon" class="fxFixed">Batteries</div>
-
-<div id="contentContainer">
-			
-	<div class="product-parent fxDisplay fxWrap fxJustifyCenter">
-		<span class="product-item-hr"></span>	
-		<a class="product-item" onclick="buyHardware(this);">
-			<figure><img class="product-item-image" src="batteries/sonyvtc5.jpg" /></figure>
-			<label class="product-item-brand">Sony</label>		
-			<label class="product-item-title">VTC5</label>
-			<span class="product-item-info">2600mAh • Li-Ion • 18650 • 30A Discharge</span>
-			<div class="product-item-buy">
-                <div class="product-item-oldprice">€10.00</div>
-				<div class="product-item-price">€8.00</div>
-			</div>	
-		</a> 
-		<a class="product-item" onclick="buyHardware(this);">
-			<figure><img class="product-item-image" src="batteries/sonyvtc5a.jpg" /></figure>
-			<label class="product-item-brand">Sony</label>	
-			<label class="product-item-title">VTC5A</label>
-			<span class="product-item-info">2600mAh • Li-Ion • 18650 • 35A Discharge</span>
-			<div class="product-item-buy">
-                <div class="product-item-oldprice">€10.00</div><div class="product-item-price">€7.50</div>
-			</div>				
-		</a>
-		<a class="product-item" onclick="buyHardware(this);">
-			<figure><img class="product-item-image" src="batteries/sonyvtc6.jpg" /></figure>
-			<label class="product-item-brand">Sony</label>				
-			<label class="product-item-title">VTC6</label>
-			<span class="product-item-info">3000mAh • Li-Ion • 18650 • 35A Discharge</span>
-			<div class="product-item-buy">
-                <div class="product-item-oldprice">€13.00</div><div class="product-item-price">€10.00</div>
-			</div>				
-		</a>
-		
-		<span class="product-item-hr">Storage</span>
-		<a class="product-item" colors="Blue,Gold,Orange,Green,Transparent" onclick="buyHardware(this);">
-			<figure><img class="product-item-image" src="accessories/generic18650hardcase.jpg" /></figure>
-			<label class="product-item-brand">Generic</label>
-			<label class="product-item-title">18650 Hardcase</label>
-			<span class="product-item-info">Translucent. Holds 2x 18650 batteries.</span>
-			<div class="product-item-buy">
-                <div class="product-item-price">€0.90</div>
-			</div>
-		</a>	
-	</div>
-						
-</div>
-
-
-		
+<script>
+	const category = "batteries";
+  
+	$.getJSON(category + ".json", function (json) {
+	  for (var index in json) {
+		const item = json[index];
+  
+		$(".product-parent").append(
+		  '<span class="product-item-hr">' + item.subCat + "</span>"
+		);
+  
+		for (var productIndex in item.items) {
+		  const product = item.items[productIndex];
+		  $(".product-parent").append(
+			'<a class="product-item ' +
+			  (product.new ? "new" : "") +
+			  '" onclick="buyHardware(this);"' +
+			(product.spec 
+			? ' colors="' + product.spec + '"'
+			: '') +
+			'>' +
+			'<figure><img class="product-item-image"' +
+			'src="' +
+			category +
+			  "/" +
+			  (product.brand + product.title).replace(/[^a-z0-9]/gi, "") +
+			  "_" +
+			  product.spec.replace(/[^a-z0-9]/gi, "") +
+			  '.jpg" />' +
+			  "</figure>" +
+			  '<label class="product-item-brand">' +
+			  product.brand +
+			  "</label>" +
+			  '<label class="product-item-title">' +
+			  product.title +
+			  "</label>" +
+			  '<span class="product-item-info"' +
+			  ">" +
+			  product.info +
+			  "</span>" +
+			  '<div class="product-item-buy">' +
+			  (product.oldPrice
+				? '<div class="product-item-oldprice">' +
+				  "€" +
+				  product.oldPrice.toFixed(2) +
+				  "</div>"
+				: "") +
+			  '<div class="product-item-price">€' +
+			  product.price.toFixed(2) +
+			  "</div>" +
+			  "</div>" +
+			  "</a>"
+		  );
+		}
+	  }
+	});
+  </script>
+  
+  <div id="goldRibbon" class="fxFixed">Batteries</div>
+  
+  <div id="contentContainer">
+	<div class="product-parent fxDisplay fxWrap fxJustifyCenter"></div>
+  </div>

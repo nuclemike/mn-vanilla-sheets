@@ -1,88 +1,63 @@
-
-<div id="goldRibbon" class="fxFixed">Mods</div>
-
-<div id="contentContainer">
-			
-	<div class="product-parent fxDisplay fxWrap fxJustifyCenter">
-	
-		<span class="product-item-hr">Dual Battery - Over 200 Watts</span>
-		
-		<a class="product-item" colors="Gunmetal Camo, Classic Silver" onclick="buyHardware(this);">
-			<figure><img class="product-item-image" src="mods/geekvapeaegisx.jpg" /></figure>
-			<label class="product-item-brand">Geekvape</label>			
-			<label class="product-item-title">Aegis X</label>
-			<span class="product-item-info">200W • 2.4inch color display • AS 2.0 Chipset • Extremely Durable • TempControl • IP67 Waterproof & Dustproof • Military Grade shockproof • 2x 18650 Required</span>
-			<div class="product-item-buy">
-                <div class="product-item-oldprice">€60.00</div><div class="product-item-price">€52.00</div>
-			</div>
-		</a>	
-	
-		<a class="product-item" colors="Black" onclick="buyHardware(this);">
-			<figure><img class="product-item-image" src="mods/geekvapeaegislegend.jpg" /></figure>
-			<label class="product-item-brand">Geekvape</label>			
-			<label class="product-item-title">Aegis Legend</label>
-			<span class="product-item-info">200W • AS Chipset • Extremely Durable • TempControl • IP67 Waterproof & Dustproof • Military Grade shockproof • TempControl  • 2x 18650 Required</span>
-			<div class="product-item-buy">
-                <div class="product-item-oldprice">€58.00</div><div class="product-item-price">€50.00</div>
-			</div>
-		</a>
-		
-		<a class="product-item" colors="Black, Jade, Gorilla, Bronze Stripe" onclick="buyHardware(this);">
-			<figure><img class="product-item-image" src="mods/vaporessoluxes.jpg" /></figure>
-			<label class="product-item-brand">Vaporesso</label>			
-			<label class="product-item-title">Luxe-S</label>
-			<span class="product-item-info">220W • OMNI 4.2 Chipset • QuickCharge • 2" Touchscreen • TempControl • 2x 18650 Required</span>
-			<div class="product-item-buy">
-                <div class="product-item-oldprice">€60.00</div><div class="product-item-price">€49.00</div>
-			</div>
-		</a>		
-		
-		<a class="product-item oos" colors="Gloss Black,Brushed Metal" onclick="buyHardware(this);">
-			<figure><img class="product-item-image" src="mods/wismecreuleauxrxgen3.jpg" /></figure>
-			<label class="product-item-brand">Wismec</label>			
-			<label class="product-item-title">Reuleaux RxGen3</label>
-			<span class="product-item-info">230W • 1.3" Display • TempControl • 2A FastCharge •  Max Output 50A • 2x 18650 Required</span>
-			<div class="product-item-buy">
-                <div class="product-item-oldprice">€65.00</div><div class="product-item-price">€45.00</div>
-			</div>
-		</a>
-		
-		<span class="product-item-hr">Single Battery - Over 70 Watts</span>
-		
-		<a class="product-item" colors="Dark Sea, Red, Orange, White" onclick="buyHardware(this);">
-			<figure><img class="product-item-image" src="mods/voopoorex.jpg?v=2" /></figure>
-			<label class="product-item-brand">Voopoo</label>			
-			<label class="product-item-title">Rex</label>
-			<span class="product-item-info">80W • GENE.FIT Chip • Ergonomic Design • TempControl • 1x 18650 Required</span>
-			<div class="product-item-buy">
-                <div class="product-item-oldprice">€50.00</div><div class="product-item-price">€35.00</div>
-			</div>
-		</a>
-		
-		<a class="product-item" colors="Black" onclick="buyHardware(this);">
-			<figure><img class="product-item-image" src="mods/geekvapeaegissolo.jpg" /></figure>
-			<label class="product-item-brand">GeekVape</label>			
-			<label class="product-item-title">Aegis Solo</label>
-			<span class="product-item-info">100W • AS chipset • 0.96" Display • 1.5A FastCharge • Compact • TempControl • WaterProof, DustProof, ShockProof • 1x 18650 Required</span>
-			<div class="product-item-buy">
-                <div class="product-item-oldprice">€60.00</div><div class="product-item-price">€43.00</div>
-			</div>
-		</a><!--
-		<a class="product-item" colors="Black" onclick="buyHardware(this);">
-			<figure><img class="product-item-image" src="mods/dovpotopsidesingle.jpg" /></figure>
-			<label class="product-item-brand">Dovpo</label>			
-			<label class="product-item-title">TopSide Single</label>
-			<span class="product-item-info">10ml Top Fill Squonk • Zinc & Aluminum Alloys & Stainless Steel • 0.96" OLED Display • 90W • TempControl • 1x 18650 Required</span>
-			<div class="product-item-buy">
-                <div class="product-item-oldprice">€83.00</div><div class="product-item-price">€72.00</div>
-			</div>
-		</a>	-->	
-		
-					
-		
-	</div>
-						
-</div>
-
-
-		
+<script>
+	const category = "mods";
+  
+	$.getJSON(category + ".json", function (json) {
+	  for (var index in json) {
+		const item = json[index];
+  
+		$(".product-parent").append(
+		  '<span class="product-item-hr">' + item.subCat + "</span>"
+		);
+  
+		for (var productIndex in item.items) {
+		  const product = item.items[productIndex];
+		  $(".product-parent").append(
+			'<a class="product-item ' +
+			  (product.new ? "new" : "") +
+			  '" onclick="buyHardware(this);"' +
+			  (product.spec 
+			  ? ' colors="' + product.spec + '"'
+			  : '') +
+			  '>' +
+			  '<figure><img class="product-item-image"' +
+			  'src="' +
+			  category +
+			  "/" +
+			  (product.brand + product.title).replace(/[^a-z0-9]/gi, "") +
+			  "_" +
+			  product.spec.replace(/[^a-z0-9]/gi, "") +
+			  '.jpg" />' +
+			  "</figure>" +
+			  '<label class="product-item-brand">' +
+			  product.brand +
+			  "</label>" +
+			  '<label class="product-item-title">' +
+			  product.title +
+			  "</label>" +
+			  '<span class="product-item-info"' +
+			  ">" +
+			  product.info +
+			  "</span>" +
+			  '<div class="product-item-buy">' +
+			  (product.oldPrice
+				? '<div class="product-item-oldprice">' +
+				  "€" +
+				  product.oldPrice.toFixed(2) +
+				  "</div>"
+				: "") +
+			  '<div class="product-item-price">€' +
+			  product.price.toFixed(2) +
+			  "</div>" +
+			  "</div>" +
+			  "</a>"
+		  );
+		}
+	  }
+	});
+  </script>
+  
+  <div id="goldRibbon" class="fxFixed">Mods</div>
+  
+  <div id="contentContainer">
+	<div class="product-parent fxDisplay fxWrap fxJustifyCenter"></div>
+  </div>
