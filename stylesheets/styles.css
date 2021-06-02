@@ -68,7 +68,7 @@ body {
   /* perspective: 1000px; */
   transition-delay: 0.5s;
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3) inset;
-  background: url(floralBGWhite.png);
+  background: url(floralbgwhite.png);
   /* user-select: none; */
 }
 
