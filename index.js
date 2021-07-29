@@ -83,7 +83,6 @@ function preloadContent(pageName) {
 }
 
 function recommendedByAFriend(value) {
-  console.log(value);
   $("#registerPopupFriend").attr("required", value);
   $("#registerPopupFriendSection").toggle(value);
 }
@@ -286,8 +285,6 @@ function tryFetchSession() {
 }
 
 function ghostLoginCb(response) {
-  //console.log(response);
-
   if (response.success) {
     sessionStorage.setItem("userid", response.userid);
     sessionStorage.setItem("seid", response.seid);

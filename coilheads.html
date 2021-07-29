@@ -1,80 +1,3 @@
-<script>
-  const category = "coilheads";
-
-  $.getJSON(category + ".json", function (json) {
-    for (var index in json) {
-      const item = json[index];
-
-      $(".product-parent").append(
-        '<span class="product-item-hr">' + item.subCat + "</span>"
-      );
-
-      for (var productIndex in item.items) {
-        const product = item.items[productIndex];
-        $(".product-parent").append(
-          '<a class="product-item ' +
-            (product.new ? "new" : "") +
-            '" onclick="buyHardware(this);"' +
-            " filtertags='" +
-            product.fitment +
-            "'>" +
-            '<figure><img class="product-item-image"' +
-            'src="' +
-            category +
-            "/" +
-            (product.brand + product.title)
-              .replace(/[^a-z0-9]/gi, "")
-              .toLowerCase() +
-            '.jpg" />' +
-            "</figure>" +
-            '<label class="product-item-brand">' +
-            product.brand +
-            "</label>" +
-            '<label class="product-item-title">' +
-            product.title +
-            "</label>" +
-            '<span class="product-item-info"' +
-            ">" +
-            product.info +
-            "</span>" +
-            '<div class="product-item-buy">' +
-            (product.oldPrice
-              ? '<div class="product-item-oldprice">' +
-                "€" +
-                product.oldPrice.toFixed(2) +
-                "</div>"
-              : "") +
-            '<div class="product-item-price">€' +
-            product.price.toFixed(2) +
-            "</div>" +
-            "</div>" +
-            "</a>"
-        );
-      }
-    }
-  });
-</script>
-
-<script>
-  function productFilterChanged(tag) {
-    var value = $(tag).val();
-
-    if (value == "all") {
-      $(".product-item").fadeIn();
-      $(".productFilterCaption").text("Select your tank");
-    } else {
-      $(".product-item").stop().hide();
-      const compatibleCoils = value.split(" ");
-      for (let coil of compatibleCoils) {
-        $(".product-item[filtertags~=" + coil + "]").fadeIn();
-        console.log(".product-item[filtertags~='" + coil + "']");
-      }
-
-      $(".productFilterCaption").text("Coil-heads compatible with");
-    }
-  }
-</script>
-
 <style>
   .productFilterWrapper {
     margin-bottom: 2em;
@@ -121,6 +44,7 @@
 </style>
 
 <div id="goldRibbon" class="fxFixed">Coil Heads</div>
+
 <div class="productFilterWrapper fxFixed fxDisplay fxAlignCenter">
   <div class="productFilter fxWrap fxJustifyCenter fxDisplay fxAlignCenter">
     <span class="productFilterCaption">Select your tank</span>
@@ -136,10 +60,10 @@
       <option value="nrg">Geekvape Shield / Cerberus</option>
       <option value="nrg">Geekvape Aero/AeroMesh</option>
       <option value="nrg">Geekvape Illusion Mini</option>
-      <option value="zeus">Geekvape Zeus</option>
-      <option value="pseries">
-        GeekVape Aegis Boost Pro Pod / Obelisk 60 Pod Kit
-      </option>
+      <option value="zseries">Geekvape Zeus</option>
+      <option value="pseries">GeekVape Aegis Boost Pro Pod / Obelisk 60</option>
+      <option value="bseries">GeekVape Aegis Boost / Boost Plus</option>
+      <option value="bseries">GeekVape Hero / Zeus Nano / Z50 Kit</option>
       <option value="spryte">iJoy Mercury Resin</option>
       <option value="zenith">Innokin Zlide / Zenith / Kroma-Z Pod</option>
       <option value="aio">Joyetech EGO AIO</option>
@@ -161,5 +85,27 @@
 </div>
 
 <div id="contentContainer">
-  <div class="product-parent fxDisplay fxWrap fxJustifyCenter"></div>
+  <div class="product-parent fxDisplay fxWrap fxJustifyCenter">
+    <script>
+      function productFilterChanged(tag) {
+        var value = $(tag).val();
+
+        if (value == "all") {
+          $(".product-item").fadeIn();
+          $(".productFilterCaption").text("Select your tank");
+        } else {
+          $(".product-item").stop().hide();
+          const compatibleCoils = value.split(" ");
+          for (let coil of compatibleCoils) {
+            $(".product-item[filtertags~=" + coil + "]").fadeIn();
+          }
+
+          $(".productFilterCaption").text("Coil-heads compatible with");
+        }
+      }
+    </script>
+    <script>
+      renderProducts($(".product-parent"), "coilheads");
+    </script>
+  </div>
 </div>

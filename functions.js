@@ -8,6 +8,76 @@ function systemMessage(message, className) {
   }, 8000);
 }
 
+function renderProducts(
+  container,
+  category,
+  displaySubCat = true,
+  hotOnly = false,
+  showNewIcon = true,
+  showHotIcon = true
+) {
+  $.getJSON(category + ".json", function (json) {
+    for (var index in json) {
+      const item = json[index];
+
+      displaySubCat &&
+        container.append(
+          '<span class="product-item-hr">' + item.subCat + "</span>"
+        );
+
+      const products = hotOnly ? item.items.filter((i) => i.hot) : item.items;
+
+      for (var productIndex in products) {
+        const product = products[productIndex];
+        container.append(
+          '<a class="product-item' +
+            (product.new && showNewIcon ? " new" : "") +
+            (product.hot && showHotIcon ? " hot" : "") +
+            '"' +
+            (product.fitment ? ' filtertags="' + product.fitment + '"' : "") +
+            ' onclick="buyHardware(this);"' +
+            (product.spec ? ' colors="' + product.spec + '"' : "") +
+            ">" +
+            '<figure><img class="product-item-image"' +
+            'src="' +
+            category +
+            "/" +
+            (product.brand + product.title)
+              .replace(/[^a-z0-9]/gi, "")
+              .toLowerCase() +
+            (product.spec
+              ? "_" + product.spec.replace(/[^a-z0-9]/gi, "").toLowerCase()
+              : "") +
+            '.jpg" />' +
+            "</figure>" +
+            '<label class="product-item-brand">' +
+            product.brand +
+            "</label>" +
+            '<label class="product-item-title">' +
+            product.title +
+            "</label>" +
+            '<span class="product-item-info"' +
+            ">" +
+            product.info +
+            "</span>" +
+            '<div class="product-item-buy">' +
+            (product.oldPrice
+              ? '<div class="product-item-oldprice">' +
+                "€" +
+                product.oldPrice.toFixed(2) +
+                "</div>"
+              : "") +
+            '<div class="product-item-price">€' +
+            product.price.toFixed(2) +
+            "</div>" +
+            "</div>" +
+            "</a>"
+        );
+      }
+    }
+  });
+}
+
 function buyNectar(element) {
   if (
     accessNeeded(function () {
@@ -43,9 +113,8 @@ function buyNectar(element) {
     document.getElementById("orderProductTitle").innerHTML = productTitle;
     document.getElementById("orderProductHeadInfo").innerHTML = productHeadInfo;
     document.getElementById("orderProductTags").innerHTML = productTags;
-    document.getElementById(
-      "orderProductSlip_CUSTOMTEXT"
-    ).value = sessionStorage.getItem("name");
+    document.getElementById("orderProductSlip_CUSTOMTEXT").value =
+      sessionStorage.getItem("name");
   });
 }
 

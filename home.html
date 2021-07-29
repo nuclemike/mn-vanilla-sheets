@@ -1,4 +1,4 @@
-<style>
+<style id="categoryStyles">
   .cat-parent {
     margin-top: 0.5em;
     user-select: none;
@@ -8,46 +8,32 @@
     width: 200px;
     text-align: center;
     max-width: 250px;
-    padding: 2em 0;
+    height: 200px;
     border-radius: 3px;
     background: rgba(255, 255, 255, 0.6);
     margin: 0.6em;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.6s;
-    box-shadow: 0px 0px 0 0px #d9a742 inset, 0 0 10px rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 0px 0 0px #d9a742 inset, 0 0 10px rgb(0 0 0 / 10%);
     position: relative;
+    overflow: hidden;
   }
 
-  .cat-child.underconstruction {
-    color: #bbb;
-  }
-
-  .cat-child.underconstruction img {
-    opacity: 0.3;
-  }
-
-  .cat-child.underconstruction:after {
-    position: absolute;
-    content: "Under Construction";
-    color: tomato;
-    opacity: 1;
-    font-size: 0.7em;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    margin-top: 10%;
+  .cat-child span {
     font-weight: bold;
+    transition: transform 0.3s ease-out, font-size 0.9s;
+    will-change: transform;
+    transform: translateY(65px);
   }
 
   .cat-child.new:after {
     position: absolute;
     content: "New!";
-    color: yellowgreen; /*#ddb366;*/
+    color: yellowgreen;
     opacity: 1;
-    font-size: 1.1em;
+    font-size: 0.9em;
     text-align: center;
     font-weight: bold;
-    margin-top: 16px;
     width: 100%;
     left: 0;
   }
@@ -55,16 +41,30 @@
   .cat-child:hover {
     background: rgba(255, 255, 255, 0.5);
     transform: scale(1.1);
-    box-shadow: 0px -8px 0 0px #d9a742 inset, 0 0 10px rgba(0, 0, 0, 0.07);
-    color: #c38d36;
-    font-weight: bold;
+    box-shadow: 0px -8px 0 0px #d9a742 inset, 0 0 10px rgb(0 0 0 / 7%);
   }
 
   .cat-child img {
-    display: block;
-    opacity: 0.8;
-    margin: 0 auto 1em;
-    width: 20%;
+    top: 50%;
+    position: absolute;
+    filter: invert(0.6) sepia(1) hue-rotate(4deg) saturate(1.4);
+    left: 50%;
+    transition: transform 0.5s ease-out, width 0.8s ease-in-out, opacity 0.3s;
+    will-change: transform, width;
+    width: 35%;
+    opacity: 1;
+    transform: translate(-50%, -60%) rotate(0deg);
+  }
+
+  .cat-child:hover img {
+    width: 100%;
+    transform: translate(-50%, -50%) rotate(30deg);
+    opacity: 0.2;
+  }
+
+  .cat-child:hover span {
+    transform: none;
+    font-size: 1.8em;
   }
 
   @media only screen and (max-width: 500px) {
@@ -120,6 +120,12 @@
 </div>
 
 <script>
+  function scrollToCats() {
+    document.querySelector(".cat-parent").scrollIntoView({
+      behavior: "smooth",
+    });
+  }
+
   clearInterval(myVar);
   var myVar = setInterval(slideShow, 5000);
   var elementRotator = $(".elementRotator");
@@ -159,37 +165,156 @@
 </script>
 
 <div id="contentContainer">
-  <div class="cat-parent fxDisplay fxWrap fxJustifyCenter">
-    <a class="cat-child new" onclick="preloadContent('nectars')"
-      ><img src="stylesheets/cats/nectar.svg" />Nectar</a
+  <style>
+    .viewCatalogButton {
+      background: #d9a742;
+      background: -moz-linear-gradient(-45deg, #e2c291 0%, #d9a742 100%);
+      background: -webkit-linear-gradient(-45deg, #e2c291 0%, #d9a742 100%);
+      background: linear-gradient(135deg, #e2c291 0%, #d9a742 100%);
+      padding: 13px 2em;
+      font-size: 28px;
+      color: white;
+      text-shadow: 0 0 10px #8d6627;
+      box-shadow: 2px 2px 5px RGBA(0, 0, 0, 0.3);
+      margin: 2em auto 0;
+      cursor: pointer;
+      width: fit-content;
+      border-radius: 4px;
+    }
+  </style>
+  <div style="flex: 0 100%">
+    <div class="viewCatalogButton" onclick="scrollToCats()">
+      View All Products
+    </div>
+  </div>
+
+  <div class="product-parent fxDisplay fxWrap fxJustifyCenter">
+    <span class="product-item-hr">New & Popular</span>
+
+    <script>
+      renderProducts(
+        $(".product-parent"),
+        "starterkits",
+        false,
+        true,
+        false,
+        false
+      );
+      renderProducts(
+        $(".product-parent"),
+        "atomizers",
+        false,
+        true,
+        false,
+        false
+      );
+      renderProducts($(".product-parent"), "mods", false, true, false, false);
+      renderProducts(
+        $(".product-parent"),
+        "coilheads",
+        false,
+        true,
+        false,
+        false
+      );
+      renderProducts(
+        $(".product-parent"),
+        "accessories",
+        false,
+        true,
+        false,
+        false
+      );
+      renderProducts(
+        $(".product-parent"),
+        "batteries",
+        false,
+        true,
+        false,
+        false
+      );
+      renderProducts(
+        $(".product-parent"),
+        "chargers",
+        false,
+        true,
+        false,
+        false
+      );
+      renderProducts(
+        $(".product-parent"),
+        "glasstubes",
+        false,
+        true,
+        false,
+        false
+      );
+      renderProducts(
+        $(".product-parent"),
+        "rebuilding",
+        false,
+        true,
+        false,
+        false
+      );
+    </script>
+  </div>
+
+  <div id="cat-parent" class="cat-parent fxDisplay fxWrap fxJustifyCenter">
+    <span class="product-item-hr">Product Categories</span>
+
+    <a
+      class="cat-child fxDisplay fxJustifyCenter fxAlignCenter"
+      onclick="preloadContent('nectars')"
+      ><img src="stylesheets/cats/nectar.svg" /><span>Nectar</span></a
     >
 
-    <a class="cat-child new" onclick="preloadContent('starterkits')"
-      ><img src="stylesheets/cats/starterkits.svg" />Starter Kits</a
+    <a
+      class="cat-child fxDisplay fxJustifyCenter fxAlignCenter"
+      onclick="preloadContent('starterkits')"
+      ><img src="stylesheets/cats/starterkits.svg" /><span
+        >Starter Kits</span
+      ></a
     >
-    <a class="cat-child new" onclick="preloadContent('coilheads')"
-      ><img src="stylesheets/cats/coilheads.svg" />Coil Heads</a
+    <a
+      class="cat-child fxDisplay fxJustifyCenter fxAlignCenter"
+      onclick="preloadContent('coilheads')"
+      ><img src="stylesheets/cats/coilheads.svg" /><span>Coil Heads</span></a
     >
-    <a class="cat-child new" onclick="preloadContent('glasstubes')"
-      ><img src="stylesheets/cats/glasstubes.svg" />Glass Tubes</a
+    <a
+      class="cat-child fxDisplay fxJustifyCenter fxAlignCenter"
+      onclick="preloadContent('glasstubes')"
+      ><img src="stylesheets/cats/glasstubes.svg" /><span>Glass Tubes</span></a
     >
-    <a class="cat-child new" onclick="preloadContent('batteries')"
-      ><img src="stylesheets/cats/batteries.svg" />Batteries</a
+    <a
+      class="cat-child fxDisplay fxJustifyCenter fxAlignCenter"
+      onclick="preloadContent('batteries')"
+      ><img src="stylesheets/cats/batteries.svg" /><span>Batteries</span></a
     >
-    <a class="cat-child new" onclick="preloadContent('chargers')"
-      ><img src="stylesheets/cats/chargers.svg" />Chargers</a
+    <a
+      class="cat-child fxDisplay fxJustifyCenter fxAlignCenter"
+      onclick="preloadContent('chargers')"
+      ><img src="stylesheets/cats/chargers.svg" /><span>Chargers</span></a
     >
-    <a class="cat-child new" onclick="preloadContent('atomizers')"
-      ><img src="stylesheets/cats/atomizers.svg" />Atomizers</a
+    <a
+      class="cat-child fxDisplay fxJustifyCenter fxAlignCenter"
+      onclick="preloadContent('atomizers')"
+      ><img src="stylesheets/cats/atomizers.svg" /><span>Atomizers</span></a
     >
-    <a class="cat-child new" onclick="preloadContent('mods')"
-      ><img src="stylesheets/cats/mods.svg" />Mods</a
+    <a
+      class="cat-child fxDisplay fxJustifyCenter fxAlignCenter"
+      onclick="preloadContent('mods')"
+      ><img src="stylesheets/cats/mods.svg" /><span>Mods</span></a
     >
-    <a class="cat-child new" onclick="preloadContent('rebuilding')"
-      ><img src="stylesheets/cats/rebuilding.svg" />Rebuilding</a
+    <a
+      class="cat-child fxDisplay fxJustifyCenter fxAlignCenter"
+      onclick="preloadContent('rebuilding')"
+      ><img src="stylesheets/cats/rebuilding.svg" /><span>Rebuilding</span></a
     >
-    <a class="cat-child" onclick="preloadContent('accessories')"
-      ><img src="stylesheets/cats/accessories.svg" />Accessories</a
+    <a
+      class="cat-child fxDisplay fxJustifyCenter fxAlignCenter"
+      onclick="preloadContent('accessories')"
+      ><img src="stylesheets/cats/accessories.svg" /><span>Accessories</span></a
     >
   </div>
 </div>

@@ -46,50 +46,50 @@
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
     ></script>
 
-    <link rel="stylesheet" href="stylesheets/styles.css?v=3.1" />
+    <link rel="stylesheet" href="stylesheets/styles.css?v=3.2" />
     <link rel="stylesheet" href="stylesheets/global.css?v=3.1" />
     <script>
       function getPage(pagename) {
         if (pagename == "") pagename = "home";
         switch (pagename) {
           case "myaccount":
-            return pagename + ".html?v=3.3";
+            return pagename + ".html?v=3.4";
           case "mylab":
-            return pagename + ".html?v=3.3";
+            return pagename + ".html?v=3.4";
           case "nectars":
-            return pagename + ".html?v=3.4";
+            return pagename + ".html?v=3.5";
           case "nectarorder":
-            return pagename + ".html?v=3.3";
-          case "hardwareorder":
-            return pagename + ".html?v=3.3";
-          case "seducehydra":
-            return pagename + ".html?v=3.3";
-          case "home":
             return pagename + ".html?v=3.4";
+          case "hardwareorder":
+            return pagename + ".html?v=3.4";
+          case "seducehydra":
+            return pagename + ".html?v=3.4";
+          case "home":
+            return pagename + ".html?v=3.5";
           case "starterkits":
-            return pagename + ".html?v=3.3";
+            return pagename + ".html?v=3.4";
           case "chargers":
-            return pagename + ".html?v=3.3";
+            return pagename + ".html?v=3.4";
           case "coilheads":
-            return pagename + ".html?v=3.3";
+            return pagename + ".html?v=3.4";
           case "rebuilding":
-            return pagename + ".html?v=3.3";
+            return pagename + ".html?v=3.4";
           case "glasstubes":
-            return pagename + ".html?v=3.3";
+            return pagename + ".html?v=3.4";
           case "atomizers":
-            return pagename + ".html?v=3.3";
+            return pagename + ".html?v=3.4";
           case "mods":
-            return pagename + ".html?v=3.3";
+            return pagename + ".html?v=3.4";
           case "batteries":
-            return pagename + ".html?v=3.3";
+            return pagename + ".html?v=3.4";
           case "accessories":
-            return pagename + ".html?v=3.3";
+            return pagename + ".html?v=3.4";
         }
       }
     </script>
-    <script src="functions.js?v=3.3"></script>
+    <script src="functions.js?v=3.4"></script>
     <script src="ajax.js?v=3.3"></script>
-    <script src="index.js?v=3.3"></script>
+    <script src="index.js?v=3.4"></script>
 
     <meta
       name="viewport"
@@ -449,10 +449,7 @@
             />ACCOUNT</a
           >
           <a id="headerNectar" onclick="preloadContent('home')"
-            ><img
-              class="menuImg"
-              src="stylesheets/menu/menu_products.svg"
-            />PRODUCTS</a
+            ><img class="menuImg" src="stylesheets/menu/menu_home.svg" />HOME</a
           >
 
           <a id="headerLogout" style="display: none" onclick="logout()"
