@@ -1,13 +1,5 @@
 /* ################################### ANIMATIONS ###################################*/
 
-@-webkit-keyframes loading {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
 @keyframes loading {
   0% {
     transform: rotate(0deg) scale(1);
@@ -17,6 +9,12 @@
   }
   100% {
     transform: rotate(720deg) scale(1);
+  }
+}
+
+@keyframes blinker {
+  50% {
+    color: transparent;
   }
 }
 

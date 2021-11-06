@@ -226,85 +226,64 @@ function ageCheckOk(element) {
 // var rememberMe = false;
 
 function tryFetchSession() {
-  //populate SessionStorage from LocalStorage
+  //try populate SessionStorage from LocalStorage
   if (
     localStorage.getItem("userid") != null &&
     localStorage.getItem("seid") != null
   ) {
     sessionStorage.setItem("userid", localStorage.getItem("userid"));
     sessionStorage.setItem("seid", localStorage.getItem("seid"));
-    loginObj = {
-      userid: sessionStorage.getItem("userid"),
-      seid: sessionStorage.getItem("seid"),
-    };
   }
 
   if (
-    (localStorage.getItem("email") != null &&
-      localStorage.getItem("pass") != null) ||
-    (sessionStorage.getItem("userid") != null &&
-      sessionStorage.getItem("seid") != null)
+    sessionStorage.getItem("userid") == null &&
+    sessionStorage.getItem("seid") == null
   ) {
-    var loginObj = {
-      email: localStorage.getItem("email"),
-      pass: localStorage.getItem("pass"),
+    populateUser(false);
+    initApp();
+  } else {
+    loginObj = {
+      email: null,
+      pass: null,
       userid: sessionStorage.getItem("userid"),
       seid: sessionStorage.getItem("seid"),
     };
 
-    //$("#pageLoader").html("logging you in")
+    //$("#pageLoader").html("logging in");
 
     $.ajax({
-      crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycbzS-JJ4GgrJTnnmiyuupkLhAGFoFKTRzLw-ZG2QNoFFpF1iMV6o/exec?callback=ghostLoginCb",
+      url: "https://script.google.com/macros/s/AKfycbzVgUmPLBBeNXNcxbZ-Jhfqht8rY_n19KSx8T04618AbCKDio4N3AUZqbO56n3RHN0w/exec",
       type: "GET",
-      dataType: "jsonp",
       data: loginObj,
+      success: function (response) {
+        updateSession(JSON.parse(response));
+      },
+      error: function () {
+        populateUser(false);
+      },
+      complete: function () {
+        initApp();
+      },
     });
-
-    populateUser(false);
-    initApp();
-
-    localStorage.removeItem("pass");
-    localStorage.removeItem("mobile");
-    localStorage.removeItem("email");
-    localStorage.removeItem("name");
-
-    return true;
-  } else {
-    populateUser(false);
-    initApp();
-
-    localStorage.removeItem("pass");
-    localStorage.removeItem("mobile");
-    localStorage.removeItem("email");
-    localStorage.removeItem("name");
-
-    return false;
   }
 }
 
-function ghostLoginCb(response) {
-  if (response.success) {
-    sessionStorage.setItem("userid", response.userid);
-    sessionStorage.setItem("seid", response.seid);
-    sessionStorage.setItem("name", response.name);
-    sessionStorage.setItem("email", response.email);
-    sessionStorage.setItem("points", response.points);
+function updateSession(response) {
+  sessionStorage.setItem("userid", response.userid);
+  sessionStorage.setItem("seid", response.seid);
+  sessionStorage.setItem("name", response.name);
+  sessionStorage.setItem("email", response.email);
+  sessionStorage.setItem("points", response.points);
 
-    //if was saved, save again
-    if (localStorage.getItem("userid") != null) {
-      localStorage.setItem("userid", response.userid);
-      localStorage.setItem("seid", response.seid);
-    }
-
-    // $("#pageContent").addClass("member");
-  } else {
-    sessionStorage.removeItem("userid");
-    sessionStorage.removeItem("seid");
+  //if was saved, save again
+  if (localStorage.getItem("userid") != null) {
+    localStorage.setItem("userid", response.userid);
+    localStorage.setItem("seid", response.seid);
   }
 
-  populateUser(response.success);
+  // $("#pageContent").addClass("member");
+
+  populateUser(true);
 
   //initApp();
 }

@@ -166,10 +166,10 @@ function register(submit) {
 function loginCb(response) {
   if (response.success) {
     sessionStorage.setItem("userid", response.userid);
+    sessionStorage.setItem("seid", response.seid);
     sessionStorage.setItem("name", response.name);
     sessionStorage.setItem("email", response.email);
     sessionStorage.setItem("points", response.points);
-    sessionStorage.setItem("seid", response.seid);
 
     //if remember me, save session into localStorage
     if (document.getElementById("rememberMe").checked) {
