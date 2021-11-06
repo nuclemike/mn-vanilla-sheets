@@ -1,49 +1,47 @@
 /* ################################### ANIMATIONS ###################################*/
 
--moz-keyframes loading {
-  @-webkit-keyframes loading {
-    from {
-      -webkit-transform: rotate(0deg);
-    }
-    to {
-      -webkit-transform: rotate(360deg);
-    }
+@-webkit-keyframes loading {
+  from {
+    -webkit-transform: rotate(0deg);
   }
-  @keyframes loading {
-    0% {
-      transform: rotate(0deg) scale(1);
-    }
-    50% {
-      transform: rotate(360deg) scale(0.5);
-    }
-    100% {
-      transform: rotate(720deg) scale(1);
-    }
+  to {
+    -webkit-transform: rotate(360deg);
   }
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(360deg) scale(0.5);
+  }
+  100% {
+    transform: rotate(720deg) scale(1);
+  }
+}
 
-  @keyframes rainfall {
-    0% {
-      background-position-y: 0;
-    }
-    50% {
-    }
-    100% {
-      background-position-y: 900px;
-    }
+@keyframes rainfall {
+  0% {
+    background-position-y: 0;
   }
+  50% {
+  }
+  100% {
+    background-position-y: 900px;
+  }
+}
 
-  @keyframes rainside {
-    0% {
-      background-position-x: 0px;
-      background-size: 225px;
-    }
-    50% {
-      background-size: 450px;
-    }
-    100% {
-      background-position-x: 450px;
-      background-size: 225px;
-    }
+@keyframes rainside {
+  0% {
+    background-position-x: 0px;
+    background-size: 225px;
+  }
+  50% {
+    background-size: 450px;
+  }
+  100% {
+    background-position-x: 450px;
+    background-size: 225px;
   }
 }
 
