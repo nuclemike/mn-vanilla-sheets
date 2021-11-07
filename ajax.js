@@ -54,7 +54,7 @@ function hardwareRequest() {
   var requestObj = {
     userid: sessionStorage.getItem("userid"),
     seid: sessionStorage.getItem("seid"),
-    type: window.location.hash.substring(1),
+    type: document.getElementById("orderProductType").innerHTML,
     product:
       $("#orderProductSubtitle").text() + " " + $("#orderProductTitle").text(),
     price: document
@@ -304,6 +304,12 @@ function loadMyLabCb(e) {
       N: "ready",
       P: "paid",
     };
+
+    /* state Structure
+    // Production - Pending / Ready / Notified
+    // Delivery - Pickup / Delivery
+    // Payment - to fill
+    */
 
     var headerHtml = ""; //'<h2 class="myLabRequestTitle">Pending requests</h2>';
 

@@ -35,7 +35,9 @@ function renderProducts(
             (product.hot && showHotIcon ? " hot" : "") +
             '"' +
             (product.fitment ? ' filtertags="' + product.fitment + '"' : "") +
-            ' onclick="buyHardware(this);"' +
+            ' onclick=buyHardware(this,"' +
+            category +
+            '");' +
             (product.spec ? ' colors="' + product.spec + '"' : "") +
             ">" +
             '<figure><img class="product-item-image"' +
@@ -118,10 +120,10 @@ function buyNectar(element) {
   });
 }
 
-function buyHardware(element) {
+function buyHardware(element, cat) {
   if (
     accessNeeded(function () {
-      buyHardware(element);
+      buyHardware(element, cat);
     })
   ) {
     return false;
@@ -166,10 +168,13 @@ function buyHardware(element) {
   $("#pageContent").load(getPage("hardwareorder"), function () {
     pageLoaded();
 
+    document.getElementById("orderProductType").innerHTML = cat;
+
     document
       .getElementById("orderProductImage")
       .setAttribute("src", imgUrl.toLowerCase());
     document.getElementById("orderProductTitle").innerHTML = productTitle;
+
     document.getElementById("orderProductSubtitle").innerHTML = productSubtitle;
     document
       .getElementById("orderProductSlipPricing")
