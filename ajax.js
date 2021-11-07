@@ -29,25 +29,15 @@ function nectarRequest() {
     usePoints: $("#orderProductSlipRedeemButton").is(":checked"),
   };
 
-  // $.ajax({
-  // url: "https://script.google.com/macros/s/AKfycbxUe1Q_qURugb5z39rb_HzTxaL_9vWo2hXofb8GoEFMn1fsj2E/exec",
-  // type: "POST",
-  // data: requestObj,
-  // success: function(response) {
-  // orderRequestCb(JSON.parse(response));
-  // },
-  // error: function(response) {
-  // systemMessage(JSON.parse(response), 'red');
-  // }
-
-  // })
-
   $.ajax({
-    crossDomain: true,
-    url: "https://script.google.com/macros/s/AKfycbxUe1Q_qURugb5z39rb_HzTxaL_9vWo2hXofb8GoEFMn1fsj2E/exec?callback=orderRequestCb",
+    url: "https://script.google.com/macros/s/AKfycbzymVGoZZDR9iOHABf7b-sEOQd8BUi6BeWATOuCyUdDX3hNghNUvkg26KCZ8o_ER6Da/exec",
     type: "GET",
-    dataType: "jsonp",
     data: requestObj,
+    success: function () {},
+    error: function () {},
+    complete: function (response) {
+      orderRequestCb(JSON.parse(response.responseText));
+    },
   });
 }
 
@@ -76,11 +66,14 @@ function hardwareRequest() {
   };
 
   $.ajax({
-    crossDomain: true,
-    url: "https://script.google.com/macros/s/AKfycby3MyYMASGfo0HERY5DM4NN2ZxgKrLfN1LG0ZmABAajLSwDMx0/exec?callback=orderRequestCb",
+    url: "https://script.google.com/macros/s/AKfycbzaJJGZv-jxkULt-zc_bEGi4kH6CNz2-dGcTeVtPb-iuWRehtVuq4KveRHEDO_phVwI/exec",
     type: "GET",
-    dataType: "jsonp",
     data: requestObj,
+    success: function () {},
+    error: function () {},
+    complete: function (response) {
+      orderRequestCb(JSON.parse(response.responseText));
+    },
   });
 }
 
@@ -130,6 +123,36 @@ function login(submit) {
     $(".credPopupData.register").hide();
     $(".credPopupData.login").show();
   }
+
+  function loginCb(response) {
+    if (response.success) {
+      sessionStorage.setItem("userid", response.userid);
+      sessionStorage.setItem("seid", response.seid);
+      sessionStorage.setItem("name", response.name);
+      sessionStorage.setItem("email", response.email);
+      sessionStorage.setItem("points", response.points);
+
+      //if remember me, save session into localStorage
+      if (document.getElementById("rememberMe").checked) {
+        localStorage.setItem("userid", response.userid);
+        localStorage.setItem("seid", response.seid);
+      }
+
+      if (afterLoginFunction != undefined) afterLoginFunction();
+      $("#loginPopupShadow").removeClass("loading");
+      closeCredPopup("loginPopupShadow");
+
+      $(".credPopupData.login").remove();
+      //$("#pageContent").addClass("member");
+    } else {
+      $("#loginPopupError").text(response.error);
+      afterLoginFunction = undefined;
+      $("#loginPopupShadow").removeClass("loading");
+      $("#loginPopupEmail").focus();
+    }
+
+    populateUser(response.success);
+  }
 }
 
 function register(submit) {
@@ -161,57 +184,27 @@ function register(submit) {
     $(".credPopupData.register").show();
     $(".credPopupData.login").hide();
   }
-}
 
-function loginCb(response) {
-  if (response.success) {
-    sessionStorage.setItem("userid", response.userid);
-    sessionStorage.setItem("seid", response.seid);
-    sessionStorage.setItem("name", response.name);
-    sessionStorage.setItem("email", response.email);
-    sessionStorage.setItem("points", response.points);
-
-    //if remember me, save session into localStorage
-    if (document.getElementById("rememberMe").checked) {
-      localStorage.setItem("userid", response.userid);
-      localStorage.setItem("seid", response.seid);
-    }
-
-    if (afterLoginFunction != undefined) afterLoginFunction();
+  function registerCb(response) {
     $("#loginPopupShadow").removeClass("loading");
+    $("#registerPopupTitle").text("Account Login");
+
     closeCredPopup("loginPopupShadow");
 
-    $(".credPopupData.login").remove();
-    //$("#pageContent").addClass("member");
-  } else {
-    $("#loginPopupError").text(response.error);
-    afterLoginFunction = undefined;
-    $("#loginPopupShadow").removeClass("loading");
-    $("#loginPopupEmail").focus();
-  }
-
-  populateUser(response.success);
-}
-
-function registerCb(response) {
-  $("#loginPopupShadow").removeClass("loading");
-  $("#registerPopupTitle").text("Account Login");
-
-  closeCredPopup("loginPopupShadow");
-
-  if (response.success) {
-    const content = {
-      title: "Registration Received!",
-      subtitle: "Your new account is awaiting verification...",
-      info: "We'll send your login details as soon as we approve your submitted details.",
-      footer: "See you soon!<br /><b>The Mama's Nectar Team.</b>",
-    };
-    infoPopup(content, "#4ab74a");
-  } else {
-    systemMessage(
-      "<b>Submission Failed.</b><br>There was an error, please try again later.",
-      "red"
-    );
+    if (response.success) {
+      const content = {
+        title: "Registration Received!",
+        subtitle: "Your new account is awaiting verification...",
+        info: "We'll send your login details as soon as we approve your submitted details.",
+        footer: "See you soon!<br /><b>The Mama's Nectar Team.</b>",
+      };
+      infoPopup(content, "#4ab74a");
+    } else {
+      systemMessage(
+        "<b>Submission Failed.</b><br>There was an error, please try again later.",
+        "red"
+      );
+    }
   }
 }
 
