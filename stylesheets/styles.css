@@ -572,6 +572,7 @@ textarea {
 }
 
 .orderProductSlip_SIZE,
+.orderProductSlip_NOZZLE,
 .orderProductSlip_NICTYPE {
   background: rgba(116, 93, 45, 0.1);
   padding: 8px 8px;
@@ -583,6 +584,7 @@ textarea {
 }
 
 .orderProductSlip_SIZE.selected,
+.orderProductSlip_NOZZLE.selected,
 .orderProductSlip_NICTYPE.selected {
   color: #444;
   background: #efd27d;

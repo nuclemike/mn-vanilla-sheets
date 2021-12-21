@@ -26,11 +26,14 @@ function nectarRequest() {
     nicType: $(".orderProductSlip_NICTYPE.selected").attr("value"),
     vg: $("#orderProductSlip_VG").val(),
     vaper: $("#orderProductSlip_CUSTOMTEXT").val(),
+    nozzle: $(".orderProductSlip_NOZZLE.selected").attr("value") === "true",
+
     usePoints: $("#orderProductSlipRedeemButton").is(":checked"),
   };
 
   $.ajax({
-    url: "https://script.google.com/macros/s/AKfycbzymVGoZZDR9iOHABf7b-sEOQd8BUi6BeWATOuCyUdDX3hNghNUvkg26KCZ8o_ER6Da/exec",
+    url: "https://script.google.com/macros/s/AKfycbxmlfDcmN1W9JXHh1z3QhMUYtYwh5OcKH1p5TQOodeHW30xsE8mLDOwNX5QIhywiq3R/exec",
+    // url: "https://script.google.com/macros/s/AKfycbzymVGoZZDR9iOHABf7b-sEOQd8BUi6BeWATOuCyUdDX3hNghNUvkg26KCZ8o_ER6Da/exec",
     type: "GET",
     data: requestObj,
     success: function () {},

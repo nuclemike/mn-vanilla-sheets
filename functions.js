@@ -270,25 +270,37 @@ function recalcNectar() {
       .siblings()
       .removeClass("selected");
 
-  var size = $(".orderProductSlip_SIZE.selected").attr("value");
+  var size = +$(".orderProductSlip_SIZE.selected").attr("value");
 
   var nicType = $(".orderProductSlip_NICTYPE.selected").attr("value");
 
-  //hide 120 and 200mls when selecting salt
+  //hide 250 and 500mls when selecting salt
   $(
-    ".orderProductSlip_SIZE[value=120], .orderProductSlip_SIZE[value=200]"
+    ".orderProductSlip_SIZE[value=250], .orderProductSlip_SIZE[value=500]"
   ).toggle(nicType == "F");
 
-  //default to 60ml if hydra was selected at 120ml
-  if (size > 60 && nicType == "S") {
-    $(".orderProductSlip_SIZE[value=60]")
+  //default to 120ml if hydra was selected at large size
+  if (size > 120 && nicType == "S") {
+    $(".orderProductSlip_SIZE[value=120]")
       .addClass("selected")
       .siblings()
       .removeClass("selected");
-    size = 60;
+    size = 120;
   }
 
-  var size = $(".orderProductSlip_SIZE.selected").attr("value");
+  //show Nozzle only when size is 250 or 500
+  $("#orderProductSlipRow_NOZZLE").toggle(size == 250 || size == 500);
+
+  //if size is up to 120, default to No Nozzle
+  if ($("#orderProductSlipRow_NOZZLE").is(":hidden"))
+    $('.orderProductSlip_NOZZLE[value="false"]')
+      .addClass("selected")
+      .siblings()
+      .removeClass("selected");
+
+  var nozzle = $(".orderProductSlip_NOZZLE.selected").attr("value") === "true";
+
+  // var size = $(".orderProductSlip_SIZE.selected").attr("value");
   var qty = +document.getElementById("orderProductSlip_QTY").value;
 
   var price = 0.0;
@@ -298,22 +310,35 @@ function recalcNectar() {
 
   if (size && nicDose > -1) {
     if (nicType == "F") {
-      if (size == 30) {
-        price = 6;
-      } else if (size == 60) {
-        price = 10.5;
-      } else if (size == 120) {
-        price = 19.5;
-      } else if (size == 200) {
-        price = 30.0;
+      switch (size) {
+        case 30:
+          price = 6;
+          break;
+        case 60:
+          price = 10.5;
+          break;
+        case 120:
+          price = 19.5;
+          break;
+        case 250:
+          price = 37;
+          break;
+        case 500:
+          price = 70;
+          break;
       }
-    } else {
-      if (size == 30) {
-        price = 7;
-      } else if (size == 60) {
-        price = 12.5;
+    } else if (nicType == "S") {
+      switch (size) {
+        case 30:
+          price = 7;
+          break;
+        case 60:
+          price = 12.5;
+          break;
+        case 120:
+          price = 23.5;
+          break;
       }
-      //else if (size == 120) {price = 23.50; }
     }
 
     //if unflavored, reduce price by 10%
@@ -330,6 +355,8 @@ function recalcNectar() {
 
     total = price * +qty;
     var backPointsValue = Math.floor((15 - nicDose) * total);
+
+    total += qty * (nozzle ? 2 : 0);
     var hasEnoughPoints = myPoints >= total * 100;
 
     //calculate points back or points to redeem

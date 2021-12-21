@@ -18,6 +18,7 @@ function initApp() {
     window.location.hash == "#mylab" ||
     window.location.hash == "#myaccount" ||
     window.location.hash == "#nectars" ||
+    window.location.hash == "#diy" ||
     window.location.hash == "#home" ||
     window.location.hash == "#seducehydra" ||
     window.location.hash == "#chargers" ||
