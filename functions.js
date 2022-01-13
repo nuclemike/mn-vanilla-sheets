@@ -1,14 +1,4 @@
-function systemMessage(message, className) {
-  $(
-    "<p id='systemMessage' class='" + className + "' >" + message + "</p>"
-  ).insertAfter("#header");
-
-  setTimeout(function () {
-    $("#systemMessage").remove();
-  }, 8000);
-}
-
-function renderProducts(
+async function renderProducts(
   container,
   category,
   displaySubCat = true,
@@ -16,9 +6,21 @@ function renderProducts(
   showNewIcon = true,
   showHotIcon = true
 ) {
-  $.getJSON(category + ".json", function (json) {
+  const grouped = [];
+
+  await $.getJSON(category + ".json", function (json) {
+    //Group products
     for (var index in json) {
       const item = json[index];
+
+      const subCatIndex = grouped.findIndex((x) => x.subCat == item.subCat);
+
+      if (subCatIndex >= 0) grouped[subCatIndex].items.push(item);
+      else grouped.push({ subCat: item.subCat, items: [item] });
+    }
+
+    for (var index in grouped) {
+      const item = grouped[index];
 
       displaySubCat &&
         container.append(
@@ -29,52 +31,113 @@ function renderProducts(
 
       for (var productIndex in products) {
         const product = products[productIndex];
-        container.append(
-          '<a class="product-item' +
-            (product.new && showNewIcon ? " new" : "") +
-            (product.hot && showHotIcon ? " hot" : "") +
-            '"' +
-            (product.fitment ? ' filtertags="' + product.fitment + '"' : "") +
-            ' onclick=buyHardware(this,"' +
-            category +
-            '");' +
-            (product.spec ? ' colors="' + product.spec + '"' : "") +
-            ">" +
-            '<figure><img class="product-item-image"' +
-            'src="' +
-            category +
-            "/" +
-            (product.brand + product.title)
-              .replace(/[^a-z0-9]/gi, "")
-              .toLowerCase() +
-            (product.spec
-              ? "_" + product.spec.replace(/[^a-z0-9]/gi, "").toLowerCase()
-              : "") +
-            '.jpg" />' +
-            "</figure>" +
-            '<label class="product-item-brand">' +
-            product.brand +
-            "</label>" +
-            '<label class="product-item-title">' +
-            product.title +
-            "</label>" +
-            '<span class="product-item-info"' +
-            ">" +
-            product.info +
-            "</span>" +
-            '<div class="product-item-buy">' +
-            (product.oldPrice
-              ? '<div class="product-item-oldprice">' +
-                "€" +
-                product.oldPrice.toFixed(2) +
-                "</div>"
-              : "") +
-            '<div class="product-item-price">€' +
-            product.price.toFixed(2) +
-            "</div>" +
-            "</div>" +
-            "</a>"
-        );
+
+        var anchor = document.createElement("a");
+        anchor.className = `product-item ${
+          product.new && showNewIcon && " new"
+        } ${product.hot && showHotIcon && " hot"}`;
+        // anchor.setAttribute('href',"yourlink.htm");
+        // anchor.innerText = "link text";
+
+        product.fitment && anchor.setAttribute("filtertags", product.fitment);
+        product.spec && anchor.setAttribute("specs", product.spec);
+
+        anchor.onclick = function () {
+          // buyHardware(product.code, category);
+          buyHardware(product, category);
+        };
+
+        var figure = document.createElement("figure");
+        var img = document.createElement("img");
+        img.className = "product-item-image";
+        img.setAttribute("src", getProductImgUrl(product, category));
+        figure.appendChild(img);
+        anchor.appendChild(figure);
+
+        var brand = document.createElement("label");
+        brand.className = "product-item-brand";
+        brand.innerHTML = product.brand;
+        anchor.appendChild(brand);
+
+        var title = document.createElement("label");
+        title.className = "product-item-title";
+        title.innerHTML = product.title;
+        anchor.appendChild(title);
+
+        var info = document.createElement("span");
+        info.className = "product-item-info";
+        info.innerHTML = product.info;
+        anchor.appendChild(info);
+
+        var prices = document.createElement("div");
+        prices.className = "product-item-buy";
+
+        if (product.oldPrice) {
+          var oldPrice = document.createElement("div");
+          oldPrice.className = "product-item-oldprice";
+          oldPrice.innerHTML = "€" + product.oldPrice.toFixed(2);
+          prices.appendChild(oldPrice);
+        }
+
+        if (product.price) {
+          var price = document.createElement("div");
+          price.className = "product-item-price";
+          price.innerHTML = "€" + product.price.toFixed(2);
+          prices.appendChild(price);
+        }
+
+        anchor.appendChild(prices);
+
+        container.append(anchor);
+
+        // container.append(
+        //   '<a class="product-item' +
+        //     (product.new && showNewIcon ? " new" : "") +
+        //     (product.hot && showHotIcon ? " hot" : "") +
+        //     '"' +
+        //     (product.fitment ? ' filtertags="' + product.fitment + '"' : "") +
+        //     ' onclick=buyHardware("' +
+        //     product.code +
+        //     '","' +
+        //     category +
+        //     '");' +
+        //     (product.spec ? ' specs="' + product.spec + '"' : "") +
+        //     ">" +
+        //     '<figure><img class="product-item-image"' +
+        //     'src="' +
+        //     category +
+        //     "/" +
+        //     (product.brand + product.title)
+        //       .replace(/[^a-z0-9]/gi, "")
+        //       .toLowerCase() +
+        //     (product.spec
+        //       ? "_" + product.spec.replace(/[^a-z0-9]/gi, "").toLowerCase()
+        //       : "") +
+        //     '.jpg" />' +
+        //     "</figure>" +
+        //     '<label class="product-item-brand">' +
+        //     product.brand +
+        //     "</label>" +
+        //     '<label class="product-item-title">' +
+        //     product.title +
+        //     "</label>" +
+        //     '<span class="product-item-info"' +
+        //     ">" +
+        //     product.info +
+        //     "</span>" +
+        //     '<div class="product-item-buy">' +
+        //     (product.oldPrice
+        //       ? '<div class="product-item-oldprice">' +
+        //         "€" +
+        //         product.oldPrice.toFixed(2) +
+        //         "</div>"
+        //       : "") +
+        //     '<div class="product-item-price">€' +
+        //     product.price?.toFixed(2) +
+        //     "</div>" +
+        //     "</div>" +
+        //     "</a>"
+        // );
       }
     }
   });
@@ -120,118 +183,96 @@ function buyNectar(element) {
   });
 }
 
-function buyHardware(element, cat) {
+async function buyHardware(product, cat) {
   if (
     accessNeeded(function () {
-      buyHardware(element, cat);
+      buyHardware(product, cat);
     })
   ) {
     return false;
   }
 
-  var productSubtitle,
-    productTitle,
-    productPrice,
-    productOldPrice,
-    productSlipInfo,
-    imgUrl,
-    productColors = [],
-    productSizes = [];
+  //var product;
+  try {
+    // await $.getJSON(cat + ".json", function (json) {
+    //   product = json.filter((j) => j.code === productCode)[0];
+    // });
 
-  productSubtitle = $(element).children(".product-item-brand").html();
-  productTitle = $(element).children(".product-item-title").html();
-  var outOfStock = $(element).hasClass("oos");
-  productPrice = $(element).find(".product-item-price").html().substring(1);
-  productSlipInfo = $(element).find(".product-item-info").html();
+    // if (!product) return;
 
-  var productOldPriceElement = $(element).find(".product-item-oldprice");
-  if (productOldPriceElement.length) {
-    productOldPrice = productOldPriceElement.html().substring(1);
-  }
+    const imgUrl = getProductImgUrl(product, cat);
 
-  if (element.hasAttribute("colors")) {
-    productColors = element.getAttribute("colors").split(",");
-  }
+    const productSpecs = product.spec.split(",");
 
-  if (element.hasAttribute("sizes")) {
-    productSizes = element.getAttribute("sizes").split(",");
-  }
+    openMenu(false);
+    $("#pageLoader").show();
+    $("#pageLoader").html("loading <b>" + product.title + "</b>");
+    $("#pageContent").hide();
+    $("#scrollContent").scrollTop(0);
 
-  imgUrl = $(element).find("img.product-item-image").attr("src");
+    $("#pageContent").load(getPage("hardwareorder"), function () {
+      pageLoaded();
 
-  openMenu(false);
-  $("#pageLoader").show();
-  $("#pageLoader").html("loading <b>" + productTitle + "</b>");
-  $("#pageContent").hide();
-  $("#scrollContent").scrollTop(0);
+      document.getElementById("orderProductType").innerHTML = cat;
 
-  $("#pageContent").load(getPage("hardwareorder"), function () {
-    pageLoaded();
+      document.getElementById("orderProductImage").setAttribute("src", imgUrl);
 
-    document.getElementById("orderProductType").innerHTML = cat;
+      document.getElementById("orderProductTitle").innerHTML = product.title;
 
-    document
-      .getElementById("orderProductImage")
-      .setAttribute("src", imgUrl.toLowerCase());
-    document.getElementById("orderProductTitle").innerHTML = productTitle;
+      document.getElementById("orderProductSubtitle").innerHTML = product.brand;
 
-    document.getElementById("orderProductSubtitle").innerHTML = productSubtitle;
-    document
-      .getElementById("orderProductSlipPricing")
-      .setAttribute("price", productPrice);
-    $("#orderProductSlipPurchase")
-      .html(outOfStock ? "Place Backorder" : "Place Order")
-      .toggleClass("tomato", outOfStock);
-
-    document.getElementById("orderProductSlipPrice").innerHTML =
-      "€" + productPrice;
-    document.getElementById("orderProductSlipInfo").innerHTML =
-      productSlipInfo != null
-        ? "<b>Quick Specs</b><p>" + productSlipInfo + "</p>"
-        : "";
-
-    if (productOldPrice != undefined) {
       document
         .getElementById("orderProductSlipPricing")
-        .setAttribute("oldprice", productOldPrice);
-      document.getElementById("orderProductSlipOldPrice").innerHTML =
-        "€" + productOldPrice;
-      var percentOff =
-        ((productOldPrice - productPrice) / productOldPrice) * 100;
-      document.getElementById("orderProductSlipEarn").innerHTML =
-        "This product is on <b>" + Math.round(percentOff) + "%</b> Discount!";
-    } else {
-      $("#orderProductSlipOldPrice, #orderProductSlipEarn").remove();
-    }
+        .setAttribute("price", product.price);
+      // $("#orderProductSlipPurchase")
+      //   .html(outOfStock ? "Place Backorder" : "Place Order")
+      //   .toggleClass("tomato", outOfStock);
 
-    if (productColors.length > 0) {
-      var colorSelectionElement = document.getElementById(
-        "orderProductSlip_COLOR"
-      );
+      document.getElementById("orderProductSlipPrice").innerHTML =
+        "€" + product.price.toFixed(2);
 
-      productColors.forEach(function (color) {
-        var option = document.createElement("option");
-        option.text = color;
-        colorSelectionElement.add(option);
-      });
-    } else {
-      $("#orderProductSlipRow_COLORS").remove();
-    }
+      document.getElementById("orderProductSlipInfo").innerHTML =
+        product.info != null
+          ? "<b>Quick Specs</b><p>" + product.info + "</p>"
+          : "";
 
-    if (productSizes.length > 0) {
-      var sizeSelectionElement = document.getElementById(
-        "orderProductSlip_SIZE"
-      );
+      if (product.oldPrice != undefined) {
+        document
+          .getElementById("orderProductSlipPricing")
+          .setAttribute("oldprice", product.oldPrice);
+        document.getElementById("orderProductSlipOldPrice").innerHTML =
+          "€" + product.oldPrice.toFixed(2);
+        var percentOff =
+          ((product.oldPrice - product.price) / product.oldPrice) * 100;
+        document.getElementById("orderProductSlipEarn").innerHTML =
+          "This product is on <b>" + Math.round(percentOff) + "%</b> Discount!";
+      } else {
+        $("#orderProductSlipOldPrice, #orderProductSlipEarn").remove();
+      }
 
-      productSizes.forEach(function (size) {
-        var option = document.createElement("option");
-        option.text = size;
-        sizeSelectionElement.add(option);
-      });
-    } else {
-      $("#orderProductSlipRow_SIZE").remove();
-    }
-  });
+      if (productSpecs.length > 0) {
+        var specSelectionElement = document.getElementById(
+          "orderProductSlip_SPEC"
+        );
+
+        productSpecs.forEach(function (spec) {
+          var option = document.createElement("option");
+          option.text = spec;
+          specSelectionElement.add(option);
+        });
+      } else {
+        $("#orderProductSlipRow_SPECS").remove();
+      }
+    });
+
+    // const hardwareStock = db.collection("hardware");
+
+    // let doc = await hardwareStock.doc(productCode).get();
+    // if (doc.exists) console.log(doc.data().balance);
+    // else console.log("ProductCode not found: ", productCode);
+  } catch (error) {
+    console.error("Error: ", error);
+  }
 }
 
 function selectOption(element) {

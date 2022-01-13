@@ -265,20 +265,6 @@ textarea {
   position: relative;
 }
 
-.product-item.oos figure:before {
-  content: "backorder";
-  color: tomato;
-  position: absolute;
-  bottom: 0%;
-  right: 0%;
-  z-index: 1;
-  font-size: 12px;
-  font-weight: bold;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 0.4em 0.7em;
-  border-radius: 0.3em 0 0 0;
-}
-
 .notouch .product-item:hover {
   z-index: 999999;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.2), 0 0 0 3px #e5a934;
@@ -323,6 +309,13 @@ textarea {
   z-index: 1;
   font-family: sans-serif;
   transform-origin: center center;
+}
+
+.product-item.oos figure:before {
+  content: "BACKORDER";
+}
+.product-item.oos figure:after {
+  content: none;
 }
 
 .product-item-image {

@@ -46,7 +46,10 @@
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
     ></script>
 
-    <link rel="stylesheet" href="stylesheets/styles.css?v=3.5" />
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+
+    <link rel="stylesheet" href="stylesheets/styles.css?v=3.6" />
     <link rel="stylesheet" href="stylesheets/global.css?v=3.1" />
     <script>
       function getPage(pagename) {
@@ -63,7 +66,7 @@
           case "nectarorder":
             return pagename + ".html?v=3.5";
           case "hardwareorder":
-            return pagename + ".html?v=3.5";
+            return pagename + ".html?v=3.6";
           case "seducehydra":
             return pagename + ".html?v=3.4";
           case "home":
@@ -89,8 +92,9 @@
         }
       }
     </script>
-    <script src="functions.js?v=3.6"></script>
-    <script src="ajax.js?v=3.7"></script>
+    <script src="helper.js?v=1"></script>
+    <script src="functions.js?v=3.7"></script>
+    <script src="ajax.js?v=3.8"></script>
     <script src="index.js?v=3.6"></script>
 
     <meta
@@ -484,5 +488,23 @@
       <!-- <img src="//counter.websiteout.net/compte.php?S=www.mamasnectar.com&amp;C=36&amp;D=9&amp;N=0&amp;M=1" border="0"> -->
       <!-- </div> -->
     </div>
+
+    <!-- <script>
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCnYeZaIlwF2nIs0IGRhIrmXD3ppwPH19k",
+        authDomain: "mama-s-nectar.firebaseapp.com",
+        projectId: "mama-s-nectar",
+        storageBucket: "mama-s-nectar.appspot.com",
+        messagingSenderId: "316437281218",
+        appId: "1:316437281218:web:da531e0fc8ed3152177e5b",
+        measurementId: "G-WDQCPENF8P",
+      };
+
+      // Initialize Firebase
+      const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+      const db = firebaseApp.firestore();
+    </script> -->
   </body>
 </html>
