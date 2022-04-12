@@ -1,7 +1,10 @@
 <style id="categoryStyles">
   .cat-parent {
-    margin-top: 0.5em;
     user-select: none;
+    margin-top: 4em;
+    box-shadow: -500px 0 rgb(0 0 0 / 10%), 500px 0 rgb(0 0 0 / 10%);
+    background: rgba(0, 0, 0, 0.1);
+    padding-bottom: 2em;
   }
 
   .cat-child {
@@ -10,7 +13,7 @@
     max-width: 250px;
     height: 200px;
     border-radius: 3px;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.7);
     margin: 0.6em;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.6s;
@@ -91,27 +94,27 @@
 -->
 
 <div class="elementRotator fxFixed">
-  <!-- <div
-    class="current"
-    style="background-image: url(stylesheets/slideshows/newnectars3.jpg)"
-    onclick="preloadContent('nectars')"
-  ></div> -->
   <div
     class="current"
+    style="background-image: url(stylesheets/slideshows/newnectars4.jpg)"
+    onclick="preloadContent('nectars')"
+  ></div>
+  <div
+    style="background-image: url(stylesheets/slideshows/freedelivery2.jpg?v=1)"
+  ></div>
+  <div
     style="background-image: url(stylesheets/slideshows/dragmax.jpg)"
     onclick="preloadContent('starterkits')"
   ></div>
-  <div
+  <!-- <div
     style="background-image: url(stylesheets/slideshows/rpm80.jpg)"
     onclick="preloadContent('starterkits')"
   ></div>
   <div
     style="background-image: url(stylesheets/slideshows/boost.jpg)"
     onclick="preloadContent('starterkits')"
-  ></div>
-  <div
-    style="background-image: url(stylesheets/slideshows/freedelivery.jpg?v=2)"
-  ></div>
+  ></div> -->
+
   <div
     style="background-image: url(stylesheets/slideshows/um4.jpg)"
     onclick="preloadContent('chargers')"
@@ -179,7 +182,7 @@
       box-shadow: 2px 2px 5px RGBA(0, 0, 0, 0.3);
       margin: 2em auto 0;
       cursor: pointer;
-      width: fit-content;
+      text-align: center;
       border-radius: 4px;
     }
   </style>
