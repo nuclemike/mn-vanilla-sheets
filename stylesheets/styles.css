@@ -1,23 +1,5 @@
 /* ################################### ANIMATIONS ###################################*/
 
-@keyframes breathing {
-  from {
-    -webkit-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    transform: scale(0.9);
-    opacity: 0.5;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
-  }
-
-  to {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
-    opacity: 1;
-    box-shadow: 5px 7px 3px rgba(0, 0, 0, 0.3);
-  }
-}
-
 @keyframes loading {
   0% {
     transform: rotate(0deg) scale(1);
@@ -204,8 +186,8 @@ textarea {
   position: relative;
   width: 100%;
   height: 32vw;
-  /* border-top: 2px solid #daa742;
-  border-bottom: 2px solid #daa742; */
+  border-top: 2px solid #daa742;
+  border-bottom: 2px solid #daa742;
   overflow: hidden;
   max-height: 600px;
 }
@@ -245,7 +227,6 @@ textarea {
 
 .elementRotator nav span {
   color: rgba(255, 255, 255, 0.6);
-  text-shadow: 0 0 1px black;
   font-size: 3em;
   line-height: 0;
   padding: 0.1em;
@@ -255,7 +236,6 @@ textarea {
 
 .elementRotator nav span.current {
   color: white;
-
   transform: scale(1.7);
 }
 
@@ -273,7 +253,6 @@ textarea {
   margin: 2em 1em 1em;
   font-size: 28px;
   color: #444;
-  font-weight: bold;
 }
 
 .product-item {
@@ -1036,22 +1015,6 @@ textarea {
   background-size: cover;
 }
 
-.nectar .hotSell {
-  animation: breathing 1.5s ease-out infinite alternate;
-  transform-origin: right;
-  position: absolute;
-  top: 54%;
-  left: 13%;
-  color: #ffcb64;
-  background: rgba(30, 30, 30, 0.9);
-  font-size: 12px;
-  font-weight: bold;
-  padding: 4px 9px;
-  border: 2px solid white;
-  border-radius: 2em 2em 4em / 0.5em 3em;
-  box-shadow: 0 0 10px rgb(0 0 0 / 30%);
-}
-
 .notouch .nectar:hover,
 .nectar.active {
   background-color: rgba(170, 170, 170, 0.4);
@@ -1266,7 +1229,7 @@ td.myLabRequestEndCol {
 
 .myLabRequestTotalSummaryPoints {
   font-size: 0.7em;
-  line-height: 1.6em;
+  line-height: 1em;
   display: block;
   margin-top: 0.8em;
 }
