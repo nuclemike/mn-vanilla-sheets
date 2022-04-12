@@ -419,9 +419,7 @@ function loadMyLabCb(e) {
         footerHtml +=
           "<span class='myLabRequestTotalSummaryPoints'>You'll earn <b>" +
           totalPointsToEarn +
-          " Points</b> once your requests are paid and processed! <br/>...that's your pocket equivalent to <b>€" +
-          (totalPointsToEarn / 100).toFixed(2) +
-          "!</b></span>";
+          " Points</b> once your requests are paid and processed!</span>";
 
       footerHtml += "</div>";
 

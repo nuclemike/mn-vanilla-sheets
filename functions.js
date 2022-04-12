@@ -202,7 +202,7 @@ async function buyHardware(product, cat) {
 
     const imgUrl = getProductImgUrl(product, cat);
 
-    const productSpecs = product.spec?.split(",");
+    const productSpecs = product.spec.split(",");
 
     openMenu(false);
     $("#pageLoader").show();
@@ -250,7 +250,7 @@ async function buyHardware(product, cat) {
         $("#orderProductSlipOldPrice, #orderProductSlipEarn").remove();
       }
 
-      if ((productSpecs ?? []).length > 0) {
+      if (productSpecs.length > 0) {
         var specSelectionElement = document.getElementById(
           "orderProductSlip_SPEC"
         );

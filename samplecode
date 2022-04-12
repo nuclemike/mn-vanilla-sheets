@@ -1,0 +1,276 @@
+=========================  slideshow =========================  
+<script>
+$(".elementRotator > *").mouseover(function(){
+    clearInterval(myVar);
+	$(".elementRotator > span").show();
+	$('.ghostButton').attr('onclick','preloadContent("'+$('.current').attr('page')+'")');
+	console.log('stop');
+}).mouseleave(function(){
+	clearInterval(myVar);
+   myVar = setInterval(slideShow, 5000);
+   	$(".elementRotator > span").hide();
+	$('.ghostButton').attr('onclick','');
+   console.log('start');
+});
+
+
+
+
+	.elementRotator > span {
+		position: absolute;
+		color: white;
+		z-index: 9999;
+		font-size: 4vw;
+		top: 0;
+		height: 100%;
+		background: rgba(0,0,0,0.3);
+		font-family: monospace;
+		padding: 30px;
+		display:none;
+		cursor: pointer;
+	}
+
+
+    .elementRotator > span.ghostButton {
+		z-index: 9990;
+		height: 100%;
+		background: none;
+		
+		width: 100%;
+	}
+
+    .elementRotator > span.right {
+		right: 0;
+	}
+
+    .elementRotator > span.left {
+		left:0;
+	}
+
+
+
+
+
+
+=========================  stock =========================  
+
+
+		<a class="product-item" onclick="buyHardware(this);">
+			<img class="product-item-image" src="atomizers/smoktfv8cloudbeast.jpg" />
+			<label class="product-item-brand">SMOK</label>			
+			<label class="product-item-title">TFV8 Cloudbleast</label>
+			<span class="product-item-info">Sub-Ohm • Top Slide Fill • Stainless/Derlin • 24.5mm • Adjustable High Airflow</span>
+			<div class="product-item-buy">
+                <div class="product-item-oldprice">€45.00</div>
+				<div class="product-item-price">€30.00</div>
+			</div>	
+		</a>
+
+	<a class="product-item" colors="Black" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="mods/dovpotopsidedual.jpg" /></figure>
+			<label class="product-item-brand">Dovpo</label>			
+			<label class="product-item-title">TopSide Dual</label>
+			<span class="product-item-info">10ml Top Fill Squonk • 2A FastCharge • Zinc & Aluminum Alloys & Stainless Steel • 0.96" OLED Display • 200W • TempControl • 2x 18650 Required</span>
+			<div class="product-item-buy">
+                <div class="product-item-oldprice">€95.00</div><div class="product-item-price">€84.00</div>
+			</div>
+		</a>
+
+		<a class="product-item" filtertags="uforce" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/voopoouforceu6.jpg" /></figure>
+			<label class="product-item-brand">Voopoo</label>
+			<label class="product-item-title">UForce U6</label>
+			<span class="product-item-info">0.15 Ohm • Sextuple Coil • 65-110W • Best 80-90W</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€</div>
+			</div>
+		</a>
+	
+		<a class="product-item" filtertags="uforce" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/voopoouforceu4.jpg" /></figure>
+			<label class="product-item-brand">Voopoo</label>
+			<label class="product-item-title">UForce U4</label>
+			<span class="product-item-info">0.23 Ohm • Quadruple Coil • 50-120W • Best 60-80W</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€</div>
+			</div>
+		</a>
+	
+		<a class="product-item" filtertags="uforce" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/voopoouforceu2.jpg" /></figure>
+			<label class="product-item-brand">Voopoo</label>
+			<label class="product-item-title">UForce U2</label>
+			<span class="product-item-info">0.4 Ohm • Dual Coil • 40-80W • Best 55-65W</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€</div>
+			</div>
+		</a>
+		
+		<a class="product-item" filtertags="nrg skrr" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="coilheads/smoktfv8babyq206.jpg" /></figure>
+			<label class="product-item-brand">SMOK</label>
+			<label class="product-item-title">TFV8 Baby Q2 0.6</label>
+			<span class="product-item-info">0.6 Ohm • Dual Coil • 20-50W • Best 30-40W</span>
+			<div class="product-item-buy">
+              <div class="product-item-price">€</div>
+			</div>
+		</a>
+		
+		<a class="product-item" colors="Batman,Superman" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="glasstubes/mamasnectarsuperherovaperings.jpg" /></figure>
+			<label class="product-item-brand">Mama's Nectar</label>
+			<label class="product-item-title">SuperHero Vape Rings</label>
+			<span class="product-item-info">Protects your glass tank • Silicone • for 16-22mm diameter tanks • Height 10mm</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€</div>
+			</div>
+		</a>
+		
+				
+		
+<a class="product-item" sizes="Adult,Junior,Toddler" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="protection/white.jpg" /></figure>
+			<label class="product-item-brand">Face Mask</label>			
+			<label class="product-item-title">White</label>
+			<span class="product-item-info">Three Layers of Fabric • Quick Wash at 40°C • Made from cotton and/or fabrics with the same porous density</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€5.00</div>
+			</div>
+		</a>
+			
+		<a class="product-item" sizes="Adult,Junior,Toddler" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="protection/black.jpg" /></figure>
+			<label class="product-item-brand">Face Mask</label>			
+			<label class="product-item-title">Black</label>
+			<span class="product-item-info">Three Layers of Fabric • Quick Wash at 40°C • Made from cotton and/or fabrics with the same porous density</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€5.00</div>
+			</div>
+		</a>
+		
+		<a class="product-item" sizes="Adult,Junior,Toddler" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="protection/nude.jpg" /></figure>
+			<label class="product-item-brand">Face Mask</label>			
+			<label class="product-item-title">Nude</label>
+			<span class="product-item-info">Three Layers of Fabric • Quick Wash at 40°C • Made from cotton and/or fabrics with the same porous density</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€5.00</div>
+			</div>
+		</a>
+		
+		<a class="product-item" sizes="Adult,Junior,Toddler" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="protection/lightpeach.jpg" /></figure>
+			<label class="product-item-brand">Face Mask</label>			
+			<label class="product-item-title">Salmon</label>
+			<span class="product-item-info">Three Layers of Fabric • Quick Wash at 40°C • Made from cotton and/or fabrics with the same porous density</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€5.00</div>
+			</div>
+		</a>
+		
+=========================  masks =========================  		
+
+	<span class="product-item-hr">Patterned Cotton Masks</span>
+		
+		<a class="product-item new" sizes="Adult,Junior,Toddler" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="protection/bluerose.jpg" /></figure>
+			<label class="product-item-brand">Face Mask</label>			
+			<label class="product-item-title">Blue Rose</label>
+			<span class="product-item-info">Three Layers of Fabric • Quick Wash at 40°C • Made from cotton and/or fabrics with the same porous density</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€5.00</div>
+			</div>
+		</a>	
+
+		<a class="product-item" sizes="Adult,Junior,Toddler" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="protection/redpolkadot.jpg" /></figure>
+			<label class="product-item-brand">Face Mask</label>			
+			<label class="product-item-title">Red Polkadot</label>
+			<span class="product-item-info">Three Layers of Fabric • Quick Wash at 40°C • Made from cotton and/or fabrics with the same porous density</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€5.00</div>
+			</div>
+		</a>
+		
+		<a class="product-item" sizes="Adult,Junior,Toddler" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="protection/purplepolkadot.jpg" /></figure>
+			<label class="product-item-brand">Face Mask</label>			
+			<label class="product-item-title">Purple Polkadot</label>
+			<span class="product-item-info">Three Layers of Fabric • Quick Wash at 40°C • Made from cotton and/or fabrics with the same porous density</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€5.00</div>
+			</div>
+		</a>
+		
+		<a class="product-item oos" sizes="Adult,Junior,Toddler" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="protection/bluecamo.jpg" /></figure>
+			<label class="product-item-brand">Face Mask</label>			
+			<label class="product-item-title">Blue Camo</label>
+			<span class="product-item-info">Three Layers of Fabric • Quick Wash at 40°C • Made from cotton and/or fabrics with the same porous density</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€5.00</div>
+			</div>
+		</a>
+		
+		<a class="product-item" sizes="Adult,Junior,Toddler" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="protection/alphanumeric.jpg" /></figure>
+			<label class="product-item-brand">Face Mask</label>			
+			<label class="product-item-title">Alphanumeric</label>
+			<span class="product-item-info">Three Layers of Fabric • Quick Wash at 40°C • Made from cotton and/or fabrics with the same porous density</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€5.00</div>
+			</div>
+		</a>	
+		
+		<a class="product-item" sizes="Adult,Junior,Toddler" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="protection/redpoppy.jpg" /></figure>
+			<label class="product-item-brand">Face Mask</label>			
+			<label class="product-item-title">Red Poppy</label>
+			<span class="product-item-info">Three Layers of Fabric • Quick Wash at 40°C • Made from cotton and/or fabrics with the same porous density</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€5.00</div>
+			</div>
+		</a>		
+		
+		<a class="product-item" sizes="Adult,Junior,Toddler" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="protection/clowns.jpg" /></figure>
+			<label class="product-item-brand">Face Mask</label>			
+			<label class="product-item-title">Clowns</label>
+			<span class="product-item-info">Three Layers of Fabric • Quick Wash at 40°C • Made from cotton and/or fabrics with the same porous density</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€5.00</div>
+			</div>
+		</a>		
+		
+		<a class="product-item" sizes="Adult,Junior,Toddler" onclick="buyHardware(this);">
+			<figure><img class="product-item-image" src="protection/toys.jpg" /></figure>
+			<label class="product-item-brand">Face Mask</label>			
+			<label class="product-item-title">Toys</label>
+			<span class="product-item-info">Three Layers of Fabric • Quick Wash at 40°C • Made from cotton and/or fabrics with the same porous density</span>
+			<div class="product-item-buy">
+                <div class="product-item-price">€5.00</div>
+			</div>
+		</a>				
+		
+		
+
+=========================  image loader =========================  
+attachImageLoader('nectars');
+
+
+function attachImageLoader(description){	/*
+imagesLoaded = 0;
+	var nrOfImages = $("#pageContent img").length;
+
+	$("#pageContent img").load(function() {
+		imagesLoaded++;
+		
+		if ((description != undefined) && (description != '')) {
+			var percent = Math.floor((imagesLoaded/nrOfImages)*100);		
+			$("#pageLoader").html("loading "+description+" <b>"+percent+"%</b>")
+		}
+		if ( imagesLoaded==nrOfImages )
+			pageLoaded();				
+	});*/
+	pageLoaded();
+}
