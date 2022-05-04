@@ -32,72 +32,6 @@
   }
 </script>
 
-<style>
-  .nectarPropsWrapper {
-    margin-bottom: 2em;
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  .nectarProps {
-    padding: 2em;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .nectarProp {
-    padding: 5px 10px;
-    margin: 5px 0;
-    cursor: pointer;
-    user-select: none;
-    display: inline-block;
-    width: 16.3%;
-  }
-
-  .nectarProp.all {
-    font-weight: bold;
-  }
-
-  @media only screen and (max-width: 850px) {
-    .nectarProp {
-      width: 19.5%;
-    }
-  }
-  @media only screen and (max-width: 750px) {
-    .nectarProp {
-      width: 25%;
-    }
-  }
-
-  @media only screen and (max-width: 600px) {
-    .nectarProp {
-      width: 33.3%;
-    }
-  }
-
-  @media only screen and (max-width: 500px) {
-    .nectarProp {
-      width: 50%;
-    }
-  }
-
-  .nectarProp:before {
-    content: "";
-    display: inline-block;
-    height: 16px;
-    width: 16px;
-    border-radius: 2px;
-    border: 2px solid #333;
-    margin-right: 0.5em;
-    vertical-align: -0.2em;
-  }
-
-  .nectarProp.selected:before {
-    background-color: #daa742;
-    box-shadow: 0 0 0 2px white inset;
-  }
-</style>
-
 <div id="goldRibbon" class="fxFixed">Nectar Collection</div>
 <!--
 		<a style="margin: 0px auto 15px;display: table;max-width: 100%;" href="http://m.me/mamasnectar" class="prexmasoffer">
@@ -125,7 +59,7 @@
 
 <div id="nectarCollection" class="fxDisplay fxStretch fxDirCol">
   <div id="contentContainer" class="fxDisplay fxWrap fxJustifyCenter">
-    <div
+    <!-- <div
       class="nectar new"
       props="fruity minty spicy"
       onclick="buyNectar(this);"
@@ -138,7 +72,7 @@
         >a strong frosty kick, in a wild fruit, blueberry & liquorice
         background!
       </span>
-    </div>
+    </div> -->
     <div
       class="nectar new"
       props="creamy sweet fruity beverage"

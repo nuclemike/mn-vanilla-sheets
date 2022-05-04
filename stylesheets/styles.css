@@ -82,7 +82,7 @@ body {
   /* perspective: 1000px; */
   transition-delay: 0.5s;
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3) inset;
-  background: url(floralbgwhite.png);
+  background: url("floralBGWhite.png");
   /* user-select: none; */
 }
 
@@ -148,6 +148,47 @@ textarea {
   animation: loading 1s infinite linear;
   border-radius: 100%;
   margin: 0 auto;
+}
+
+.fullWidthTextImage {
+  width: 100%;
+  display: block;
+  margin: 2em 0;
+}
+
+.leftTextImage {
+  float: left;
+  margin-right: 2em;
+}
+
+.rightTextImage {
+  float: right;
+  margin-left: 2em;
+}
+
+.helpArticle {
+  font-size: 1.4em;
+  padding: 0 1em;
+  font-family: "Raleway", sans-serif;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.helpArticle p {
+  display: inline-block;
+  text-align: justify;
+}
+
+@media only screen and (max-width: 750px) {
+  .leftTextImage {
+    float: none;
+    margin: 2em auto;
+    max-width: 90%;
+    display: block;
+  }
+
+  .helpArticle {
+    font-size: 1.1em;
+  }
 }
 
 /* ################################### Shutdown Notice ################################### */
@@ -1088,6 +1129,71 @@ textarea {
   /* height:40px; */
   padding: 0 20px;
 }
+/* ################################### NECTAR PROPS ################################### */
+
+.nectarPropsWrapper {
+  margin-bottom: 2em;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+}
+
+.nectarProps {
+  padding: 2em;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.nectarProp {
+  padding: 5px 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+  width: 16.3%;
+}
+
+.nectarProp.all {
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 850px) {
+  .nectarProp {
+    width: 19.5%;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .nectarProp {
+    width: 25%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .nectarProp {
+    width: 33.3%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .nectarProp {
+    width: 50%;
+  }
+}
+
+.nectarProp:before {
+  content: "";
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  border-radius: 2px;
+  border: 2px solid #333;
+  margin-right: 0.5em;
+  vertical-align: -0.2em;
+}
+
+.nectarProp.selected:before {
+  background-color: #daa742;
+  box-shadow: 0 0 0 2px white inset;
+}
 
 /* ################################### MY LAB ################################### */
 
@@ -1316,6 +1422,201 @@ td.myLabRequestEndCol {
 
 .myLabRequestGridState.stateP:after {
   background-color: #16a5d0;
+}
+
+/* ################################### viewCatalogButton ################################### */
+
+.viewCatalogButton {
+  background: #d9a742;
+  background: -moz-linear-gradient(-45deg, #e2c291 0%, #d9a742 100%);
+  background: -webkit-linear-gradient(-45deg, #e2c291 0%, #d9a742 100%);
+  background: linear-gradient(135deg, #e2c291 0%, #d9a742 100%);
+  padding: 13px 2em;
+  font-size: 28px;
+  color: white;
+  text-shadow: 0 0 10px #8d6627;
+  box-shadow: 2px 2px 5px RGBA(0, 0, 0, 0.3);
+  margin: 2em auto 0;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 4px;
+}
+/* ################################### ageCheck ################################### */
+
+#ageCheck {
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  font-family: "Raleway", sans-serif;
+  background: rgb(158, 158, 158);
+  background: radial-gradient(
+    circle,
+    rgba(218, 218, 218, 0.9) 0%,
+    rgba(119, 119, 119, 0.9) 100%
+  );
+  color: #444;
+}
+
+#ageCheckWindow {
+  background: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 1.1em;
+}
+
+#ageCheck span {
+  margin: 2em;
+  font-size: 1.5em;
+  display: block;
+}
+
+#ageCheck button {
+  border: 0;
+  width: 50%;
+  line-height: 2em;
+  font-size: 2em;
+  background: tomato;
+  margin: 0;
+  padding: 0;
+  float: left;
+  font-family: "Raleway", sans-serif;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ################################### PRODUCT CATEGORY GRID ################################### */
+.cat-parent {
+  user-select: none;
+  margin-top: 4em;
+  box-shadow: -500px 0 rgb(0 0 0 / 10%), 500px 0 rgb(0 0 0 / 10%);
+  background: rgba(0, 0, 0, 0.1);
+  padding-bottom: 2em;
+}
+
+.cat-child {
+  width: 200px;
+  text-align: center;
+  max-width: 250px;
+  height: 200px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.7);
+  margin: 0.6em;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.6s;
+  box-shadow: 0px 0px 0 0px #d9a742 inset, 0 0 10px rgb(0 0 0 / 10%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cat-child span {
+  font-weight: bold;
+  transition: transform 0.3s ease-out, font-size 0.9s;
+  will-change: transform;
+  transform: translateY(65px);
+}
+
+.cat-child.new:after {
+  position: absolute;
+  content: "New!";
+  color: yellowgreen;
+  opacity: 1;
+  font-size: 0.9em;
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+  left: 0;
+}
+
+.cat-child:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+  box-shadow: 0px -8px 0 0px #d9a742 inset, 0 0 10px rgb(0 0 0 / 7%);
+}
+
+.cat-child img {
+  top: 50%;
+  position: absolute;
+  filter: invert(0.6) sepia(1) hue-rotate(4deg) saturate(1.4);
+  left: 50%;
+  transition: transform 0.5s ease-out, width 0.8s ease-in-out, opacity 0.3s;
+  will-change: transform, width;
+  width: 35%;
+  opacity: 1;
+  transform: translate(-50%, -60%) rotate(0deg);
+}
+
+.cat-child:hover img {
+  width: 100%;
+  transform: translate(-50%, -50%) rotate(30deg);
+  opacity: 0.2;
+}
+
+.cat-child:hover span {
+  transform: none;
+  font-size: 1.8em;
+}
+
+@media only screen and (max-width: 500px) {
+  .cat-parent {
+    margin-top: 0;
+  }
+
+  .cat-child,
+  .cat-child:hover {
+    width: 50%;
+    margin: 0;
+    max-width: none;
+    box-shadow: 0 0 2px -1px inset;
+    border-radius: 0;
+    transition: none;
+  }
+}
+/* ################################### COIL FILTER ################################### */
+
+.productFilterWrapper {
+  margin-bottom: 2em;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+}
+
+.productFilter {
+  padding: 2em;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 1.2em;
+}
+
+.productFilterCaption {
+  font-size: 1em;
+  margin: 0 1em;
+  line-height: 2em;
+}
+
+#productFilterValue {
+  font-family: "Raleway", sans-serif;
+  background: rgba(116, 93, 45, 0.1);
+  border: 0;
+  height: 42px;
+  padding: 5px 7px;
+  color: #444;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .productFilter {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .productFilter {
+    font-size: 15px;
+  }
 }
 
 /* ################################### MEDIA QUERIES ################################### */

@@ -180,6 +180,12 @@ function buyNectar(element) {
     document.getElementById("orderProductTags").innerHTML = productTags;
     document.getElementById("orderProductSlip_CUSTOMTEXT").value =
       sessionStorage.getItem("name");
+
+    const oos = ["Ape Charlies", "Congo Bongo"].includes(productTitle);
+
+    $("#orderProductSlipPurchase")
+      .html(oos == true ? "Place Backorder" : "Place Order")
+      .toggleClass("tomato", oos);
   });
 }
 

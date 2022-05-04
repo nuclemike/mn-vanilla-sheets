@@ -49,7 +49,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
 
-    <link rel="stylesheet" href="stylesheets/styles.css?v=3.7" />
+    <link rel="stylesheet" href="stylesheets/styles.css?v=3.8" />
     <link rel="stylesheet" href="stylesheets/global.css?v=3.1" />
     <script>
       function getPage(pagename) {
@@ -60,7 +60,7 @@
           case "mylab":
             return pagename + ".html?v=3.4";
           case "nectars":
-            return pagename + ".html?v=3.6";
+            return pagename + ".html?v=3.7";
           case "diy":
             return pagename + ".html?v=3.0";
           case "nectarorder":
@@ -68,15 +68,15 @@
           case "hardwareorder":
             return pagename + ".html?v=3.6";
           case "seducehydra":
-            return pagename + ".html?v=3.4";
+            return pagename + ".html?v=3.5";
           case "home":
-            return pagename + ".html?v=3.9";
+            return pagename + ".html?v=4.0";
           case "starterkits":
             return pagename + ".html?v=3.4";
           case "chargers":
             return pagename + ".html?v=3.4";
           case "coilheads":
-            return pagename + ".html?v=3.5";
+            return pagename + ".html?v=3.6";
           case "rebuilding":
             return pagename + ".html?v=3.4";
           case "glasstubes":
@@ -93,7 +93,7 @@
       }
     </script>
     <script src="helper.js?v=1"></script>
-    <script src="functions.js?v=3.8"></script>
+    <script src="functions.js?v=3.9"></script>
     <script src="ajax.js?v=3.9"></script>
     <script src="index.js?v=3.6"></script>
 
@@ -352,51 +352,6 @@
       </div>
     </div>
 
-    <style>
-      #ageCheck {
-        position: fixed;
-        z-index: 9999;
-        width: 100%;
-        top: 0;
-        left: 0;
-        height: 100%;
-        font-family: "Raleway", sans-serif;
-        background: rgb(158, 158, 158);
-        background: radial-gradient(
-          circle,
-          rgba(218, 218, 218, 0.9) 0%,
-          rgba(119, 119, 119, 0.9) 100%
-        );
-        color: #444;
-      }
-
-      #ageCheckWindow {
-        background: rgba(255, 255, 255, 0.7);
-        text-align: center;
-        padding: 1.1em;
-      }
-
-      #ageCheck span {
-        margin: 2em;
-        font-size: 1.5em;
-        display: block;
-      }
-
-      #ageCheck button {
-        border: 0;
-        width: 50%;
-        line-height: 2em;
-        font-size: 2em;
-        background: tomato;
-        margin: 0;
-        padding: 0;
-        float: left;
-        font-family: "Raleway", sans-serif;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-      }
-    </style>
     <div
       style="display: none"
       id="ageCheck"
