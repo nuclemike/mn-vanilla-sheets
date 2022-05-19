@@ -208,7 +208,9 @@ async function buyHardware(product, cat) {
 
     const imgUrl = getProductImgUrl(product, cat);
 
-    const productSpecs = product.spec?.split(",");
+    const productSpecs = undefined;
+
+    if (product && product.spec) productSpecs = product.spec?.split(",");
 
     openMenu(false);
     $("#pageLoader").show();
