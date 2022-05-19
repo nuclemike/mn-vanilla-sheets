@@ -258,7 +258,7 @@ async function buyHardware(product, cat) {
         $("#orderProductSlipOldPrice, #orderProductSlipEarn").remove();
       }
 
-      if ((productSpecs ?? []).length > 0) {
+      if ((!productSpecs ? [] : productSpecs).length > 0) {
         var specSelectionElement = document.getElementById(
           "orderProductSlip_SPEC"
         );
