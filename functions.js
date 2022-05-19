@@ -210,7 +210,7 @@ async function buyHardware(product, cat) {
 
     const productSpecs = undefined;
 
-    if (product && product.spec) productSpecs = product.spec?.split(",");
+    if (product && product.spec) productSpecs = product.spec.split(",");
 
     openMenu(false);
     $("#pageLoader").show();
