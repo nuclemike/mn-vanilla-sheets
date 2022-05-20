@@ -466,12 +466,24 @@ function loadMyAccount() {
       userid: sessionStorage.getItem("userid"),
       seid: sessionStorage.getItem("seid"),
     };
-    var request = jQuery.ajax({
-      crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycbwXffCM5Bszinspmq4Gidvq9qyGs_egLaVhmI5ckfxSREbGlxwf/exec?callback=loadMyAccountCb",
-      method: "GET",
-      dataType: "jsonp",
+    // var request = jQuery.ajax({
+    //   crossDomain: true,
+    //   url: "https://script.google.com/macros/s/AKfycbwXffCM5Bszinspmq4Gidvq9qyGs_egLaVhmI5ckfxSREbGlxwf/exec?callback=loadMyAccountCb",
+    //   method: "GET",
+    //   dataType: "jsonp",
+    //   data: userRef,
+    // });
+
+    $.ajax({
+      url: "https://script.google.com/macros/s/AKfycbw92Op4tjh__s6WpXcVtvVd_1txV-v9p_0_kepbiqwV26W6vAOqz_9HmUobmSRWyHEVxw/exec",
+      type: "GET",
       data: userRef,
+      success: function () {},
+      error: function () {},
+      complete: function (response) {
+        debugger;
+        loadMyAccountCb(JSON.parse(response.responseText));
+      },
     });
 
     $("#pageLoader").html("loading account");
