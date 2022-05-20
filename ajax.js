@@ -47,6 +47,8 @@ function nectarRequest() {
 function hardwareRequest() {
   var specSelection = $("#orderProductSlip_SPEC");
   var selectedSpec = specSelection.length ? specSelection.val() : "";
+  var usingPoints = $("#orderProductSlipRedeemButton").is(":checked");
+  var quantity = $("#orderProductSlip_QTY").val();
 
   $("#orderProductSlipPurchase, #orderProductSlipExit").hide();
   $("#orderProductSlip").addClass("sending");
@@ -57,16 +59,17 @@ function hardwareRequest() {
     type: document.getElementById("orderProductType").innerHTML,
     product:
       $("#orderProductSubtitle").text() + " " + $("#orderProductTitle").text(),
-    price: document
-      .getElementById("orderProductSlipPrice")
-      .innerHTML.substring(1),
+    price:
+      document.getElementById("orderProductSlipPricing").getAttribute("price") *
+      quantity,
     color: selectedSpec,
     vaper: sessionStorage.getItem("name"),
-    qty: $("#orderProductSlip_QTY").val(),
+    qty: quantity,
+    usePoints: usingPoints,
   };
 
   $.ajax({
-    url: "https://script.google.com/macros/s/AKfycbzaJJGZv-jxkULt-zc_bEGi4kH6CNz2-dGcTeVtPb-iuWRehtVuq4KveRHEDO_phVwI/exec",
+    url: "https://script.google.com/macros/s/AKfycbxM1_oWrSKfLQjS-NJTsWrPinhq1aXrg4PnlqK4Eu_EjsaFhB_JeOaAZJzS20Vj-_IQ/exec",
     type: "GET",
     data: requestObj,
     success: function () {},
@@ -83,7 +86,9 @@ function orderRequestCb(response) {
       "<b>Thanks a Bunch!</b><br> View more in <u onclick=preloadContent('mylab')>myLAB</u>",
       "green"
     );
-    sessionStorage.setItem("points", response.points);
+
+    if (response.points && response.points != 0)
+      sessionStorage.setItem("points", response.points);
   } else {
     systemMessage(response.error, "red");
   }
@@ -325,11 +330,25 @@ function loadMyLabCb(e) {
       totalPointsToEarn += Math.max(item.points, 0); // not counting negative points (free bottles)
 
       var imageExtension = item.type == "nectars" ? ".png" : ".jpg";
-      var imgUrl =
-        item.type +
-        "/" +
-        item.flavor.replace(/[^a-z0-9]/gi, "").toLowerCase() +
-        imageExtension;
+
+      var imgUrl = "";
+
+      if (item.type == "nectars") {
+        imgUrl =
+          item.type +
+          "/" +
+          item.flavor.replace(/[^a-z0-9]/gi, "").toLowerCase() +
+          imageExtension;
+      } else {
+        imgUrl =
+          item.type +
+          "/" +
+          item.flavor.replace(/[^a-z0-9]/gi, "").toLowerCase() +
+          (item.size != ""
+            ? "_" + item.size.replace(/[^a-z0-9]/gi, "").toLowerCase()
+            : "") +
+          imageExtension;
+      }
 
       html += '<tr class="myLabRequestRow">';
 

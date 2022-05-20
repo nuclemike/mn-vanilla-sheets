@@ -181,7 +181,7 @@ function buyNectar(element) {
     document.getElementById("orderProductSlip_CUSTOMTEXT").value =
       sessionStorage.getItem("name");
 
-    const oos = ["Ape Charlies", "Congo Bongo"].includes(productTitle);
+    const oos = false; //["Ape Charlies", "Congo Bongo"].includes(productTitle);
 
     $("#orderProductSlipPurchase")
       .html(oos == true ? "Place Backorder" : "Place Order")
@@ -208,7 +208,7 @@ async function buyHardware(product, cat) {
 
     const imgUrl = getProductImgUrl(product, cat);
 
-    const productSpecs = undefined;
+    var productSpecs = undefined;
 
     if (product && product.spec) productSpecs = product.spec.split(",");
 
@@ -236,8 +236,8 @@ async function buyHardware(product, cat) {
       //   .html(outOfStock ? "Place Backorder" : "Place Order")
       //   .toggleClass("tomato", outOfStock);
 
-      document.getElementById("orderProductSlipPrice").innerHTML =
-        "€" + product.price.toFixed(2);
+      // document.getElementById("orderProductSlipPrice").innerHTML =
+      //   "€" + product.price.toFixed(2);
 
       document.getElementById("orderProductSlipInfo").innerHTML =
         product.info != null
@@ -271,6 +271,8 @@ async function buyHardware(product, cat) {
       } else {
         $("#orderProductSlipRow_SPECS").remove();
       }
+
+      recalcHardware();
     });
 
     // const hardwareStock = db.collection("hardware");
@@ -295,8 +297,38 @@ function recalcHardware() {
   var qty = document.getElementById("orderProductSlip_QTY").value;
   var totalPrice = UnitPrice * qty;
 
-  document.getElementById("orderProductSlipPrice").innerHTML =
-    "€" + totalPrice.toFixed(2);
+  //points calc
+  var myPoints = 0;
+
+  if (sessionStorage.getItem("points") != null) {
+    myPoints = sessionStorage.getItem("points");
+  }
+
+  var hasEnoughPoints = myPoints >= totalPrice * 100;
+
+  //calculate points to redeem
+  if ($("#orderProductSlipRedeemButton").is(":checked") && hasEnoughPoints) {
+    document.getElementById("orderProductSlipPrice").innerHTML = "€0.00";
+  } else {
+    $("#orderProductSlipRedeemButton").prop("checked", false);
+    document.getElementById("orderProductSlipPrice").innerHTML =
+      "€" + totalPrice.toFixed(2);
+  }
+
+  // document.getElementById("orderProductSlipPrice").innerHTML =
+  //   "€" + totalPrice.toFixed(2);
+
+  document.getElementById("orderProductSlipRedeemButtonCaption").innerHTML =
+    "Use " + Math.round(+totalPrice * 100) + " points!";
+  document.getElementById("orderProductSlipPointsBalance").innerHTML =
+    "You have " + myPoints + " points in your account";
+
+  //if user has enough points
+  if (hasEnoughPoints) {
+    $("#orderProductSlipRedeem").removeClass("notEnough");
+  } else {
+    $("#orderProductSlipRedeem").addClass("notEnough");
+  }
 
   if (pricingElement.hasAttribute("oldPrice")) {
     var UnitOldPrice = pricingElement.getAttribute("oldprice");

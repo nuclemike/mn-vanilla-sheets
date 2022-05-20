@@ -6,7 +6,7 @@
 >
   <div class="credPopupForm fxDisplay">
     <form
-      class="credPopupData`changepass"
+      class="credPopupData changepass"
       onsubmit="proceedChangePass();return false;"
     >
       <img class="credPopupMainIcon" src="stylesheets/access.png" />
@@ -80,16 +80,75 @@
 <div id="goldRibbon" class="fxFixed">My Account</div>
 
 <div id="myAccountDetails">
-  <h2 id="myAccountDetailsTitle">My Account Details</h2>
-  <label>User ID</label><span id="myUserID"></span> <label>Member Since</label
-  ><span id="myMembership"></span> <label>Points</label
-  ><span id="myAccountPoints"></span> <label>Name and Surname</label
-  ><span id="myAccountName"></span> <label>Email Address</label
-  ><span id="myAccountEmail"></span> <label>Mobile Number</label
-  ><span id="myAccountMobile"></span> <label>Password</label
-  ><a onclick="changePassPopup(); return false;">change password</a>
+  <h2 id="myAccountDetailsTitle">My Details</h2>
+  <label>User ID</label>
+  <span id="myUserID"></span>
+  <label>Member Since</label>
+  <span id="myMembership"></span>
+  <label>Points</label>
+  <span id="myAccountPoints"></span>
+  <label>Name and Surname</label>
+  <span id="myAccountName"></span>
+  <label>Email Address</label>
+  <span id="myAccountEmail"></span>
+  <!-- <label>Delivery Address</label>
+
+  <label>My Location</label>
+  <span id="myLocation"
+    ><button onClick="getLocation();">Share Current Location</button>
+  </span>
+
+  <script>
+    var myLocation = document.getElementById("myLocation");
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        myLocation.innerHTML = "Error sharing location.";
+      }
+    }
+
+    function showPosition(position) {
+      myLocation.innerHTML =
+        "Latitude: " +
+        position.coords.latitude +
+        "<br>Longitude: " +
+        position.coords.longitude;
+    }
+  </script> -->
+  <label>Mobile Number</label>
+  <span id="myAccountMobile"></span>
+  <label>Password</label>
+
+  <a onclick="changePassPopup(); return false;">change password</a>
   <span id="myAccountMarketing"></span>
 </div>
+<!-- 
+<div id="myAccountDetails">
+  <h2 id="myAccountDetailsTitle">Delivery Address</h2>
+  <label>User ID</label>
+  <span id="myUserID"></span>
+  <label>Member Since</label>
+  <span id="myMembership"></span>
+  <label>Points</label>
+  <span id="myAccountPoints"></span>
+  <label>Name and Surname</label>
+  <span id="myAccountName"></span>
+  <label>Email Address</label>
+  <span id="myAccountEmail"></span>
+  <label>Delivery Address</label>
+  <textarea id="myDeliveryAddress" name="w3review" rows="4" cols="50">
+    At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+    </textarea
+  >
+  <label>Mobile Number</label>
+  <span id="myAccountMobile"></span>
+  <label>Password</label>
+
+  <a onclick="changePassPopup(); return false;">change password</a>
+  <span id="myAccountMarketing"></span>
+</div> -->
 
 <script>
   loadMyAccount();
