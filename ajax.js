@@ -260,13 +260,24 @@ function changeMarketing(recieveMarketing) {
     marketing: recieveMarketing,
   };
 
-  var request = jQuery.ajax({
-    crossDomain: true,
-    url: "https://script.google.com/macros/s/AKfycbwuXaKmsoIF2Bs4YqOZNyZXCWDNWh7xkmHg5sS-0dd6LWMirVA/exec?callback=changeMarketingCb",
+  // var request = jQuery.ajax({
+  //   crossDomain: true,
+  //   url: "https://script.google.com/macros/s/AKfycbwuXaKmsoIF2Bs4YqOZNyZXCWDNWh7xkmHg5sS-0dd6LWMirVA/exec?callback=changeMarketingCb",
 
-    method: "GET",
-    dataType: "jsonp",
+  //   method: "GET",
+  //   dataType: "jsonp",
+  //   data: loginObj,
+  // });
+
+  $.ajax({
+    url: "https://script.google.com/macros/s/AKfycbwN7agPsyNae74lUNFgQBzh70gLViAviV-ZWqNV7PV6Dne2rUWe9yJLUL5Gy7rv0nGZ/exec",
+    type: "GET",
     data: loginObj,
+    success: function () {},
+    error: function () {},
+    complete: function (response) {
+      changeMarketingCb(JSON.parse(response.responseText));
+    },
   });
 }
 
