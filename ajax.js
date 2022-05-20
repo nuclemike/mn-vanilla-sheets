@@ -224,13 +224,15 @@ function proceedChangePass() {
     newpass: $("#changePassConfirm").val(),
   };
 
-  var request = jQuery.ajax({
-    crossDomain: true,
-    url: "https://script.google.com/macros/s/AKfycbznCuQa2FgLDUmmV309rQMJZIpDCfu585NfB55tdYyrJ2GaVQOB/exec?callback=changePassCb",
-
-    method: "GET",
-    dataType: "jsonp",
+  $.ajax({
+    url: "https://script.google.com/macros/s/AKfycbz4o-4275lbcvLCX91_BENBSRhwGz0Ryj-6mFcxs9V6OXeZfDXLKdWCBu3nBEpZibsomQ/exec",
+    type: "GET",
     data: loginObj,
+    success: function () {},
+    error: function () {},
+    complete: function (response) {
+      changePassCb(JSON.parse(response.responseText));
+    },
   });
 }
 
