@@ -289,12 +289,15 @@ function changeMarketingCb(response) {
 function loadMyLab() {
   $("#pageLoader").html("loading <b>myLAB</b>");
 
-  var request = jQuery.ajax({
-    crossDomain: true,
-    url: "https://script.google.com/macros/s/AKfycbyIQs8oagOE3MZfax8MyLx2i8uUdVHMBPr8JMETzw/exec?callback=loadMyLabCb",
-    method: "GET",
-    dataType: "jsonp",
+  $.ajax({
+    url: "https://script.google.com/macros/s/AKfycbwib5WDAsDOsuGsivmBVZCkNRj8C8fG5ZBjdnBxx5h29s93x-qcqD1nHeMvmp0mqH-ZfQ/exec",
+    type: "GET",
     data: { userid: sessionStorage.getItem("userid") },
+    success: function () {},
+    error: function () {},
+    complete: function (response) {
+      loadMyLabCb(JSON.parse(response.responseText));
+    },
   });
 }
 
@@ -466,13 +469,6 @@ function loadMyAccount() {
       userid: sessionStorage.getItem("userid"),
       seid: sessionStorage.getItem("seid"),
     };
-    // var request = jQuery.ajax({
-    //   crossDomain: true,
-    //   url: "https://script.google.com/macros/s/AKfycbwXffCM5Bszinspmq4Gidvq9qyGs_egLaVhmI5ckfxSREbGlxwf/exec?callback=loadMyAccountCb",
-    //   method: "GET",
-    //   dataType: "jsonp",
-    //   data: userRef,
-    // });
 
     $.ajax({
       url: "https://script.google.com/macros/s/AKfycbw92Op4tjh__s6WpXcVtvVd_1txV-v9p_0_kepbiqwV26W6vAOqz_9HmUobmSRWyHEVxw/exec",
@@ -481,7 +477,6 @@ function loadMyAccount() {
       success: function () {},
       error: function () {},
       complete: function (response) {
-        debugger;
         loadMyAccountCb(JSON.parse(response.responseText));
       },
     });
