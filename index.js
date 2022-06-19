@@ -253,7 +253,9 @@ function tryFetchSession() {
     //$("#pageLoader").html("logging in");
 
     $.ajax({
-      url: "https://script.google.com/macros/s/AKfycbzVgUmPLBBeNXNcxbZ-Jhfqht8rY_n19KSx8T04618AbCKDio4N3AUZqbO56n3RHN0w/exec",
+      // url: "https://script.google.com/macros/s/AKfycbzVgUmPLBBeNXNcxbZ-Jhfqht8rY_n19KSx8T04618AbCKDio4N3AUZqbO56n3RHN0w/exec",
+      url: "https://script.google.com/macros/s/AKfycbwrBFSCDkisWjU0UPOHvP7GEBU8mhNiAzLwJIvquyHOWBZsN6xD20d4wiw8cs_dzhbJ/exec",
+
       type: "GET",
       data: loginObj,
       success: function (response) {
@@ -275,6 +277,8 @@ function updateSession(response) {
   sessionStorage.setItem("name", response.name);
   sessionStorage.setItem("email", response.email);
   sessionStorage.setItem("points", response.points);
+  sessionStorage.setItem("delivery", response.delivery);
+  sessionStorage.setItem("address", response.address);
 
   //if was saved, save again
   if (localStorage.getItem("userid") != null) {

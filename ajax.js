@@ -114,7 +114,9 @@ function login(submit) {
     };
 
     $.ajax({
-      url: "https://script.google.com/macros/s/AKfycbzVgUmPLBBeNXNcxbZ-Jhfqht8rY_n19KSx8T04618AbCKDio4N3AUZqbO56n3RHN0w/exec",
+      //   url: "https://script.google.com/macros/s/AKfycbzVgUmPLBBeNXNcxbZ-Jhfqht8rY_n19KSx8T04618AbCKDio4N3AUZqbO56n3RHN0w/exec",
+      url: "https://script.google.com/macros/s/AKfycbwrBFSCDkisWjU0UPOHvP7GEBU8mhNiAzLwJIvquyHOWBZsN6xD20d4wiw8cs_dzhbJ/exec",
+
       type: "GET",
       data: loginObj,
       success: function (response) {
@@ -131,11 +133,14 @@ function login(submit) {
 
   function loginCb(response) {
     if (response.success) {
+      debugger;
       sessionStorage.setItem("userid", response.userid);
       sessionStorage.setItem("seid", response.seid);
       sessionStorage.setItem("name", response.name);
       sessionStorage.setItem("email", response.email);
       sessionStorage.setItem("points", response.points);
+      sessionStorage.setItem("delivery", response.delivery);
+      sessionStorage.setItem("address", response.address);
 
       //if remember me, save session into localStorage
       if (document.getElementById("rememberMe").checked) {
@@ -319,11 +324,12 @@ function loadMyLabCb(e) {
     alert(e.message);
   } else {
     stateDefs = {
-      "": "in-production",
-      U: "unpaid",
+      "": "ordered",
       R: "ready",
       N: "ready",
       P: "paid",
+      U: "unpaid",
+      B: "backorder",
     };
 
     /* state Structure
@@ -520,6 +526,8 @@ function loadMyAccountCb(response) {
     sessionStorage.setItem("name", response.details.fullName);
     sessionStorage.setItem("email", response.details.email);
     sessionStorage.setItem("points", response.details.points);
+    sessionStorage.setItem("delivery", response.details.delivery);
+    sessionStorage.setItem("address", response.details.address);
   } else {
     alert(response.error);
   }
