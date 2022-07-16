@@ -133,7 +133,6 @@ function login(submit) {
 
   function loginCb(response) {
     if (response.success) {
-      debugger;
       sessionStorage.setItem("userid", response.userid);
       sessionStorage.setItem("seid", response.seid);
       sessionStorage.setItem("name", response.name);
