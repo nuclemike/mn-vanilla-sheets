@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8c78c0f1.css",
+    "main.js": "/static/js/main.937431b5.js",
+    "static/media/beleren2016-bold-webfont.woff": "/static/media/beleren2016-bold-webfont.9f4f20fa48f415c781a0.woff",
+    "static/media/beleren2016-bold-webfont.woff2": "/static/media/beleren2016-bold-webfont.b053bc3d8d5c94e2a02b.woff2",
+    "static/media/floralBGWhite.png": "/static/media/floralBGWhite.15a33ab525a1f807a8fd.png",
+    "index.html": "/index.html",
+    "main.8c78c0f1.css.map": "/static/css/main.8c78c0f1.css.map",
+    "main.937431b5.js.map": "/static/js/main.937431b5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8c78c0f1.css",
+    "static/js/main.937431b5.js"
+  ]
+}
