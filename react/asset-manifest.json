@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/react/static/css/main.59f78b4f.css",
-    "main.js": "/react/static/js/main.2f9ec78a.js",
+    "main.js": "/react/static/js/main.a7e666fe.js",
     "static/media/beleren2016-bold-webfont.woff": "/react/static/media/beleren2016-bold-webfont.9f4f20fa48f415c781a0.woff",
     "static/media/beleren2016-bold-webfont.woff2": "/react/static/media/beleren2016-bold-webfont.b053bc3d8d5c94e2a02b.woff2",
     "static/media/floralBGWhite.png": "/react/static/media/floralBGWhite.15a33ab525a1f807a8fd.png",
     "index.html": "/react/index.html",
     "main.59f78b4f.css.map": "/react/static/css/main.59f78b4f.css.map",
-    "main.2f9ec78a.js.map": "/react/static/js/main.2f9ec78a.js.map"
+    "main.a7e666fe.js.map": "/react/static/js/main.a7e666fe.js.map"
   },
   "entrypoints": [
     "static/css/main.59f78b4f.css",
-    "static/js/main.2f9ec78a.js"
+    "static/js/main.a7e666fe.js"
   ]
 }
